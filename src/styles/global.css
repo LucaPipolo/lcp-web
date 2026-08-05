@@ -2,6 +2,7 @@
 
 @import "@fontsource-variable/inter";
 
+@import "./_responsive.css";
 @import "./_color-schema.css";
 
 @layer base {
