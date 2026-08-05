@@ -7,6 +7,7 @@
   },
   "scripts": {
     "astro": "astro",
+    "lint": "eslint .",
     "format:check": "prettier --check \"**/*.{ts,tsx,astro}\"",
     "format": "prettier --write \"**/*.{ts,tsx,astro}\"",
     "dev": "astro dev",
@@ -23,6 +24,7 @@
     "@commitlint/config-conventional": "^21.2.0",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.8.0",
+    "eslint-plugin-astro": "^3.1.0",
     "globals": "^17.9.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
