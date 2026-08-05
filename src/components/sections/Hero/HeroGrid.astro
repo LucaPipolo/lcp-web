@@ -1,0 +1,17 @@
+---
+import CornerMarks from "@/components/common/CornerMarks.astro"
+---
+
+<div
+  aria-hidden="true"
+  class="pointer-events-none absolute inset-x-0 top-0 bottom-0 flex justify-center px-2"
+>
+  <div data-hero-grid class="relative container mx-auto border-x border-border">
+    <canvas class="absolute inset-0 size-full"></canvas>
+    <CornerMarks corners="top" />
+  </div>
+</div>
+
+<script>
+  import "@/scripts/hero-grid"
+</script>

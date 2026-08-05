@@ -1,0 +1,36 @@
+---
+import HeroGrid from "./HeroGrid.astro"
+
+if (!Astro.slots.has("header")) {
+  throw new Error("<Hero> requires a `header` slot (pass a <HeroHeader>).")
+}
+
+if (!Astro.slots.has("footer")) {
+  throw new Error("<Hero> requires a `footer` slot (pass a <HeroFooter>).")
+}
+---
+
+<section class="relative flex flex-col px-2 pt-20">
+  <HeroGrid />
+  <div
+    class="relative z-10 container mx-auto grid flex-1 grid-cols-fluid items-center pb-20"
+  >
+    <div class="flex flex-col items-start gap-6.5 px-gutter">
+      <slot name="header" />
+      {
+        Astro.slots.has("body") && (
+          <p class="max-w-[50ch] rise-in text-lead text-pretty text-muted-foreground delay-80 [&_.text-primary]:font-medium">
+            <slot name="body" />
+          </p>
+        )
+      }
+      <div
+        class="flex rise-in flex-wrap gap-3 delay-160 *:h-11.5 *:gap-2 *:rounded-lg *:px-5 *:text-sm *:font-medium"
+      >
+        <slot name="actions" />
+      </div>
+    </div>
+  </div>
+
+  <slot name="footer" />
+</section>

@@ -1,0 +1,21 @@
+---
+if (!Astro.slots.has("heading")) {
+  throw new Error("<HeroHeader> requires a `heading` slot.")
+}
+
+if (!Astro.slots.has("subheading")) {
+  throw new Error("<HeroHeader> requires a `subheading` slot.")
+}
+---
+
+<div class="flex rise-in flex-col gap-5">
+  <slot name="badge" />
+  <h1
+    class="text-display font-semibold text-balance [&_.text-primary]:font-medium"
+  >
+    <slot name="heading" />
+  </h1>
+  <p class="font-mono text-eyebrow uppercase">
+    <slot name="subheading" />
+  </p>
+</div>
