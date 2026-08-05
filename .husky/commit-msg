@@ -1,0 +1,11 @@
+#!/bin/sh
+# .husky/commit-msg — Validates the commit message with commitlint.
+
+. "$(dirname "$0")/require-container.sh"
+
+case "$1" in
+    /*) message_file="$1" ;;
+    *) message_file="/app/$1" ;;
+esac
+
+docker compose exec -T app bunx commitlint --edit "$message_file"

@@ -1,0 +1,10 @@
+#!/bin/sh
+# .husky/pre-commit — Formats the staged files with Prettier.
+#
+# Runs lint-staged inside this checkout's app container, never on the host. The
+# check has to hold in the situation where most commits are made, so an
+# unreachable container aborts the commit instead of being skipped.
+
+. "$(dirname "$0")/require-container.sh"
+
+docker compose exec -T app bunx lint-staged
