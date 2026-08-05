@@ -1,0 +1,41 @@
+# This Docker Compose file is made to have several git worktrees running at the
+# same time. Especially useful when working with multiple AI agents on parallel
+# tasks. Each one gets its own containers and its own HTTPS .test domain,
+# served by a Caddy container they all share.
+#
+# Start it with ./scripts/up.sh, not docker compose up.
+
+name: "${COMPOSE_PROJECT_NAME:?run ./scripts/setup.sh first}"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./.docker/bun/Dockerfile
+    working_dir: /app
+    command: >-
+      sh -c "bun install --frozen-lockfile &&
+      bun run dev --host 0.0.0.0 --port ${CONTAINER_PORT:?run ./scripts/setup.sh first}
+      --allowed-hosts ${BASE_DOMAIN:?run ./scripts/setup.sh first},.${BASE_DOMAIN}
+      --ignore-lock"
+    volumes:
+      - .:/app
+      - node_modules:/app/node_modules
+      - "${GIT_COMMON_DIR:?run ./scripts/setup.sh first}:${GIT_COMMON_DIR}"
+    environment:
+      NODE_ENV: development
+      ASTRO_DEV_HMR_CLIENT_PORT: "${ASTRO_DEV_HMR_CLIENT_PORT:-443}"
+    ports:
+      - "${APP_PORT:?run ./scripts/setup.sh first}:${CONTAINER_PORT}"
+    networks:
+      - default
+      - router
+
+volumes:
+  node_modules:
+
+networks:
+  default:
+  router:
+    external: true
+    name: "${ROUTER_NAME:?run ./scripts/setup.sh first}"
