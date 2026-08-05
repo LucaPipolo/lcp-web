@@ -1,0 +1,13 @@
+socialLinks:
+  - platform: github
+    href: "https://github.com/LucaPipolo"
+    label: "GitHub"
+    handle: "@lucapipolo"
+  - platform: linkedin
+    href: "https://www.linkedin.com/in/lucapipolo/?locale=it-IT"
+    label: "LinkedIn"
+    handle: "in/lucapipolo"
+  - platform: email
+    href: "mailto:ciao@lucapipolo.com"
+    label: "Email"
+    handle: "ciao@lucapipolo.com"

@@ -1,2 +1,32 @@
 metadata:
   title: "Luca Pipolo | Full-Stack Web Developer & Technical Director"
+
+sections:
+  hero:
+    badge:
+      stem: "Available for"
+      tails:
+        - "new opportunities"
+        - "an aubergine pizza"
+        - "a Laravel project"
+        - "sorting out your JavaScript"
+        - "a coffee in Barcelona"
+        - "a debate about tabs vs spaces"
+        - "an honest code review"
+    heading: 'Hi, I''m <span class="text-primary">Luca</span>'
+    subheading: "Full-Stack Web Developer & Technical Director"
+    body: >-
+      I've spent <span class="text-primary">over 13 years</span> building web
+      applications, SaaS products and ecommerce platforms, for everyone from
+      startups to agencies to enterprise clients. I write code, design
+      interfaces and lead multidisciplinary teams. These days I head up the
+      technical side of <span class="text-primary">somoscuatro</span>, a
+      digital consultancy based in Barcelona.
+    actions:
+      - label: "Get in touch"
+        href: "mailto:ciao@lucapipolo.com"
+        variant: "inverted"
+      - label: "Download my CV"
+        href: "/resumes/luca-pipolo-full-stack-developer-resume-en.pdf"
+        variant: "outline"
+        download: true
