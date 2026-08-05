@@ -6,10 +6,12 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "astro": "astro",
+    "format:check": "prettier --check \"**/*.{ts,tsx,astro}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,astro}\"",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
+    "preview": "astro preview"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
