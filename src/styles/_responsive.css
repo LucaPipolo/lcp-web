@@ -1,0 +1,38 @@
+@plugin "tailwind-clamp" {
+  minsize: 20rem; /* prettier-ignore */
+  maxSize: 96rem; /* prettier-ignore */
+}
+
+@theme {
+  --clamp-display: 42px, 76px;
+  --clamp-wordmark: 40px, 68px;
+  --clamp-title: 32px, 50px;
+  --clamp-lead: 17px, 19px;
+  --clamp-eyebrow: 12px, 14px;
+  --clamp-gutter: 24px, 40px;
+
+  --text-display: var(--clamp-display);
+  --text-display--line-height: 1;
+  --text-display--letter-spacing: -0.03em;
+  --text-wordmark: var(--clamp-wordmark);
+  --text-wordmark--line-height: 0.95;
+
+  --text-title: var(--clamp-title);
+  --text-title--line-height: 1.05;
+  --text-lead: var(--clamp-lead);
+  --text-lead--line-height: 1.6;
+  --text-eyebrow: var(--clamp-eyebrow);
+  --text-eyebrow--letter-spacing: 0.09em;
+  --text-badge: 13px;
+  --text-badge--letter-spacing: 0.01em;
+  --text-handle: 11.5px;
+
+  --spacing-gutter: var(--clamp-gutter);
+
+  --spacing-header: 3.75rem;
+
+  --grid-template-columns-fluid: repeat(
+    auto-fit,
+    minmax(min(340px, 100%), 1fr)
+  );
+}
