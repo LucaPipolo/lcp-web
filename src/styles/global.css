@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+@import "@fontsource-variable/inter";
+
+@import "./_color-schema.css";
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
