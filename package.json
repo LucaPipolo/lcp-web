@@ -6,6 +6,7 @@
     "node": ">=22.12.0"
   },
   "scripts": {
+    "prepare": "husky",
     "astro": "astro",
     "lint": "eslint .",
     "format:check": "prettier --check \"**/*.{ts,tsx,astro}\"",
@@ -13,6 +14,13 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
+  },
+  "lint-staged": {
+    "*.{ts,astro}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{tsx,js,mjs,cjs,json,md,css,yaml,yml}": "prettier --write"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",

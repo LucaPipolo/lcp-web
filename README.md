@@ -34,7 +34,7 @@ straight away; there's nothing extra to start.
 #### Commands you'll use day to day
 
 | Command              | What it does                                     |
-|----------------------|--------------------------------------------------|
+| -------------------- | ------------------------------------------------ |
 | `./scripts/up.sh`    | Start this checkout                              |
 | `./scripts/down.sh`  | Stop it, and the router if nothing else uses it  |
 | `./scripts/setup.sh` | Rewrite `.env`, then start. Safe to run any time |
@@ -83,3 +83,6 @@ side by side. Each agent can work in its own worktree, with its own running inst
    ```
 
 This serves the site at `localhost:4321` with no HTTPS, but it is otherwise identical to Option A.
+
+> [!CAUTION]
+> The git hooks run inside the Docker container, so without it running you'll need `git commit --no-verify` to commit.
