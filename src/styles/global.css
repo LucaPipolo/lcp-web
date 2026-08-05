@@ -1,9 +1,11 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
 @import "@fontsource-variable/inter";
 
 @import "./_responsive.css";
 @import "./_color-schema.css";
+@import "./_animations.css";
 
 @layer base {
   body {

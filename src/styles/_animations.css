@@ -1,0 +1,13 @@
+@theme {
+  --animate-blink: blink 1s step-end infinite;
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+}
+
+@utility rise-in {
+  @apply duration-500 ease-out fill-mode-both fade-in slide-in-from-bottom-4 motion-safe:animate-in;
+}
