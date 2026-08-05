@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/main.astro"
+
+import { getLocalizedStaticPaths } from "@/libs/content"
+
+export async function getStaticPaths() {
+  return getLocalizedStaticPaths("home")
+}
+
+const { entry } = Astro.props
+const { metadata } = entry.data
+---
+
+<Layout title={metadata.title} />
