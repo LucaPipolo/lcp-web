@@ -1,14 +1,58 @@
 ---
 import Layout from "@/layouts/main.astro"
 
-import { getLocalizedStaticPaths } from "@/libs/content"
+import Hero from "@/components/sections/Hero/Hero.astro"
+import HeroHeader from "@/components/sections/Hero/HeroHeader.astro"
+import HeroBadge from "@/components/sections/Hero/HeroBadge.astro"
+import HeroFooter from "@/components/sections/Hero/HeroFooter.astro"
 
+import ButtonLink from "@/components/common/ButtonLink.astro"
+import SocialLinks from "@/components/common/SocialLinks.astro"
+
+import { Icon } from "astro-icon/components"
+
+import { getLocalizedStaticPaths } from "@/libs/content"
 export async function getStaticPaths() {
   return getLocalizedStaticPaths("home")
 }
 
 const { entry } = Astro.props
 const { metadata } = entry.data
+
+const { hero } = entry.data.sections
+
+const badge = hero.badge
 ---
 
-<Layout title={metadata.title} />
+<Layout title={metadata.title}>
+  <Hero>
+    <HeroHeader slot="header">
+      {
+        badge && (
+          <HeroBadge slot="badge" stem={badge.stem} tails={badge.tails} />
+        )
+      }
+      <Fragment slot="heading" set:html={hero.heading} />
+      <Fragment slot="subheading">{hero.subheading}</Fragment>
+    </HeroHeader>
+    <Fragment slot="body" set:html={hero.body} />
+    {
+      hero.actions.map((action) => (
+        <ButtonLink
+          slot="actions"
+          href={action.href}
+          variant={action.variant}
+          download={action.download}
+        >
+          {action.label}
+          {action.download && (
+            <Icon name="lucide:download" class="h-4 w-4" aria-hidden="true" />
+          )}
+        </ButtonLink>
+      ))
+    }
+    <HeroFooter slot="footer">
+      <SocialLinks slot="socialLinks" />
+    </HeroFooter>
+  </Hero>
+</Layout>
