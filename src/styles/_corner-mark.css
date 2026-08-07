@@ -1,0 +1,51 @@
+@utility corner-mark {
+  --corner-mark-size: 13px;
+  --corner-mark-rule: 1px;
+  --corner-mark-offset: calc(
+    (var(--corner-mark-size) - var(--corner-mark-rule)) / -2
+  );
+
+  position: absolute;
+
+  width: var(--corner-mark-size);
+  height: var(--corner-mark-size);
+  color: var(--color-primary);
+
+  pointer-events: none;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    background: currentColor;
+  }
+
+  &::before {
+    width: var(--corner-mark-size);
+    height: var(--corner-mark-rule);
+  }
+
+  &::after {
+    width: var(--corner-mark-rule);
+    height: var(--corner-mark-size);
+  }
+
+  &[data-corner^="top"] {
+    top: var(--corner-mark-offset);
+  }
+
+  &[data-corner^="bottom"] {
+    bottom: var(--corner-mark-offset);
+  }
+
+  &[data-corner$="left"] {
+    left: var(--corner-mark-offset);
+  }
+
+  &[data-corner$="right"] {
+    right: var(--corner-mark-offset);
+  }
+}
