@@ -32,9 +32,9 @@ sections:
         download: true
 
   recommendations:
-    heading: "raccomandazioni (10)"
+    heading: "raccomandazioni"
     action:
-      label: "Vedi tutte"
+      label: "Vedi tutte (10)"
       href: "https://www.linkedin.com/in/lucapipolo/details/recommendations"
     quotes:
       - initials: "SM"
