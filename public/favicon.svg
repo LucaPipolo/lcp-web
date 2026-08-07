@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <style>
+    circle { fill: oklch(0.586 0.222 17.6); }
+    @media (prefers-color-scheme: dark) {
+      circle { fill: oklch(0.68 0.19 17.6); }
+    }
+  </style>
+  <circle cx="21" cy="8" r="7"/>
+  <circle cx="21" cy="24.7" r="7"/>
+  <circle cx="43" cy="8" r="7"/>
+</svg>
