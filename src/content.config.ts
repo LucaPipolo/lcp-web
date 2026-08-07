@@ -40,6 +40,22 @@ const home = defineCollection({
           })
         ),
       }),
+      recommendations: z
+        .object({
+          heading: z.string(),
+          action: z.object({ label: z.string(), href: z.string() }).optional(),
+          quotes: z.array(
+            z.object({
+              initials: z.string(),
+              name: z.string(),
+              role: z.string(),
+              text: z.string(),
+              href: z.url().optional(),
+              avatar: z.string().optional(),
+            })
+          ),
+        })
+        .optional(),
     }),
   }),
 })
