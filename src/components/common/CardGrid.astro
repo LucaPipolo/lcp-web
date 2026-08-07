@@ -1,0 +1,14 @@
+---
+import CornerMarks from "@/components/common/CornerMarks.astro"
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<CardGrid> requires content.")
+}
+---
+
+<div
+  class="relative grid gap-px border border-border bg-border sm:grid-cols-2 lg:grid-cols-3"
+>
+  <CornerMarks />
+  <slot />
+</div>
