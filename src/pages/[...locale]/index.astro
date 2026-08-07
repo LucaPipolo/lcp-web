@@ -6,7 +6,11 @@ import HeroHeader from "@/components/sections/Hero/HeroHeader.astro"
 import HeroBadge from "@/components/sections/Hero/HeroBadge.astro"
 import HeroFooter from "@/components/sections/Hero/HeroFooter.astro"
 
+import Recommendations from "@/components/sections/Recommendations/Recommendations.astro"
+import RecommendationsQuote from "@/components/sections/Recommendations/RecommendationsQuote.astro"
+
 import ButtonLink from "@/components/common/ButtonLink.astro"
+import SectionHeading from "@/components/common/SectionHeading.astro"
 import SocialLinks from "@/components/common/SocialLinks.astro"
 
 import { Icon } from "astro-icon/components"
@@ -19,7 +23,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { metadata } = entry.data
 
-const { hero } = entry.data.sections
+const { hero, recommendations } = entry.data.sections
 
 const badge = hero.badge
 ---
@@ -55,4 +59,42 @@ const badge = hero.badge
       <SocialLinks slot="socialLinks" />
     </HeroFooter>
   </Hero>
+
+  {
+    recommendations && (
+      <Recommendations>
+        <SectionHeading slot="heading">
+          {recommendations.heading}
+          <ButtonLink
+            slot="actions"
+            href={recommendations.action.href}
+            variant="outline"
+            class="h-[38px] gap-2 px-4 text-[13.5px]"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {recommendations.action.label}
+            <Icon
+              name="lucide:external-link"
+              class="h-4 w-4"
+              aria-hidden="true"
+            />
+          </ButtonLink>
+        </SectionHeading>
+        {recommendations.quotes.map((quote) => (
+          <RecommendationsQuote
+            slot="quotes"
+            href={quote.href}
+            avatar={quote.avatar}
+            avatarAlt={quote.name}
+          >
+            <Fragment slot="initials">{quote.initials}</Fragment>
+            <Fragment slot="name">{quote.name}</Fragment>
+            <Fragment slot="role">{quote.role}</Fragment>
+            <Fragment slot="text">{quote.text}</Fragment>
+          </RecommendationsQuote>
+        ))}
+      </Recommendations>
+    )
+  }
 </Layout>

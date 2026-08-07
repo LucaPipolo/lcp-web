@@ -30,3 +30,38 @@ sections:
         href: "/resumes/luca-pipolo-full-stack-developer-resume-en.pdf"
         variant: "outline"
         download: true
+
+  recommendations:
+    heading: "recommendations"
+    action:
+      label: "Show all (10)"
+      href: "https://www.linkedin.com/in/lucapipolo/details/recommendations"
+    quotes:
+      - initials: "SM"
+        avatar: "/recommendations/shadi-manna.jpeg"
+        href: "https://www.linkedin.com/in/shadimanna-woocommerce-agency/"
+        name: "Shadi Manna"
+        role: "Founder & WooExpert, Progressus.io"
+        text: >-
+          Luca is a proficient full-stack developer. He helped our agency with
+          multiple projects both with frontend and backend work. He is a great
+          communicator and takes ownership of his responsibilities.
+      - initials: "TM"
+        avatar: "/recommendations/tom-mursell.jpeg"
+        href: "https://www.linkedin.com/in/mursell/"
+        name: "Tom Mursell"
+        role: "CMO & Head of Product Growth, Early"
+        text: >-
+          I loved working with Luca. We worked together on many interesting problems.
+          He's naturally optimistic, brings energy and moves fast to get stuff done.
+          He's definitely someone you'd like on your side.
+      - initials: "MB"
+        avatar: "/recommendations/manuel-bruschi.jpeg"
+        href: "https://www.linkedin.com/in/manuel-bruschi/"
+        name: "Manuel Bruschi"
+        role: "Co-Founder & CEO, Early"
+        text: >-
+          Give Luca a frontend or backend problem in the web space and rest
+          assured he will take care of it. He'll figure out how to solve it,
+          involve and manage other stakeholders, and proactively keep everyone
+          in the loop.
