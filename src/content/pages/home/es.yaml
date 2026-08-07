@@ -24,7 +24,7 @@ sections:
       sede en Barcelona.
     actions:
       - label: "Contáctame"
-        href: "mailto:ciao@lucapipolo.com"
+        href: "mailto:hola@lucapipolo.com"
         variant: "inverted"
       - label: "Descargar CV"
         href: "/resumes/luca-pipolo-full-stack-developer-resume-es.pdf"
