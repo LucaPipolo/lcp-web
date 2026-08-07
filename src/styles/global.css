@@ -7,6 +7,8 @@
 @import "./_color-schema.css";
 @import "./_animations.css";
 
+@import "./_corner-mark.css";
+
 @layer base {
   body {
     @apply bg-background text-foreground;
