@@ -1,0 +1,84 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  href?: string
+  avatar?: string
+}
+
+const { href, avatar, avatarAlt } = Astro.props
+
+for (const slot of ["initials", "name", "role", "text"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<RecommendationsQuote> requires a \`${slot}\` slot.`)
+  }
+}
+
+if (avatar && !avatarAlt) {
+  throw new Error(
+    "<RecommendationsQuote> requires `avatarAlt` alongside `avatar` (pass the author's name)."
+  )
+}
+---
+
+<figure
+  class="group/quote flex flex-col gap-4.5 bg-background px-gutter pt-6.5 pb-7.5"
+>
+  <figcaption class="flex items-center gap-3">
+    {
+      avatar ? (
+        <span class="relative block size-9 flex-none overflow-hidden border border-border">
+          <img
+            src={avatar}
+            alt={avatarAlt}
+            width="36"
+            height="36"
+            loading="lazy"
+            decoding="async"
+            class="size-full object-cover grayscale transition-[filter] duration-300 group-hover/quote:grayscale-0"
+          />
+          <span
+            aria-hidden="true"
+            class="absolute inset-0 bg-primary mix-blend-multiply transition-opacity duration-300 group-hover/quote:opacity-0"
+          />
+        </span>
+      ) : (
+        <span
+          aria-hidden="true"
+          class="grid size-9 flex-none place-items-center border border-border font-mono text-initials text-muted-foreground"
+        >
+          <slot name="initials" />
+        </span>
+      )
+    }
+    <span class="flex min-w-0 flex-col gap-1">
+      <span class="text-cite font-semibold text-foreground">
+        {
+          href ? (
+            <a
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              class="inline-flex items-center gap-1.5 underline-offset-4 hover:text-primary hover:underline"
+            >
+              <slot name="name" />
+              <Icon
+                name="lucide:external-link"
+                class="size-3"
+                aria-hidden="true"
+              />
+            </a>
+          ) : (
+            <slot name="name" />
+          )
+        }
+      </span>
+      <span class="font-mono text-handle text-muted-foreground">
+        <slot name="role" />
+      </span>
+    </span>
+  </figcaption>
+  <blockquote class="text-quote text-pretty text-muted-foreground">
+    <slot name="text" />
+  </blockquote>
+</figure>

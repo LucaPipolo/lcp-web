@@ -26,6 +26,11 @@
   --text-badge: 13px;
   --text-badge--letter-spacing: 0.01em;
   --text-handle: 11.5px;
+  --text-initials: 11.5px;
+  --text-initials--letter-spacing: 0.04em;
+  --text-cite: 14.5px;
+  --text-quote: 15px;
+  --text-quote--line-height: 1.6;
 
   --spacing-gutter: var(--clamp-gutter);
 
