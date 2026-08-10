@@ -1,0 +1,10 @@
+---
+if (!Astro.slots.has("default")) {
+  throw new Error("<ExperienceBullet> requires content.")
+}
+---
+
+<li class="flex gap-2.75 text-quote text-pretty text-muted-foreground">
+  <span aria-hidden="true" class="flex-none font-mono text-border">—</span>
+  <span><slot /></span>
+</li>

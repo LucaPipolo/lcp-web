@@ -1,0 +1,25 @@
+---
+if (!Astro.slots.has("heading")) {
+  throw new Error(
+    "<Experience> requires a `heading` slot (pass a <SectionHeading>)."
+  )
+}
+
+if (!Astro.slots.has("roles")) {
+  throw new Error(
+    "<Experience> requires a `roles` slot (pass at least one <ExperienceRole>)."
+  )
+}
+---
+
+<section id="experience" x-data="experienceRoles" class="flex flex-col">
+  <slot name="heading" />
+
+  <div class="flex flex-col gap-8.5 px-gutter">
+    <slot name="roles" />
+  </div>
+</section>
+
+<script>
+  import "@/scripts/experience"
+</script>
