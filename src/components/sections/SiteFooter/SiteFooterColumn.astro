@@ -1,0 +1,19 @@
+---
+if (!Astro.slots.has("label")) {
+  throw new Error("<SiteFooterColumn> requires a `label` slot.")
+}
+
+if (!Astro.slots.has("links")) {
+  throw new Error("<SiteFooterColumn> requires a `links` slot.")
+}
+---
+
+<div class="flex flex-col gap-3.5 bg-background px-gutter pt-10 pb-8">
+  <p
+    class="flex items-center gap-2 font-mono text-xs tracking-wider text-muted-foreground uppercase"
+  >
+    <span aria-hidden="true" class="text-primary">//</span>
+    <slot name="label" />
+  </p>
+  <slot name="links" />
+</div>

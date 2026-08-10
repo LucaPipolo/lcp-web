@@ -1,0 +1,43 @@
+---
+import PixelHeart from "@/components/common/PixelHeart.astro"
+import SiteFooterLink from "@/components/sections/SiteFooter/SiteFooterLink.astro"
+
+import { splitPlaceholders } from "@/libs/template"
+
+const ASTRO_HREF = "https://astro.build"
+const REPO_HREF = "https://github.com/LucaPipolo/lcp-web"
+
+interface Props {
+  text: string
+  repo: string
+}
+
+const { text, repo } = Astro.props
+
+const parts = splitPlaceholders(text)
+---
+
+{
+  parts.map((part) => {
+    if (part === "{heart}") return <PixelHeart />
+
+    if (part === "{astro}")
+      return (
+        <SiteFooterLink
+          href={ASTRO_HREF}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Astro
+        </SiteFooterLink>
+      )
+
+    return part
+  })
+}
+
+<span aria-hidden="true" class="text-primary">//</span>
+
+<SiteFooterLink href={REPO_HREF} target="_blank" rel="noopener noreferrer">
+  {repo}
+</SiteFooterLink>
