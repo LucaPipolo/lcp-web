@@ -1,0 +1,104 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  id: string
+  current?: boolean
+  open?: boolean
+  companyHref?: string
+}
+
+const { id, current = false, open = false, companyHref } = Astro.props
+
+for (const slot of ["period", "title", "company", "place"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<ExperienceRole> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<div class="relative pb-2">
+  <span
+    aria-hidden="true"
+    class:list={[
+      "absolute top-1.75 -left-[calc(var(--spacing-gutter)+4.5px)] size-2.25",
+      current ? "bg-primary" : "bg-foreground",
+    ]}
+  >
+  </span>
+
+  <div class="flex min-w-0 flex-col gap-1.5 pb-3.5">
+    <span class="font-mono text-badge text-muted-foreground">
+      <slot name="period" />
+    </span>
+
+    <button
+      type="button"
+      id={`experience-role-${id}`}
+      data-role={id}
+      data-open={open ? "" : undefined}
+      aria-controls={`experience-panel-${id}`}
+      aria-expanded={open ? "true" : "false"}
+      x-on:click="toggle($event)"
+      x-bind:aria-expanded="isOpen($el)"
+      class="group cursor-pointer text-left text-xl font-semibold tracking-tight text-foreground hover:text-primary"
+    >
+      <slot name="title" />
+      <span
+        aria-hidden="true"
+        class="absolute top-0 right-0 grid size-7 place-items-center rounded-lg border border-border bg-background font-mono text-quote leading-none text-foreground before:content-['+'] group-aria-expanded:before:content-['−']"
+      >
+      </span>
+    </button>
+
+    <span class="font-mono text-badge text-muted-foreground">
+      @{" "}
+      {
+        companyHref ? (
+          <a
+            href={companyHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1 underline-offset-4 hover:text-primary hover:underline"
+          >
+            <slot name="company" />
+            <Icon
+              name="lucide:external-link"
+              class="size-4"
+              aria-hidden="true"
+            />
+          </a>
+        ) : (
+          <slot name="company" />
+        )
+      }
+      {" "}· <slot name="place" />
+    </span>
+  </div>
+
+  <div
+    id={`experience-panel-${id}`}
+    data-role={id}
+    role="region"
+    aria-labelledby={`experience-role-${id}`}
+    x-show="isOpen($el)"
+    class="flex flex-col gap-4 pb-6.5"
+    x-cloak
+  >
+    {
+      Astro.slots.has("bullets") && (
+        <ul class="flex max-w-[54ch] flex-col gap-2.25">
+          <slot name="bullets" />
+        </ul>
+      )
+    }
+
+    {
+      Astro.slots.has("skills") && (
+        <ul class="flex max-w-[54ch] flex-wrap gap-2">
+          <slot name="skills" />
+        </ul>
+      )
+    }
+  </div>
+</div>
