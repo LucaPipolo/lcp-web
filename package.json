@@ -45,7 +45,6 @@
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.1",
-    "simple-icons": "^16.28.0",
     "tailwind-clamp": "^4.5.1",
     "tailwind-merge": "^3.6.0",
     "typescript": "~6",
