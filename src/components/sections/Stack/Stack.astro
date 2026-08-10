@@ -1,0 +1,31 @@
+---
+if (!Astro.slots.has("heading")) {
+  throw new Error(
+    "<Stack> requires a `heading` slot (pass a <SectionHeading>)."
+  )
+}
+
+if (!Astro.slots.has("panels")) {
+  throw new Error(
+    "<Stack> requires a `panels` slot (pass one <StackPanel> per tab)."
+  )
+}
+
+const headingHtml = await Astro.slots.render("heading")
+
+if (!headingHtml.includes('role="tablist"')) {
+  throw new Error(
+    '<Stack> requires its tab set in the `actions` slot of its heading (pass a <SectionHeading actionsRole="tablist"> holding at least one <StackTab>).'
+  )
+}
+---
+
+<section id="stack" x-data="stackTabs" class="flex flex-col">
+  <slot name="heading" />
+
+  <div class="flex flex-col gap-6.5 px-gutter"><slot name="panels" /></div>
+</section>
+
+<script>
+  import "@/scripts/stack"
+</script>

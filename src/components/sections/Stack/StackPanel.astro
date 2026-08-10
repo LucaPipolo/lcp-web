@@ -1,0 +1,23 @@
+---
+interface Props {
+  id: string
+}
+
+const { id } = Astro.props
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<StackPanel> requires content (pass <StackGroup> children).")
+}
+---
+
+<div
+  id={`stack-panel-${id}`}
+  data-tab={id}
+  role="tabpanel"
+  aria-labelledby={`stack-tab-${id}`}
+  x-show="isSelected($el)"
+  class="flex flex-col gap-6.5"
+  x-cloak
+>
+  <slot />
+</div>
