@@ -11,3 +11,29 @@ socialLinks:
     href: "mailto:hello@lucapipolo.com"
     label: "Email"
     handle: "hello@lucapipolo.com"
+
+footer:
+  tagline: >-
+    If you want to offer me a job, talk about a project, or just
+    chat about code and AI, drop me a line.
+  action:
+    label: "Get in touch"
+    href: "mailto:hello@lucapipolo.com"
+  columns:
+    - label: "content"
+      links:
+        - label: "recommendations"
+          href: "/#recommendations"
+    - label: "links"
+      links:
+        - label: "github"
+          href: "https://github.com/LucaPipolo"
+        - label: "linkedin"
+          href: "https://www.linkedin.com/in/lucapipolo/?locale=en-US"
+        - label: "cv.pdf"
+          href: "/resumes/luca-pipolo-full-stack-developer-resume-en.pdf"
+          download: true
+  colophon:
+    text: "Made with {heart} and {astro}"
+    repo: "Peek under the hood on GitHub"
+  copyright: "© {year} Luca Pipolo"
