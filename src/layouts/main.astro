@@ -1,11 +1,33 @@
 ---
 import "@/styles/global.css"
 
+import SiteFooter from "@/components/sections/SiteFooter/SiteFooter.astro"
+import SiteFooterColophon from "@/components/sections/SiteFooter/SiteFooterColophon.astro"
+import SiteFooterColumn from "@/components/sections/SiteFooter/SiteFooterColumn.astro"
+import SiteFooterLink from "@/components/sections/SiteFooter/SiteFooterLink.astro"
+
+import ButtonLink from "@/components/common/ButtonLink.astro"
+
 interface Props {
   title: string
 }
 
+import { DEFAULT_LOCALE, localizeHref, LOCALES } from "@/libs/i18n"
+import { getSettings } from "@/libs/content"
+import { fillPlaceholders } from "@/libs/template"
+
+const locale = Astro.currentLocale
+const homeHref = locale && locale !== DEFAULT_LOCALE ? `/${locale}/` : "/"
+
 const { title } = Astro.props
+
+const { footer } = await getSettings(locale)
+
+const copyright =
+  footer &&
+  fillPlaceholders(footer.copyright, {
+    year: String(new Date().getFullYear()),
+  })
 ---
 
 <html lang={Astro.currentLocale}>
@@ -17,6 +39,62 @@ const { title } = Astro.props
   </head>
   <body>
     <slot />
+
+    {
+      footer && (
+        <SiteFooter homeHref={homeHref}>
+          <Fragment slot="tagline">{footer.tagline}</Fragment>
+          <ButtonLink
+            slot="action"
+            href={footer.action.href}
+            variant="inverted"
+            class="h-11.5 gap-2 self-start px-5"
+          >
+            {footer.action.label}
+          </ButtonLink>
+
+          {footer?.columns.map((column) => (
+            <SiteFooterColumn slot="columns">
+              <Fragment slot="label">{column.label}</Fragment>
+              {column.links.map((link) => (
+                <SiteFooterLink
+                  slot="links"
+                  href={localizeHref(link.href, locale)}
+                  download={link.download}
+                >
+                  {link.label}
+                </SiteFooterLink>
+              ))}
+            </SiteFooterColumn>
+          ))}
+
+          <Fragment slot="colophon">
+            <SiteFooterColophon
+              text={footer.colophon.text}
+              repo={footer.colophon.repo}
+            />
+          </Fragment>
+
+          <Fragment slot="copyright">{copyright}</Fragment>
+
+          {LOCALES.map((code) => (
+            <a
+              slot="locales"
+              href={code === DEFAULT_LOCALE ? "/" : `/${code}/`}
+              aria-current={code === locale ? "page" : undefined}
+              class:list={[
+                "transition-colors",
+                code === locale
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-primary",
+              ]}
+            >
+              {code}
+            </a>
+          ))}
+        </SiteFooter>
+      )
+    }
   </body>
 
   <script>

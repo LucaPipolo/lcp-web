@@ -13,6 +13,29 @@ const settings = defineCollection({
         handle: z.string(),
       })
     ),
+    footer: z.object({
+      tagline: z.string(),
+      action: z.object({ label: z.string(), href: z.string() }),
+      columns: z
+        .array(
+          z.object({
+            label: z.string(),
+            links: z.array(
+              z.object({
+                label: z.string(),
+                href: z.string(),
+                download: z.boolean().optional(),
+              })
+            ),
+          })
+        )
+        .optional(),
+      colophon: z.object({
+        text: z.string(),
+        repo: z.string(),
+      }),
+      copyright: z.string(),
+    }),
   }),
 })
 
