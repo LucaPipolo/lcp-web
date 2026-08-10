@@ -1,0 +1,54 @@
+---
+import CornerMarks from "@/components/common/CornerMarks.astro"
+
+interface Props {
+  homeHref: string
+}
+
+const { homeHref } = Astro.props
+
+for (const slot of ["tagline", "copyright"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<SiteFooter> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<footer class="container mx-auto border-x border-border pt-40">
+  <div class="container mx-auto border-t border-border">
+    <CornerMarks corners="top" />
+
+    <div
+      class="grid gap-px bg-border md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]"
+    >
+      <div
+        class="flex flex-col justify-between gap-10 bg-background px-gutter pt-10 pb-8.5"
+      >
+        <div class="flex flex-col gap-4">
+          <a
+            href={homeHref}
+            class="text-4xl font-semibold text-foreground transition-colors"
+          >
+            lucapipolo<span aria-hidden="true" class="text-primary">.</span>
+          </a>
+          <p class="max-w-[40ch] text-sm text-pretty text-muted-foreground">
+            <slot name="tagline" />
+          </p>
+        </div>
+        <slot name="action" />
+      </div>
+
+      <div class="grid gap-px bg-border sm:grid-cols-2">
+        <slot name="columns" />
+      </div>
+    </div>
+
+    <div
+      class="flex flex-wrap items-center justify-between gap-3 border-t border-border px-gutter pt-4.5 pb-5.5 font-mono text-xs tracking-wider text-muted-foreground"
+    >
+      <span><slot name="copyright" /></span>
+      <span class="flex items-center gap-2"><slot name="colophon" /></span>
+      <span class="flex items-center gap-3.5"><slot name="locales" /></span>
+    </div>
+  </div>
+</footer>
