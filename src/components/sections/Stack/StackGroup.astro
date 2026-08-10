@@ -1,0 +1,20 @@
+---
+if (!Astro.slots.has("label")) {
+  throw new Error("<StackGroup> requires a `label` slot.")
+}
+
+if (!Astro.slots.has("items")) {
+  throw new Error(
+    "<StackGroup> requires an `items` slot (pass at least one <StackItem>)."
+  )
+}
+---
+
+<div class="flex flex-col gap-3">
+  <p
+    class="font-mono text-handle tracking-widest text-muted-foreground uppercase"
+  >
+    <slot name="label" />
+  </p>
+  <div class="flex flex-wrap gap-x-2.5 gap-y-2"><slot name="items" /></div>
+</div>

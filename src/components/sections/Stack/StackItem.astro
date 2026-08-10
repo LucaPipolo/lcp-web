@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  slug?: string
+}
+
+const { slug } = Astro.props
+
+const iconName = slug?.includes(":") ? slug : `simple-icons:${slug}`
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<StackItem> requires content.")
+}
+---
+
+<span
+  class="inline-flex h-8 items-center gap-2 rounded-lg border border-border bg-background px-3 font-mono text-xs text-muted-foreground"
+>
+  {
+    slug && (
+      <Icon
+        name={iconName}
+        class="size-3.5 flex-none opacity-80"
+        aria-hidden="true"
+      />
+    )
+  }
+  <slot />
+</span>
