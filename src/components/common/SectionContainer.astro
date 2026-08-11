@@ -1,0 +1,22 @@
+---
+interface Props {
+  columns?: 1 | 2
+}
+
+const { columns = 1 } = Astro.props
+
+if (!Astro.slots.has("default")) {
+  throw new Error(
+    "<SectionContainer> requires content (pass one or two section components)."
+  )
+}
+---
+
+<div
+  class:list={[
+    "relative container mx-auto grid border-x border-border",
+    columns === 2 && "lg:grid-cols-2",
+  ]}
+>
+  <slot />
+</div>

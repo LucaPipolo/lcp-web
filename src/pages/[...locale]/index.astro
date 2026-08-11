@@ -11,11 +11,13 @@ import RecommendationsQuote from "@/components/sections/Recommendations/Recommen
 
 import ButtonLink from "@/components/common/ButtonLink.astro"
 import SectionHeading from "@/components/common/SectionHeading.astro"
+import SectionContainer from "@/components/common/SectionContainer.astro"
 import SocialLinks from "@/components/common/SocialLinks.astro"
 
 import { Icon } from "astro-icon/components"
 
 import { getLocalizedStaticPaths } from "@/libs/content"
+
 export async function getStaticPaths() {
   return getLocalizedStaticPaths("home")
 }
@@ -62,39 +64,41 @@ const badge = hero.badge
 
   {
     recommendations && (
-      <Recommendations>
-        <SectionHeading slot="heading">
-          {recommendations.heading}
-          <ButtonLink
-            slot="actions"
-            href={recommendations.action.href}
-            variant="outline"
-            class="h-[38px] gap-2 px-4 text-[13.5px]"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {recommendations.action.label}
-            <Icon
-              name="lucide:external-link"
-              class="h-4 w-4"
-              aria-hidden="true"
-            />
-          </ButtonLink>
-        </SectionHeading>
-        {recommendations.quotes.map((quote) => (
-          <RecommendationsQuote
-            slot="quotes"
-            href={quote.href}
-            avatar={quote.avatar}
-            avatarAlt={quote.name}
-          >
-            <Fragment slot="initials">{quote.initials}</Fragment>
-            <Fragment slot="name">{quote.name}</Fragment>
-            <Fragment slot="role">{quote.role}</Fragment>
-            <Fragment slot="text">{quote.text}</Fragment>
-          </RecommendationsQuote>
-        ))}
-      </Recommendations>
+      <SectionContainer>
+        <Recommendations>
+          <SectionHeading slot="heading">
+            {recommendations.heading}
+            <ButtonLink
+              slot="actions"
+              href={recommendations.action.href}
+              variant="outline"
+              class="h-9.5 gap-2 px-4 text-[13.5px]"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {recommendations.action.label}
+              <Icon
+                name="lucide:external-link"
+                class="size-4"
+                aria-hidden="true"
+              />
+            </ButtonLink>
+          </SectionHeading>
+          {recommendations.quotes.map((quote) => (
+            <RecommendationsQuote
+              slot="quotes"
+              href={quote.href}
+              avatar={quote.avatar}
+              avatarAlt={quote.name}
+            >
+              <Fragment slot="initials">{quote.initials}</Fragment>
+              <Fragment slot="name">{quote.name}</Fragment>
+              <Fragment slot="role">{quote.role}</Fragment>
+              <Fragment slot="text">{quote.text}</Fragment>
+            </RecommendationsQuote>
+          ))}
+        </Recommendations>
+      </SectionContainer>
     )
   }
 </Layout>
