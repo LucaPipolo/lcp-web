@@ -28,7 +28,6 @@
         "prettier": "^3.9.6",
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-tailwindcss": "^0.8.1",
-        "tailwind-clamp": "^4.5.1",
         "tailwind-merge": "^3.6.0",
         "typescript": "~6",
         "typescript-eslint": "^8.66.0",
@@ -1149,8 +1148,6 @@
     "suf-log": ["suf-log@2.5.3", "", { "dependencies": { "s.color": "0.0.15" } }, "sha512-KvC8OPjzdNOe+xQ4XWJV2whQA0aM1kGVczMQ8+dStAO6KfEB140JEVQ9dE76ONZ0/Ylf67ni4tILPJB41U0eow=="],
 
     "svgo": ["svgo@4.0.2", "", { "dependencies": { "commander": "^11.1.0", "css-select": "^5.1.0", "css-tree": "^3.0.1", "css-what": "^6.1.0", "csso": "^5.0.5", "picocolors": "^1.1.1", "sax": "^1.5.0" }, "bin": "./bin/svgo.js" }, "sha512-ekx94z1rRc5LDi6oSUaeRnYhd0UOJxdtQCL2rF8xpWxD3TPAsISWOrxezqGovqS38GRZOdpDfvQe3ts6F7nsng=="],
-
-    "tailwind-clamp": ["tailwind-clamp@4.5.1", "", { "peerDependencies": { "tailwindcss": "^4.0.0" } }, "sha512-mDdyrD2R360sPZTQ9U9aQ1A+ZDJHPwJpUDfBBn0waQuf/HaC4NlwvgMAACh9xJ/M12raoXK8uKGvvqvx8olE4g=="],
 
     "tailwind-merge": ["tailwind-merge@3.6.0", "", {}, "sha512-uxL7qAVQriqRQPAyK3pj66VqskWqoZ37PW94jwOTwNfq/z9oyu1V+eqrZqtR2+fCiXdYOZe/Modt8GtvqNzu+w=="],
 
