@@ -4,6 +4,12 @@ import { Icon } from "astro-icon/components"
 import { getSettings } from "@/libs/content"
 
 const { socialLinks } = await getSettings(Astro.currentLocale)
+
+const ICONS = {
+  github: "simple-icons:github",
+  linkedin: "simple-icons:linkedin",
+  email: "lucide:mail",
+} as const
 ---
 
 {
@@ -11,30 +17,22 @@ const { socialLinks } = await getSettings(Astro.currentLocale)
     <a
       href={socialLink.href}
       aria-label={socialLink.label}
-      class="flex min-w-0 items-center gap-2.75 px-6 py-5 transition-colors hover:bg-muted"
+      class="flex min-w-0 items-center gap-3 bg-background px-6 py-5 transition-colors hover:bg-muted"
       target="_blank"
       rel="noopener noreferrer"
     >
-      <span class="grid size-8.5 flex-none place-items-center rounded-lg border border-border text-foreground">
-        {socialLink.platform === "github" && (
-          <Icon name="simple-icons:github" class="h-5 w-5" aria-hidden="true" />
-        )}
-        {socialLink.platform === "linkedin" && (
-          <Icon
-            name="simple-icons:linkedin"
-            class="h-5 w-5"
-            aria-hidden="true"
-          />
-        )}
-        {socialLink.platform === "email" && (
-          <Icon name="lucide:mail" class="h-5 w-5" aria-hidden="true" />
-        )}
+      <span class="grid size-10 flex-none place-items-center border border-border text-foreground">
+        <Icon
+          name={ICONS[socialLink.platform]}
+          class="size-5"
+          aria-hidden="true"
+        />
       </span>
-      <span class="flex min-w-0 flex-col gap-0.75">
+      <span class="flex min-w-0 flex-col">
         <span class="text-sm font-medium text-foreground">
           {socialLink.label}
         </span>
-        <span class="truncate font-mono text-handle text-muted-foreground">
+        <span class="truncate font-mono text-2xs text-muted-foreground">
           {socialLink.handle}
         </span>
       </span>

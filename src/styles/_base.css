@@ -1,0 +1,15 @@
+@layer base {
+  @media (scripting: enabled) {
+    [x-cloak] {
+      display: none;
+    }
+  }
+
+  body {
+    @apply bg-background px-2 text-foreground;
+  }
+
+  ::selection {
+    @apply bg-primary text-white;
+  }
+}

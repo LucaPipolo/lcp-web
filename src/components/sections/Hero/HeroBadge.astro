@@ -9,7 +9,7 @@ const { stem, tails } = Astro.props
 
 <p
   data-hero-badge
-  class="group flex items-center gap-2 font-mono text-badge text-muted-foreground lowercase"
+  class="group flex items-center gap-2 font-mono text-xs text-muted-foreground lowercase"
 >
   <span
     data-badge-spinner
@@ -29,10 +29,7 @@ const { stem, tails } = Astro.props
       ))
     }
   </span>
-  <span
-    aria-hidden="true"
-    class="inline-block h-3.75 w-1.75 bg-foreground group-data-typing:animate-none group-data-typing:opacity-100 motion-safe:animate-blink"
-  ></span>
+  <span aria-hidden="true" class="caret group-data-typing:caret-steady"></span>
 </p>
 
 <script>

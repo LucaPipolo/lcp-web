@@ -21,14 +21,14 @@ for (const slot of ["period", "title", "company", "place"]) {
   <span
     aria-hidden="true"
     class:list={[
-      "absolute top-1.75 -left-[calc(var(--spacing-gutter)+4.5px)] size-2.25",
+      "absolute top-2 left-0 -ml-gutter size-2 -translate-x-1/2",
       current ? "bg-primary" : "bg-foreground",
     ]}
   >
   </span>
 
-  <div class="flex min-w-0 flex-col gap-1.5 pb-3.5">
-    <span class="font-mono text-badge text-muted-foreground">
+  <div class="flex flex-col gap-1.5 pb-3.5">
+    <span class="font-mono text-xs text-muted-foreground">
       <slot name="period" />
     </span>
 
@@ -46,12 +46,12 @@ for (const slot of ["period", "title", "company", "place"]) {
       <slot name="title" />
       <span
         aria-hidden="true"
-        class="absolute top-0 right-0 grid size-7 place-items-center rounded-lg border border-border bg-background font-mono text-quote leading-none text-foreground before:content-['+'] group-aria-expanded:before:content-['−']"
+        class="absolute top-0 right-0 grid size-7 place-items-center border border-border bg-background font-mono text-base leading-none text-foreground before:content-['+'] group-aria-expanded:before:content-['−']"
       >
       </span>
     </button>
 
-    <span class="font-mono text-badge text-muted-foreground">
+    <span class="font-mono text-xs text-muted-foreground">
       @{" "}
       {
         companyHref ? (
@@ -82,12 +82,12 @@ for (const slot of ["period", "title", "company", "place"]) {
     role="region"
     aria-labelledby={`experience-role-${id}`}
     x-show="isOpen($el)"
-    class="flex flex-col gap-4 pb-6.5"
+    class="flex flex-col gap-4 pb-6"
     x-cloak
   >
     {
       Astro.slots.has("bullets") && (
-        <ul class="flex max-w-[54ch] flex-col gap-2.25">
+        <ul class="flex max-w-prose flex-col gap-2">
           <slot name="bullets" />
         </ul>
       )
@@ -95,7 +95,7 @@ for (const slot of ["period", "title", "company", "place"]) {
 
     {
       Astro.slots.has("skills") && (
-        <ul class="flex max-w-[54ch] flex-wrap gap-2">
+        <ul class="flex max-w-prose flex-wrap gap-2">
           <slot name="skills" />
         </ul>
       )

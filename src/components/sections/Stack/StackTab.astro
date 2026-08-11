@@ -20,7 +20,7 @@ if (!Astro.slots.has("default")) {
   x-on:keydown="navigate($event)"
   x-bind:aria-selected="isSelected($el)"
   x-bind:tabindex="isSelected($el) ? 0 : -1"
-  class="cursor-pointer border-b border-transparent pb-1 font-mono text-xs tracking-wider text-muted-foreground lowercase transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-foreground"
+  class="cursor-pointer border-b border-transparent pb-1 font-mono text-2xs tracking-wider text-muted-foreground lowercase transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-foreground"
 >
   <slot />
 </button>

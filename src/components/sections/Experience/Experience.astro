@@ -12,10 +12,10 @@ if (!Astro.slots.has("roles")) {
 }
 ---
 
-<section id="experience" x-data="experienceRoles" class="flex flex-col">
+<section id="experience" x-data="experienceRoles">
   <slot name="heading" />
 
-  <div class="flex flex-col gap-8.5 px-gutter">
+  <div class="flex flex-col gap-8 px-gutter">
     <slot name="roles" />
   </div>
 </section>
