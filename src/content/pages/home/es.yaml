@@ -241,6 +241,17 @@ sections:
               - { name: "datadog", slug: "datadog" }
               - { name: "sentry", slug: "sentry" }
               - { name: "github actions", slug: "githubactions" }
+          - label: "code quality"
+            items:
+              - { name: "sonarqube", slug: "sonarqubecloud" }
+              - { name: "pest", slug: "local:pest" }
+              - { name: "phpunit", slug: "local:phpunit" }
+              - { name: "vitest", slug: "vitest" }
+              - { name: "jest", slug: "jest" }
+              - { name: "prettier", slug: "prettier" }
+              - { name: "eslint", slug: "eslint" }
+              - { name: "conventional commits", slug: "conventionalcommits" }
+              - { name: "husky", slug: "local:husky" }
       - id: "tools"
         label: "tools"
         groups:
