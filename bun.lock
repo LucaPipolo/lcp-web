@@ -19,6 +19,7 @@
         "@commitlint/config-conventional": "^21.2.0",
         "@eslint/js": "^10.0.1",
         "@iconify-json/simple-icons": "^1.2.93",
+        "clsx": "^2.1.1",
         "eslint": "^10.8.0",
         "eslint-plugin-astro": "^3.1.0",
         "eslint-plugin-jsx-a11y": "^6.10.2",
