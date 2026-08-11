@@ -22,6 +22,10 @@ footer:
   columns:
     - label: "content"
       links:
+        - label: "experience"
+          href: "/#experience"
+        - label: "stack"
+          href: "/#stack"
         - label: "recommendations"
           href: "/#recommendations"
     - label: "links"

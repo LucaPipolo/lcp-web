@@ -31,6 +31,270 @@ sections:
         variant: "outline"
         download: true
 
+  experience:
+    heading: "experiencia"
+    roles:
+      - period: "08/2020 - actualidad"
+        title: "Co-Founder & Technical Director"
+        company: "somoscuatro"
+        companyHref: "https://somoscuatro.es"
+        place: "Barcelona, ES"
+        bullets:
+          - >-
+            Ayudo a CEOs y Product Owners a definir estrategias tecnológicas
+            para mejorar la arquitectura y la escalabilidad de sus productos
+          - >-
+            Defino arquitecturas técnicas end to end: desde el modelo de
+            datos en PostgreSQL, hasta la infraestructura con Docker,
+            Terraform y Kubernetes
+          - >-
+            Hago de puente entre los equipos de diseño UI/UX y los de
+            ingeniería. Dirijo equipos distribuidos y multidisciplinares,
+            fijando los estándares de entrega y documentación en todos los
+            proyectos en los que trabajamos
+          - >-
+            Diseño y desarrollo funcionalidades complejas para plataformas
+            SaaS y e-commerce con Laravel, PHP, Livewire, Inertia.js,
+            Alpine.js, React, Next.js, TypeScript y Tailwind CSS
+          - >-
+            Elijo, personalizo e implemento arquitecturas CMS a medida para
+            cada cliente, ayudándoles a decidir qué solución encaja mejor
+            entre Statamic, Shopify, Sanity, WordPress/WooCommerce y Craft CMS
+          - >-
+            Construyo sistemas de agentes de IA en bucle con Claude Code,
+            Codex y Orca, optimizando los flujos de orquestación para
+            conseguir la máxima calidad de código por cada token consumido.
+            Construyo cadenas de agentes a medida con LangChain y LangGraph
+          - >-
+            Me encargo del prompt engineering e integro servidores MCP y
+            flujos de automatización con n8n para conectar los agentes de
+            IA con las herramientas de trabajo de los clientes
+          - >-
+            Uso modelos locales con LM Studio y Ollama para tareas que
+            requieren privacidad de los datos de los clientes o pruebas
+            rápidas sin coste de API
+          - >-
+            Diseño e implemento mejoras de SEO técnico, accesibilidad y
+            rendimiento en los sitios de los clientes, para aumentar la
+            conversión y el tráfico orgánico
+        skills:
+          - "Technical Leadership"
+          - "Software Architecture"
+          - "Team Management"
+          - "Full-Stack Web Development"
+          - "AI Engineering & Automation"
+          - "Performance Optimisation"
+          - "Hiring & Team Building"
+      - period: "08/2020 - 02/2022"
+        title: "Full-Stack Web Developer & Team Lead"
+        company: "EARLY"
+        companyHref: "https://early.app"
+        place: "Remoto"
+        bullets:
+          - >-
+            Lideré un equipo de 4 desarrolladores, gestionando la entrega
+            de proyectos con metodología Agile/Scrum y coordinando
+            prioridades y plazos con los equipos de producto
+          - >-
+            Fui el referente técnico para el equipo de marketing y para
+            el CTO, traduciendo sus necesidades en soluciones técnicas
+          - >-
+            Lideré al equipo en la integración de Stripe Billing con SSO
+            entre la web de marketing y la aplicación SaaS, gestionando
+            el flujo de autenticación y facturación entre ambos sistemas
+          - >-
+            Lideré la refactorización completa del código de la web de
+            marketing, introduciendo una arquitectura orientada a
+            objetos, separando la lógica de negocio de la vista y
+            añadiendo una suite de tests
+          - >-
+            Monitoricé el rendimiento con New Relic, detecté queries
+            lentas y otros cuellos de botella, y los resolví optimizando
+            la búsqueda con Apache Solr, la caché con Redis y la
+            compresión gzip
+          - >-
+            Desarrollé plugins de WordPress/WooCommerce con arquitectura
+            orientada a objetos en PHP 8 y temas basados en componentes
+            Gutenberg, con bloques personalizados para el editor
+            pensados para las necesidades de la web de marketing
+        skills:
+          - "Team Management"
+          - "Stakeholder & Client Management"
+          - "Agile/Scrum Delivery"
+          - "Full-Stack Web Development"
+          - "Performance Optimisation"
+      - period: "04/2016 - 08/2020"
+        title: "Full-Stack Web Developer & Team Lead"
+        company: "netzstrategen"
+        companyHref: "https://netzstrategen.com/"
+        place: "Barcelona, ES"
+        bullets:
+          - >-
+            Lideré un equipo de 7 personas entre desarrolladores y
+            diseñadores en proyectos enterprise, encargándome también de
+            la selección y el crecimiento del equipo
+          - >-
+            Organicé sesiones de formación técnica y talleres para el
+            equipo, y fui el referente directo para el feedback individual
+          - >-
+            Fui el punto de contacto principal entre el equipo y los
+            stakeholders de los clientes, desde el scoping hasta la
+            entrega
+          - >-
+            Gestioné la entrega de proyectos medianos y grandes con
+            metodología Agile/Scrum
+          - >-
+            Detecté cuellos de botella y optimicé el rendimiento de webs
+            enterprise de clientes con nginx cache, Varnish, Redis, AMP y
+            compresión gzip
+          - >-
+            Desarrollé plugins de WordPress/WooCommerce en PHP 7 con
+            arquitectura orientada a objetos y diseñé temas basados en
+            componentes con Flynt, Twig y Gutenberg, incluidos bloques
+            personalizados para el editor
+          - >-
+            Mantuve y di soporte a plugins y temas de terceros para WordPress,
+            contribuyendo también al core de WordPress, de WooCommerce y de otros
+            plugins open source
+        skills:
+          - "Hiring & Team Building"
+          - "Team Management"
+          - "Code Review & Mentoring"
+          - "Stakeholder & Client Management"
+          - "Agile/Scrum Delivery"
+          - "Full-Stack Web Development"
+          - "Performance Optimisation"
+      - period: "09/2012 - 04/2016"
+        title: "Full-Stack Web Developer & Team Lead"
+        company: "wi.iu' upset®"
+        place: "Nápoles, IT"
+        bullets:
+          - >-
+            Lideré un equipo de 3 personas entre desarrolladores y
+            diseñadores, fijando prioridades y estándares de trabajo
+          - >-
+            Fui mentor del equipo mediante feedback continuo, además de
+            punto de contacto para clientes y stakeholders
+          - >-
+            Gestioné la entrega de proyectos digitales pequeños y
+            medianos, coordinando prioridades y plazos desde la
+            definición del proyecto hasta la entrega
+          - >-
+            Desarrollé webs y soluciones CRM a medida con Laravel,
+            ocupándome tanto de la lógica de backend como de la
+            integración con los sistemas de los clientes
+          - >-
+            Diseñé y construí temas y plugins a medida para Shopify,
+            WordPress/WooCommerce y PrestaShop, adaptando cada solución
+            a las necesidades específicas del cliente
+        skills:
+          - "Team Management"
+          - "Code Review & Mentoring"
+          - "Stakeholder & Client Management"
+          - "Full-Stack Web Development"
+
+  stack:
+    heading: "stack"
+    tabs:
+      - id: "tech"
+        label: "tech"
+        groups:
+          - label: "backend"
+            items:
+              - { name: "laravel", slug: "laravel" }
+              - { name: "php", slug: "php" }
+              - { name: "node.js", slug: "nodedotjs" }
+              - { name: "express", slug: "express" }
+          - label: "frontend"
+            items:
+              - { name: "next.js", slug: "nextdotjs" }
+              - { name: "react", slug: "react" }
+              - { name: "astro", slug: "astro" }
+              - { name: "inertia", slug: "inertia" }
+              - { name: "livewire", slug: "livewire" }
+              - { name: "alpine.js", slug: "alpinedotjs" }
+              - { name: "typescript", slug: "typescript" }
+              - { name: "javascript", slug: "javascript" }
+              - { name: "tailwind", slug: "tailwindcss" }
+              - { name: "storybook", slug: "storybook" }
+              - { name: "shadcn/ui", slug: "shadcnui" }
+          - label: "cms"
+            items:
+              - { name: "statamic", slug: "statamic" }
+              - { name: "shopify", slug: "shopify" }
+              - { name: "sanity", slug: "sanity" }
+              - { name: "craft", slug: "craftcms" }
+              - { name: "wordpress", slug: "wordpress" }
+              - { name: "woocommerce", slug: "woocommerce" }
+              - { name: "framer", slug: "framer" }
+              - { name: "webflow", slug: "webflow" }
+          - label: "data"
+            items:
+              - { name: "postgresql", slug: "postgresql" }
+              - { name: "mysql", slug: "mysql" }
+              - { name: "redis", slug: "redis" }
+              - { name: "graphql", slug: "graphql" }
+          - label: "devops"
+            items:
+              - { name: "docker", slug: "docker" }
+              - { name: "terraform", slug: "terraform" }
+              - { name: "datadog", slug: "datadog" }
+              - { name: "sentry", slug: "sentry" }
+              - { name: "github actions", slug: "githubactions" }
+      - id: "tools"
+        label: "tools"
+        groups:
+          - label: "project management"
+            items:
+              - { name: "linear", slug: "linear" }
+              - { name: "asana", slug: "asana" }
+              - { name: "notion", slug: "notion" }
+              - { name: "slack", slug: "slack" }
+          - label: "design"
+            items:
+              - { name: "figma", slug: "figma" }
+          - label: "editors & terminals"
+            items:
+              - { name: "phpstorm", slug: "phpstorm" }
+              - { name: "zed", slug: "zedindustries" }
+              - { name: "datagrip", slug: "datagrip" }
+              - { name: "vim", slug: "vim" }
+              - { name: "warp", slug: "warp" }
+              - { name: "ghostty", slug: "ghostty" }
+          - label: "marketing & data analysis"
+            items:
+              - { name: "google tag manager", slug: "googletagmanager" }
+              - { name: "google analytics", slug: "googleanalytics" }
+              - { name: "hotjar", slug: "hotjar" }
+              - { name: "hubspot", slug: "hubspot" }
+      - id: "ai"
+        label: "ai"
+        groups:
+          - label: "coding agents"
+            items:
+              - { name: "claude code", slug: "anthropic" }
+              - { name: "codex", slug: "openai" }
+              - { name: "gemini cli", slug: "googlegemini" }
+              - { name: "kimi code ", slug: "kimi" }
+              - { name: "open code ", slug: "opencode" }
+          - label: "dev environments"
+            items:
+              - { name: "orca", slug: "local:orca" }
+              - { name: "cursor", slug: "cursor" }
+              - { name: "windsurf", slug: "windsurf" }
+              - { name: "warp", slug: "warp" }
+              - { name: "jetbrains air", slug: "local:jetbrains-air" }
+              - { name: "antigravity", slug: "local:antigravity" }
+          - label: "agent orchestration"
+            items:
+              - { name: "n8n", slug: "n8n" }
+              - { name: "langchain", slug: "langchain" }
+              - { name: "langgraph", slug: "langgraph" }
+          - label: "local model runners"
+            items:
+              - { name: "lm studio", slug: "lmstudio" }
+              - { name: "ollama", slug: "ollama" }
+
   recommendations:
     heading: "recomendaciones"
     action:
@@ -43,26 +307,24 @@ sections:
         name: "Shadi Manna"
         role: "Founder & WooExpert, Progressus.io"
         text: >-
-          Luca es un desarrollador full-stack muy competente. Ayudó a nuestra
-          agencia en varios proyectos, tanto en frontend como en backend. Se
-          comunica muy bien y se toma en serio sus responsabilidades.
+          Luca es un desarrollador full-stack muy competente. Ayudó a nuestra agencia en varios
+          proyectos, tanto en frontend como en backend. Se comunica muy bien y se toma en serio sus
+          responsabilidades.
       - initials: "TM"
         avatar: "/recommendations/tom-mursell.jpeg"
         href: "https://www.linkedin.com/in/mursell/"
         name: "Tom Mursell"
         role: "CMO & Head of Product Growth, Early"
         text: >-
-          Disfruté muchísimo trabajando con Luca en problemas complicados: es
-          optimista por naturaleza, aporta energía y va rápido cuando hay que
-          sacar las cosas adelante. Sin duda alguien que querrías tener de tu
-          lado.
+          Disfruté muchísimo trabajando con Luca en problemas complicados: es optimista por naturaleza,
+          aporta energía y va rápido cuando hay que sacar las cosas adelante. Sin duda alguien que
+          querrías tener de tu lado.
       - initials: "MB"
         avatar: "/recommendations/manuel-bruschi.jpeg"
         href: "https://www.linkedin.com/in/manuel-bruschi/"
         name: "Manuel Bruschi"
         role: "Co-Founder & CEO, Early"
         text: >-
-          Dale a Luca cualquier problema de frontend o backend
-          y puedes estar tranquilo: encontrará la forma de resolverlo,
-          involucrará y gestionará a los stakeholders necesarios, y mantendrá a
+          Dale a Luca cualquier problema de frontend o backend y puedes estar tranquilo: encontrará la
+          forma de resolverlo, involucrará y gestionará a los stakeholders necesarios, y mantendrá a
           todo el mundo al tanto sin que nadie se lo pida.

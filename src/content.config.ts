@@ -63,6 +63,47 @@ const home = defineCollection({
           })
         ),
       }),
+
+      experience: z
+        .object({
+          heading: z.string(),
+          roles: z.array(
+            z.object({
+              period: z.string(),
+              title: z.string(),
+              company: z.string(),
+              companyHref: z.url().optional(),
+              place: z.string(),
+              bullets: z.array(z.string()),
+              skills: z.array(z.string()).optional(),
+            })
+          ),
+        })
+        .optional(),
+
+      stack: z
+        .object({
+          heading: z.string(),
+          tabs: z.array(
+            z.object({
+              id: z.string(),
+              label: z.string(),
+              groups: z.array(
+                z.object({
+                  label: z.string(),
+                  items: z.array(
+                    z.object({
+                      name: z.string(),
+                      slug: z.string().optional(),
+                    })
+                  ),
+                })
+              ),
+            })
+          ),
+        })
+        .optional(),
+
       recommendations: z
         .object({
           heading: z.string(),
