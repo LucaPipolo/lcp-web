@@ -12,12 +12,24 @@ interface Props {
   title: string
 }
 
-import { DEFAULT_LOCALE, localizeHref, LOCALES } from "@/libs/i18n"
+import { DEFAULT_LOCALE, isLocale, localizeHref, LOCALES } from "@/libs/i18n"
 import { getSettings } from "@/libs/content"
 import { fillPlaceholders } from "@/libs/template"
 
 const locale = Astro.currentLocale
 const homeHref = locale && locale !== DEFAULT_LOCALE ? `/${locale}/` : "/"
+
+const path =
+  isLocale(locale) && locale !== DEFAULT_LOCALE
+    ? Astro.url.pathname.slice(`/${locale}`.length) || "/"
+    : Astro.url.pathname
+
+const canonical = new URL(localizeHref(path, locale), Astro.site)
+
+const alternates = LOCALES.map((code) => ({
+  code,
+  href: new URL(localizeHref(path, code), Astro.site).href,
+}))
 
 const { title } = Astro.props
 
@@ -36,6 +48,18 @@ const copyright =
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+
+    <link rel="canonical" href={canonical.href} />
+    {
+      alternates.map(({ code, href }) => (
+        <link rel="alternate" hreflang={code} href={href} />
+      ))
+    }
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(localizeHref(path, DEFAULT_LOCALE), Astro.site).href}
+    />
   </head>
   <body>
     <slot />
