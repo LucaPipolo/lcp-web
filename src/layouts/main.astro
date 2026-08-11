@@ -105,6 +105,7 @@ const copyright =
             <a
               slot="locales"
               href={code === DEFAULT_LOCALE ? "/" : `/${code}/`}
+              data-locale={code}
               aria-current={code === locale ? "page" : undefined}
               class:list={[
                 "transition-colors",
@@ -124,5 +125,6 @@ const copyright =
   <script>
     import "@/scripts/alpine"
     import "@/scripts/favicon"
+    import "@/scripts/locale"
   </script>
 </html>

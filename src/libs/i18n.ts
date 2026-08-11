@@ -7,6 +7,12 @@ export const LOCALES = [DEFAULT_LOCALE, "en", "it"] as const
 /** Any one of {@link LOCALES}. */
 export type Locale = (typeof LOCALES)[number]
 
+/** The cookie the language switcher writes and the edge reads back. */
+export const LOCALE_COOKIE = "locale"
+
+/** How long a picked language outlives the visit that picked it, in seconds. */
+export const LOCALE_MAX_AGE = 60 * 60 * 24 * 365
+
 /**
  * The regional tag each locale formats dates with.
  */

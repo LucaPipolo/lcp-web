@@ -7,6 +7,7 @@ import { DEFAULT_LOCALE, LOCALES } from "./src/libs/i18n.ts"
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://www.lucapipolo.com",
   integrations: [icon()],
   i18n: {
     locales: [...LOCALES],
@@ -14,9 +15,6 @@ export default defineConfig({
     routing: {
       prefixDefaultLocale: false,
     },
-  },
-  redirects: {
-    [`/${DEFAULT_LOCALE}`]: "/",
   },
   vite: {
     plugins: [tailwindcss()],
