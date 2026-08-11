@@ -6,6 +6,17 @@ import HeroHeader from "@/components/sections/Hero/HeroHeader.astro"
 import HeroBadge from "@/components/sections/Hero/HeroBadge.astro"
 import HeroFooter from "@/components/sections/Hero/HeroFooter.astro"
 
+import Experience from "@/components/sections/Experience/Experience.astro"
+import ExperienceRole from "@/components/sections/Experience/ExperienceRole.astro"
+import ExperienceBullet from "@/components/sections/Experience/ExperienceBullet.astro"
+import ExperienceSkill from "@/components/sections/Experience/ExperienceSkill.astro"
+
+import Stack from "@/components/sections/Stack/Stack.astro"
+import StackTab from "@/components/sections/Stack/StackTab.astro"
+import StackPanel from "@/components/sections/Stack/StackPanel.astro"
+import StackGroup from "@/components/sections/Stack/StackGroup.astro"
+import StackItem from "@/components/sections/Stack/StackItem.astro"
+
 import Recommendations from "@/components/sections/Recommendations/Recommendations.astro"
 import RecommendationsQuote from "@/components/sections/Recommendations/RecommendationsQuote.astro"
 
@@ -25,7 +36,7 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { metadata } = entry.data
 
-const { hero, recommendations } = entry.data.sections
+const { hero, experience, stack, recommendations } = entry.data.sections
 
 const badge = hero.badge
 ---
@@ -61,6 +72,65 @@ const badge = hero.badge
       <SocialLinks slot="socialLinks" />
     </HeroFooter>
   </Hero>
+
+  {
+    (experience || stack) && (
+      <SectionContainer columns={experience && stack ? 2 : 1}>
+        {experience && (
+          <Experience>
+            <SectionHeading slot="heading">{experience.heading}</SectionHeading>
+            {experience.roles.map((role, index) => (
+              <ExperienceRole
+                slot="roles"
+                id={String(index)}
+                current={index === 0}
+                open={index === 0}
+                companyHref={role.companyHref}
+              >
+                <Fragment slot="period">{role.period}</Fragment>
+                <Fragment slot="title">{role.title}</Fragment>
+                <Fragment slot="company">{role.company}</Fragment>
+                <Fragment slot="place">{role.place}</Fragment>
+                {role.bullets.map((bullet) => (
+                  <ExperienceBullet slot="bullets">{bullet}</ExperienceBullet>
+                ))}
+                {role.skills?.map((skill) => (
+                  <ExperienceSkill slot="skills">{skill}</ExperienceSkill>
+                ))}
+              </ExperienceRole>
+            ))}
+          </Experience>
+        )}
+
+        {stack && (
+          <Stack>
+            <SectionHeading slot="heading" actionsRole="tablist">
+              {stack.heading}
+              {stack.tabs.map((tab) => (
+                <StackTab slot="actions" id={tab.id}>
+                  {tab.label}
+                </StackTab>
+              ))}
+            </SectionHeading>
+            {stack.tabs.map((tab) => (
+              <StackPanel slot="panels" id={tab.id}>
+                {tab.groups.map((group) => (
+                  <StackGroup>
+                    <Fragment slot="label">{group.label}</Fragment>
+                    {group.items.map((item) => (
+                      <StackItem slot="items" slug={item.slug}>
+                        {item.name}
+                      </StackItem>
+                    ))}
+                  </StackGroup>
+                ))}
+              </StackPanel>
+            ))}
+          </Stack>
+        )}
+      </SectionContainer>
+    )
+  }
 
   {
     recommendations && (
