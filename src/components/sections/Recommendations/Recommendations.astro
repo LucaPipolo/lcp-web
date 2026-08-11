@@ -1,6 +1,12 @@
 ---
 import CardGrid from "@/components/common/CardGrid.astro"
 
+if (!Astro.slots.has("heading")) {
+  throw new Error(
+    "<Recommendations> requires a `heading` slot (pass a <SectionHeading>)."
+  )
+}
+
 if (!Astro.slots.has("quotes")) {
   throw new Error(
     "<Recommendations> requires a `quotes` slot (pass at least one <RecommendationsQuote>)."
@@ -8,10 +14,8 @@ if (!Astro.slots.has("quotes")) {
 }
 ---
 
-<section id="recommendations" class="relative">
-  <div class="relative container mx-auto">
-    <slot name="heading" />
+<section id="recommendations" class="flex flex-col">
+  <slot name="heading" />
 
-    <CardGrid><slot name="quotes" /></CardGrid>
-  </div>
+  <CardGrid><slot name="quotes" /></CardGrid>
 </section>
