@@ -9,12 +9,10 @@ if (!Astro.slots.has("socialLinks")) {
 ---
 
 <div
-  class="relative z-10 container mx-auto rise-in border border-border bg-background delay-240"
+  class="relative z-10 container mx-auto rise-in border border-border delay-240"
 >
   <CornerMarks />
-  <div
-    class="grid grid-cols-1 sm:grid-cols-3 sm:[&>a:first-child]:pl-gutter [&>a:not(:first-child)]:border-t [&>a:not(:first-child)]:border-border sm:[&>a:not(:first-child)]:border-t-0 sm:[&>a:not(:first-child)]:border-l"
-  >
+  <div class="grid gap-px bg-border sm:grid-cols-3 sm:*:first:pl-gutter">
     <slot name="socialLinks" />
   </div>
 </div>

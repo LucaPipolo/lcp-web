@@ -22,12 +22,12 @@ if (avatar && !avatarAlt) {
 ---
 
 <figure
-  class="group/quote flex flex-col gap-4.5 bg-background px-gutter pt-6.5 pb-7.5"
+  class="group/quote flex flex-col gap-4 bg-background px-gutter pt-6 pb-8"
 >
   <figcaption class="flex items-center gap-3">
     {
       avatar ? (
-        <span class="relative block size-9 flex-none overflow-hidden border border-border">
+        <span class="duotone size-9 flex-none border border-border group-hover/quote:duotone-off">
           <img
             src={avatar}
             alt={avatarAlt}
@@ -35,24 +35,19 @@ if (avatar && !avatarAlt) {
             height="36"
             loading="lazy"
             decoding="async"
-            class="size-full object-cover grayscale transition-[filter] duration-300 group-hover/quote:grayscale-0"
-          />
-          <span
-            aria-hidden="true"
-            class="absolute inset-0 bg-primary mix-blend-multiply transition-opacity duration-300 group-hover/quote:opacity-0"
           />
         </span>
       ) : (
         <span
           aria-hidden="true"
-          class="grid size-9 flex-none place-items-center border border-border font-mono text-initials text-muted-foreground"
+          class="grid size-9 flex-none place-items-center border border-border font-mono text-2xs tracking-wide text-muted-foreground"
         >
           <slot name="initials" />
         </span>
       )
     }
     <span class="flex min-w-0 flex-col gap-1">
-      <span class="text-cite font-semibold text-foreground">
+      <span class="text-sm font-semibold text-foreground">
         {
           href ? (
             <a
@@ -73,12 +68,12 @@ if (avatar && !avatarAlt) {
           )
         }
       </span>
-      <span class="font-mono text-handle text-muted-foreground">
+      <span class="font-mono text-2xs text-muted-foreground">
         <slot name="role" />
       </span>
     </span>
   </figcaption>
-  <blockquote class="text-quote text-pretty text-muted-foreground">
+  <blockquote class="text-base text-pretty text-muted-foreground">
     <slot name="text" />
   </blockquote>
 </figure>

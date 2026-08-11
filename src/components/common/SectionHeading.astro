@@ -10,7 +10,7 @@ if (!Astro.slots.has("default")) {
   class="flex flex-wrap items-center justify-between gap-x-4 gap-y-3 px-gutter pt-30 pb-10"
 >
   <h2
-    class="flex items-center gap-2 font-mono text-eyebrow text-muted-foreground uppercase"
+    class="flex items-center gap-2 font-mono text-sm tracking-widest text-muted-foreground uppercase"
   >
     <span aria-hidden="true" class="text-primary">//</span>
     <slot />
@@ -18,7 +18,7 @@ if (!Astro.slots.has("default")) {
 
   {
     Astro.slots.has("actions") && (
-      <div role={actionsRole} class="flex items-center gap-4.5">
+      <div role={actionsRole} class="flex items-center gap-4">
         <slot name="actions" />
       </div>
     )

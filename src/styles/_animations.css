@@ -11,3 +11,38 @@
 @utility rise-in {
   @apply duration-500 ease-out fill-mode-both fade-in slide-in-from-bottom-4 motion-safe:animate-in;
 }
+
+@utility caret {
+  @apply inline-block bg-foreground motion-safe:animate-blink;
+
+  width: 0.5em;
+  height: 1.15em;
+}
+
+@utility caret-steady {
+  @apply animate-none opacity-100;
+}
+
+@utility duotone {
+  @apply relative block overflow-hidden;
+
+  & img {
+    @apply size-full object-cover grayscale transition-[filter] duration-300;
+  }
+
+  &::after {
+    @apply absolute inset-0 bg-primary mix-blend-multiply transition-opacity duration-300;
+
+    content: "";
+  }
+}
+
+@utility duotone-off {
+  & img {
+    @apply grayscale-0;
+  }
+
+  &::after {
+    @apply opacity-0;
+  }
+}
