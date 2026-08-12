@@ -129,4 +129,53 @@ const home = defineCollection({
   }),
 })
 
-export const collections = { settings, home }
+/**
+ * Builds a collection for a page that reads as one article: a heading, a
+ * revision date and a run of sections, each prose, a definition list, or both.
+ *
+ * @param directory - The folder under `src/content/pages` holding one YAML
+ *   file per locale, named after it.
+ *
+ * @returns The collection, with nothing optional: a page that renders in one
+ *   language and not another has to fail the build rather than ship.
+ */
+function articlePage(directory: string) {
+  return defineCollection({
+    loader: glob({
+      pattern: "*.yaml",
+      base: `./src/content/pages/${directory}`,
+    }),
+    schema: z.object({
+      metadata: z.object({ title: z.string() }),
+      title: z.string(),
+      updated: z.coerce.date(),
+      updatedLabel: z.string(),
+      intro: z.string(),
+      sections: z.array(
+        z.object({
+          heading: z.string(),
+          body: z.string().optional(),
+          items: z
+            .array(z.object({ term: z.string(), description: z.string() }))
+            .optional(),
+        })
+      ),
+    }),
+  })
+}
+
+const imprint = articlePage("imprint")
+const privacy = articlePage("privacy")
+const cookies = articlePage("cookies")
+const security = articlePage("security")
+const aiContent = articlePage("ai-content")
+
+export const collections = {
+  settings,
+  home,
+  imprint,
+  privacy,
+  cookies,
+  security,
+  "ai-content": aiContent,
+}

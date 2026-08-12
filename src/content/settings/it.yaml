@@ -50,6 +50,18 @@ footer:
         - label: "cv.pdf"
           href: "/resumes/luca-pipolo-full-stack-developer-resume-it.pdf"
           download: true
+    - label: "legale"
+      links:
+        - label: "note legali"
+          href: "/imprint/"
+        - label: "privacy"
+          href: "/privacy/"
+        - label: "cookie"
+          href: "/cookies/"
+        - label: "sicurezza"
+          href: "/security/"
+        - label: "ai content"
+          href: "/ai-content/"
   colophon:
     text: "Fatto con {heart} e {astro}"
     repo: "Sbircia il codice su GitHub"

@@ -1,0 +1,89 @@
+metadata:
+  title: "Aviso legal | Luca Pipolo"
+
+title: "Aviso legal"
+updated: 2026-08-12
+updatedLabel: "última actualización:"
+
+intro: >-
+  De acuerdo con lo establecido en la
+  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE)</a>,
+  se informa a los usuarios de los siguientes datos identificativos del
+  titular de este sitio web.
+
+sections:
+  - heading: "Titular del sitio web"
+    items:
+      - term: "Titular"
+        description: "somoscuatro 2020 S.L."
+      - term: "NIF"
+        description: "ES B01765432"
+      - term: "Domicilio social"
+        description: "Carrer Bailén 41, 1º 2ªB, 08010 Barcelona, España"
+      - term: "Domicilio operativo"
+        description: "Carrer de la Llacuna 22, Planta 4 Oficina 3, 08010 Barcelona, España"
+      - term: "Correo electrónico"
+        description: >-
+          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
+      - term: "Datos registrales"
+        description: >-
+          Inscrita en el Registro Mercantil de Barcelona, Tomo 47455, Folio
+          100, Hoja B-552334, Inscripción 1.
+      - term: "Relación con el titular del sitio"
+        description: >-
+          Luca Pipolo es titular de somoscuatro 2020 S.L. y publica este
+          sitio en el marco de su actividad profesional con la sociedad.
+      - term: "Actividad"
+        description: >-
+          Sitio personal y portfolio profesional de Luca Pipolo, Full-Stack
+          Web Developer y Team Lead.
+
+  - heading: "Para qué sirve este sitio"
+    body: >-
+      <p>El sitio cuenta mi trayectoria profesional, los proyectos en los
+      que he trabajado y cómo contactarme. No vende nada, no gestiona pagos
+      y no requiere registro.</p>
+
+  - heading: "Propiedad intelectual"
+    body: >-
+      <p>Los textos, el diseño gráfico y las imágenes son míos, salvo donde
+      se indique lo contrario. Puedes citarlos indicando la fuente y
+      enlazando la página original. Reproducirlos íntegramente o usarlos con
+      fines comerciales requiere mi autorización por escrito.</p>
+      <p>Las marcas y logotipos de terceros que puedan aparecer pertenecen a
+      sus respectivos titulares y se utilizan solo para identificar la
+      tecnología o la empresa de la que se está hablando.</p>
+
+  - heading: "Enlaces a otros sitios"
+    body: >-
+      <p>Algunas páginas contienen enlaces a sitios que no gestiono ni
+      controlo. Están presentes porque el contenido enlazado es pertinente,
+      no porque apruebe su contenido, sus condiciones de uso o el
+      tratamiento que hacen de tus datos. Al seguir un enlace, accedes a un
+      sitio independiente de este, sujeto a las reglas de quien lo gestiona,
+      del que no me hago responsable.</p>
+
+  - heading: "Responsabilidad"
+    body: >-
+      <p>Reviso los contenidos antes de publicarlos, pero no garantizo que
+      estén libres de errores ni que permanezcan exactos con el paso del
+      tiempo. La información técnica que aparece aquí refleja mi
+      experiencia, no constituye asesoramiento sobre tu caso concreto.</p>
+      <p>Tampoco puedo garantizar que el sitio esté siempre disponible, ya
+      que depende de servicios de terceros y de tu conexión.</p>
+
+  - heading: "Alojamiento"
+    body: >-
+      <p>El sitio está alojado por
+      <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel Inc.</a>,
+      con sede en Estados Unidos. Su política de privacidad puede
+      consultarse en
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">vercel.com/legal/privacy-policy</a>.</p>
+
+  - heading: "Ley aplicable"
+    body: >-
+      <p>Este aviso se rige por la legislación española. Para cualquier
+      controversia relacionada con el sitio, salvo que la ley imponga un
+      fuero distinto (por ejemplo, cuando la otra parte sea un consumidor),
+      las partes se someten a la competencia de los juzgados y tribunales de
+      la ciudad de Barcelona, España.</p>

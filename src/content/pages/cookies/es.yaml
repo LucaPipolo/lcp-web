@@ -1,0 +1,121 @@
+metadata:
+  title: "Política de cookies | Luca Pipolo"
+
+title: "Política de cookies"
+updated: 2026-08-12
+updatedLabel: "última actualización:"
+
+intro: >-
+  Este sitio guarda solo dos datos, y únicamente cuando tú mismo realizas la
+  acción que los genera: el idioma que eliges y el tema que eliges. Nada te
+  rastrea, nada crea un perfil sobre ti y nada se comparte con ningún
+  anunciante. Por eso no verás ningún cookie banner en el sitio. Esta página
+  explica en detalle qué datos se guardan, quién es el responsable de su
+  tratamiento y por qué la ley permite prescindir de un cookie banner.
+
+sections:
+  - heading: "Responsable del tratamiento"
+    body: >-
+      <p>El tratamiento descrito en esta página lo gestiona somoscuatro 2020
+      S.L., a la que puedes escribir a
+      <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>. Los datos
+      identificativos completos están en el <a href="/imprint/">aviso
+      legal</a>.</p>
+
+  - heading: "Qué queda guardado en tu navegador"
+    body: >-
+      <p>El sitio no guarda nada en tu navegador con la simple carga de la
+      página. Los dos valores que se detallan a continuación solo se escriben
+      si realizas la acción que los genera: hacer clic en el selector de
+      idioma, o pulsar el interruptor del tema.</p>
+    items:
+      - term: "locale (cookie)"
+        description: >-
+          Una cookie con el idioma que has elegido, escrita solo cuando
+          sigues un enlace del selector de idioma, nunca al cargar la página.
+          Sirve para que el sitio se abra en tu idioma la próxima vez que
+          llegues a la dirección raíz. Dura un año, no contiene ningún
+          identificador y se envía únicamente a este sitio.
+      - term: "lcp-theme (almacenamiento local)"
+        description: >-
+          El tema claro u oscuro que has elegido, guardado en el
+          almacenamiento local del navegador, no en una cookie. Se escribe
+          solo cuando pulsas el interruptor, nunca al cargar la página.
+          Mientras permanece vacío, el sitio sigue la preferencia de tu
+          sistema operativo y cambia junto con ella. No tiene fecha de
+          caducidad: desaparece solo cuando borras los datos del sitio en el
+          navegador.
+
+  - heading: "Por qué no hay un cookie banner"
+    body: >-
+      <p>El artículo 22.2 de la
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Ley 34/2002, de 11 de julio (LSSI-CE)</a>,
+      modificado por el
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer">Real Decreto-ley 13/2012</a>,
+      que transpone al ordenamiento español la
+      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer">Directiva europea 2002/58/CE</a>,
+      modificada a su vez por la
+      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer">Directiva 2009/136/CE</a>
+      (la llamada "directiva de cookies"), exige tu consentimiento antes de
+      guardar información en tu dispositivo o de leerla, con una excepción:
+      cuando esa información es estrictamente necesaria para prestar un
+      servicio que tú mismo has solicitado de forma expresa.</p>
+      <p>Los dos valores descritos entran en esta excepción. El idioma se
+      guarda porque acabas de hacer clic en el selector para elegirlo, y el
+      tema porque acabas de pulsar el interruptor. Ninguno de los dos se
+      escribe si no realizas tú la acción, y ninguno sirve para otra cosa que
+      no sea recordar la elección que has hecho. La medición descrita más
+      abajo, en cambio, no guarda nada en tu dispositivo, y por eso no entra
+      dentro de la obligación de consentimiento que impone ese artículo.</p>
+      <p>Un cookie banner que te pidiera permiso para estos dos valores
+      interrumpiría tu navegación sin motivo, ya que la ley no lo exige. Y
+      acostumbrar a las personas a hacer clic en "aceptar" sin leer tiene un
+      efecto peor que no preguntar nada, cuando (como en este caso) no hay
+      nada que preguntar.</p>
+
+  - heading: "La medición no usa cookies"
+    body: >-
+      <p>En este sitio funcionan dos servicios. Ambos operan sin
+      identificarte y sin dejar rastro en el navegador.</p>
+    items:
+      - term: "Vercel Speed Insights"
+        description: >-
+          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>
+          mide la velocidad de carga de las páginas. Envía la ruta de la
+          página, el tipo de dispositivo, el navegador, la velocidad de la
+          conexión y el país. Vercel declara que estos datos no quedan
+          vinculados a una visita concreta.
+      - term: "Sentry"
+        description: >-
+          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>
+          registra los errores técnicos del sitio, para que pueda
+          detectarlos y corregirlos. Envía el mensaje de error, el punto del
+          código en el que se produjo y la página en la que ocurrió. Está
+          configurado para no recopilar información personal: ni dirección
+          IP, ni contenido de formularios, ni cookies. La grabación de
+          sesión, que reproduciría lo que haces en la página, está
+          desactivada.
+
+  - heading: "Cómo desactivar la medición"
+    body: >-
+      <p>Si prefieres no aparecer ni siquiera en los datos agregados y
+      anónimos que recogen Vercel Speed Insights y Sentry, puedes instalar
+      una extensión que bloquee los scripts de terceros, como
+      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.
+      Una extensión de este tipo impide que el navegador envíe datos a
+      ambos servicios. El sitio seguirá funcionando exactamente igual: ninguna
+      función del sitio depende de estas dos herramientas.</p>
+
+  - heading: "Si algo cambia"
+    body: >-
+      <p>Si en el futuro añado una función que requiera tu consentimiento
+      (por ejemplo, una herramienta que guarde datos no estrictamente
+      necesarios para que uses el sitio), incorporaré un cookie banner que
+      pida tu consentimiento antes de que esa función guarde ningún dato, y
+      actualizaré esta página en consecuencia.</p>
+      <p>La fecha de "última actualización" indicada en la parte superior de
+      la página señala la última vez que se modificó este texto: si esa fecha
+      no cambia, el contenido de esta página no se ha actualizado y lo
+      descrito arriba sigue siendo válido.</p>
+      <p>Para el resto del tratamiento de datos, consulta la
+      <a href="/privacy/">política de privacidad</a>.</p>

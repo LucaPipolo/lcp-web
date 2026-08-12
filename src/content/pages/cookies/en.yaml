@@ -1,0 +1,116 @@
+metadata:
+  title: "Cookie Notice | Luca Pipolo"
+
+title: "Cookie Notice"
+updated: 2026-08-12
+updatedLabel: "last updated:"
+
+intro: >-
+  This site stores only two pieces of information, and only when you yourself
+  carry out the action that generates them: the language you choose and the
+  theme you choose. Nothing tracks you, nothing builds a profile of you and
+  nothing is shared with any advertiser. That's why you won't see a cookie
+  banner on this site. This page explains in detail what data is stored, who
+  is responsible for processing it and why the law allows this site to do
+  without a cookie banner.
+
+sections:
+  - heading: "Data controller"
+    body: >-
+      <p>The processing described on this page is carried out by somoscuatro
+      2020 S.L., who can be reached at
+      <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>. Full
+      identification details are set out in the <a href="/en/imprint/">legal
+      notice</a>.</p>
+
+  - heading: "What stays in your browser"
+    body: >-
+      <p>The site stores nothing in your browser simply by loading a page.
+      The two values listed below are only written if you carry out the
+      action that generates them: clicking the language selector, or
+      switching the theme toggle.</p>
+    items:
+      - term: "locale (cookie)"
+        description: >-
+          A cookie holding the language you've chosen, written only when you
+          follow a link in the language selector, never when a page loads.
+          It ensures the site opens in your language the next time you reach
+          the root address. It lasts one year, contains no identifier, and is
+          sent only to this site.
+      - term: "lcp-theme (local storage)"
+        description: >-
+          The light or dark theme you've chosen, stored in the browser's
+          local storage, not in a cookie. It's written only when you switch
+          the toggle, never when a page loads. While it stays empty, the site
+          follows your operating system's preference and changes along with
+          it. It never expires: it's removed only when you clear this site's
+          data from your browser.
+
+  - heading: "Why there's no cookie banner"
+    body: >-
+      <p>Article 22.2 of
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002, of 11 July (LSSI-CE)</a>,
+      as amended by
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer">Real Decreto-ley 13/2012</a>,
+      which transposes into Spanish law
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer">EU Directive 2002/58/EC</a>,
+      as amended by
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer">Directive 2009/136/EC</a>
+      (commonly known as the "Cookie Directive"), requires your consent
+      before storing information on your device or reading it, with one
+      exception: where that information is strictly necessary to provide a
+      service you yourself have explicitly requested.</p>
+      <p>Both values fall under this exception. The language is stored
+      because you've just clicked the selector to choose it, and the theme
+      because you've just switched the toggle. Neither is written unless you
+      take that action yourself, and neither serves any purpose other than
+      remembering the choice you made. The measurement described below, by
+      contrast, stores nothing on your device, so it falls outside the
+      consent requirement set out in that article.</p>
+      <p>A cookie banner asking permission for these two values would
+      disrupt your browsing for no reason, since the law doesn't require it.
+      And getting people used to clicking "accept" without reading does more
+      harm than not asking at all, when (as here) there's nothing to ask.</p>
+
+  - heading: "Measurement doesn't use cookies"
+    body: >-
+      <p>Two services run on this site. Both work without identifying you
+      and without leaving any trace in your browser.</p>
+    items:
+      - term: "Vercel Speed Insights"
+        description: >-
+          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>
+          measures page load speed. It sends the page path, device type,
+          browser, connection speed and country. Vercel states that this
+          data isn't linked back to a specific visit.
+      - term: "Sentry"
+        description: >-
+          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>
+          logs technical errors on the site, so I can find and fix them. It
+          sends the error message, the point in the code where it occurred
+          and the page it happened on. It's configured not to collect
+          personal information: no IP address, no form contents, no cookies.
+          Session replay, which would capture what you do on the page, is
+          switched off.
+
+  - heading: "How to opt out of measurement"
+    body: >-
+      <p>If you'd rather not appear even in the aggregated, anonymous data
+      collected by Vercel Speed Insights and Sentry, you can install a
+      browser extension that blocks third-party scripts, such as
+      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.
+      An extension of this kind stops your browser sending data to either
+      service. The site will keep working exactly as before: no feature of
+      the site depends on these two tools.</p>
+
+  - heading: "If anything changes"
+    body: >-
+      <p>If I add a feature in future that requires your consent (for
+      example, a tool that stores data not strictly necessary for you to use
+      the site), I'll add a cookie banner asking for your consent before that
+      feature stores anything, and I'll update this page accordingly.</p>
+      <p>The "last updated" date at the top of the page shows the last time
+      this text was changed: if that date hasn't moved, the content of this
+      page hasn't been updated and everything described above still holds.</p>
+      <p>For everything else about how data is processed, see the
+      <a href="/en/privacy/">privacy policy</a>.</p>
