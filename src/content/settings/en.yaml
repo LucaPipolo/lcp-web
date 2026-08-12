@@ -12,6 +12,19 @@ socialLinks:
     label: "Email"
     handle: "hello@lucapipolo.com"
 
+header:
+  themeToggleLabel: "Switch theme"
+  menuLabel: "Menu"
+  nav:
+    - label: "experience"
+      href: "/#experience"
+    - label: "stack"
+      href: "/#stack"
+    - label: "recommendations"
+      href: "/#recommendations"
+    - label: "contact"
+      href: "mailto:hello@lucapipolo.com"
+
 footer:
   tagline: >-
     If you want to offer me a job, talk about a project, or just
