@@ -8,6 +8,8 @@ import SiteFooterLink from "@/components/sections/SiteFooter/SiteFooterLink.astr
 
 import ButtonLink from "@/components/common/ButtonLink.astro"
 
+import { THEME_INIT_SOURCE } from "@/scripts/theme-init"
+
 import SpeedInsights from "@vercel/speed-insights/astro"
 
 interface Props {
@@ -62,7 +64,7 @@ const copyright =
       hreflang="x-default"
       href={new URL(localizeHref(path, DEFAULT_LOCALE), Astro.site).href}
     />
-
+    <script is:inline set:html={THEME_INIT_SOURCE} />
     <SpeedInsights />
   </head>
   <body>
@@ -126,6 +128,7 @@ const copyright =
     }
   </body><script>
     import "@/scripts/alpine"
+    import "@/scripts/theme"
     import "@/scripts/favicon"
     import "@/scripts/locale"
   </script>
