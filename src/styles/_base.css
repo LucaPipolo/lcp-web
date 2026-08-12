@@ -5,6 +5,13 @@
     }
   }
 
+  [data-theme-switching],
+  [data-theme-switching] *,
+  [data-theme-switching] *::before,
+  [data-theme-switching] *::after {
+    transition: none !important;
+  }
+
   body {
     @apply bg-background px-2 text-foreground;
   }
