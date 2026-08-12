@@ -86,8 +86,9 @@ function drawHeroGrid(
   canvas: HTMLCanvasElement,
   context: CanvasRenderingContext2D
 ) {
-  const foreground = resolveToken(frame, "--foreground")
-  const primary = resolveToken(frame, "--primary")
+  let foreground = resolveToken(frame, "--foreground")
+  let primary = resolveToken(frame, "--primary")
+
   const stillOnly = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches
@@ -278,6 +279,17 @@ function drawHeroGrid(
 
   resize()
   new ResizeObserver(resize).observe(frame)
+
+  new MutationObserver(() => {
+    foreground = resolveToken(frame, "--foreground")
+    primary = resolveToken(frame, "--primary")
+
+    // Nothing redraws a still grid on its own, there being no frame loop.
+    if (stillOnly && width > 0 && height > 0) drawLines()
+  }).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  })
 
   // A Visitor who asked for less motion gets the grid drawn once, and nothing
   // else: no frame loop, no pulses, and no pointer listeners.
