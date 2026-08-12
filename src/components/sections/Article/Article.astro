@@ -1,0 +1,35 @@
+---
+for (const slot of ["title", "sections"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<Article> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<article class="px-gutter pt-20 pb-30">
+  <header class="flex max-w-article flex-col gap-4">
+    <h1 class="text-4xl font-semibold tracking-tight text-foreground">
+      <slot name="title" />
+    </h1>
+
+    {
+      Astro.slots.has("meta") && (
+        <p class="font-mono text-2xs tracking-wider text-muted-foreground lowercase">
+          <slot name="meta" />
+        </p>
+      )
+    }
+
+    {
+      Astro.slots.has("intro") && (
+        <p class="mt-4 rich-text text-lg text-pretty text-muted-foreground">
+          <slot name="intro" />
+        </p>
+      )
+    }
+  </header>
+
+  <div class="mt-16 flex max-w-article flex-col gap-12">
+    <slot name="sections" />
+  </div>
+</article>
