@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components"
+
+if (!Astro.slots.has("label")) {
+  throw new Error("<ThemeToggle> requires a `label` slot.")
+}
+---
+
+<button
+  type="button"
+  x-data="themeToggle"
+  x-on:click="toggle()"
+  class="grid size-8 cursor-pointer place-items-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+>
+  <span class="sr-only"><slot name="label" /></span>
+  <Icon name="lucide:moon" class="size-4 dark:hidden" aria-hidden="true" />
+  <Icon name="lucide:sun" class="hidden size-4 dark:block" aria-hidden="true" />
+</button>
