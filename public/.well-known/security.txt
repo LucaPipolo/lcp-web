@@ -1,0 +1,6 @@
+Contact: mailto:security@lucapipolo.com
+Contact: https://github.com/LucaPipolo/lcp-web/security/advisories/new
+Expires: 2027-08-12T00:00:00.000Z
+Preferred-Languages: en, it, es
+Canonical: https://www.lucapipolo.com/.well-known/security.txt
+Policy: https://www.lucapipolo.com/en/security/
