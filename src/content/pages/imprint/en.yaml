@@ -1,0 +1,86 @@
+metadata:
+  title: "Legal Notice | Luca Pipolo"
+
+title: "Legal Notice"
+updated: 2026-08-12
+updatedLabel: "last updated:"
+
+intro: >-
+  In accordance with
+  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002, of 11 July, on information society services and electronic commerce (LSSI-CE)</a>,
+  users are informed of the following identification details of the owner
+  of this website.
+
+sections:
+  - heading: "Site owner"
+    items:
+      - term: "Owner"
+        description: "somoscuatro 2020 S.L."
+      - term: "Tax ID (NIF)"
+        description: "ES B01765432"
+      - term: "Registered office"
+        description: "Carrer Bailén 41, 1º 2ªB, 08010 Barcelona, Spain"
+      - term: "Operating office"
+        description: "Carrer de la Llacuna 22, Planta 4 Oficina 3, 08010 Barcelona, Spain"
+      - term: "Email"
+        description: >-
+          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
+      - term: "Company registration details"
+        description: >-
+          Registered with the Companies Registry (Registro Mercantil) of
+          Barcelona, Volume 47455, Page 100, Sheet B-552334, Entry 1.
+      - term: "Relationship to the site owner"
+        description: >-
+          Luca Pipolo owns somoscuatro 2020 S.L. and publishes this site as
+          part of his professional activity through the company.
+      - term: "Activity"
+        description: >-
+          Personal site and professional portfolio of Luca Pipolo,
+          Full-Stack Web Developer and Team Lead.
+
+  - heading: "What this site is for"
+    body: >-
+      <p>This site covers my professional background, the projects I've
+      worked on and how to get in touch. It doesn't sell anything, doesn't
+      process payments and doesn't require registration.</p>
+
+  - heading: "Intellectual property"
+    body: >-
+      <p>The text, visual design and images are mine, unless stated
+      otherwise. You may quote them if you credit the source and link to
+      the original page. Reproducing them in full or using them
+      commercially requires my written permission.</p>
+      <p>Any third-party trademarks or logos shown belong to their
+      respective owners and are used only to identify the technology or
+      company being referred to.</p>
+
+  - heading: "Links to other websites"
+    body: >-
+      <p>Some pages link to sites I don't run or control. They're there
+      because the linked content is relevant, not because I endorse its
+      content, terms of use or how it handles your data. Once you follow a
+      link, you're on a site independent of this one, subject to that
+      site's own rules, for which I take no responsibility.</p>
+
+  - heading: "Liability"
+    body: >-
+      <p>I review content before publishing it, but I cannot guarantee it
+      is free of errors or that it remains accurate over time. The
+      technical information here reflects my own experience; it is not
+      advice on your specific situation.</p>
+      <p>Nor can I guarantee the site will always be available, since this
+      depends on third-party services and your own connection.</p>
+
+  - heading: "Hosting"
+    body: >-
+      <p>This site is hosted by
+      <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel Inc.</a>,
+      based in the United States. Its privacy policy is available at
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">vercel.com/legal/privacy-policy</a>.</p>
+
+  - heading: "Governing law"
+    body: >-
+      <p>This notice is governed by Spanish law. For any dispute relating
+      to the site, save where the law requires a different forum (for
+      example, where the other party is a consumer), the parties submit to
+      the jurisdiction of the courts of the city of Barcelona, Spain.</p>

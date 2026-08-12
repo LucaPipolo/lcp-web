@@ -1,0 +1,89 @@
+metadata:
+  title: "Note legali | Luca Pipolo"
+
+title: "Note legali"
+updated: 2026-08-12
+updatedLabel: "ultimo aggiornamento:"
+
+intro: >-
+  In conformità con quanto stabilito dalla
+  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">legge spagnola 34/2002, dell'11 luglio, sui servizi della società dell'informazione e del commercio elettronico (LSSI-CE)</a>,
+  si informano gli utenti dei seguenti dati identificativi del titolare di
+  questo sito web.
+
+sections:
+  - heading: "Titolare del sito"
+    items:
+      - term: "Titolare"
+        description: "somoscuatro 2020 S.L."
+      - term: "NIF"
+        description: "ES B01765432"
+      - term: "Sede legale"
+        description: "Carrer Bailén 41, 1º 2ªB, 08010 Barcellona, Spagna"
+      - term: "Sede operativa"
+        description: "Carrer de la Llacuna 22, Planta 4 Oficina 3, 08010 Barcellona, Spagna"
+      - term: "Email"
+        description: >-
+          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
+      - term: "Dati registrali"
+        description: >-
+          Iscritta al Registro Mercantile di Barcellona, Tomo 47455, Folio
+          100, Hoja B-552334, Inscripción 1.
+      - term: "Rapporto con il titolare del sito"
+        description: >-
+          Luca Pipolo è titolare di somoscuatro 2020 S.L. e pubblica questo
+          sito nell'ambito della propria attività professionale con la
+          società.
+      - term: "Attività"
+        description: >-
+          Sito personale e portfolio professionale di Luca Pipolo,
+          Full-Stack Web Developer e Team Lead.
+
+  - heading: "A cosa serve questo sito"
+    body: >-
+      <p>Il sito racconta il mio percorso professionale, i progetti su cui ho
+      lavorato e come contattarmi. Non vende nulla, non gestisce pagamenti e
+      non richiede registrazione.</p>
+
+  - heading: "Proprietà intellettuale"
+    body: >-
+      <p>Testi, progetto grafico e immagini sono miei, salvo dove indicato
+      diversamente. Puoi citarli indicando la fonte e linkando la pagina
+      originale. Riprodurli integralmente o usarli a scopo commerciale
+      richiede il mio permesso scritto.</p>
+      <p>Marchi e loghi di terzi eventualmente presenti appartengono ai
+      rispettivi titolari e servono solo a identificare la tecnologia o
+      l'azienda di cui sto parlando.</p>
+
+  - heading: "Link verso altri siti"
+    body: >-
+      <p>Alcune pagine contengono link verso siti che non gestisco né
+      controllo. Sono presenti perché il contenuto collegato è pertinente,
+      non perché ne approvi contenuti, condizioni d'uso o trattamento dei
+      dati. Una volta seguito il link, sei su un sito indipendente da questo,
+      soggetto alle regole del suo gestore, del quale non mi assumo alcuna
+      responsabilità.</p>
+
+  - heading: "Responsabilità"
+    body: >-
+      <p>Controllo i contenuti prima di pubblicarli, ma non garantisco che
+      siano privi di errori né che restino accurati nel tempo. Le
+      informazioni tecniche riportate qui riflettono la mia esperienza, non
+      sono una consulenza sul tuo caso specifico.</p>
+      <p>Non posso garantire nemmeno che il sito sia sempre raggiungibile,
+      perché dipende da servizi di terzi e dalla tua connessione.</p>
+
+  - heading: "Hosting"
+    body: >-
+      <p>Il sito è ospitato da
+      <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel Inc.</a>,
+      con sede negli Stati Uniti. La sua informativa è consultabile su
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">vercel.com/legal/privacy-policy</a>.</p>
+
+  - heading: "Legge applicabile"
+    body: >-
+      <p>Queste note sono regolate dalla legge spagnola. Per ogni
+      controversia legata al sito, salvo quando la legge impone un foro
+      diverso (ad esempio quando la controparte è un consumatore), le parti
+      si sottopongono alla competenza dei giudici e tribunali della città di
+      Barcellona, Spagna.</p>

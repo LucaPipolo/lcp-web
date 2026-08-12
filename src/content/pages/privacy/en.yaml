@@ -1,0 +1,159 @@
+metadata:
+  title: "Privacy Policy | Luca Pipolo"
+
+title: "Privacy Policy"
+updated: 2026-08-12
+updatedLabel: "last updated:"
+
+intro: >-
+  This site collects very little. It doesn't build a profile of you, doesn't
+  sell data to anyone and stores only the language and theme you choose.
+  Below you'll find exactly what's processed, on what legal basis and what
+  you can expect from me.
+
+sections:
+  - heading: "Data controller"
+    items:
+      - term: "Controller"
+        description: "somoscuatro 2020 S.L."
+      - term: "Contact"
+        description: >-
+          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
+      - term: "Full identification details"
+        description: >-
+          Set out in the <a href="/en/imprint/">legal notice</a>.
+      - term: "Data Protection Officer"
+        description: >-
+          None has been appointed. The volume and nature of the processing
+          described on this page don't make it mandatory under Article 37
+          of the
+          <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Regulation (EU) 2016/679 (GDPR)</a>.
+
+  - heading: "What data is processed"
+    items:
+      - term: "If you email me"
+        description: >-
+          This site has no forms. The only way to send me data on your own
+          initiative is to email me directly. In that case, I process your
+          email address, your name if you include it in the message, and
+          the content of the message itself, solely to read it and reply.
+          Emailing me is entirely optional: if you don't, the site works
+          exactly the same.
+      - term: "Your language and theme"
+        description: >-
+          The language you choose is stored in a cookie, and the theme you
+          choose is stored in the browser's local storage: both stay on
+          your device, and both are only written when you click the
+          language selector or switch the theme toggle. Neither lets
+          anyone identify you or link this visit to any earlier or later
+          visit. See the <a href="/en/cookies/">cookie notice</a> for the
+          technical detail.
+      - term: "Performance metrics"
+        description: >-
+          The path and address of the page visited, device type, operating
+          system, browser, connection speed, country of origin and page
+          load times.
+      - term: "Error reports"
+        description: >-
+          When something breaks: the error message, the point in the code
+          it came from and the page it happened on. Collection of personal
+          information is switched off at source: no IP address, no form
+          contents, no cookies, no recording of what you were doing on the
+          page.
+
+  - heading: "Automated decision-making"
+    body: >-
+      <p>This site makes no decisions based solely on automated processing,
+      including profiling.</p>
+
+  - heading: "IP addresses"
+    body: >-
+      <p>Your IP address isn't included in the performance data or the
+      error reports I receive, but the servers your browser connects to see
+      it regardless, since they couldn't respond to you otherwise. Vercel
+      states that its performance metrics aren't linked back to a specific
+      visit or IP address, and the error reporting system is configured not
+      to collect it at all.</p>
+
+  - heading: "Legal basis"
+    body: >-
+      <p>When you email me, I process the message in order to reply to you,
+      which is exactly what you're asking me to do. The legal basis is
+      legitimate interest under Article 6(1)(f) of the
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Regulation (EU) 2016/679 (GDPR)</a>,
+      or pre-contractual measures under Article 6(1)(b) if what you're
+      proposing is a work engagement.</p>
+      <p>Performance metrics and error reports also rest on legitimate
+      interest: knowing whether the site loads quickly and whether it's
+      working correctly. That interest outweighs the impact on your privacy
+      precisely because the measurement is anonymous, leaves nothing on
+      your device and doesn't allow you to be identified.</p>
+      <p>Your language and theme are stored because you yourself requested
+      them, by using the language selector or the theme toggle: this is
+      what Article 22.2 of
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002 (LSSI-CE)</a>
+      treats as a service explicitly requested, requiring no consent.</p>
+      <p>I don't ask for any consent because no processing described on
+      this page depends on it. If there ever were one, I'd ask before I
+      started processing your data, not after, and you'd be free to
+      withdraw it at any time.</p>
+
+  - heading: "Who else processes this data"
+    body: >-
+      <p>I rely on external providers. Neither one receives your data for
+      its own commercial purposes.</p>
+    items:
+      - term: "Vercel Inc."
+        description: >-
+          Handles hosting for the site, perimeter security and performance
+          metrics, through
+          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>.
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Its privacy policy</a>.
+      - term: "Functional Software, Inc."
+        description: >-
+          Handles error reporting through the
+          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>
+          service.
+          <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Its privacy policy</a>.
+
+  - heading: "Transfers outside the European Economic Area"
+    body: >-
+      <p>Both providers listed above are US companies, so the data they
+      process may leave the European Economic Area. These transfers rely on
+      the
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32021D0914" target="_blank" rel="noopener noreferrer">standard contractual clauses approved by the European Commission under Implementing Decision (EU) 2021/914</a>
+      and, where applicable, on
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer">Implementing Decision (EU) 2023/1795, which recognises an adequate level of protection for data transferred under the EU-US Data Privacy Framework</a>,
+      as stated by each provider in its privacy policy linked above.</p>
+
+  - heading: "How long I keep this data"
+    body: >-
+      <p>Emails stay in my inbox for as long as the conversation is still
+      relevant, then I delete them. Performance data and error reports are
+      kept by each provider according to its own retention periods, and
+      neither allows me to trace them back to you. Your language and theme
+      stay on your device until you clear this site's data from your
+      browser.</p>
+
+  - heading: "Your rights"
+    body: >-
+      <p>You can ask me to access your data, correct or delete it, object
+      to its processing, request that it be restricted, or ask for the
+      portability of whatever you've sent me. Write to
+      <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a> and I'll
+      reply within a month, as required by Article 12 of the
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">GDPR</a>.</p>
+      <p>In practice this only concerns emails you've sent me: performance
+      measurement and error reporting are anonymous, so I can't isolate one
+      person's data or verify it's genuinely theirs.</p>
+      <p>If you think I haven't handled your data properly, you can lodge a
+      complaint with Spain's data protection authority, the
+      <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">AEPD</a>,
+      or with the data protection authority in the country where you
+      live.</p>
+
+  - heading: "Changes to this policy"
+    body: >-
+      <p>If I add a service in future that processes data differently from
+      what's described here, I'll update this page and change the "last
+      updated" date above before switching it on.</p>

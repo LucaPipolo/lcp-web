@@ -1,0 +1,164 @@
+metadata:
+  title: "Informativa sulla privacy | Luca Pipolo"
+
+title: "Informativa sulla privacy"
+updated: 2026-08-12
+updatedLabel: "ultimo aggiornamento:"
+
+intro: >-
+  Questo sito raccoglie pochissimo. Non costruisce un profilo su di te, non
+  vende dati a nessuno e salva soltanto la lingua e il tema che scegli tu.
+  Qui sotto trovi esattamente cosa viene trattato, su quale base giuridica e
+  cosa puoi pretendere da me.
+
+sections:
+  - heading: "Titolare del trattamento"
+    items:
+      - term: "Titolare"
+        description: "somoscuatro 2020 S.L."
+      - term: "Contatto"
+        description: >-
+          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
+      - term: "Dati identificativi completi"
+        description: >-
+          Sono nelle <a href="/it/imprint/">note legali</a>.
+      - term: "Responsabile della protezione dei dati"
+        description: >-
+          Non è stato nominato. Il volume e la natura del trattamento
+          descritto in questa pagina non lo rendono obbligatorio ai sensi
+          dell'articolo 37 del
+          <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Regolamento (UE) 2016/679 (GDPR)</a>.
+
+  - heading: "Quali dati vengono trattati"
+    items:
+      - term: "Se mi scrivi un'email"
+        description: >-
+          Questo sito non contiene moduli. L'unico modo per inviarmi dati di
+          tua iniziativa è scrivermi un'email direttamente. In quel caso
+          tratto il tuo indirizzo email, il tuo nome se lo includi nel
+          messaggio e il contenuto del messaggio, soltanto per leggerlo e
+          risponderti. Scrivermi è del tutto facoltativo: se non lo fai, il
+          sito funziona esattamente allo stesso modo.
+      - term: "La tua lingua e il tuo tema"
+        description: >-
+          La lingua che scegli viene salvata in un cookie e il tema che
+          scegli nel local storage del browser: entrambi restano sul tuo
+          dispositivo, e vengono scritti solo quando fai clic sul selettore
+          della lingua o sull'interruttore del tema. Nessuno dei due permette
+          di identificarti o di collegare questa visita ad altre visite
+          precedenti o successive. Guarda l'<a href="/it/cookies/">informativa
+          sui cookie</a> per i dettagli tecnici.
+      - term: "Metriche di prestazione"
+        description: >-
+          Il percorso e l'indirizzo della pagina visitata, il tipo di
+          dispositivo, il sistema operativo, il browser, la velocità della
+          connessione, il paese di provenienza e i tempi di caricamento
+          della pagina.
+      - term: "Segnalazioni di errore"
+        description: >-
+          Quando qualcosa smette di funzionare correttamente: il messaggio
+          d'errore, il punto del codice da cui proviene e la pagina su cui
+          si è verificato. La raccolta di informazioni personali è
+          disattivata alla fonte: né indirizzo IP, né contenuto dei moduli,
+          né cookie, né registrazione di quello che stavi facendo sulla
+          pagina.
+
+  - heading: "Decisioni automatizzate"
+    body: >-
+      <p>Questo sito non prende nessuna decisione basata unicamente su
+      trattamento automatizzato, inclusa la profilazione.</p>
+
+  - heading: "Indirizzi IP"
+    body: >-
+      <p>Il tuo indirizzo IP non viene incluso nei dati di prestazione né
+      nelle segnalazioni di errore che ricevo io, ma i server a cui il tuo
+      browser si collega lo vedono comunque, perché senza non potrebbero
+      risponderti. Vercel dichiara che le proprie metriche di prestazione
+      non restano collegate a una visita né a un indirizzo IP specifico, e
+      il sistema di segnalazione errori è configurato per non raccoglierlo
+      affatto.</p>
+
+  - heading: "Base giuridica"
+    body: >-
+      <p>Quando mi scrivi, tratto il messaggio per risponderti: è esattamente
+      quello che mi stai chiedendo di fare. La base giuridica è il legittimo
+      interesse previsto dall'articolo 6, paragrafo 1, lettera f, del
+      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Regolamento (UE) 2016/679 (GDPR)</a>,
+      oppure le misure precontrattuali dell'articolo 6, paragrafo 1, lettera
+      b, se quello che proponi è un incarico di lavoro.</p>
+      <p>Anche le metriche di prestazione e le segnalazioni di errore si
+      basano sul legittimo interesse: sapere se il sito carica in fretta e
+      se funziona correttamente. Questo interesse prevale sull'impatto sulla
+      tua privacy proprio perché la misurazione è anonima, non lascia nulla
+      sul tuo dispositivo e non permette di identificarti.</p>
+      <p>La lingua e il tema vengono salvati perché li hai richiesti tu
+      stesso, usando il selettore della lingua o l'interruttore del tema:
+      è quello che l'articolo 22.2 della
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">legge spagnola 34/2002 (LSSI-CE)</a>
+      considera un servizio richiesto in modo esplicito, senza bisogno di
+      consenso.</p>
+      <p>Non ti chiedo nessun consenso perché nessun trattamento descritto
+      in questa pagina ne dipende. Se in futuro ce ne fosse uno, te lo
+      chiederei prima di iniziare a trattare i tuoi dati, non dopo, e a
+      quel punto potresti revocarlo in qualsiasi momento.</p>
+
+  - heading: "Chi altro tratta questi dati"
+    body: >-
+      <p>Mi appoggio a fornitori esterni. Nessuno di loro riceve i tuoi dati
+      per scopi commerciali propri.</p>
+    items:
+      - term: "Vercel Inc."
+        description: >-
+          Si occupa dell'hosting del sito, della sicurezza perimetrale e
+          delle metriche di prestazione, tramite
+          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>.
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">La sua informativa sulla privacy</a>.
+      - term: "Functional Software, Inc."
+        description: >-
+          Gestisce le segnalazioni di errore tramite il servizio
+          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>.
+          <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">La sua informativa sulla privacy</a>.
+
+  - heading: "Trasferimenti fuori dallo Spazio economico europeo"
+    body: >-
+      <p>I fornitori elencati sopra sono società statunitensi, quindi i dati
+      che trattano possono uscire dallo Spazio economico europeo. Questi
+      trasferimenti si basano sulle
+      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32021D0914" target="_blank" rel="noopener noreferrer">clausole contrattuali tipo approvate dalla Commissione europea con la Decisione di esecuzione (UE) 2021/914</a>
+      e, dove applicabile, sulla
+      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer">Decisione di esecuzione (UE) 2023/1795, che riconosce un livello di protezione adeguato ai dati trasferiti nell'ambito del Data Privacy Framework UE-USA</a>,
+      secondo quanto dichiarato da ciascun fornitore nella propria
+      informativa collegata qui sopra.</p>
+
+  - heading: "Per quanto tempo conservo i dati"
+    body: >-
+      <p>Le email restano nella mia casella di posta finché la conversazione
+      ha ancora ragione di esistere, poi le cancello. I dati di prestazione
+      e le segnalazioni di errore vengono conservati da ciascun fornitore
+      secondo i propri tempi, e nessuno dei due permette di risalire alla
+      tua identità. La lingua e il tema restano sul tuo dispositivo finché
+      non cancelli i dati di questo sito dal browser.</p>
+
+  - heading: "I tuoi diritti"
+    body: >-
+      <p>Puoi chiedermi di accedere ai tuoi dati, di correggerli o di
+      cancellarli, opporti al trattamento, chiederne la limitazione o
+      pretendere la portabilità di quello che mi hai inviato. Scrivi a
+      <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a> e ti
+      rispondo entro un mese, come previsto dall'articolo 12 del
+      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">GDPR</a>.</p>
+      <p>In pratica questo riguarda solo le email che mi hai scritto: la
+      misurazione di prestazione e le segnalazioni di errore sono anonime,
+      quindi non posso isolare i dati di una singola persona né verificare
+      che siano davvero i suoi.</p>
+      <p>Se ritieni che non abbia gestito correttamente i tuoi dati, puoi
+      presentare reclamo all'autorità spagnola per la protezione dei dati,
+      la
+      <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">AEPD</a>,
+      oppure all'autorità di protezione dati del paese in cui vivi.</p>
+
+  - heading: "Modifiche a questa informativa"
+    body: >-
+      <p>Se in futuro aggiungo un servizio che tratta i dati in un modo
+      diverso da quello descritto qui, aggiorno questa pagina e cambio la
+      data di "ultimo aggiornamento" indicata sopra prima di attivarlo.</p>

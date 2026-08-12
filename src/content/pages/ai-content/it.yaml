@@ -1,0 +1,77 @@
+metadata:
+  title: "Contenuti e assistenza IA | Luca Pipolo"
+
+title: "Contenuti e assistenza IA"
+updated: 2026-08-12
+updatedLabel: "ultimo aggiornamento:"
+
+intro: >-
+  Parte dei testi di questo sito viene scritta con l'assistenza di
+  strumenti di intelligenza artificiale. Questa pagina spiega quali
+  strumenti uso, come li uso e cosa, invece, resta interamente mio: le
+  idee, le decisioni editoriali e la responsabilità di quello che leggi.
+
+sections:
+  - heading: "Quali strumenti uso"
+    items:
+      - term: "Claude e Claude Code"
+        description: >-
+          Di
+          <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Anthropic</a>,
+          principalmente i modelli Claude Sonnet 5 e Claude Opus 5.
+      - term: "ChatGPT"
+        description: >-
+          Di
+          <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">OpenAI</a>,
+          modello GPT-5.6.
+      - term: "Kimi"
+        description: >-
+          Di
+          <a href="https://www.moonshot.ai/" target="_blank" rel="noopener noreferrer">Moonshot AI</a>,
+          modello Kimi K3.
+
+  - heading: "Come nasce un testo su questo sito"
+    body: >-
+      <p>La prima bozza la scrive l'IA, a partire dalle idee e dalle
+      indicazioni che le do io. Quella bozza passa poi attraverso un
+      confronto diretto tra me e lo strumento: correggo, riformulo, chiedo
+      modifiche, scarto quello che non funziona. Solo dopo questo scambio
+      l'IA scrive il testo che considero definitivo, che a sua volta passa
+      per un secondo giro di revisione e correzioni manuali da parte mia.</p>
+      <p>Quando un testo esiste già in una lingua e manca nelle altre, la
+      traduzione nelle lingue mancanti viene generata con gli stessi
+      strumenti, partendo dal testo che ho scritto per primo.</p>
+
+  - heading: "Cosa resta mio"
+    body: >-
+      <p>L'idea di cosa scrivere, la struttura, le scelte editoriali e
+      tecniche, le correzioni finali e la responsabilità di quello che
+      pubblico sono sempre mie. Uso questi strumenti come userei un editor
+      o un traduttore, non come un sostituto della creatività e
+      dell'intelletto umano.</p>
+
+  - heading: "Cosa dice la legge"
+    body: >-
+      <p>L'articolo 50, paragrafo 4, del
+      <a href="https://eur-lex.europa.eu/legal-content/IT/ALL/?uri=CELEX:32024R1689" target="_blank" rel="noopener noreferrer">Regolamento (UE) 2024/1689 (AI Act)</a>
+      impone di dichiarare l'origine artificiale di un testo generato o
+      manipolato dall'IA e pubblicato per informare il pubblico su
+      questioni di interesse pubblico.</p>
+      <p>La stessa norma esclude da questo obbligo i testi che sono stati
+      sottoposti a revisione umana e per cui una persona ne assume la
+      responsabilità editoriale, che è esattamente il processo descritto
+      qui sopra. In altre parole: questa dichiarazione non mi è imposta
+      dalla legge.</p>
+      <p>La pubblico comunque, per scelta. Nel mio lavoro uso regolarmente
+      strumenti di intelligenza artificiale, e non vedo motivo di
+      nasconderlo: sono strumenti, non qualcosa di cui vergognarsi.
+      Preferisco dichiararlo apertamente piuttosto che appoggiarmi a
+      un'eccezione di legge che mi eviterebbe di farlo.</p>
+
+  - heading: "Cosa copre questa pagina"
+    body: >-
+      <p>Questa dichiarazione riguarda i testi pubblicati sul sito
+      (articoli, descrizioni, pagine come questa).</p>
+      <p>Strumenti di intelligenza artificiale vengono utilizzati anche per
+      scrivere e mantenere il codice di questo sito. Tali strumenti
+      includono <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">agenti autonomi e tecniche di looping e graphing</a>.</p>

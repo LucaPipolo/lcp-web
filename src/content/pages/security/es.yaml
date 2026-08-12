@@ -1,0 +1,63 @@
+metadata:
+  title: "Seguridad | Luca Pipolo"
+
+title: "Seguridad"
+updated: 2026-08-12
+updatedLabel: "última actualización:"
+
+intro: >-
+  Esta página enumera las medidas de seguridad activas en este sitio,
+  dónde encontrar su código fuente y cómo notificarme una vulnerabilidad.
+
+sections:
+  - heading: "Código fuente"
+    body: >-
+      <p>El código de este sitio es público y está cubierto por una
+      <a href="https://github.com/LucaPipolo/lcp-web/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">licencia MIT</a>.
+      Puedes revisarlo visitando el repositorio
+      <a href="https://github.com/LucaPipolo/lcp-web" target="_blank" rel="noopener noreferrer">LucaPipolo/lcp-web</a>
+      en GitHub.</p>
+
+  - heading: "Qué hago para proteger el sitio"
+    body: >-
+      <p>El sitio usa una
+      <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy" target="_blank" rel="noopener noreferrer">Content Security Policy</a>
+      y otras
+      <a href="https://owasp.org/www-project-secure-headers/" target="_blank" rel="noopener noreferrer">cabeceras de seguridad recomendadas por el OWASP Secure Headers Project</a>
+      para limitar qué puede cargarse y ejecutarse en la página. La
+      configuración exacta está en el código
+      (<a href="https://github.com/LucaPipolo/lcp-web/blob/main/middleware.ts" target="_blank" rel="noopener noreferrer">middleware.ts</a>
+      y
+      <a href="https://github.com/LucaPipolo/lcp-web/blob/main/vercel.json" target="_blank" rel="noopener noreferrer">vercel.json</a>).
+      El sitio obtiene una calificación
+      <a href="https://securityheaders.com/?q=https%3A%2F%2Fwww.lucapipolo.com&followRedirects=on" target="_blank" rel="noopener noreferrer">A+ en securityheaders.com</a>.</p>
+      <p>El tráfico hacia el sitio pasa por el
+      <a href="https://vercel.com/docs/security/vercel-waf" target="_blank" rel="noopener noreferrer">Web Application Firewall de Vercel</a>,
+      con el
+      <a href="https://vercel.com/docs/bot-management" target="_blank" rel="noopener noreferrer">Bot Protection managed ruleset</a>
+      activo para bloquear tráfico automatizado no legítimo.</p>
+
+  - heading: "Automatizaciones de seguridad en GitHub"
+    body: >-
+      <p>En el repositorio están activas las
+      <a href="https://github.com/LucaPipolo/lcp-web/security" target="_blank" rel="noopener noreferrer">herramientas de seguridad de GitHub</a>:
+      <a href="https://docs.github.com/en/code-security/dependabot" target="_blank" rel="noopener noreferrer">Dependabot</a>
+      notifica las vulnerabilidades conocidas en las librerías de las que
+      depende el sitio y propone su actualización, el
+      <a href="https://docs.github.com/en/code-security/secret-scanning" target="_blank" rel="noopener noreferrer">secret scanning con push protection</a>
+      bloquea automáticamente los intentos de subir credenciales o claves
+      al código, y
+      <a href="https://docs.github.com/en/code-security/code-scanning" target="_blank" rel="noopener noreferrer">CodeQL</a>
+      analiza el código en cada cambio en busca de vulnerabilidades.</p>
+
+  - heading: "Notificar una vulnerabilidad"
+    body: >-
+      <p>Si encuentras una vulnerabilidad de seguridad, notifícala a
+      través de la
+      <a href="https://github.com/LucaPipolo/lcp-web/security/advisories/new" target="_blank" rel="noopener noreferrer">función de notificación privada de GitHub</a>:
+      solo yo podré verla hasta que la haya corregido. Como alternativa,
+      puedes escribirme a
+      <a href="mailto:security@lucapipolo.com">security@lucapipolo.com</a>.
+      Encontrarás los mismos datos de contacto, en un formato legible para
+      quienes automatizan este tipo de búsquedas, en el archivo
+      <a href="https://lucapipolo.com/.well-known/security.txt" target="_blank" rel="noopener noreferrer">/.well-known/security.txt</a>.</p>

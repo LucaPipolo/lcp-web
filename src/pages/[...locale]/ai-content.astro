@@ -1,0 +1,58 @@
+---
+import Layout from "@/layouts/main.astro"
+
+import Article from "@/components/sections/Article/Article.astro"
+import ArticleSection from "@/components/sections/Article/ArticleSection.astro"
+
+import DefinitionItem from "@/components/common/DefinitionItem.astro"
+import DefinitionList from "@/components/common/DefinitionList.astro"
+import Prose from "@/components/common/Prose.astro"
+import SectionContainer from "@/components/common/SectionContainer.astro"
+
+import { getLocalizedStaticPaths } from "@/libs/content"
+import { formatDate } from "@/libs/i18n"
+
+export async function getStaticPaths() {
+  return getLocalizedStaticPaths("ai-content")
+}
+
+const { entry } = Astro.props
+const { metadata, title, updated, updatedLabel, intro, sections } = entry.data
+
+const updatedOn = `${updatedLabel} ${formatDate(updated, Astro.currentLocale)}`
+---
+
+<Layout title={metadata.title}>
+  <SectionContainer>
+    <Article>
+      <Fragment slot="title">{title}</Fragment>
+      <Fragment slot="meta">{updatedOn}</Fragment>
+      <Fragment slot="intro" set:html={intro} />
+
+      {
+        sections.map((section) => (
+          <ArticleSection slot="sections">
+            <Fragment slot="heading">{section.heading}</Fragment>
+
+            {section.body && (
+              <Prose>
+                <Fragment set:html={section.body} />
+              </Prose>
+            )}
+
+            {section.items && (
+              <DefinitionList class="mt-2">
+                {section.items.map((item) => (
+                  <DefinitionItem>
+                    <Fragment slot="term">{item.term}</Fragment>
+                    <Fragment slot="description" set:html={item.description} />
+                  </DefinitionItem>
+                ))}
+              </DefinitionList>
+            )}
+          </ArticleSection>
+        ))
+      }
+    </Article>
+  </SectionContainer>
+</Layout>

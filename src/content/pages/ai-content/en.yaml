@@ -1,0 +1,76 @@
+metadata:
+  title: "AI Content and Assistance | Luca Pipolo"
+
+title: "AI Content and Assistance"
+updated: 2026-08-12
+updatedLabel: "last updated:"
+
+intro: >-
+  Some of the text on this site is written with the assistance of
+  artificial intelligence tools. This page explains which tools I use, how
+  I use them, and what, instead, stays entirely mine: the ideas, the
+  editorial decisions, and the responsibility for what you're reading.
+
+sections:
+  - heading: "Which tools I use"
+    items:
+      - term: "Claude and Claude Code"
+        description: >-
+          From
+          <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Anthropic</a>,
+          mainly the Claude Sonnet 5 and Claude Opus 5 models.
+      - term: "ChatGPT"
+        description: >-
+          From
+          <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">OpenAI</a>,
+          the GPT-5.6 model.
+      - term: "Kimi"
+        description: >-
+          From
+          <a href="https://www.moonshot.ai/" target="_blank" rel="noopener noreferrer">Moonshot AI</a>,
+          the Kimi K3 model.
+
+  - heading: "How a piece of text on this site comes about"
+    body: >-
+      <p>The first draft is written by the AI, based on the ideas and
+      direction I give it. That draft then goes through a direct exchange
+      between me and the tool: I correct it, rephrase it, ask for changes,
+      discard what doesn't work. Only after this exchange does the AI write
+      the text I consider final, which in turn goes through a second round
+      of review and manual corrections on my part.</p>
+      <p>When a text already exists in one language and is missing in the
+      others, the translation into the missing languages is generated with
+      the same tools, starting from the text I wrote first.</p>
+
+  - heading: "What stays mine"
+    body: >-
+      <p>The idea of what to write, the structure, the editorial and
+      technical decisions, the final corrections, and the responsibility
+      for what I publish are always mine. I use these tools the way I'd use
+      an editor or a translator, not as a substitute for human creativity
+      and intellect.</p>
+
+  - heading: "What the law says"
+    body: >-
+      <p>Article 50(4) of
+      <a href="https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32024R1689" target="_blank" rel="noopener noreferrer">Regulation (EU) 2024/1689 (the AI Act)</a>
+      requires disclosing the artificial origin of text that has been
+      generated or manipulated by AI and published to inform the public on
+      matters of public interest.</p>
+      <p>The same rule exempts text that has undergone human review and for
+      which a person assumes editorial responsibility, which is exactly the
+      process described above. In other words: this disclosure isn't
+      required of me by law.</p>
+      <p>I'm publishing it anyway, by choice. I regularly use artificial
+      intelligence tools in my work, and I see no reason to hide it: they
+      are tools, not something to be ashamed of. I'd rather disclose it
+      openly than rely on a legal exemption that would let me avoid doing
+      so.</p>
+
+  - heading: "What this page covers"
+    body: >-
+      <p>This disclosure covers the text published on the site (articles,
+      descriptions, pages like this one).</p>
+      <p>Artificial intelligence tools are also used to write and maintain
+      the code for this site. These tools include
+      <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">autonomous agents and looping and graphing techniques</a>.</p>
