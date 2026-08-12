@@ -43,3 +43,17 @@
   --text-9xl: clamp(3.25rem, 2rem + 6.25vw, 8rem);
   --text-9xl--line-height: 1;
 }
+
+@utility rich-text {
+  & a {
+    @apply text-primary underline underline-offset-4;
+  }
+
+  & code {
+    @apply font-mono wrap-anywhere;
+  }
+
+  & strong {
+    @apply font-medium text-foreground;
+  }
+}

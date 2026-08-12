@@ -1,0 +1,21 @@
+---
+if (!Astro.slots.has("heading")) {
+  throw new Error("<ArticleSection> requires a `heading` slot.")
+}
+
+const content = Astro.slots.has("default")
+  ? await Astro.slots.render("default")
+  : ""
+
+if (content.trim() === "") {
+  throw new Error("<ArticleSection> requires content below its heading.")
+}
+---
+
+<section class="flex flex-col gap-4">
+  <h2 class="text-xl font-semibold tracking-tight text-foreground">
+    <slot name="heading" />
+  </h2>
+
+  <slot />
+</section>
