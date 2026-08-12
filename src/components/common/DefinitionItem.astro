@@ -1,0 +1,16 @@
+---
+for (const slot of ["term", "description"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<DefinitionItem> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<div class="grid gap-1 py-4 sm:grid-cols-[minmax(0,14rem)_1fr] sm:gap-6">
+  <dt class="font-mono text-xs text-foreground">
+    <slot name="term" />
+  </dt>
+  <dd class="rich-text text-muted-foreground">
+    <slot name="description" />
+  </dd>
+</div>

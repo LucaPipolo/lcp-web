@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+import { cn } from "@/libs/utils"
+
+type Props = HTMLAttributes<"dl">
+
+const { class: className, ...rest } = Astro.props
+
+if (!Astro.slots.has("default")) {
+  throw new Error(
+    "<DefinitionList> requires content (pass at least one <DefinitionItem>)."
+  )
+}
+---
+
+<dl
+  class={cn(
+    "flex flex-col divide-y divide-border border-y border-border",
+    className
+  )}
+  {...rest}
+>
+  <slot />
+</dl>
