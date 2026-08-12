@@ -11,8 +11,9 @@
     "lint": "eslint .",
     "format:check": "prettier --check \"**/*.{ts,tsx,astro}\"",
     "format": "prettier --write \"**/*.{ts,tsx,astro}\"",
+    "check:csp": "node scripts/check-csp.mjs",
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && bun run check:csp",
     "preview": "astro preview"
   },
   "lint-staged": {
