@@ -1,11 +1,15 @@
 ---
 import "@/styles/global.css"
 
+import SiteHeader from "@/components/sections/SiteHeader/SiteHeader.astro"
+import SiteHeaderLink from "@/components/sections/SiteHeader/SiteHeaderLink.astro"
+
 import SiteFooter from "@/components/sections/SiteFooter/SiteFooter.astro"
 import SiteFooterColophon from "@/components/sections/SiteFooter/SiteFooterColophon.astro"
 import SiteFooterColumn from "@/components/sections/SiteFooter/SiteFooterColumn.astro"
 import SiteFooterLink from "@/components/sections/SiteFooter/SiteFooterLink.astro"
 
+import ThemeToggle from "@/components/sections/SiteHeader/ThemeToggle.astro"
 import ButtonLink from "@/components/common/ButtonLink.astro"
 
 import { THEME_INIT_SOURCE } from "@/scripts/theme-init"
@@ -37,7 +41,7 @@ const alternates = LOCALES.map((code) => ({
 
 const { title } = Astro.props
 
-const { footer } = await getSettings(locale)
+const { header, footer } = await getSettings(locale)
 
 const copyright =
   footer &&
@@ -52,7 +56,6 @@ const copyright =
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-
     <link rel="canonical" href={canonical.href} />
     {
       alternates.map(({ code, href }) => (
@@ -68,6 +71,22 @@ const copyright =
     <SpeedInsights />
   </head>
   <body>
+    <SiteHeader homeHref={homeHref}>
+      {
+        header.nav.map((link) => (
+          <SiteHeaderLink slot="nav" href={localizeHref(link.href, locale)}>
+            {link.label}
+          </SiteHeaderLink>
+        ))
+      }
+
+      <ThemeToggle slot="themeToggle">
+        <Fragment slot="label">{header.themeToggleLabel}</Fragment>
+      </ThemeToggle>
+
+      <Fragment slot="menuLabel">{header.menuLabel}</Fragment>
+    </SiteHeader>
+
     <slot />
 
     {
@@ -128,6 +147,7 @@ const copyright =
     }
   </body><script>
     import "@/scripts/alpine"
+    import "@/scripts/site-menu"
     import "@/scripts/theme"
     import "@/scripts/favicon"
     import "@/scripts/locale"

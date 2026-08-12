@@ -12,6 +12,19 @@ socialLinks:
     label: "Email"
     handle: "ciao@lucapipolo.com"
 
+header:
+  themeToggleLabel: "Cambia tema"
+  menuLabel: "Menu"
+  nav:
+    - label: "esperienza"
+      href: "/#experience"
+    - label: "stack"
+      href: "/#stack"
+    - label: "raccomandazioni"
+      href: "/#recommendations"
+    - label: "contatto"
+      href: "mailto:ciao@lucapipolo.com"
+
 footer:
   tagline: >-
     Se vuoi propormi un lavoro, parlarmi di un progetto o solo fare due
