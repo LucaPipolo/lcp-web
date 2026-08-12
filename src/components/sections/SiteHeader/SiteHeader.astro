@@ -1,0 +1,89 @@
+---
+import { Icon } from "astro-icon/components"
+
+import Wordmark from "@/components/common/Wordmark.astro"
+
+interface Props {
+  homeHref: string
+}
+
+const { homeHref } = Astro.props
+
+for (const slot of ["nav", "themeToggle", "menuLabel"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<SiteHeader> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<header
+  x-data="siteMenu"
+  x-on:keydown.escape.window="close()"
+  class="sticky top-0 z-30"
+>
+  <div class="border-b border-border bg-background/85 backdrop-blur-md">
+    <div
+      class="container mx-auto flex h-header items-center gap-4 border-x border-border px-gutter"
+    >
+      <Wordmark href={homeHref} class="text-lg leading-none" />
+
+      <nav class="ml-auto hidden items-center gap-6 font-mono text-xs sm:flex">
+        <span aria-hidden="true" class="text-primary">//</span>
+        <slot name="nav" />
+      </nav>
+
+      <div class="ml-auto flex items-center gap-1.5 sm:ml-6">
+        <slot name="themeToggle" />
+
+        <button
+          type="button"
+          x-ref="button"
+          x-on:click="toggle()"
+          x-bind:aria-expanded="open"
+          aria-controls="site-menu"
+          class="grid size-8 cursor-pointer place-items-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary sm:hidden"
+        >
+          <span class="sr-only"><slot name="menuLabel" /></span>
+          <Icon
+            name="lucide:menu"
+            x-show="!open"
+            class="col-start-1 row-start-1 size-4"
+            aria-hidden="true"
+          />
+          <Icon
+            name="lucide:x"
+            x-show="open"
+            x-cloak=""
+            class="col-start-1 row-start-1 size-4"
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="site-menu"
+    x-ref="panel"
+    x-show="open"
+    x-cloak=""
+    x-on:click="closeAndRefocus()"
+    x-transition:enter="transition duration-200 ease-out"
+    x-transition:enter-start="-translate-y-3 opacity-0"
+    x-transition:enter-end="translate-y-0 opacity-100"
+    x-transition:leave="transition duration-150 ease-in"
+    x-transition:leave-start="translate-y-0 opacity-100"
+    x-transition:leave-end="-translate-y-3 opacity-0"
+    class="absolute inset-x-0 top-full sm:hidden!"
+  >
+    <div
+      class="container mx-auto border-x border-border bg-background/85 px-gutter backdrop-blur-md"
+    >
+      <nav
+        class="flex flex-col font-mono text-base [&>a]:border-b [&>a]:border-border [&>a]:py-4 [&>a:last-child]:border-b-0"
+      >
+        <slot name="nav" />
+      </nav>
+    </div>
+  </div>
+</header>
