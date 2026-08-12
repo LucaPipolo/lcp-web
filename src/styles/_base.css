@@ -5,6 +5,14 @@
     }
   }
 
+  html {
+    @apply motion-safe:scroll-smooth;
+  }
+
+  :where([id]) {
+    scroll-margin-top: calc(var(--spacing-header) + var(--spacing) * 6);
+  }
+
   [data-theme-switching],
   [data-theme-switching] *,
   [data-theme-switching] *::before,

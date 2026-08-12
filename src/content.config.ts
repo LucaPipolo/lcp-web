@@ -13,6 +13,11 @@ const settings = defineCollection({
         handle: z.string(),
       })
     ),
+    header: z.object({
+      themeToggleLabel: z.string(),
+      menuLabel: z.string(),
+      nav: z.array(z.object({ label: z.string(), href: z.string() })),
+    }),
     footer: z.object({
       tagline: z.string(),
       action: z.object({ label: z.string(), href: z.string() }),
