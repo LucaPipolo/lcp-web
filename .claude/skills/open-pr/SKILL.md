@@ -3,7 +3,10 @@ name: open-pr
 description: >-
   Opens a GitHub pull request for the current branch against `main`, generating the title and body from its
   commits and diff to match this repo's exact PR template (a Context bullet list plus a numbered Verification
-  Plan). Only reachable via the /open-pr slash command; never invoke this on your own.
+  Plan).
+when_to_use: >-
+  Once the current branch's commits are pushed and ready for review. Only reachable via the /open-pr slash
+  command; never invoke this on your own.
 disable-model-invocation: true
 model: sonnet
 allowed-tools: Bash(git status *) Bash(git log *) Bash(git diff *)
