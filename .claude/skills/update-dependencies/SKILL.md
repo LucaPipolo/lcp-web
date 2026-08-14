@@ -140,3 +140,8 @@ production/development position, in whatever order `bun outdated` lists it.
 
 Report a summary: which packages were updated, which were skipped and why, and which were deferred as breaking
 majors.
+
+`open-pr` builds the `## Deferred` section of its PR body from this summary and has no other source for it —
+nothing was committed for a deferred package — and only within the same session. So for each deferred package,
+the summary must name the package, its old and new version numbers (the resolved versions, never the semver
+range), and a one-line reason it was deferred.
