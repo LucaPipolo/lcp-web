@@ -1,6 +1,5 @@
-This is the source for [lucapipolo.com](https://www.lucapipolo.com), a personal site with a home page, a blog,
-and a handful of legal pages, statically built with [Astro](https://astro.build/) and served in Spanish,
-English, and Italian.
+This is the source for [Luca Pipolo's personal portfolio website](https://www.lucapipolo.com), statically built
+with [Astro](https://astro.build/).
 
 ## Tech stack
 

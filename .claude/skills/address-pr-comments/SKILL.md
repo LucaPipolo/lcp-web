@@ -2,10 +2,14 @@
 name: address-pr-comments
 description: >-
   Fetches the unresolved inline review comments on a PR — the current branch's by default, or a specific one
-  given as an argument (e.g. /address-pr-comments 19) — evaluates each one, and either fixes the code it flags
-  (committing the fix, never pushing) or replies to it explaining in plain terms why it doesn't apply. Only
-  reachable via the /address-pr-comments slash command; never invoke this on your own.
+  given via the pr argument — evaluates each one, and either fixes the code it flags (committing the fix,
+  never pushing) or replies explaining in plain terms why it doesn't apply.
+when_to_use: >-
+  Use to work through a PR's outstanding Codex review comments. Only reachable via the /address-pr-comments
+  slash command; never invoke this on your own.
+argument-hint: [pr]
 disable-model-invocation: true
+context: fork
 model: sonnet
 arguments: [pr]
 allowed-tools: Bash(gh *) Bash(git branch *)

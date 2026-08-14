@@ -2,8 +2,10 @@
 name: git-commit
 description: >-
   Writes, validates, and creates the commit for changes already staged in this repo, following its exact
-  commit conventions. Reach for this every time changes are staged and ready to commit here, not only when
-  explicitly asked to word a message.
+  commit conventions.
+when_to_use: >-
+  Reach for this every time changes are staged and ready to commit here, not only when explicitly asked to
+  word a message.
 user-invocable: false
 model: haiku
 allowed-tools: Bash(git diff *) Bash(git log *)

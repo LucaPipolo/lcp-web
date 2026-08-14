@@ -1,10 +1,13 @@
 ---
 name: update-dependencies
 description: >-
-  Updates this repo's Bun dependencies, one per commit, working through them in a fixed order. Use when asked to
-  update dependencies, upgrade packages, or run a dependency update pass. Only reachable via the
-  /update-dependencies slash command; never invoke this on your own.
+  Updates this repo's Bun dependencies, one per commit, working through them in a fixed order: production
+  before development, and within each group, a foundational package before what depends on it.
+when_to_use: >-
+  Use when asked to update dependencies, upgrade packages, or run a dependency update pass. Only reachable via
+  the /update-dependencies slash command; never invoke this on your own.
 disable-model-invocation: true
+context: fork
 model: sonnet
 ---
 
