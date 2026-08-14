@@ -6,6 +6,7 @@ description: >-
   (committing the fix, never pushing) or replies to it explaining in plain terms why it doesn't apply. Only
   reachable via the /address-pr-comments slash command; never invoke this on your own.
 disable-model-invocation: true
+context: fork
 model: sonnet
 arguments: [pr]
 allowed-tools: Bash(gh *) Bash(git branch *)

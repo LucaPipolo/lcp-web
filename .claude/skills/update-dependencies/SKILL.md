@@ -5,6 +5,7 @@ description: >-
   update dependencies, upgrade packages, or run a dependency update pass. Only reachable via the
   /update-dependencies slash command; never invoke this on your own.
 disable-model-invocation: true
+context: fork
 model: sonnet
 ---
 
