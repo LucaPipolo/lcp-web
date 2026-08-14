@@ -2,7 +2,7 @@ metadata:
   title: "Contenido y asistencia de IA | Luca Pipolo"
 
 title: "Contenido y asistencia de IA"
-updated: 2026-08-12
+updated: 2026-08-14
 updatedLabel: "última actualización:"
 
 intro: >-
@@ -74,6 +74,7 @@ sections:
       <p>Esta declaración se refiere a los textos publicados en el sitio
       (artículos, descripciones, páginas como esta).</p>
       <p>También se utilizan herramientas de inteligencia artificial para
-      escribir y mantener el código de este sitio. Estas herramientas
-      incluyen
-      <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">agentes autónomos y técnicas de looping y graphing</a>.</p>
+      escribir y mantener el código de este sitio. Puedes leer la
+      <a href="https://github.com/LucaPipolo/lcp-web#ai-tooling" target="_blank" rel="noopener noreferrer">sección AI tooling del README</a>
+      para saber qué modelos, skills y servidores MCP uso en este
+      repositorio, y cuál es mi workflow.</p>
