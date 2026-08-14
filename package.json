@@ -42,7 +42,7 @@
     "@eslint/js": "^10.0.1",
     "@iconify-json/simple-icons": "^1.2.93",
     "clsx": "^2.1.1",
-    "eslint": "^10.8.0",
+    "eslint": "^10.8.1",
     "eslint-plugin-astro": "^3.1.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "globals": "^17.9.0",
