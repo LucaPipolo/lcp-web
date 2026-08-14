@@ -2,7 +2,7 @@ metadata:
   title: "AI Content and Assistance | Luca Pipolo"
 
 title: "AI Content and Assistance"
-updated: 2026-08-12
+updated: 2026-08-14
 updatedLabel: "last updated:"
 
 intro: >-
@@ -72,5 +72,7 @@ sections:
       <p>This disclosure covers the text published on the site (articles,
       descriptions, pages like this one).</p>
       <p>Artificial intelligence tools are also used to write and maintain
-      the code for this site. These tools include
-      <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">autonomous agents and looping and graphing techniques</a>.</p>
+      the code for this site. You can read the README's
+      <a href="https://github.com/LucaPipolo/lcp-web#ai-tooling" target="_blank" rel="noopener noreferrer">AI tooling section</a>
+      to see which models, skills, and MCP servers I use in this
+      repository, and what my workflow looks like.</p>
