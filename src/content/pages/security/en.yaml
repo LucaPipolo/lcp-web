@@ -1,5 +1,8 @@
 metadata:
   title: "Security | Luca Pipolo"
+  description: >-
+    The security measures in place on this site, where to find its
+    source code, and how to report a vulnerability.
 
 title: "Security"
 updated: 2026-08-12
