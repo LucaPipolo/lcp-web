@@ -75,7 +75,10 @@ const recommendation = z.object({
 const home = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/pages/home" }),
   schema: z.object({
-    metadata: z.object({ title: z.string() }),
+    metadata: z.object({
+      title: z.string(),
+      description: z.string().optional(),
+    }),
     sections: z.object({
       hero: z.object({
         badge: z
@@ -286,7 +289,10 @@ function articlePage(directory: string) {
       base: `./src/content/pages/${directory}`,
     }),
     schema: z.object({
-      metadata: z.object({ title: z.string() }),
+      metadata: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+      }),
       title: z.string(),
       updated: z.coerce.date(),
       updatedLabel: z.string(),

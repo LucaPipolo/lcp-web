@@ -63,7 +63,11 @@ const { blog } = await getSettings(locale)
 const posts = (await getPosts(locale)).slice(0, LATEST)
 ---
 
-<Layout alternates={getAlternates("/")} title={metadata.title}>
+<Layout
+  alternates={getAlternates("/")}
+  description={metadata.description}
+  title={metadata.title}
+>
   <Hero>
     <HeroHeader slot="header">
       {badge && (
