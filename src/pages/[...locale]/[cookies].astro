@@ -22,7 +22,11 @@ const { metadata, title, updated, updatedLabel, intro, sections } = entry.data
 const updatedOn = `${updatedLabel} ${formatDate(updated, Astro.currentLocale)}`
 ---
 
-<Layout alternates={getAlternates("/cookies/")} title={metadata.title}>
+<Layout
+  alternates={getAlternates("/cookies/")}
+  description={metadata.description}
+  title={metadata.title}
+>
   <SectionContainer>
     <Article>
       <Fragment slot="title">{title}</Fragment>
