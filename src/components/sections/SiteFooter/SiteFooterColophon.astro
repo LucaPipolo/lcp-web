@@ -1,5 +1,6 @@
 ---
 import PixelHeart from "@/components/common/PixelHeart.astro"
+
 import SiteFooterLink from "@/components/sections/SiteFooter/SiteFooterLink.astro"
 
 import { splitPlaceholders } from "@/libs/template"
@@ -8,8 +9,8 @@ const ASTRO_HREF = "https://astro.build"
 const REPO_HREF = "https://github.com/LucaPipolo/lcp-web"
 
 interface Props {
-  text: string
   repo: string
+  text: string
 }
 
 const { text, repo } = Astro.props
@@ -24,8 +25,8 @@ const parts = splitPlaceholders(text)
     return (
       <SiteFooterLink
         href={ASTRO_HREF}
-        target="_blank"
         rel="noopener noreferrer"
+        target="_blank"
       >
         Astro
       </SiteFooterLink>
@@ -38,6 +39,6 @@ const parts = splitPlaceholders(text)
   //
 </span>
 
-<SiteFooterLink href={REPO_HREF} target="_blank" rel="noopener noreferrer">
+<SiteFooterLink href={REPO_HREF} rel="noopener noreferrer" target="_blank">
   {repo}
 </SiteFooterLink>

@@ -1,31 +1,31 @@
 ---
+import { Icon } from "astro-icon/components"
+
 import Layout from "@/layouts/main.astro"
 
-import Hero from "@/components/sections/Hero/Hero.astro"
-import HeroHeader from "@/components/sections/Hero/HeroHeader.astro"
-import HeroBadge from "@/components/sections/Hero/HeroBadge.astro"
-import HeroFooter from "@/components/sections/Hero/HeroFooter.astro"
+import ButtonLink from "@/components/common/ButtonLink.astro"
+import SectionContainer from "@/components/common/SectionContainer.astro"
+import SectionHeading from "@/components/common/SectionHeading.astro"
+import SocialLinks from "@/components/common/SocialLinks.astro"
 
 import Experience from "@/components/sections/Experience/Experience.astro"
-import ExperienceRole from "@/components/sections/Experience/ExperienceRole.astro"
 import ExperienceBullet from "@/components/sections/Experience/ExperienceBullet.astro"
+import ExperienceRole from "@/components/sections/Experience/ExperienceRole.astro"
 import ExperienceSkill from "@/components/sections/Experience/ExperienceSkill.astro"
 
-import Stack from "@/components/sections/Stack/Stack.astro"
-import StackTab from "@/components/sections/Stack/StackTab.astro"
-import StackPanel from "@/components/sections/Stack/StackPanel.astro"
-import StackGroup from "@/components/sections/Stack/StackGroup.astro"
-import StackItem from "@/components/sections/Stack/StackItem.astro"
+import Hero from "@/components/sections/Hero/Hero.astro"
+import HeroBadge from "@/components/sections/Hero/HeroBadge.astro"
+import HeroFooter from "@/components/sections/Hero/HeroFooter.astro"
+import HeroHeader from "@/components/sections/Hero/HeroHeader.astro"
 
 import Recommendations from "@/components/sections/Recommendations/Recommendations.astro"
 import RecommendationsQuote from "@/components/sections/Recommendations/RecommendationsQuote.astro"
 
-import ButtonLink from "@/components/common/ButtonLink.astro"
-import SectionHeading from "@/components/common/SectionHeading.astro"
-import SectionContainer from "@/components/common/SectionContainer.astro"
-import SocialLinks from "@/components/common/SocialLinks.astro"
-
-import { Icon } from "astro-icon/components"
+import Stack from "@/components/sections/Stack/Stack.astro"
+import StackGroup from "@/components/sections/Stack/StackGroup.astro"
+import StackItem from "@/components/sections/Stack/StackItem.astro"
+import StackPanel from "@/components/sections/Stack/StackPanel.astro"
+import StackTab from "@/components/sections/Stack/StackTab.astro"
 
 import { getLocalizedStaticPaths } from "@/libs/content"
 
@@ -47,20 +47,20 @@ const badge = hero.badge
       {badge && (
         <HeroBadge slot="badge" stem={badge.stem} tails={badge.tails} />
       )}
-      <Fragment slot="heading" set:html={hero.heading} />
+      <Fragment set:html={hero.heading} slot="heading" />
       <Fragment slot="subheading">{hero.subheading}</Fragment>
     </HeroHeader>
-    <Fragment slot="body" set:html={hero.body} />
+    <Fragment set:html={hero.body} slot="body" />
     {hero.actions.map((action) => (
       <ButtonLink
-        slot="actions"
-        href={action.href}
-        variant={action.variant}
         download={action.download}
+        href={action.href}
+        slot="actions"
+        variant={action.variant}
       >
         {action.label}
         {action.download && (
-          <Icon name="lucide:download" class="size-4" aria-hidden="true" />
+          <Icon aria-hidden="true" class="size-4" name="lucide:download" />
         )}
       </ButtonLink>
     ))}
@@ -76,11 +76,11 @@ const badge = hero.badge
           <SectionHeading slot="heading">{experience.heading}</SectionHeading>
           {experience.roles.map((role, index) => (
             <ExperienceRole
-              slot="roles"
-              id={String(index)}
-              current={index === 0}
-              open={index === 0}
               companyHref={role.companyHref}
+              current={index === 0}
+              id={String(index)}
+              open={index === 0}
+              slot="roles"
             >
               <Fragment slot="period">{role.period}</Fragment>
               <Fragment slot="title">{role.title}</Fragment>
@@ -99,16 +99,16 @@ const badge = hero.badge
 
       {stack && (
         <Stack>
-          <SectionHeading slot="heading" actionsRole="tablist">
+          <SectionHeading actionsRole="tablist" slot="heading">
             {stack.heading}
             {stack.tabs.map((tab) => (
-              <StackTab slot="actions" id={tab.id}>
+              <StackTab id={tab.id} slot="actions">
                 {tab.label}
               </StackTab>
             ))}
           </SectionHeading>
           {stack.tabs.map((tab) => (
-            <StackPanel slot="panels" id={tab.id}>
+            <StackPanel id={tab.id} slot="panels">
               {tab.groups.map((group) => (
                 <StackGroup>
                   <Fragment slot="label">{group.label}</Fragment>
@@ -132,27 +132,27 @@ const badge = hero.badge
         <SectionHeading slot="heading">
           {recommendations.heading}
           <ButtonLink
-            slot="actions"
             href={recommendations.action.href}
-            variant="outline"
-            size="md"
-            target="_blank"
             rel="noopener noreferrer"
+            size="md"
+            slot="actions"
+            target="_blank"
+            variant="outline"
           >
             {recommendations.action.label}
             <Icon
-              name="lucide:external-link"
-              class="size-4"
               aria-hidden="true"
+              class="size-4"
+              name="lucide:external-link"
             />
           </ButtonLink>
         </SectionHeading>
         {recommendations.quotes.map((quote) => (
           <RecommendationsQuote
-            slot="quotes"
-            href={quote.href}
             avatar={quote.avatar}
             avatarAlt={quote.name}
+            href={quote.href}
+            slot="quotes"
           >
             <Fragment slot="initials">{quote.initials}</Fragment>
             <Fragment slot="name">{quote.name}</Fragment>

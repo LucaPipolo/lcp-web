@@ -2,10 +2,10 @@
 import { Icon } from "astro-icon/components"
 
 interface Props {
-  id: string
-  current?: boolean
-  open?: boolean
   companyHref?: string
+  current?: boolean
+  id: string
+  open?: boolean
 }
 
 const { id, current = false, open = false, companyHref } = Astro.props
@@ -32,15 +32,15 @@ for (const slot of ["period", "title", "company", "place"]) {
     </span>
 
     <button
-      type="button"
-      id={`experience-role-${id}`}
-      data-role={id}
-      data-open={open ? "" : undefined}
       aria-controls={`experience-panel-${id}`}
       aria-expanded={open ? "true" : "false"}
-      x-on:click="toggle($event)"
-      x-bind:aria-expanded="isOpen($el)"
       class="group cursor-pointer text-left text-xl font-semibold tracking-tight text-foreground hover:text-primary"
+      data-open={open ? "" : undefined}
+      data-role={id}
+      id={`experience-role-${id}`}
+      type="button"
+      x-bind:aria-expanded="isOpen($el)"
+      x-on:click="toggle($event)"
     >
       <slot name="title" />
       <span
@@ -53,13 +53,13 @@ for (const slot of ["period", "title", "company", "place"]) {
       @{" "}
       {companyHref ? (
         <a
-          href={companyHref}
-          target="_blank"
-          rel="noopener noreferrer"
           class="inline-flex items-center gap-1 underline-offset-4 hover:text-primary hover:underline"
+          href={companyHref}
+          rel="noopener noreferrer"
+          target="_blank"
         >
           <slot name="company" />
-          <Icon name="lucide:external-link" class="size-4" aria-hidden="true" />
+          <Icon aria-hidden="true" class="size-4" name="lucide:external-link" />
         </a>
       ) : (
         <slot name="company" />
@@ -69,13 +69,13 @@ for (const slot of ["period", "title", "company", "place"]) {
   </div>
 
   <div
-    id={`experience-panel-${id}`}
-    data-role={id}
-    role="region"
     aria-labelledby={`experience-role-${id}`}
-    x-show="isOpen($el)"
     class="flex flex-col gap-4 pb-6"
+    data-role={id}
+    id={`experience-panel-${id}`}
+    role="region"
     x-cloak
+    x-show="isOpen($el)"
   >
     {Astro.slots.has("bullets") && (
       <ul class="flex max-w-prose flex-col gap-2">

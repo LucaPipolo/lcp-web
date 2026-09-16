@@ -1,13 +1,13 @@
 ---
 import Layout from "@/layouts/main.astro"
 
-import Article from "@/components/sections/Article/Article.astro"
-import ArticleSection from "@/components/sections/Article/ArticleSection.astro"
-
 import DefinitionItem from "@/components/common/DefinitionItem.astro"
 import DefinitionList from "@/components/common/DefinitionList.astro"
 import Prose from "@/components/common/Prose.astro"
 import SectionContainer from "@/components/common/SectionContainer.astro"
+
+import Article from "@/components/sections/Article/Article.astro"
+import ArticleSection from "@/components/sections/Article/ArticleSection.astro"
 
 import { getLocalizedStaticPaths } from "@/libs/content"
 import { formatDate } from "@/libs/i18n"
@@ -27,7 +27,7 @@ const updatedOn = `${updatedLabel} ${formatDate(updated, Astro.currentLocale)}`
     <Article>
       <Fragment slot="title">{title}</Fragment>
       <Fragment slot="meta">{updatedOn}</Fragment>
-      <Fragment slot="intro" set:html={intro} />
+      <Fragment set:html={intro} slot="intro" />
 
       {sections.map((section) => (
         <ArticleSection slot="sections">
@@ -44,7 +44,7 @@ const updatedOn = `${updatedLabel} ${formatDate(updated, Astro.currentLocale)}`
               {section.items.map((item) => (
                 <DefinitionItem>
                   <Fragment slot="term">{item.term}</Fragment>
-                  <Fragment slot="description" set:html={item.description} />
+                  <Fragment set:html={item.description} slot="description" />
                 </DefinitionItem>
               ))}
             </DefinitionList>

@@ -1,15 +1,16 @@
-import { register } from "@/scripts/alpine"
 import { THEME_STORAGE_KEY } from "@/libs/theme-storage"
 
-type Theme = "light" | "dark"
+import { register } from "@/scripts/alpine"
+
+type Theme = "dark" | "light"
 
 const systemQuery = window.matchMedia("(prefers-color-scheme: dark)")
 
 declare global {
   interface Window {
     lcpTheme: {
-      stored: typeof storedTheme
       clear: typeof clearThemeChoice
+      stored: typeof storedTheme
     }
   }
 }
