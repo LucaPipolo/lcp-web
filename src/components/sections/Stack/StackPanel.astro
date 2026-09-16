@@ -11,13 +11,13 @@ if (!Astro.slots.has("default")) {
 ---
 
 <div
-  id={`stack-panel-${id}`}
-  data-tab={id}
-  role="tabpanel"
   aria-labelledby={`stack-tab-${id}`}
-  x-show="isSelected($el)"
   class="flex flex-col gap-6"
+  data-tab={id}
+  id={`stack-panel-${id}`}
+  role="tabpanel"
   x-cloak
+  x-show="isSelected($el)"
 >
   <slot />
 </div>

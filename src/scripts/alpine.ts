@@ -2,8 +2,8 @@ import Alpine from "@alpinejs/csp"
 
 interface Magics {
   readonly $el: HTMLElement
-  readonly $refs: Record<string, HTMLElement | undefined>
   $nextTick(callback: () => void): void
+  readonly $refs: Record<string, HTMLElement | undefined>
 }
 
 const registered = new Set<string>()
@@ -49,7 +49,7 @@ function waiting() {
  */
 export function register<T extends object>(
   name: string,
-  factory: () => T & ThisType<T & Magics>
+  factory: () => T & ThisType<Magics & T>
 ) {
   Alpine.data(name, factory)
   registered.add(name)

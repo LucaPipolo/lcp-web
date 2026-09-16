@@ -8,21 +8,21 @@ const { stem, tails } = Astro.props
 ---
 
 <p
-  data-hero-badge
   class="group flex items-center gap-2 font-mono text-xs text-muted-foreground lowercase"
+  data-hero-badge
 >
   <span
-    data-badge-spinner
     aria-hidden="true"
     class="inline-block w-[1ch] text-primary"
+    data-badge-spinner
   ></span>
   <span>
     {stem}{" "}
     {tails.map((tail: string, index: number) => (
       <span
+        aria-hidden={index > 0 ? "true" : undefined}
         data-badge-tail
         hidden={index > 0}
-        aria-hidden={index > 0 ? "true" : undefined}
       >
         {tail}
       </span>

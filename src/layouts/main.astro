@@ -1,27 +1,27 @@
 ---
 import "@/styles/global.css"
 
-import SiteHeader from "@/components/sections/SiteHeader/SiteHeader.astro"
-import SiteHeaderLink from "@/components/sections/SiteHeader/SiteHeaderLink.astro"
+import SpeedInsights from "@vercel/speed-insights/astro"
+
+import ButtonLink from "@/components/common/ButtonLink.astro"
 
 import SiteFooter from "@/components/sections/SiteFooter/SiteFooter.astro"
 import SiteFooterColophon from "@/components/sections/SiteFooter/SiteFooterColophon.astro"
 import SiteFooterColumn from "@/components/sections/SiteFooter/SiteFooterColumn.astro"
 import SiteFooterLink from "@/components/sections/SiteFooter/SiteFooterLink.astro"
 
+import SiteHeader from "@/components/sections/SiteHeader/SiteHeader.astro"
+import SiteHeaderLink from "@/components/sections/SiteHeader/SiteHeaderLink.astro"
 import ThemeToggle from "@/components/sections/SiteHeader/ThemeToggle.astro"
-import ButtonLink from "@/components/common/ButtonLink.astro"
 
 import { THEME_INIT_SOURCE } from "@/scripts/theme-init"
-
-import SpeedInsights from "@vercel/speed-insights/astro"
 
 interface Props {
   title: string
 }
 
-import { DEFAULT_LOCALE, isLocale, localizeHref, LOCALES } from "@/libs/i18n"
 import { getSettings } from "@/libs/content"
+import { DEFAULT_LOCALE, isLocale, LOCALES, localizeHref } from "@/libs/i18n"
 import { fillPlaceholders } from "@/libs/template"
 
 const locale = Astro.currentLocale
@@ -53,17 +53,17 @@ const copyright =
 <html lang={Astro.currentLocale}>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta content="width=device-width" name="viewport" />
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
     <title>{title}</title>
-    <link rel="canonical" href={canonical.href} />
+    <link href={canonical.href} rel="canonical" />
     {alternates.map(({ code, href }) => (
-      <link rel="alternate" hreflang={code} href={href} />
+      <link href={href} hreflang={code} rel="alternate" />
     ))}
     <link
-      rel="alternate"
-      hreflang="x-default"
       href={new URL(localizeHref(path, DEFAULT_LOCALE), Astro.site).href}
+      hreflang="x-default"
+      rel="alternate"
     />
     <script is:inline set:html={THEME_INIT_SOURCE}></script>
     <SpeedInsights />
@@ -71,7 +71,7 @@ const copyright =
   <body>
     <SiteHeader homeHref={homeHref}>
       {header.nav.map((link) => (
-        <SiteHeaderLink slot="nav" href={localizeHref(link.href, locale)}>
+        <SiteHeaderLink href={localizeHref(link.href, locale)} slot="nav">
           {link.label}
         </SiteHeaderLink>
       ))}
@@ -89,10 +89,10 @@ const copyright =
       <SiteFooter homeHref={homeHref}>
         <Fragment slot="tagline">{footer.tagline}</Fragment>
         <ButtonLink
-          slot="action"
-          href={footer.action.href}
-          variant="inverted"
           class="self-start"
+          href={footer.action.href}
+          slot="action"
+          variant="inverted"
         >
           {footer.action.label}
         </ButtonLink>
@@ -102,9 +102,9 @@ const copyright =
             <Fragment slot="label">{column.label}</Fragment>
             {column.links.map((link) => (
               <SiteFooterLink
-                slot="links"
-                href={localizeHref(link.href, locale)}
                 download={link.download}
+                href={localizeHref(link.href, locale)}
+                slot="links"
               >
                 {link.label}
               </SiteFooterLink>
@@ -114,8 +114,8 @@ const copyright =
 
         <Fragment slot="colophon">
           <SiteFooterColophon
-            text={footer.colophon.text}
             repo={footer.colophon.repo}
+            text={footer.colophon.text}
           />
         </Fragment>
 
@@ -123,9 +123,6 @@ const copyright =
 
         {LOCALES.map((code) => (
           <a
-            slot="locales"
-            href={code === DEFAULT_LOCALE ? "/" : `/${code}/`}
-            data-locale={code}
             aria-current={code === locale ? "page" : undefined}
             class:list={[
               "transition-colors",
@@ -133,6 +130,9 @@ const copyright =
                 ? "text-foreground"
                 : "text-muted-foreground hover:text-primary",
             ]}
+            data-locale={code}
+            href={code === DEFAULT_LOCALE ? "/" : `/${code}/`}
+            slot="locales"
           >
             {code}
           </a>

@@ -17,9 +17,9 @@ if (!Astro.slots.has("default")) {
 <span class="inline-flex h-8 items-center gap-2 border border-border bg-background px-3 font-mono text-2xs text-muted-foreground">
   {slug && (
     <Icon
-      name={iconName}
-      class="size-3.5 flex-none opacity-80"
       aria-hidden="true"
+      class="size-3.5 flex-none opacity-80"
+      name={iconName}
     />
   )}
   <slot />

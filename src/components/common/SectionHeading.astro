@@ -15,7 +15,7 @@ if (!Astro.slots.has("default")) {
   </h2>
 
   {Astro.slots.has("actions") && (
-    <div role={actionsRole} class="flex items-center gap-4">
+    <div class="flex items-center gap-4" role={actionsRole}>
       <slot name="actions" />
     </div>
   )}

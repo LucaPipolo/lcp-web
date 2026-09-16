@@ -2,8 +2,8 @@
 import { Icon } from "astro-icon/components"
 
 interface Props {
-  href?: string
   avatar?: string
+  href?: string
 }
 
 const { href, avatar, avatarAlt } = Astro.props
@@ -26,12 +26,12 @@ if (avatar && !avatarAlt) {
     {avatar ? (
       <span class="duotone size-9 flex-none border border-border group-hover/quote:duotone-off">
         <img
-          src={avatar}
           alt={avatarAlt}
-          width="36"
+          decoding="async"
           height="36"
           loading="lazy"
-          decoding="async"
+          src={avatar}
+          width="36"
         />
       </span>
     ) : (
@@ -46,16 +46,16 @@ if (avatar && !avatarAlt) {
       <span class="text-sm font-semibold text-foreground">
         {href ? (
           <a
-            href={href}
-            target="_blank"
-            rel="noreferrer"
             class="inline-flex items-center gap-1.5 underline-offset-4 hover:text-primary hover:underline"
+            href={href}
+            rel="noreferrer"
+            target="_blank"
           >
             <slot name="name" />
             <Icon
-              name="lucide:external-link"
-              class="size-3"
               aria-hidden="true"
+              class="size-3"
+              name="lucide:external-link"
             />
           </a>
         ) : (
