@@ -13,8 +13,8 @@ const darkChrome = window.matchMedia("(prefers-color-scheme: dark)")
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
 
 interface Primaries {
-  light: string
   dark: string
+  light: string
 }
 
 /**
