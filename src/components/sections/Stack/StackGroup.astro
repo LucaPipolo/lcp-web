@@ -14,5 +14,7 @@ if (!Astro.slots.has("items")) {
   <p class="font-mono text-2xs tracking-widest text-muted-foreground uppercase">
     <slot name="label" />
   </p>
-  <div class="flex flex-wrap gap-2"><slot name="items" /></div>
+  <div class="flex flex-wrap gap-2">
+    <slot name="items" />
+  </div>
 </div>

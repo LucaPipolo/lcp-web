@@ -19,12 +19,8 @@ for (const slot of ["tagline", "copyright"]) {
   <div class="relative border-t border-border">
     <CornerMarks corners="top" />
 
-    <div
-      class="grid gap-px bg-border md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]"
-    >
-      <div
-        class="flex flex-col justify-between gap-10 bg-background px-gutter pt-10 pb-8"
-      >
+    <div class="grid gap-px bg-border md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)]">
+      <div class="flex flex-col justify-between gap-10 bg-background px-gutter pt-10 pb-8">
         <div class="flex flex-col gap-4">
           <Wordmark href={homeHref} class="text-4xl" />
           <p class="max-w-[40ch] text-sm text-pretty text-muted-foreground">
@@ -39,12 +35,16 @@ for (const slot of ["tagline", "copyright"]) {
       </div>
     </div>
 
-    <div
-      class="flex flex-wrap items-center justify-between gap-3 border-t border-border px-gutter pt-4 pb-6 font-mono text-2xs tracking-wider text-muted-foreground"
-    >
-      <span><slot name="copyright" /></span>
-      <span class="flex items-center gap-2"><slot name="colophon" /></span>
-      <span class="flex items-center gap-4"><slot name="locales" /></span>
+    <div class="flex flex-wrap items-center justify-between gap-3 border-t border-border px-gutter pt-4 pb-6 font-mono text-2xs tracking-wider text-muted-foreground">
+      <span>
+        <slot name="copyright" />
+      </span>
+      <span class="flex items-center gap-2">
+        <slot name="colophon" />
+      </span>
+      <span class="flex items-center gap-4">
+        <slot name="locales" />
+      </span>
     </div>
   </div>
 </footer>

@@ -10,9 +10,7 @@ if (!Astro.slots.has("subheading")) {
 
 <div class="flex rise-in flex-col gap-5">
   <slot name="badge" />
-  <h1
-    class="text-7xl font-semibold tracking-tight text-balance [&_.text-primary]:font-medium"
-  >
+  <h1 class="text-7xl font-semibold tracking-tight text-balance [&_.text-primary]:font-medium">
     <slot name="heading" />
   </h1>
   <p class="font-mono text-sm tracking-widest uppercase">

@@ -57,28 +57,24 @@ const copyright =
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <link rel="canonical" href={canonical.href} />
-    {
-      alternates.map(({ code, href }) => (
-        <link rel="alternate" hreflang={code} href={href} />
-      ))
-    }
+    {alternates.map(({ code, href }) => (
+      <link rel="alternate" hreflang={code} href={href} />
+    ))}
     <link
       rel="alternate"
       hreflang="x-default"
       href={new URL(localizeHref(path, DEFAULT_LOCALE), Astro.site).href}
     />
-    <script is:inline set:html={THEME_INIT_SOURCE} />
+    <script is:inline set:html={THEME_INIT_SOURCE}></script>
     <SpeedInsights />
   </head>
   <body>
     <SiteHeader homeHref={homeHref}>
-      {
-        header.nav.map((link) => (
-          <SiteHeaderLink slot="nav" href={localizeHref(link.href, locale)}>
-            {link.label}
-          </SiteHeaderLink>
-        ))
-      }
+      {header.nav.map((link) => (
+        <SiteHeaderLink slot="nav" href={localizeHref(link.href, locale)}>
+          {link.label}
+        </SiteHeaderLink>
+      ))}
 
       <ThemeToggle slot="themeToggle">
         <Fragment slot="label">{header.themeToggleLabel}</Fragment>
@@ -89,63 +85,62 @@ const copyright =
 
     <slot />
 
-    {
-      footer && (
-        <SiteFooter homeHref={homeHref}>
-          <Fragment slot="tagline">{footer.tagline}</Fragment>
-          <ButtonLink
-            slot="action"
-            href={footer.action.href}
-            variant="inverted"
-            class="self-start"
+    {footer && (
+      <SiteFooter homeHref={homeHref}>
+        <Fragment slot="tagline">{footer.tagline}</Fragment>
+        <ButtonLink
+          slot="action"
+          href={footer.action.href}
+          variant="inverted"
+          class="self-start"
+        >
+          {footer.action.label}
+        </ButtonLink>
+
+        {footer?.columns.map((column) => (
+          <SiteFooterColumn slot="columns">
+            <Fragment slot="label">{column.label}</Fragment>
+            {column.links.map((link) => (
+              <SiteFooterLink
+                slot="links"
+                href={localizeHref(link.href, locale)}
+                download={link.download}
+              >
+                {link.label}
+              </SiteFooterLink>
+            ))}
+          </SiteFooterColumn>
+        ))}
+
+        <Fragment slot="colophon">
+          <SiteFooterColophon
+            text={footer.colophon.text}
+            repo={footer.colophon.repo}
+          />
+        </Fragment>
+
+        <Fragment slot="copyright">{copyright}</Fragment>
+
+        {LOCALES.map((code) => (
+          <a
+            slot="locales"
+            href={code === DEFAULT_LOCALE ? "/" : `/${code}/`}
+            data-locale={code}
+            aria-current={code === locale ? "page" : undefined}
+            class:list={[
+              "transition-colors",
+              code === locale
+                ? "text-foreground"
+                : "text-muted-foreground hover:text-primary",
+            ]}
           >
-            {footer.action.label}
-          </ButtonLink>
-
-          {footer?.columns.map((column) => (
-            <SiteFooterColumn slot="columns">
-              <Fragment slot="label">{column.label}</Fragment>
-              {column.links.map((link) => (
-                <SiteFooterLink
-                  slot="links"
-                  href={localizeHref(link.href, locale)}
-                  download={link.download}
-                >
-                  {link.label}
-                </SiteFooterLink>
-              ))}
-            </SiteFooterColumn>
-          ))}
-
-          <Fragment slot="colophon">
-            <SiteFooterColophon
-              text={footer.colophon.text}
-              repo={footer.colophon.repo}
-            />
-          </Fragment>
-
-          <Fragment slot="copyright">{copyright}</Fragment>
-
-          {LOCALES.map((code) => (
-            <a
-              slot="locales"
-              href={code === DEFAULT_LOCALE ? "/" : `/${code}/`}
-              data-locale={code}
-              aria-current={code === locale ? "page" : undefined}
-              class:list={[
-                "transition-colors",
-                code === locale
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-primary",
-              ]}
-            >
-              {code}
-            </a>
-          ))}
-        </SiteFooter>
-      )
-    }
-  </body><script>
+            {code}
+          </a>
+        ))}
+      </SiteFooter>
+    )}
+  </body>
+  <script>
     import "@/scripts/alpine"
     import "@/scripts/site-menu"
     import "@/scripts/theme"

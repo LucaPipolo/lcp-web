@@ -21,52 +21,46 @@ if (avatar && !avatarAlt) {
 }
 ---
 
-<figure
-  class="group/quote flex flex-col gap-4 bg-background px-gutter pt-6 pb-8"
->
+<figure class="group/quote flex flex-col gap-4 bg-background px-gutter pt-6 pb-8">
   <figcaption class="flex items-center gap-3">
-    {
-      avatar ? (
-        <span class="duotone size-9 flex-none border border-border group-hover/quote:duotone-off">
-          <img
-            src={avatar}
-            alt={avatarAlt}
-            width="36"
-            height="36"
-            loading="lazy"
-            decoding="async"
-          />
-        </span>
-      ) : (
-        <span
-          aria-hidden="true"
-          class="grid size-9 flex-none place-items-center border border-border font-mono text-2xs tracking-wide text-muted-foreground"
-        >
-          <slot name="initials" />
-        </span>
-      )
-    }
+    {avatar ? (
+      <span class="duotone size-9 flex-none border border-border group-hover/quote:duotone-off">
+        <img
+          src={avatar}
+          alt={avatarAlt}
+          width="36"
+          height="36"
+          loading="lazy"
+          decoding="async"
+        />
+      </span>
+    ) : (
+      <span
+        aria-hidden="true"
+        class="grid size-9 flex-none place-items-center border border-border font-mono text-2xs tracking-wide text-muted-foreground"
+      >
+        <slot name="initials" />
+      </span>
+    )}
     <span class="flex min-w-0 flex-col gap-1">
       <span class="text-sm font-semibold text-foreground">
-        {
-          href ? (
-            <a
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-              class="inline-flex items-center gap-1.5 underline-offset-4 hover:text-primary hover:underline"
-            >
-              <slot name="name" />
-              <Icon
-                name="lucide:external-link"
-                class="size-3"
-                aria-hidden="true"
-              />
-            </a>
-          ) : (
+        {href ? (
+          <a
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            class="inline-flex items-center gap-1.5 underline-offset-4 hover:text-primary hover:underline"
+          >
             <slot name="name" />
-          )
-        }
+            <Icon
+              name="lucide:external-link"
+              class="size-3"
+              aria-hidden="true"
+            />
+          </a>
+        ) : (
+          <slot name="name" />
+        )}
       </span>
       <span class="font-mono text-2xs text-muted-foreground">
         <slot name="role" />

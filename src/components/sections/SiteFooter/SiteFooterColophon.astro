@@ -17,26 +17,26 @@ const { text, repo } = Astro.props
 const parts = splitPlaceholders(text)
 ---
 
-{
-  parts.map((part) => {
-    if (part === "{heart}") return <PixelHeart />
+{parts.map((part) => {
+  if (part === "{heart}") return <PixelHeart />
 
-    if (part === "{astro}")
-      return (
-        <SiteFooterLink
-          href={ASTRO_HREF}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Astro
-        </SiteFooterLink>
-      )
+  if (part === "{astro}")
+    return (
+      <SiteFooterLink
+        href={ASTRO_HREF}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Astro
+      </SiteFooterLink>
+    )
 
-    return part
-  })
-}
+  return part
+})}
 
-<span aria-hidden="true" class="text-primary">//</span>
+<span aria-hidden="true" class="text-primary">
+  //
+</span>
 
 <SiteFooterLink href={REPO_HREF} target="_blank" rel="noopener noreferrer">
   {repo}
