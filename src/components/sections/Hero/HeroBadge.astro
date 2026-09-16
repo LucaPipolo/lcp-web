@@ -14,20 +14,19 @@ const { stem, tails } = Astro.props
   <span
     data-badge-spinner
     aria-hidden="true"
-    class="inline-block w-[1ch] text-primary"></span>
+    class="inline-block w-[1ch] text-primary"
+  ></span>
   <span>
     {stem}{" "}
-    {
-      tails.map((tail: string, index: number) => (
-        <span
-          data-badge-tail
-          hidden={index > 0}
-          aria-hidden={index > 0 ? "true" : undefined}
-        >
-          {tail}
-        </span>
-      ))
-    }
+    {tails.map((tail: string, index: number) => (
+      <span
+        data-badge-tail
+        hidden={index > 0}
+        aria-hidden={index > 0 ? "true" : undefined}
+      >
+        {tail}
+      </span>
+    ))}
   </span>
   <span aria-hidden="true" class="caret group-data-typing:caret-steady"></span>
 </p>

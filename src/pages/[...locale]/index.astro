@@ -44,131 +44,123 @@ const badge = hero.badge
 <Layout title={metadata.title}>
   <Hero>
     <HeroHeader slot="header">
-      {
-        badge && (
-          <HeroBadge slot="badge" stem={badge.stem} tails={badge.tails} />
-        )
-      }
+      {badge && (
+        <HeroBadge slot="badge" stem={badge.stem} tails={badge.tails} />
+      )}
       <Fragment slot="heading" set:html={hero.heading} />
       <Fragment slot="subheading">{hero.subheading}</Fragment>
     </HeroHeader>
     <Fragment slot="body" set:html={hero.body} />
-    {
-      hero.actions.map((action) => (
-        <ButtonLink
-          slot="actions"
-          href={action.href}
-          variant={action.variant}
-          download={action.download}
-        >
-          {action.label}
-          {action.download && (
-            <Icon name="lucide:download" class="size-4" aria-hidden="true" />
-          )}
-        </ButtonLink>
-      ))
-    }
+    {hero.actions.map((action) => (
+      <ButtonLink
+        slot="actions"
+        href={action.href}
+        variant={action.variant}
+        download={action.download}
+      >
+        {action.label}
+        {action.download && (
+          <Icon name="lucide:download" class="size-4" aria-hidden="true" />
+        )}
+      </ButtonLink>
+    ))}
     <HeroFooter slot="footer">
       <SocialLinks slot="socialLinks" />
     </HeroFooter>
   </Hero>
 
-  {
-    (experience || stack) && (
-      <SectionContainer columns={experience && stack ? 2 : 1}>
-        {experience && (
-          <Experience>
-            <SectionHeading slot="heading">{experience.heading}</SectionHeading>
-            {experience.roles.map((role, index) => (
-              <ExperienceRole
-                slot="roles"
-                id={String(index)}
-                current={index === 0}
-                open={index === 0}
-                companyHref={role.companyHref}
-              >
-                <Fragment slot="period">{role.period}</Fragment>
-                <Fragment slot="title">{role.title}</Fragment>
-                <Fragment slot="company">{role.company}</Fragment>
-                <Fragment slot="place">{role.place}</Fragment>
-                {role.bullets.map((bullet) => (
-                  <ExperienceBullet slot="bullets">{bullet}</ExperienceBullet>
-                ))}
-                {role.skills?.map((skill) => (
-                  <ExperienceSkill slot="skills">{skill}</ExperienceSkill>
-                ))}
-              </ExperienceRole>
-            ))}
-          </Experience>
-        )}
-
-        {stack && (
-          <Stack>
-            <SectionHeading slot="heading" actionsRole="tablist">
-              {stack.heading}
-              {stack.tabs.map((tab) => (
-                <StackTab slot="actions" id={tab.id}>
-                  {tab.label}
-                </StackTab>
+  {(experience || stack) && (
+    <SectionContainer columns={experience && stack ? 2 : 1}>
+      {experience && (
+        <Experience>
+          <SectionHeading slot="heading">{experience.heading}</SectionHeading>
+          {experience.roles.map((role, index) => (
+            <ExperienceRole
+              slot="roles"
+              id={String(index)}
+              current={index === 0}
+              open={index === 0}
+              companyHref={role.companyHref}
+            >
+              <Fragment slot="period">{role.period}</Fragment>
+              <Fragment slot="title">{role.title}</Fragment>
+              <Fragment slot="company">{role.company}</Fragment>
+              <Fragment slot="place">{role.place}</Fragment>
+              {role.bullets.map((bullet) => (
+                <ExperienceBullet slot="bullets">{bullet}</ExperienceBullet>
               ))}
-            </SectionHeading>
-            {stack.tabs.map((tab) => (
-              <StackPanel slot="panels" id={tab.id}>
-                {tab.groups.map((group) => (
-                  <StackGroup>
-                    <Fragment slot="label">{group.label}</Fragment>
-                    {group.items.map((item) => (
-                      <StackItem slot="items" slug={item.slug}>
-                        {item.name}
-                      </StackItem>
-                    ))}
-                  </StackGroup>
-                ))}
-              </StackPanel>
-            ))}
-          </Stack>
-        )}
-      </SectionContainer>
-    )
-  }
-
-  {
-    recommendations && (
-      <SectionContainer>
-        <Recommendations>
-          <SectionHeading slot="heading">
-            {recommendations.heading}
-            <ButtonLink
-              slot="actions"
-              href={recommendations.action.href}
-              variant="outline"
-              size="md"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {recommendations.action.label}
-              <Icon
-                name="lucide:external-link"
-                class="size-4"
-                aria-hidden="true"
-              />
-            </ButtonLink>
-          </SectionHeading>
-          {recommendations.quotes.map((quote) => (
-            <RecommendationsQuote
-              slot="quotes"
-              href={quote.href}
-              avatar={quote.avatar}
-              avatarAlt={quote.name}
-            >
-              <Fragment slot="initials">{quote.initials}</Fragment>
-              <Fragment slot="name">{quote.name}</Fragment>
-              <Fragment slot="role">{quote.role}</Fragment>
-              <Fragment slot="text">{quote.text}</Fragment>
-            </RecommendationsQuote>
+              {role.skills?.map((skill) => (
+                <ExperienceSkill slot="skills">{skill}</ExperienceSkill>
+              ))}
+            </ExperienceRole>
           ))}
-        </Recommendations>
-      </SectionContainer>
-    )
-  }
+        </Experience>
+      )}
+
+      {stack && (
+        <Stack>
+          <SectionHeading slot="heading" actionsRole="tablist">
+            {stack.heading}
+            {stack.tabs.map((tab) => (
+              <StackTab slot="actions" id={tab.id}>
+                {tab.label}
+              </StackTab>
+            ))}
+          </SectionHeading>
+          {stack.tabs.map((tab) => (
+            <StackPanel slot="panels" id={tab.id}>
+              {tab.groups.map((group) => (
+                <StackGroup>
+                  <Fragment slot="label">{group.label}</Fragment>
+                  {group.items.map((item) => (
+                    <StackItem slot="items" slug={item.slug}>
+                      {item.name}
+                    </StackItem>
+                  ))}
+                </StackGroup>
+              ))}
+            </StackPanel>
+          ))}
+        </Stack>
+      )}
+    </SectionContainer>
+  )}
+
+  {recommendations && (
+    <SectionContainer>
+      <Recommendations>
+        <SectionHeading slot="heading">
+          {recommendations.heading}
+          <ButtonLink
+            slot="actions"
+            href={recommendations.action.href}
+            variant="outline"
+            size="md"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {recommendations.action.label}
+            <Icon
+              name="lucide:external-link"
+              class="size-4"
+              aria-hidden="true"
+            />
+          </ButtonLink>
+        </SectionHeading>
+        {recommendations.quotes.map((quote) => (
+          <RecommendationsQuote
+            slot="quotes"
+            href={quote.href}
+            avatar={quote.avatar}
+            avatarAlt={quote.name}
+          >
+            <Fragment slot="initials">{quote.initials}</Fragment>
+            <Fragment slot="name">{quote.name}</Fragment>
+            <Fragment slot="role">{quote.role}</Fragment>
+            <Fragment slot="text">{quote.text}</Fragment>
+          </RecommendationsQuote>
+        ))}
+      </Recommendations>
+    </SectionContainer>
+  )}
 </Layout>

@@ -12,8 +12,6 @@ interface Props {
 const { corners = "all" } = Astro.props
 ---
 
-{
-  CORNERS[corners].map((corner) => (
-    <span aria-hidden="true" class="corner-mark" data-corner={corner} />
-  ))
-}
+{CORNERS[corners].map((corner) => (
+  <span aria-hidden="true" class="corner-mark" data-corner={corner} />
+))}

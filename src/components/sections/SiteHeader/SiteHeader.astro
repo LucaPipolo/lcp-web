@@ -22,13 +22,13 @@ for (const slot of ["nav", "themeToggle", "menuLabel"]) {
   class="sticky top-0 z-30"
 >
   <div class="border-b border-border bg-background/85 backdrop-blur-md">
-    <div
-      class="container mx-auto flex h-header items-center gap-4 border-x border-border px-gutter"
-    >
+    <div class="container mx-auto flex h-header items-center gap-4 border-x border-border px-gutter">
       <Wordmark href={homeHref} class="text-lg leading-none" />
 
       <nav class="ml-auto hidden items-center gap-6 font-mono text-xs sm:flex">
-        <span aria-hidden="true" class="text-primary">//</span>
+        <span aria-hidden="true" class="text-primary">
+          //
+        </span>
         <slot name="nav" />
       </nav>
 
@@ -43,7 +43,9 @@ for (const slot of ["nav", "themeToggle", "menuLabel"]) {
           aria-controls="site-menu"
           class="grid size-8 cursor-pointer place-items-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary sm:hidden"
         >
-          <span class="sr-only"><slot name="menuLabel" /></span>
+          <span class="sr-only">
+            <slot name="menuLabel" />
+          </span>
           <Icon
             name="lucide:menu"
             x-show="!open"
@@ -76,12 +78,8 @@ for (const slot of ["nav", "themeToggle", "menuLabel"]) {
     x-transition:leave-end="-translate-y-3 opacity-0"
     class="absolute inset-x-0 top-full sm:hidden!"
   >
-    <div
-      class="container mx-auto border-x border-border bg-background/85 px-gutter backdrop-blur-md"
-    >
-      <nav
-        class="flex flex-col font-mono text-base [&>a]:border-b [&>a]:border-border [&>a]:py-4 [&>a:last-child]:border-b-0"
-      >
+    <div class="container mx-auto border-x border-border bg-background/85 px-gutter backdrop-blur-md">
+      <nav class="flex flex-col font-mono text-base [&>a]:border-b [&>a]:border-border [&>a]:py-4 [&>a:last-child]:border-b-0">
         <slot name="nav" />
       </nav>
     </div>

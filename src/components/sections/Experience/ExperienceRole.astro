@@ -24,8 +24,7 @@ for (const slot of ["period", "title", "company", "place"]) {
       "absolute top-2 left-0 -ml-gutter size-2 -translate-x-1/2",
       current ? "bg-primary" : "bg-foreground",
     ]}
-  >
-  </span>
+  ></span>
 
   <div class="flex flex-col gap-1.5 pb-3.5">
     <span class="font-mono text-xs text-muted-foreground">
@@ -47,32 +46,25 @@ for (const slot of ["period", "title", "company", "place"]) {
       <span
         aria-hidden="true"
         class="absolute top-0 right-0 grid size-7 place-items-center border border-border bg-background font-mono text-base leading-none text-foreground before:content-['+'] group-aria-expanded:before:content-['−']"
-      >
-      </span>
+      ></span>
     </button>
 
     <span class="font-mono text-xs text-muted-foreground">
       @{" "}
-      {
-        companyHref ? (
-          <a
-            href={companyHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-1 underline-offset-4 hover:text-primary hover:underline"
-          >
-            <slot name="company" />
-            <Icon
-              name="lucide:external-link"
-              class="size-4"
-              aria-hidden="true"
-            />
-          </a>
-        ) : (
+      {companyHref ? (
+        <a
+          href={companyHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1 underline-offset-4 hover:text-primary hover:underline"
+        >
           <slot name="company" />
-        )
-      }
-      {" "}· <slot name="place" />
+          <Icon name="lucide:external-link" class="size-4" aria-hidden="true" />
+        </a>
+      ) : (
+        <slot name="company" />
+      )}{" "}
+      · <slot name="place" />
     </span>
   </div>
 
@@ -85,20 +77,16 @@ for (const slot of ["period", "title", "company", "place"]) {
     class="flex flex-col gap-4 pb-6"
     x-cloak
   >
-    {
-      Astro.slots.has("bullets") && (
-        <ul class="flex max-w-prose flex-col gap-2">
-          <slot name="bullets" />
-        </ul>
-      )
-    }
+    {Astro.slots.has("bullets") && (
+      <ul class="flex max-w-prose flex-col gap-2">
+        <slot name="bullets" />
+      </ul>
+    )}
 
-    {
-      Astro.slots.has("skills") && (
-        <ul class="flex max-w-prose flex-wrap gap-2">
-          <slot name="skills" />
-        </ul>
-      )
-    }
+    {Astro.slots.has("skills") && (
+      <ul class="flex max-w-prose flex-wrap gap-2">
+        <slot name="skills" />
+      </ul>
+    )}
   </div>
 </div>

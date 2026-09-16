@@ -29,30 +29,28 @@ const updatedOn = `${updatedLabel} ${formatDate(updated, Astro.currentLocale)}`
       <Fragment slot="meta">{updatedOn}</Fragment>
       <Fragment slot="intro" set:html={intro} />
 
-      {
-        sections.map((section) => (
-          <ArticleSection slot="sections">
-            <Fragment slot="heading">{section.heading}</Fragment>
+      {sections.map((section) => (
+        <ArticleSection slot="sections">
+          <Fragment slot="heading">{section.heading}</Fragment>
 
-            {section.body && (
-              <Prose>
-                <Fragment set:html={section.body} />
-              </Prose>
-            )}
+          {section.body && (
+            <Prose>
+              <Fragment set:html={section.body} />
+            </Prose>
+          )}
 
-            {section.items && (
-              <DefinitionList class="mt-2">
-                {section.items.map((item) => (
-                  <DefinitionItem>
-                    <Fragment slot="term">{item.term}</Fragment>
-                    <Fragment slot="description" set:html={item.description} />
-                  </DefinitionItem>
-                ))}
-              </DefinitionList>
-            )}
-          </ArticleSection>
-        ))
-      }
+          {section.items && (
+            <DefinitionList class="mt-2">
+              {section.items.map((item) => (
+                <DefinitionItem>
+                  <Fragment slot="term">{item.term}</Fragment>
+                  <Fragment slot="description" set:html={item.description} />
+                </DefinitionItem>
+              ))}
+            </DefinitionList>
+          )}
+        </ArticleSection>
+      ))}
     </Article>
   </SectionContainer>
 </Layout>
