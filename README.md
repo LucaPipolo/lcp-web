@@ -78,6 +78,8 @@ To run project scripts, use `docker compose exec` against the app container, fro
 docker compose exec app bun run dev       # dev server
 docker compose exec app bun run build     # production build
 docker compose exec app bun run preview   # preview the build
+docker compose exec app bun run lint      # run ESLint
+docker compose exec app bun run format    # run ESLint + Prettier fix
 ```
 
 #### **Built for git worktrees**
