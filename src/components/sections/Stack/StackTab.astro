@@ -11,16 +11,16 @@ if (!Astro.slots.has("default")) {
 ---
 
 <button
-  type="button"
-  role="tab"
+  aria-controls={`stack-panel-${id}`}
+  class="cursor-pointer border-b border-transparent pb-1 font-mono text-2xs tracking-wider text-muted-foreground lowercase transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-foreground"
   data-tab={id}
   id={`stack-tab-${id}`}
-  aria-controls={`stack-panel-${id}`}
-  x-on:click="select($event)"
-  x-on:keydown="navigate($event)"
+  role="tab"
+  type="button"
   x-bind:aria-selected="isSelected($el)"
   x-bind:tabindex="isSelected($el) ? 0 : -1"
-  class="cursor-pointer border-b border-transparent pb-1 font-mono text-2xs tracking-wider text-muted-foreground lowercase transition-colors hover:text-foreground aria-selected:border-primary aria-selected:text-foreground"
+  x-on:click="select($event)"
+  x-on:keydown="navigate($event)"
 >
   <slot />
 </button>

@@ -22,12 +22,12 @@ const PULSE_LENGTH_RANGE = 160
 type Rgb = readonly [number, number, number]
 
 interface Pulse {
-  vertical: boolean
-  position: number
   backwards: boolean
-  progress: number
   duration: number
   length: number
+  position: number
+  progress: number
+  vertical: boolean
 }
 
 /**

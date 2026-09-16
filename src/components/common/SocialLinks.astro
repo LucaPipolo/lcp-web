@@ -14,17 +14,17 @@ const ICONS = {
 
 {socialLinks.map((socialLink) => (
   <a
-    href={socialLink.href}
     aria-label={socialLink.label}
     class="flex min-w-0 items-center gap-3 bg-background px-6 py-5 transition-colors hover:bg-muted"
-    target="_blank"
+    href={socialLink.href}
     rel="noopener noreferrer"
+    target="_blank"
   >
     <span class="grid size-10 flex-none place-items-center border border-border text-foreground">
       <Icon
-        name={ICONS[socialLink.platform]}
-        class="size-5"
         aria-hidden="true"
+        class="size-5"
+        name={ICONS[socialLink.platform]}
       />
     </span>
     <span class="flex min-w-0 flex-col">

@@ -7,14 +7,14 @@ if (!Astro.slots.has("label")) {
 ---
 
 <button
+  class="grid size-8 cursor-pointer place-items-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
   type="button"
   x-data="themeToggle"
   x-on:click="toggle()"
-  class="grid size-8 cursor-pointer place-items-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
 >
   <span class="sr-only">
     <slot name="label" />
   </span>
-  <Icon name="lucide:moon" class="size-4 dark:hidden" aria-hidden="true" />
-  <Icon name="lucide:sun" class="hidden size-4 dark:block" aria-hidden="true" />
+  <Icon aria-hidden="true" class="size-4 dark:hidden" name="lucide:moon" />
+  <Icon aria-hidden="true" class="hidden size-4 dark:block" name="lucide:sun" />
 </button>
