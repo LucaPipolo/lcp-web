@@ -30,5 +30,5 @@ Vercel).
 `middleware.ts`, at the project root because it follows Vercel's own Edge Middleware convention rather than
 Astro's `src/middleware.ts`, negotiates `Accept-Language`/a `locale` cookie ahead of the cache. `vercel.json`
 declares the Content-Security-Policy and the rest of the security headers. `bun run check:csp`
-(`scripts/check-csp.mjs`) walks the built `dist/` HTML and fails the build over any inline `style` attribute or an
+(`check-csp.mjs`) walks the built `dist/` HTML and fails the build over any inline `style` attribute or an
 inline `<script>`/`<style>` whose hash isn't allowlisted in that policy.

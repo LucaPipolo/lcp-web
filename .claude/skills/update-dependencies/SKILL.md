@@ -18,7 +18,7 @@ single commit.
 
 This project runs every `bun` command through Docker, never on the host: `docker compose exec app bun ...`, run
 from the checkout's own root (see `.claude/guidelines/dev-env.md`). If the container isn't running, these
-commands fail outright; start it with `./scripts/up.sh` rather than falling back to the host.
+commands fail outright; start it with `rift up` rather than falling back to the host.
 
 ## Preflight (mandatory)
 

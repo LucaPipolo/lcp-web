@@ -99,7 +99,7 @@ separate lines rather than crammed into one. If it's rejected, fix the message a
 committing anyway.
 
 If the container isn't running, `docker compose exec` fails outright rather than falling back to the host.
-Report that clearly (name the container, point at `./scripts/up.sh`) rather than trying to route around it.
+Report that clearly (name the container, point at `rift up`) rather than trying to route around it.
 
 ## 6. Commit
 

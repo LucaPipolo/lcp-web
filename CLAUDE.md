@@ -41,13 +41,15 @@ src/
 
 middleware.ts                   Vercel Edge Middleware — locale negotiation
 vercel.json                     Vercel HTTP response headers (CSP, HSTS, …)
-scripts/                        Docker dev-environment scripts + check-csp.mjs
+rift.yaml                       local dev environment — Rift settings
+compose.yaml                    local dev containers
+check-csp.mjs                   build-time CSP check
 ```
 
 ## Development environment
 
-The dev environment is built for AI agents working in parallel: Docker plus git worktrees, one isolated container
-set and HTTPS domain per worktree. See more about the Docker development workflow in @.claude/guidelines/dev-env.md
+The dev environment is built for AI agents working in parallel: Rift plus git worktrees, one isolated container
+set and HTTPS domain per worktree. See more about the Rift development workflow in @.claude/guidelines/dev-env.md
 
 ## Architecture
 
