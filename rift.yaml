@@ -1,0 +1,23 @@
+# How rift runs this project.
+#
+# The main checkout is served at lcp-web.test; every git worktree beside
+# it gets <worktree>.lcp-web.test and its own containers, so several
+# branches — or several agents — run at once without colliding.
+#
+# rift never edits compose files. It writes what it derives into .env,
+# which is where Compose already looks, so `docker compose` keeps working
+# by hand.
+
+name: lcp-web
+domain: lcp-web.test
+
+preset: compose
+
+app:
+  service: app
+  port: 4321
+
+# The host port Compose publishes for the app. Managed here so sibling
+# worktrees get their own instead of all claiming 4321.
+ports:
+  - { key: APP_PORT, default: 4321 }
