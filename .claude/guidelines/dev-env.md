@@ -23,14 +23,16 @@ or read `BASE_DOMAIN`/`COMPOSE_PROJECT_NAME` from that checkout's own `.env`.
 
 Run these from the checkout's own root.
 
-| Command              | Use                                                                              |
-| -------------------- | -------------------------------------------------------------------------------- |
-| `./scripts/setup.sh` | First run in this checkout, or after editing `.env`. Writes `.env`, then starts. |
-| `./scripts/up.sh`    | Start this checkout.                                                             |
-| `./scripts/down.sh`  | Stop it, and the shared router once nothing else uses it.                        |
+| Command       | Use                                                                              |
+| ------------- | -------------------------------------------------------------------------------- |
+| `rift setup`  | First run in this checkout, or after editing `.env`. Writes `.env`, then starts. |
+| `rift up`     | Start this checkout.                                                             |
+| `rift down`   | Stop it. Other checkouts and the shared router keep running.                     |
+| `rift status` | See the apps registered with the router.                                         |
+| `rift doctor` | Diagnose setup problems.                                                         |
 
-All three accept `--verbose`/`-v` for full output. `setup.sh` also requires `.test` domains resolving locally and
-Docker running; a failure at that step is usually a one-time host-level DNS/certificate issue, not a script bug.
+Add `-v` for full output. `rift setup` also requires `.test` domains resolving locally and Docker running; a
+failure at that step is usually a one-time host-level DNS/certificate issue, not a Rift bug.
 
 ```bash
 docker compose exec app bun run dev|build|preview|lint|format|format:check|check:csp
