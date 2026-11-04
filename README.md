@@ -26,18 +26,23 @@ src/
 
 middleware.ts              locale negotiation, at the edge
 vercel.json                security headers
-scripts/                   the Docker scripts below
+rift.yaml                  local dev environment, read by Rift
+compose.yaml               dev containers
+check-csp.mjs              build-time CSP check
 ```
 
 ## Running this site locally
 
-You have two ways to run this project: with [Docker](https://docs.docker.com/get-started/), or directly
-with [bun](https://bun.sh/docs) installed on your system.
+There are three ways to run this project: with [Rift](https://github.com/LucaPipolo/rift), with plain
+[Docker Compose](https://docs.docker.com/compose/), or directly with [bun](https://bun.sh/docs).
 
-### Option A: with Docker
+### Option A: with Rift
 
-1. Install [Docker](https://docs.docker.com/get-started/) (or [OrbStack](https://docs.orbstack.dev/) as a macOS
-   alternative) and make sure it's running.
+[Rift](https://github.com/LucaPipolo/rift) is how I run this project day to day. It gives every checkout its own
+containers, host port, and HTTPS domain, all served through one shared Caddy router.
+
+1. Install [Rift](https://github.com/LucaPipolo/rift#install) and [Docker](https://docs.docker.com/get-started/) (or
+   [OrbStack](https://docs.orbstack.dev/) as a macOS alternative), and make sure Docker is running.
 2. Clone the repository:
 
    ```bash
@@ -45,32 +50,32 @@ with [bun](https://bun.sh/docs) installed on your system.
    ```
 
 3. Make `.test` domains resolve to your machine (I suggest using [dnsmasq](https://formulae.brew.sh/formula/dnsmasq)).
-4. Run the setup script and open the site:
+4. Run Rift's setup and open the site:
 
    ```bash
-   ./scripts/setup.sh
+   rift setup
    ```
 
 5. Visit **https://lcp-web.test**.
 
-The dev server is already running with hot reload with [Vite](https://vite.dev/), so any change you make is reflected
-straight away; there's nothing extra to start.
-
-> [!CAUTION]
-> The Docker scripts in this repo (`scripts/*.sh`) currently only support macOS.
+`rift setup` writes this checkout's `.env`, starts its containers, and prints the URL. The dev server runs with hot
+reload using [Vite](https://vite.dev/), so any change is reflected straight away; there's nothing extra to start.
 
 > [!NOTE]
-> On the first run, macOS asks for your password once, to trust the SSL certificate.
+> On the first run, the system asks for your password once, to trust the local HTTPS certificate. The same
+> certificate authority is shared across Rift projects.
 
 #### Commands you'll use day to day
 
-| Command              | What it does                                     |
-| -------------------- | ------------------------------------------------ |
-| `./scripts/up.sh`    | Start this checkout                              |
-| `./scripts/down.sh`  | Stop it, and the router if nothing else uses it  |
-| `./scripts/setup.sh` | Rewrite `.env`, then start. Safe to run any time |
+| Command       | What it does                                                               |
+| ------------- | -------------------------------------------------------------------------- |
+| `rift up`     | Start this checkout                                                        |
+| `rift down`   | Stop it; other checkouts and the shared router keep running                |
+| `rift setup`  | Write `.env`, then start. Use in a new worktree or after changing settings |
+| `rift status` | See the apps registered with the router                                    |
+| `rift doctor` | Diagnose setup problems                                                    |
 
-All three accept `--verbose` (or `-v`) for full output instead of one line per step.
+Add `-v` (for example, `rift up -v`) for full output instead of one line per step.
 
 To run project scripts, use `docker compose exec` against the app container, from this checkout's own root:
 
@@ -82,34 +87,34 @@ docker compose exec app bun run preview   # preview the build
 
 #### **Built for git worktrees**
 
-The Docker setup is designed around [git worktrees](https://git-scm.com/docs/git-worktree): each worktree gets its own
+`rift.yaml` is designed around [git worktrees](https://git-scm.com/docs/git-worktree): each worktree gets its own
 containers, port, and domain, so they never collide.
 
 ```bash
-git worktree add ../my-feature
+git worktree add -b my-feature ../my-feature
 cd ../my-feature
-./scripts/setup.sh
+rift setup
 ```
 
 That checkout is now served at **https://my-feature.lcp-web.test**, alongside `lcp-web.test` and any other worktree,
-each running at the same time without conflicts. A single shared router handles HTTPS for all of them; `down.sh` only
-stops that router once nothing else is using it.
+each running at the same time without conflicts. `rift down` stops only that checkout; the shared router stays up for
+the others.
 
 This makes the project a good fit for working with multiple AI agents or an ADE like [Orca](https://www.onorca.dev/)
 side by side. Each agent can work in its own worktree, with its own running instance, without stepping on the others.
 
-I use Orca as my ADE and create a worktree there for each feature. Pointing its setup and archive scripts at this
-repo's own gives every new worktree a running Docker environment automatically, with no manual step in between:
+I use Orca as my ADE and create a worktree there for each feature. Pointing its setup and archive scripts at Rift
+gives every new worktree a running environment automatically, with no manual step in between:
 
-| Orca setting                                     | Value                                  |
-| ------------------------------------------------ | -------------------------------------- |
-| Setup script                                     | `$ORCA_WORKTREE_PATH/scripts/setup.sh` |
-| When to run                                      | Run by default                         |
-| Wait for setup to complete before starting agent | On                                     |
-| Archive script                                   | `$ORCA_WORKTREE_PATH/scripts/down.sh`  |
+| Orca setting                                     | Value                                    |
+| ------------------------------------------------ | ---------------------------------------- |
+| Setup script                                     | `cd "$ORCA_WORKTREE_PATH" && rift setup` |
+| When to run                                      | Run by default                           |
+| Wait for setup to complete before starting agent | On                                       |
+| Archive script                                   | `cd "$ORCA_WORKTREE_PATH" && rift down`  |
 
-Setup starts that worktree's own containers before the agent gets to work in it; archive stops them once the
-worktree is gone.
+Make sure `rift` is on the `PATH` those scripts see. Setup starts that worktree's own containers before the agent
+gets to work in it; archive stops them once the worktree is gone.
 
 Day to day I work mostly inside Orca itself, including its
 [per-worktree browser](https://www.onorca.dev/docs/browser/overview): its Design Mode turns the cursor into an
@@ -117,7 +122,55 @@ element picker, hovering highlights the element under it, useful for pointing an
 For manual edits I switch to [Zed](https://zed.dev/): fast to jump between worktrees, and a solid editor on its
 own.
 
-### Option B: without Docker
+### Option B: with Docker Compose
+
+If you would rather not install Rift, the same `compose.yaml` runs directly with Docker Compose. You set the values
+Rift would otherwise derive:
+
+1. Install [Docker](https://docs.docker.com/get-started/) (or [OrbStack](https://docs.orbstack.dev/) as a macOS
+   alternative) and make sure it's running.
+2. Clone the repository:
+
+   ```bash
+   git clone git@github.com:LucaPipolo/lcp-web.git && cd lcp-web
+   ```
+
+3. Create this checkout's `.env`:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+   Then set two values in it:
+
+   - `GIT_COMMON_DIR` to the absolute path printed by
+     `git rev-parse --path-format=absolute --git-common-dir`.
+   - `ASTRO_DEV_HMR_CLIENT_PORT` to `APP_PORT` (`4321` by default), so hot reload works without the HTTPS router.
+
+4. Create the external network `compose.yaml` expects, once (skip it if it already exists). Its name is
+   `ROUTER_NAME`, `rift-router` by default:
+
+   ```bash
+   docker network create rift-router
+   ```
+
+5. Start the stack:
+
+   ```bash
+   docker compose up --build
+   ```
+
+6. Visit **http://localhost:4321**.
+
+This path skips the shared HTTPS router, so the site is served straight from the Vite dev server over HTTP. The
+compose file still joins the router network so both options can share the same file. To stop it, run
+`docker compose down`.
+
+> [!NOTE]
+> Running more than one checkout this way? Give each its own `COMPOSE_PROJECT_NAME` and `APP_PORT` in `.env`;
+> nothing derives them for you.
+
+### Option C: without Docker
 
 1. Install [bun](https://bun.sh/docs/installation).
 2. Clone the repository:
@@ -136,7 +189,7 @@ This serves the site at `localhost:4321` with no HTTPS, but it is otherwise iden
 
 > [!CAUTION]
 > The [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) run inside the Docker container, so
-> without it running you'll need `git commit --no-verify` to commit.
+> without it you'll need `git commit --no-verify` to commit. Options A and B both run it.
 
 ## AI tooling
 
