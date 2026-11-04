@@ -11,7 +11,7 @@ if ! docker compose ps --status running --services 2>/dev/null | grep -qx app; t
     echo "  Commit aborted. The app container of this checkout is not running." >&2
     echo "" >&2
     echo "    Container   ${project:-app}-app-1" >&2
-    echo "    Start it    ./scripts/up.sh" >&2
+    echo "    Start it    rift up" >&2
     echo "" >&2
     echo "  The hooks run their checks inside that container, so they never" >&2
     echo "  fall back to the host and never skip." >&2

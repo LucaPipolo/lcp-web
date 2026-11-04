@@ -3,9 +3,10 @@
 # tasks. Each one gets its own containers and its own HTTPS .test domain,
 # served by a Caddy container they all share.
 #
-# Start it with ./scripts/up.sh, not docker compose up.
+# See rift.yaml. Start it with `rift setup` (or `rift up` once set up); plain
+# `docker compose up` works too, as described in the README.
 
-name: "${COMPOSE_PROJECT_NAME:?run ./scripts/setup.sh first}"
+name: "${COMPOSE_PROJECT_NAME:?run rift setup first}"
 
 services:
   app:
@@ -15,18 +16,18 @@ services:
     working_dir: /app
     command: >-
       sh -c "bun install --frozen-lockfile &&
-      bun run dev --host 0.0.0.0 --port ${CONTAINER_PORT:?run ./scripts/setup.sh first}
-      --allowed-hosts ${BASE_DOMAIN:?run ./scripts/setup.sh first},.${BASE_DOMAIN}
+      bun run dev --host 0.0.0.0 --port ${CONTAINER_PORT:?run rift setup first}
+      --allowed-hosts ${BASE_DOMAIN:?run rift setup first},.${BASE_DOMAIN}
       --ignore-lock"
     volumes:
       - .:/app
       - node_modules:/app/node_modules
-      - "${GIT_COMMON_DIR:?run ./scripts/setup.sh first}:${GIT_COMMON_DIR}"
+      - "${GIT_COMMON_DIR:?set GIT_COMMON_DIR in .env}:${GIT_COMMON_DIR}"
     environment:
       NODE_ENV: development
       ASTRO_DEV_HMR_CLIENT_PORT: "${ASTRO_DEV_HMR_CLIENT_PORT:-443}"
     ports:
-      - "${APP_PORT:?run ./scripts/setup.sh first}:${CONTAINER_PORT}"
+      - "${APP_PORT:-4321}:${CONTAINER_PORT:?run rift setup first}"
     networks:
       - default
       - router
@@ -38,4 +39,4 @@ networks:
   default:
   router:
     external: true
-    name: "${ROUTER_NAME:?run ./scripts/setup.sh first}"
+    name: "${ROUTER_NAME:?run rift setup first}"
