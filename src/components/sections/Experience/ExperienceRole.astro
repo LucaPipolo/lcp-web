@@ -34,7 +34,7 @@ for (const slot of ["period", "title", "company", "place"]) {
     <button
       aria-controls={`experience-panel-${id}`}
       aria-expanded={open ? "true" : "false"}
-      class="group cursor-pointer text-left text-xl font-semibold tracking-tight text-foreground hover:text-primary"
+      class="group cursor-pointer text-left text-xl font-semibold tracking-tight text-foreground decoration-primary underline-offset-4 hover:underline"
       data-open={open ? "" : undefined}
       data-role={id}
       id={`experience-role-${id}`}
@@ -53,7 +53,7 @@ for (const slot of ["period", "title", "company", "place"]) {
       @{" "}
       {companyHref ? (
         <a
-          class="inline-flex items-center gap-1 underline-offset-4 hover:text-primary hover:underline"
+          class="inline-flex items-center gap-1 decoration-primary underline-offset-4 hover:text-foreground hover:underline"
           href={companyHref}
           rel="noopener noreferrer"
           target="_blank"

@@ -46,7 +46,7 @@
 
 @utility rich-text {
   & a {
-    @apply text-primary underline underline-offset-4;
+    @apply text-foreground underline decoration-primary underline-offset-4;
   }
 
   & code {
