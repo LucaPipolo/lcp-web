@@ -1,0 +1,65 @@
+---
+import CornerMarks from "@/components/common/CornerMarks.astro"
+
+/**
+ * One entry per gummy, largest first. Each gets its own layers and its own
+ * refraction filter, because each bends the page by its own outline.
+ */
+const BODIES = [0, 1, 2]
+---
+
+<div
+  aria-hidden="true"
+  class="pointer-events-none absolute inset-0 flex justify-center overflow-clip"
+>
+  <div
+    class="relative container mx-auto border-x border-border"
+    data-hero-gummy
+  >
+    {BODIES.map((index) => (
+      <div class="contents" data-gummy={index}>
+        <div
+          class="pointer-events-auto absolute top-0 left-0 z-20 cursor-grab touch-none select-none backdrop-blur-[1px] backdrop-saturate-150 [clip-path:inset(100%)] data-grabbing:cursor-grabbing"
+          data-gummy-body
+        />
+        <canvas
+          class="absolute top-0 left-0 z-20 mix-blend-multiply"
+          data-gummy-tint
+        />
+        <canvas class="absolute top-0 left-0 z-20" data-gummy-light />
+        <svg aria-hidden="true" class="absolute size-0">
+          <defs>
+            <filter
+              color-interpolation-filters="sRGB"
+              height="1"
+              id={`hero-gummy-refraction-${index}`}
+              width="1"
+              x="0"
+              y="0"
+            >
+              <feImage data-gummy-map result="map" />
+              <feGaussianBlur
+                in="SourceGraphic"
+                result="soft"
+                stdDeviation="0.6"
+              />
+              <feDisplacementMap
+                data-gummy-refraction
+                in="soft"
+                in2="map"
+                scale="0"
+                xChannelSelector="R"
+                yChannelSelector="G"
+              />
+            </filter>
+          </defs>
+        </svg>
+      </div>
+    ))}
+    <CornerMarks corners="top" />
+  </div>
+</div>
+
+<script>
+  import "@/scripts/hero-gummy"
+</script>
