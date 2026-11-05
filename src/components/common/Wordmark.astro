@@ -1,6 +1,8 @@
 ---
 import type { HTMLAttributes } from "astro/types"
 
+import Asterisk from "@/components/common/Asterisk.astro"
+
 import { cn } from "@/libs/utils"
 interface Props extends HTMLAttributes<"a"> {
   href: string
@@ -15,7 +17,5 @@ const { href, class: className, ...rest } = Astro.props
   {...rest}
 >
   lucapipolo
-  <span aria-hidden="true" class="text-primary">
-    .
-  </span>
+  <Asterisk class="ml-[0.05em] inline-block size-[0.42em] align-baseline text-primary" />
 </a>

@@ -1,13 +1,12 @@
 import {
-  brailleDots,
   SPINNER_FRAMES,
   SPINNER_INTERVAL,
+  SPINNER_REST,
+  spinnerFrame,
 } from "@/scripts/spinner"
 
 const SIZE = 64
-const COLUMNS = [21, 43]
-const ROWS = [8, 24.7, 41.3, 58]
-const RADIUS = 7
+const RADIUS = 31
 
 const darkChrome = window.matchMedia("(prefers-color-scheme: dark)")
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
@@ -54,22 +53,27 @@ function readPrimaries(): Primaries {
  * Draws one spinner frame, replacing whatever the canvas held.
  *
  * @param context - The offscreen canvas's 2d context.
- * @param frame - One character from `SPINNER_FRAMES`.
- * @param colour - What to fill the raised dots with.
+ * @param frame - An index into `SPINNER_FRAMES`.
+ * @param colour - What to stroke the bars with.
  */
 function draw(
   context: CanvasRenderingContext2D,
-  frame: string,
+  frame: number,
   colour: string
 ) {
-  context.clearRect(0, 0, SIZE, SIZE)
-  context.fillStyle = colour
+  const { bars, strokeWidth } = spinnerFrame(frame, RADIUS)
 
-  for (const [column, row] of brailleDots(frame)) {
-    context.beginPath()
-    context.arc(COLUMNS[column], ROWS[row], RADIUS, 0, Math.PI * 2)
-    context.fill()
+  context.clearRect(0, 0, SIZE, SIZE)
+  context.strokeStyle = colour
+  context.lineWidth = strokeWidth
+  context.lineCap = "round"
+
+  context.beginPath()
+  for (const [x1, y1, x2, y2] of bars) {
+    context.moveTo(SIZE / 2 + x1, SIZE / 2 + y1)
+    context.lineTo(SIZE / 2 + x2, SIZE / 2 + y2)
   }
+  context.stroke()
 }
 
 /**
@@ -94,12 +98,12 @@ function animate(
 
   link.type = "image/png"
 
-  let frame = 0
+  let frame = SPINNER_REST
   let timer = 0
 
   function paint() {
     const colour = darkChrome.matches ? primaries.dark : primaries.light
-    draw(context, SPINNER_FRAMES[frame], colour)
+    draw(context, frame, colour)
     link.href = canvas.toDataURL("image/png")
   }
 
