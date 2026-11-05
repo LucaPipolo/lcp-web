@@ -16,11 +16,10 @@ sections:
     heading: 'Ciao, sono <span class="text-primary">Luca</span>'
     subheading: "Full-Stack Web Developer & Technical Director"
     body: >-
-      Da <span class="text-primary">oltre 13 anni</span> costruisco applicazioni
+      Da <strong>oltre 13 anni</strong> costruisco applicazioni
       web, prodotti SaaS ed ecommerce, per startup, agenzie e aziende
       enterprise. Programmo, disegno interfacce e gestisco team
-      multidisciplinari. Oggi dirigo la parte tecnica di <span
-      class="text-primary">somoscuatro</span>, una società di consulenza
+      multidisciplinari. Oggi dirigo la parte tecnica di <strong>somoscuatro</strong>, una società di consulenza
       digitale a Barcellona.
     actions:
       - label: "Contattami"
