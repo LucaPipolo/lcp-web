@@ -16,11 +16,10 @@ sections:
     heading: 'Hola, soy <span class="text-primary">Luca</span>'
     subheading: "Desarrollador Full-Stack y Director Técnico"
     body: >-
-      Llevo <span class="text-primary">más de 13 años</span> construyendo
+      Llevo <strong>más de 13 años</strong> construyendo
       aplicaciones web, productos SaaS y ecommerce, para startups, agencias
       y grandes empresas. Programo, diseño interfaces y lidero equipos
-      multidisciplinares. Actualmente dirijo la parte técnica de <span
-      class="text-primary">somoscuatro</span>, una consultora digital con
+      multidisciplinares. Actualmente dirijo la parte técnica de <strong>somoscuatro</strong>, una consultora digital con
       sede en Barcelona.
     actions:
       - label: "Contáctame"
