@@ -1,0 +1,25 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+import { asterisk, MARK_WEIGHT } from "@/libs/asterisk"
+
+type Props = HTMLAttributes<"svg">
+
+const RADIUS = 12
+
+const { bars, strokeWidth } = asterisk(RADIUS, { width: MARK_WEIGHT })
+---
+
+<svg
+  aria-hidden="true"
+  fill="none"
+  stroke="currentColor"
+  stroke-linecap="round"
+  stroke-width={strokeWidth}
+  viewBox={`${-RADIUS} ${-RADIUS} ${RADIUS * 2} ${RADIUS * 2}`}
+  {...Astro.props}
+>
+  {bars.map(([x1, y1, x2, y2]) => (
+    <line x1={x1} x2={x2} y1={y1} y2={y2} />
+  ))}
+</svg>

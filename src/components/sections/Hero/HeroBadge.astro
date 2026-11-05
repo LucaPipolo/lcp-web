@@ -1,4 +1,6 @@
 ---
+import Asterisk from "@/components/common/Asterisk.astro"
+
 interface Props {
   stem: string
   tails: string[]
@@ -11,11 +13,7 @@ const { stem, tails } = Astro.props
   class="group flex items-center gap-2 font-mono text-xs text-muted-foreground lowercase"
   data-hero-badge
 >
-  <span
-    aria-hidden="true"
-    class="inline-block w-[1ch] text-primary"
-    data-badge-spinner
-  ></span>
+  <Asterisk class="size-[1.15em] shrink-0 text-primary" data-badge-spinner />
   <span>
     {stem}{" "}
     {tails.map((tail: string, index: number) => (

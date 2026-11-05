@@ -1,4 +1,9 @@
-import { SPINNER_FRAMES, SPINNER_INTERVAL } from "@/scripts/spinner"
+import {
+  SPINNER_FRAMES,
+  SPINNER_INTERVAL,
+  SPINNER_REST,
+  spinnerFrame,
+} from "@/scripts/spinner"
 
 /** How long each character takes to appear, in milliseconds. */
 const TYPE_MS = 55
@@ -15,14 +20,25 @@ const BETWEEN_MS = 400
 /**
  * Turns the spinner for as long as the page is open.
  *
- * @param spinner - The element whose text content is the current frame.
+ * @param spinner - The asterisk's `<svg>`, whose bars are redrawn each frame.
  */
-function spin(spinner: HTMLElement) {
-  let frame = 0
+function spin(spinner: SVGSVGElement) {
+  const lines = [...spinner.querySelectorAll("line")]
+  const radius = spinner.viewBox.baseVal.width / 2
+  let frame = SPINNER_REST
 
   window.setInterval(() => {
     frame = (frame + 1) % SPINNER_FRAMES.length
-    spinner.textContent = SPINNER_FRAMES[frame]
+
+    const { bars, strokeWidth } = spinnerFrame(frame, radius)
+    spinner.setAttribute("stroke-width", String(strokeWidth))
+    lines.forEach((line, index) => {
+      const [x1, y1, x2, y2] = bars[index]
+      line.setAttribute("x1", String(x1))
+      line.setAttribute("y1", String(y1))
+      line.setAttribute("x2", String(x2))
+      line.setAttribute("y2", String(y2))
+    })
   }, SPINNER_INTERVAL)
 }
 
@@ -83,21 +99,19 @@ function type(badge: HTMLElement, target: HTMLElement, tails: string[]) {
  * @param badge - An element carrying `data-hero-badge`.
  */
 function initHeroBadge(badge: HTMLElement) {
-  const spinner = badge.querySelector<HTMLElement>("[data-badge-spinner]")
+  const spinner = badge.querySelector<SVGSVGElement>("[data-badge-spinner]")
   const tailElements = [
     ...badge.querySelectorAll<HTMLElement>("[data-badge-tail]"),
   ]
-
-  if (spinner) spinner.textContent = SPINNER_FRAMES[0]
 
   const [primary] = tailElements
   if (!primary) return
 
   // A Visitor who asked for less motion keeps the first tail exactly as the
-  // server rendered it, and the spinner rests on one frame.
+  // server rendered it, and the spinner rests on the full mark.
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
 
-  spin(spinner!)
+  if (spinner) spin(spinner)
 
   const tails = tailElements
     .map((element) => element.textContent?.trim() ?? "")
