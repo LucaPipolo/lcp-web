@@ -125,6 +125,13 @@ const home = defineCollection({
         })
         .optional(),
 
+      blog: z
+        .object({
+          heading: z.string(),
+          action: z.object({ label: z.string(), href: z.string() }),
+        })
+        .optional(),
+
       recommendations: z
         .object({
           heading: z.string(),
