@@ -1,0 +1,102 @@
+---
+import CornerMarks from "@/components/common/CornerMarks.astro"
+
+for (const slot of ["header", "body"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<Post> requires a \`${slot}\` slot.`)
+  }
+}
+
+const aside = Astro.slots.has("aside")
+
+// The share links follow the reader in the side panel where there is one, and
+// close the post everywhere else, so the same markup is placed twice.
+const share = Astro.slots.has("share") ? await Astro.slots.render("share") : ""
+
+// What to read next sits apart from the post, on the full width of the page.
+// A slot left empty by its condition still counts as passed, so what it holds
+// is what settles whether there is anything to set apart.
+const related = Astro.slots.has("related")
+  ? await Astro.slots.render("related")
+  : ""
+const neighbours = Astro.slots.has("neighbours")
+  ? await Astro.slots.render("neighbours")
+  : ""
+const after = related.trim() !== "" || neighbours.trim() !== ""
+---
+
+{/* One column below the sidebar's breakpoint still has to be `minmax(0, 1fr)`:
+  an implicit one grows to the post's widest line, so a long line of code
+  would widen the page instead of scrolling inside its own block. */}
+<div class="grid grid-cols-1 xl:grid-cols-[minmax(0,1fr)_18rem]">
+  <article class="px-gutter pt-20 pb-30">
+    <div class="max-w-article">
+      <slot name="header" />
+
+      {Astro.slots.has("contents") && (
+        <div class="mt-10 xl:hidden">
+          <slot name="contents" />
+        </div>
+      )}
+
+      <slot name="body" />
+
+      {share.trim() !== "" && (
+        <div
+          class:list={[
+            "mt-16 border-t border-border pt-6",
+            aside && "xl:hidden",
+          ]}
+        >
+          <Fragment set:html={share} />
+        </div>
+      )}
+    </div>
+  </article>
+
+  {aside && (
+    // A rule the whole height of the post, drawn inside the panel rather than
+    // as its border, because the panel scrolls, and only inside it can the
+    // contents mark their place on it.
+    <aside class="relative hidden xl:block">
+      {/* It runs down to the next line there is: the one that sets what to read
+        next apart, or else the footer's, across the space above it. */}
+      <div
+        aria-hidden="true"
+        class:list={[
+          "pointer-events-none absolute top-0 left-0 w-px bg-border",
+          after ? "bottom-0" : "-bottom-footer",
+        ]}
+      >
+        <CornerMarks corners="left" />
+      </div>
+
+      {/* The header stays put as the page scrolls, so the panel starts below it. */}
+      <div class="sticky top-header max-h-[calc(100svh-var(--spacing-header))] overflow-y-auto py-20">
+        <div class="px-6">
+          <slot name="aside" />
+        </div>
+
+        {share.trim() !== "" && (
+          <div class="mt-8 border-t border-border px-6 pt-6">
+            <Fragment set:html={share} />
+          </div>
+        )}
+      </div>
+    </aside>
+  )}
+</div>
+
+{after && (
+  <div class="relative border-t border-border">
+    <CornerMarks corners="top" />
+
+    {related.trim() !== "" && <Fragment set:html={related} />}
+
+    {neighbours.trim() !== "" && (
+      <div class="px-gutter py-12">
+        <Fragment set:html={neighbours} />
+      </div>
+    )}
+  </div>
+)}

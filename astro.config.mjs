@@ -18,6 +18,12 @@ export default defineConfig({
       authToken: process.env.SENTRY_AUTH_TOKEN,
     }),
   ],
+  markdown: {
+    // Shiki writes its colours into a style attribute on every token, which
+    // `style-src 'self'` blocks and `check:csp` fails the build over. Prism
+    // writes class names instead, and `_code.css` colours them.
+    syntaxHighlight: "prism",
+  },
   i18n: {
     locales: [...LOCALES],
     defaultLocale: DEFAULT_LOCALE,

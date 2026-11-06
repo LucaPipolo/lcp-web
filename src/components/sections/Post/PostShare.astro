@@ -1,0 +1,92 @@
+---
+import { Icon } from "astro-icon/components"
+
+import { fillPlaceholders } from "@/libs/template"
+
+interface Props {
+  copiedLabel: string
+  copyLabel: string
+  label: string
+  shareOn: string
+  title: string
+  url: string
+}
+
+const { url, title, label, shareOn, copyLabel, copiedLabel } = Astro.props
+
+const link = encodeURIComponent(url)
+const subject = encodeURIComponent(title)
+
+const NETWORKS = [
+  {
+    name: "X",
+    icon: "simple-icons:x",
+    href: `https://x.com/intent/post?url=${link}&text=${subject}`,
+  },
+  {
+    name: "LinkedIn",
+    icon: "simple-icons:linkedin",
+    href: `https://www.linkedin.com/sharing/share-offsite/?url=${link}`,
+  },
+  {
+    name: "Email",
+    icon: "lucide:mail",
+    href: `mailto:?subject=${subject}&body=${link}`,
+  },
+]
+
+const BUTTON =
+  "grid size-9 place-items-center border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+---
+
+<div
+  class="flex flex-wrap items-center gap-x-4 gap-y-3"
+  data-copied-label={copiedLabel}
+  data-copy-label={copyLabel}
+  data-url={url}
+  x-data="postShare"
+>
+  <p class="flex items-center gap-2 font-mono text-2xs tracking-widest text-muted-foreground uppercase">
+    <Icon aria-hidden="true" class="size-3.5" name="lucide:share-2" />
+    {label}
+  </p>
+
+  <div class="flex items-center gap-1.5">
+    {NETWORKS.map((network) => (
+      <a
+        aria-label={fillPlaceholders(shareOn, { network: network.name })}
+        class={BUTTON}
+        href={network.href}
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        <Icon aria-hidden="true" class="size-4" name={network.icon} />
+      </a>
+    ))}
+
+    {/* Copying needs a clipboard, so the button waits until it finds one. */}
+    <button
+      aria-label={copyLabel}
+      class:list={[BUTTON, "cursor-pointer"]}
+      type="button"
+      x-bind:aria-label="label()"
+      x-cloak=""
+      x-on:click="copy()"
+      x-show="supported"
+    >
+      <Icon
+        aria-hidden="true"
+        class="col-start-1 row-start-1 size-4"
+        name="lucide:link"
+        x-show="!copied"
+      />
+      <Icon
+        aria-hidden="true"
+        class="col-start-1 row-start-1 size-4"
+        name="lucide:check"
+        x-cloak=""
+        x-show="copied"
+      />
+    </button>
+  </div>
+</div>

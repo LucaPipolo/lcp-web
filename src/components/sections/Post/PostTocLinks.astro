@@ -1,0 +1,38 @@
+---
+export interface Heading {
+  depth: number
+  slug: string
+  text: string
+}
+
+interface Props {
+  headings: Heading[]
+  spy?: boolean
+}
+
+const { headings, spy = false } = Astro.props
+
+const LINK =
+  "relative block py-1 text-sm leading-snug text-pretty text-muted-foreground transition-colors hover:text-foreground aria-[current]:font-medium aria-[current]:text-foreground"
+
+// Where the reader is shows on the side panel's own rule rather than on a rail
+// of the list's: the mark reaches back across the panel's padding (`px-6` in
+// <Post>) to sit on that rule.
+const MARK =
+  "before:absolute before:inset-y-0 before:-left-6 before:w-0.5 before:bg-primary before:opacity-0 before:transition-opacity aria-[current]:before:opacity-100"
+---
+
+<ul class="flex flex-col gap-1">
+  {headings.map((heading) => (
+    <li>
+      <a
+        class:list={[LINK, spy && MARK, heading.depth > 2 && "pl-3"]}
+        data-heading={heading.slug}
+        href={`#${heading.slug}`}
+        x-bind:aria-current={spy ? "isActive($el)" : undefined}
+      >
+        {heading.text}
+      </a>
+    </li>
+  ))}
+</ul>

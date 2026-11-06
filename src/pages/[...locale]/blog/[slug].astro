@@ -1,0 +1,171 @@
+---
+import { Image } from "astro:assets"
+import { getEntry, render } from "astro:content"
+
+import Layout from "@/layouts/main.astro"
+
+import SectionContainer from "@/components/common/SectionContainer.astro"
+import Tag from "@/components/common/Tag.astro"
+
+import PostMeta from "@/components/sections/Blog/PostMeta.astro"
+
+import Post from "@/components/sections/Post/Post.astro"
+import PostBody from "@/components/sections/Post/PostBody.astro"
+import PostHeader from "@/components/sections/Post/PostHeader.astro"
+import PostNeighbours from "@/components/sections/Post/PostNeighbours.astro"
+import PostShare from "@/components/sections/Post/PostShare.astro"
+import PostToc from "@/components/sections/Post/PostToc.astro"
+
+import {
+  getNeighbours,
+  getPostHref,
+  getPosts,
+  getPostSlug,
+  getReadingTime,
+} from "@/libs/blog"
+import { getSettings } from "@/libs/content"
+import { DEFAULT_LOCALE, formatDate, LOCALES } from "@/libs/i18n"
+import { fillPlaceholders } from "@/libs/template"
+
+/** Which headings are worth listing: the ones that structure the post. */
+const LISTED = [2, 3]
+
+export async function getStaticPaths() {
+  const paths = []
+
+  for (const locale of LOCALES) {
+    const posts = await getPosts(locale)
+
+    for (const post of posts) {
+      paths.push({
+        params: {
+          locale: locale === DEFAULT_LOCALE ? undefined : locale,
+          slug: getPostSlug(post),
+        },
+        props: { post, ...getNeighbours(posts, post) },
+      })
+    }
+  }
+
+  return paths
+}
+
+const { post, previous, next } = Astro.props
+const { title, description, published, updated, tags, cover, coverAlt } =
+  post.data
+
+const locale = Astro.currentLocale
+const { blog } = await getSettings(locale)
+
+const page = await getEntry("blog-index", locale ?? DEFAULT_LOCALE)
+
+const { Content, headings } = await render(post)
+const contents = headings.filter((heading) => LISTED.includes(heading.depth))
+
+const url = new URL(getPostHref(post, locale), Astro.site).href
+
+const readingTime = fillPlaceholders(blog.readingTime, {
+  minutes: String(getReadingTime(post)),
+})
+---
+
+<Layout
+  description={description}
+  title={fillPlaceholders(page!.data.postTitle, { title })}
+>
+  <SectionContainer>
+    <Post>
+      <PostHeader slot="header">
+        {tags.map((tag) => (
+          <Tag slot="tags">{tag}</Tag>
+        ))}
+
+        <Fragment slot="title">{title}</Fragment>
+
+        <PostMeta slot="meta">
+          <Fragment slot="date">
+            {blog.published}{" "}
+            <time datetime={published.toISOString()}>
+              {formatDate(published, locale)}
+            </time>
+          </Fragment>
+
+          <Fragment slot="readingTime">{readingTime}</Fragment>
+
+          {updated && (
+            <Fragment slot="updated">
+              {blog.updated}{" "}
+              <time datetime={updated.toISOString()}>
+                {formatDate(updated, locale)}
+              </time>
+            </Fragment>
+          )}
+        </PostMeta>
+
+        <Fragment slot="description">{description}</Fragment>
+
+        {cover && (
+          <Fragment slot="cover">
+            <Image
+              alt={coverAlt ?? ""}
+              class="w-full"
+              loading="eager"
+              src={cover}
+            />
+          </Fragment>
+        )}
+      </PostHeader>
+
+      {contents.length > 0 && (
+        <PostToc headings={contents} slot="contents" variant="inline">
+          <Fragment slot="label">{blog.tableOfContents}</Fragment>
+        </PostToc>
+      )}
+
+      <PostBody slot="body">
+        <Content />
+      </PostBody>
+
+      <PostShare
+        copiedLabel={blog.copiedLink}
+        copyLabel={blog.copyLink}
+        label={blog.share}
+        shareOn={blog.shareOn}
+        slot="share"
+        title={title}
+        url={url}
+      />
+
+      {(previous || next) && (
+        <PostNeighbours
+          next={
+            next && {
+              href: getPostHref(next, locale),
+              title: next.data.title,
+              label: blog.next,
+            }
+          }
+          previous={
+            previous && {
+              href: getPostHref(previous, locale),
+              title: previous.data.title,
+              label: blog.previous,
+            }
+          }
+          slot="neighbours"
+        />
+      )}
+
+      {contents.length > 0 && (
+        <PostToc headings={contents} slot="aside">
+          <Fragment slot="label">{blog.tableOfContents}</Fragment>
+        </PostToc>
+      )}
+    </Post>
+  </SectionContainer>
+</Layout>
+
+<script>
+  import "@/scripts/post-toc"
+  import "@/scripts/post-share"
+</script>

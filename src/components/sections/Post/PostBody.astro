@@ -1,0 +1,9 @@
+---
+if (!Astro.slots.has("default")) {
+  throw new Error("<PostBody> requires the rendered post.")
+}
+---
+
+<div class="long-form mt-14 rich-text text-lg text-muted-foreground">
+  <slot />
+</div>
