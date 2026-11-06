@@ -42,7 +42,7 @@ const alternates = LOCALES.map((code) => ({
 
 const { description, title } = Astro.props
 
-const { footer, header } = await getSettings(locale)
+const { blog, footer, header } = await getSettings(locale)
 
 const copyright =
   footer &&
@@ -59,6 +59,12 @@ const copyright =
     <title>{title}</title>
     {description && <meta content={description} name="description" />}
     <link href={canonical.href} rel="canonical" />
+    <link
+      href={localizeHref("/blog/rss.xml", locale)}
+      rel="alternate"
+      title={blog.feed}
+      type="application/rss+xml"
+    />
     {alternates.map(({ code, href }) => (
       <link href={href} hreflang={code} rel="alternate" />
     ))}
