@@ -1,0 +1,33 @@
+metadata:
+  title: "Page not found | Luca Pipolo"
+
+eyebrow: "error 404"
+heading: "This page doesn't exist"
+body: >-
+  The link may be broken, the page may have moved, or the URL has a typo.
+  Nothing serious: from here you can get back on familiar ground.
+pathLabel: "You asked for"
+actions:
+  - label: "Back to home"
+    href: "/"
+    variant: "inverted"
+  - label: "Get in touch"
+    href: "mailto:hello@lucapipolo.com"
+    variant: "outline"
+
+suggestions:
+  heading: "maybe you were looking for"
+  links:
+    - label: "experience"
+      description: "Over 13 years building web products and leading teams."
+      href: "/#experience"
+    - label: "stack"
+      description: "The technologies and tools I work with every day."
+      href: "/#stack"
+    - label: "recommendations"
+      description: "What the people I've worked with say about me."
+      href: "/#recommendations"
+    - label: "cv.pdf"
+      description: "My full résumé, ready to download."
+      href: "/resumes/luca-pipolo-full-stack-developer-resume-en.pdf"
+      download: true
