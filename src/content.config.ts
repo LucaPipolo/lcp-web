@@ -31,6 +31,7 @@ const settings = defineCollection({
       copiedCode: z.string(),
       previous: z.string(),
       next: z.string(),
+      related: z.string(),
     }),
     footer: z.object({
       tagline: z.string(),
@@ -205,6 +206,11 @@ const blog = defineCollection({
       cover: image().optional(),
       coverAlt: z.string().optional(),
       draft: z.boolean().default(false),
+      /**
+       * The posts to point to after this one, by slug (their folder's name).
+       * Left out, the posts sharing the most tags are pointed to instead.
+       */
+      related: z.array(z.string()).optional(),
     }),
 })
 

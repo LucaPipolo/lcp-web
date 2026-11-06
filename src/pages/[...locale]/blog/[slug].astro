@@ -5,14 +5,17 @@ import { getEntry, render } from "astro:content"
 import Layout from "@/layouts/main.astro"
 
 import SectionContainer from "@/components/common/SectionContainer.astro"
+import SectionHeading from "@/components/common/SectionHeading.astro"
 import Tag from "@/components/common/Tag.astro"
 
+import PostCard from "@/components/sections/Blog/PostCard.astro"
 import PostMeta from "@/components/sections/Blog/PostMeta.astro"
 
 import Post from "@/components/sections/Post/Post.astro"
 import PostBody from "@/components/sections/Post/PostBody.astro"
 import PostHeader from "@/components/sections/Post/PostHeader.astro"
 import PostNeighbours from "@/components/sections/Post/PostNeighbours.astro"
+import PostRelated from "@/components/sections/Post/PostRelated.astro"
 import PostShare from "@/components/sections/Post/PostShare.astro"
 import PostToc from "@/components/sections/Post/PostToc.astro"
 
@@ -21,7 +24,9 @@ import {
   getPostHref,
   getPosts,
   getPostSlug,
+  getPostSlugs,
   getReadingTime,
+  getRelated,
 } from "@/libs/blog"
 import { getSettings } from "@/libs/content"
 import { DEFAULT_LOCALE, formatDate, LOCALES } from "@/libs/i18n"
@@ -33,6 +38,7 @@ const LISTED = [2, 3]
 
 export async function getStaticPaths() {
   const paths = []
+  const slugs = await getPostSlugs()
 
   for (const locale of LOCALES) {
     const posts = await getPosts(locale)
@@ -43,7 +49,11 @@ export async function getStaticPaths() {
           locale: locale === DEFAULT_LOCALE ? undefined : locale,
           slug: getPostSlug(post),
         },
-        props: { post, ...getNeighbours(posts, post) },
+        props: {
+          post,
+          related: getRelated(posts, post, slugs),
+          ...getNeighbours(posts, post),
+        },
       })
     }
   }
@@ -51,7 +61,7 @@ export async function getStaticPaths() {
   return paths
 }
 
-const { post, previous, next } = Astro.props
+const { post, previous, next, related } = Astro.props
 const { title, description, published, updated, tags, cover, coverAlt } =
   post.data
 
@@ -145,6 +155,36 @@ const readingTime = fillPlaceholders(blog.readingTime, {
         title={title}
         url={url}
       />
+
+      {related.length > 0 && (
+        <PostRelated slot="related">
+          <SectionHeading slot="heading">{blog.related}</SectionHeading>
+
+          {related.map((relatedPost) => (
+            <PostCard href={getPostHref(relatedPost, locale)} slot="posts">
+              <PostMeta slot="meta">
+                <Fragment slot="date">
+                  {formatDate(relatedPost.data.published, locale)}
+                </Fragment>
+                <Fragment slot="readingTime">
+                  {fillPlaceholders(blog.readingTime, {
+                    minutes: String(getReadingTime(relatedPost)),
+                  })}
+                </Fragment>
+              </PostMeta>
+
+              <Fragment slot="title">{relatedPost.data.title}</Fragment>
+              <Fragment slot="description">
+                {relatedPost.data.description}
+              </Fragment>
+
+              {relatedPost.data.tags.map((tag) => (
+                <Tag slot="tags">{tag}</Tag>
+              ))}
+            </PostCard>
+          ))}
+        </PostRelated>
+      )}
 
       {(previous || next) && (
         <PostNeighbours

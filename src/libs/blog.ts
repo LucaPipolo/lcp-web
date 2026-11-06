@@ -13,6 +13,9 @@ export interface Neighbours {
   previous?: Post
 }
 
+/** How many posts a post points to as worth reading next, at most. */
+const RELATED = 3
+
 /** How fast the reading time takes a Visitor to read, in words a minute. */
 const WORDS_PER_MINUTE = 200
 
@@ -123,4 +126,75 @@ export function getNeighbours(posts: Post[], post: Post): Neighbours {
   if (index === -1) return {}
 
   return { next: posts[index - 1], previous: posts[index + 1] }
+}
+
+/**
+ * Collects the slug of every post the blog has, whatever its language.
+ *
+ * @returns The slugs, one each however many languages a post is written in.
+ */
+export async function getPostSlugs(): Promise<Set<string>> {
+  const posts = await getCollection("blog")
+
+  return new Set(posts.map(getPostSlug))
+}
+
+/**
+ * Finds the posts worth reading after this one.
+ *
+ * A post's own `related` list wins whenever it has one: it is a choice, and a
+ * choice outranks a guess. Without one, the posts sharing the most tags with
+ * it come first, the newest first among equals, and a post sharing none is
+ * left out rather than offered as related when it is not.
+ *
+ * @param posts - The posts of one language, as {@link getPosts} ordered them.
+ * @param post - The one being read.
+ * @param slugs - Every slug the blog has in any language, as
+ *   {@link getPostSlugs} collects them.
+ *
+ * @returns Up to three posts. A slug the list names that this language has no
+ *   post for is passed over: it is a post not translated yet, not a mistake.
+ *
+ * @throws When the list names a slug no post has in any language, which is a
+ *   mistyped slug the build would otherwise pass over in silence.
+ */
+export function getRelated(
+  posts: Post[],
+  post: Post,
+  slugs: Set<string>
+): Post[] {
+  const { related, tags } = post.data
+
+  if (related && related.length > 0) {
+    for (const slug of related) {
+      if (!slugs.has(slug)) {
+        throw new Error(
+          `The post \`${post.id}\` lists \`${slug}\` as related, but no post has that slug. Use the name of a folder in src/content/blog/.`
+        )
+      }
+    }
+
+    return related
+      .flatMap((slug) =>
+        posts.filter(
+          (candidate) =>
+            getPostSlug(candidate) === slug && candidate.id !== post.id
+        )
+      )
+      .slice(0, RELATED)
+  }
+
+  const own = new Set(tags)
+
+  // The posts arrive newest first, and the sort is stable, so equals keep it.
+  return posts
+    .filter((candidate) => candidate.id !== post.id)
+    .map((candidate) => ({
+      candidate,
+      shared: candidate.data.tags.filter((tag) => own.has(tag)).length,
+    }))
+    .filter(({ shared }) => shared > 0)
+    .sort((a, b) => b.shared - a.shared)
+    .slice(0, RELATED)
+    .map(({ candidate }) => candidate)
 }
