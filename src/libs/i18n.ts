@@ -67,12 +67,14 @@ export function localizeHref(href: string, locale?: string): string {
  * @param locale - The reader's locale. Anything unsupported, `undefined`
  *   included, falls back to {@link DEFAULT_LOCALE}.
  *
- * @returns The date written out in full, as `5 August 2026`.
+ * @returns The date as day, month and four-digit year, as `05/08/2026`.
  */
 export function formatDate(date: Date, locale?: string): string {
   const resolved = isLocale(locale) ? locale : DEFAULT_LOCALE
 
   return new Intl.DateTimeFormat(FORMATTING_LOCALES[resolved], {
-    dateStyle: "long",
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
   }).format(date)
 }
