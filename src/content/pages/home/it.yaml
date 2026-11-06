@@ -311,7 +311,7 @@ sections:
     heading: "raccomandazioni"
     action:
       label: "Vedi tutte (10)"
-      href: "https://www.linkedin.com/in/lucapipolo/details/recommendations"
+      href: "/recommendations/"
     quotes:
       - initials: "SM"
         avatar: "/recommendations/shadi-manna.jpeg"
