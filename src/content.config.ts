@@ -31,6 +31,7 @@ const settings = defineCollection({
       copiedCode: z.string(),
       previous: z.string(),
       next: z.string(),
+      feed: z.string(),
       related: z.string(),
     }),
     footer: z.object({
