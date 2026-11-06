@@ -1,0 +1,77 @@
+---
+import Asterisk from "@/components/common/Asterisk.astro"
+import CornerMarks from "@/components/common/CornerMarks.astro"
+
+for (const slot of ["eyebrow", "heading", "pathLabel", "suggestions"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<NotFound> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<section class="flex flex-col">
+  <div class="flex flex-col items-start gap-6 px-gutter pt-20 pb-20">
+    <p
+      aria-hidden="true"
+      class="flex rise-in items-center text-9xl font-semibold tracking-tighter"
+    >
+      4
+      <Asterisk class="mx-[0.04em] size-[0.72em] text-primary motion-safe:animate-[spin_14s_linear_infinite]" />
+      4
+    </p>
+
+    <div class="flex rise-in flex-col gap-5 delay-80">
+      <p class="flex items-center gap-2 font-mono text-sm tracking-widest text-muted-foreground uppercase">
+        <span aria-hidden="true" class="text-primary">
+          //
+        </span>
+        <slot name="eyebrow" />
+      </p>
+      <h1 class="text-5xl font-semibold tracking-tight text-balance">
+        <slot name="heading" />
+      </h1>
+    </div>
+
+    {Astro.slots.has("body") && (
+      <p class="max-w-prose rise-in text-lg text-pretty text-muted-foreground delay-160">
+        <slot name="body" />
+      </p>
+    )}
+
+    <p
+      class="flex max-w-full rise-in flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs text-muted-foreground lowercase delay-160"
+      data-not-found-path
+      hidden
+    >
+      <slot name="pathLabel" />
+      <code class="max-w-full truncate border border-border bg-muted px-2 py-1 text-foreground normal-case"></code>
+    </p>
+
+    {Astro.slots.has("actions") && (
+      <div class="flex rise-in flex-wrap gap-3 delay-240">
+        <slot name="actions" />
+      </div>
+    )}
+  </div>
+
+  <div class="rise-in delay-320">
+    {Astro.slots.has("suggestionsHeading") && (
+      <h2 class="flex items-center gap-2 px-gutter pb-6 font-mono text-sm tracking-widest text-muted-foreground uppercase">
+        <span aria-hidden="true" class="text-primary">
+          //
+        </span>
+        <slot name="suggestionsHeading" />
+      </h2>
+    )}
+    <div class="relative border-y border-border">
+      <CornerMarks />
+      <ul class="grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <slot name="suggestions" />
+      </ul>
+    </div>
+  </div>
+</section>
+
+<script>
+  import "@/scripts/not-found"
+</script>

@@ -1,0 +1,18 @@
+---
+import NotFoundPage from "@/components/sections/NotFound/NotFoundPage.astro"
+
+import { getLocalizedStaticPaths } from "@/libs/content"
+
+/**
+ * Builds the 404 for every locale but the default one, which `src/pages/404.astro`
+ * serves at the root: that literal file is the only one the dev server falls
+ * back to for a missing path.
+ */
+export async function getStaticPaths() {
+  const paths = await getLocalizedStaticPaths("not-found")
+
+  return paths.filter(({ params }) => params.locale !== undefined)
+}
+---
+
+<NotFoundPage />
