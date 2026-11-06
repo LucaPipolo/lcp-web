@@ -26,7 +26,7 @@ suggestions:
       href: "/#stack"
     - label: "recommendations"
       description: "What the people I've worked with say about me."
-      href: "/#recommendations"
+      href: "/recommendations/"
     - label: "cv.pdf"
       description: "My full résumé, ready to download."
       href: "/resumes/luca-pipolo-full-stack-developer-resume-en.pdf"
