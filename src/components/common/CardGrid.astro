@@ -1,14 +1,47 @@
 ---
 import CornerMarks from "@/components/common/CornerMarks.astro"
 
+interface Props {
+  /**
+   * How the rules between cards are drawn.
+   *
+   * `gap` shows the grid's own background through a one-pixel gap, which is
+   * the tighter drawing and asks that the cards fill their last row: a row
+   * left part-empty shows that background as a panel.
+   *
+   * `ruled` has each card draw the rules on its right and below, so a
+   * part-empty row ends where the cards do. That is what a run of a length
+   * nobody chose — posts, say — needs.
+   */
+  separators?: "gap" | "ruled"
+}
+
+const { separators = "gap" } = Astro.props
+
 if (!Astro.slots.has("default")) {
   throw new Error("<CardGrid> requires content.")
 }
+
+// A ruled grid reaches one pixel past its right and bottom edges, so the last
+// column's rule lands on the frame's own and the last row's on the grid's,
+// rather than beside them, where a second line would read as a double one.
+const SEPARATORS = {
+  gap: "gap-px bg-border",
+  ruled: "-mr-px -mb-px [&>*]:border-r [&>*]:border-b [&>*]:border-border",
+} as const
 ---
 
 <div class="@container">
-  <div class="relative grid gap-px border-y border-border bg-border @2xl:grid-cols-2 @5xl:grid-cols-3">
+  <div class="relative border-y border-border">
     <CornerMarks />
-    <slot />
+
+    <div
+      class:list={[
+        "grid @2xl:grid-cols-2 @5xl:grid-cols-3",
+        SEPARATORS[separators],
+      ]}
+    >
+      <slot />
+    </div>
   </div>
 </div>

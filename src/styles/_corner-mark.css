@@ -6,6 +6,9 @@
   );
 
   position: absolute;
+  /* Above whatever it marks: a card that is positioned, for a link stretched
+     over it, would otherwise paint over the arms that reach into it. */
+  z-index: 1;
 
   width: var(--corner-mark-size);
   height: var(--corner-mark-size);
