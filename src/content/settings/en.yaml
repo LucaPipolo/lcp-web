@@ -58,7 +58,7 @@ footer:
         - label: "stack"
           href: "/#stack"
         - label: "recommendations"
-          href: "/#recommendations"
+          href: "/recommendations/"
         - label: "blog"
           href: "/blog/"
     - label: "links"

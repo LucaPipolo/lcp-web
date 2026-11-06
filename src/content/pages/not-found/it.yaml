@@ -27,7 +27,7 @@ suggestions:
       href: "/#stack"
     - label: "raccomandazioni"
       description: "Cosa dicono di me le persone con cui ho lavorato."
-      href: "/#recommendations"
+      href: "/recommendations/"
     - label: "cv.pdf"
       description: "Il mio curriculum completo, pronto da scaricare."
       href: "/resumes/luca-pipolo-full-stack-developer-resume-it.pdf"
