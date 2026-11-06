@@ -152,6 +152,35 @@ const home = defineCollection({
   }),
 })
 
+const notFound = defineCollection({
+  loader: glob({ pattern: "*.yaml", base: "./src/content/pages/not-found" }),
+  schema: z.object({
+    metadata: z.object({ title: z.string() }),
+    eyebrow: z.string(),
+    heading: z.string(),
+    body: z.string(),
+    pathLabel: z.string(),
+    actions: z.array(
+      z.object({
+        label: z.string(),
+        href: z.string(),
+        variant: z.enum(["default", "outline", "inverted"]).optional(),
+      })
+    ),
+    suggestions: z.object({
+      heading: z.string(),
+      links: z.array(
+        z.object({
+          label: z.string(),
+          description: z.string(),
+          href: z.string(),
+          download: z.boolean().optional(),
+        })
+      ),
+    }),
+  }),
+})
+
 /**
  * Builds a collection for a page that reads as one article: a heading, a
  * revision date and a run of sections, each prose, a definition list, or both.
@@ -268,4 +297,5 @@ export const collections = {
   cookies,
   security,
   "ai-content": aiContent,
+  "not-found": notFound,
 }
