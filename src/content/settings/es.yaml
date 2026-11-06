@@ -22,6 +22,8 @@ header:
       href: "/#stack"
     - label: "recomendaciones"
       href: "/#recommendations"
+    - label: "blog"
+      href: "/blog/"
     - label: "contacto"
       href: "mailto:hola@lucapipolo.com"
 
@@ -57,6 +59,8 @@ footer:
           href: "/#stack"
         - label: "recomendaciones"
           href: "/#recommendations"
+        - label: "blog"
+          href: "/blog/"
     - label: "links"
       links:
         - label: "github"
