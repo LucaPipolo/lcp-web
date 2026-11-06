@@ -1,0 +1,28 @@
+---
+import CornerMarks from "@/components/common/CornerMarks.astro"
+
+/**
+ * We decided to pack cards of uneven height with CSS columns rather than a
+ * grid because a grid lines its rows up, leaving a gap under every short card.
+ * The cost is reading order: it runs down each column before moving right.
+ *
+ * Columns can't tell which card ends one, so a full border per card would
+ * double up where cards meet. Instead each card rules its own top, the browser
+ * draws one rule between columns, and the frame closes the bottom. That rule
+ * gets a one-pixel gap of its own, or the cards' backgrounds paint over it.
+ */
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<MasonryGrid> requires content.")
+}
+---
+
+<div class="@container">
+  <div class="relative border-b border-border">
+    <CornerMarks />
+
+    <div class="columns-1 gap-px [column-rule:1px_solid_var(--color-border)] @2xl:columns-2 @5xl:columns-3 [&>*]:break-inside-avoid [&>*]:border-t [&>*]:border-border">
+      <slot />
+    </div>
+  </div>
+</div>
