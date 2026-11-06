@@ -1,0 +1,77 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Neighbour {
+  href: string
+  label: string
+  title: string
+}
+
+interface Props {
+  next?: Neighbour
+  previous?: Neighbour
+}
+
+const { previous, next } = Astro.props
+
+if (!previous && !next) {
+  throw new Error(
+    "<PostNeighbours> requires a `previous` or a `next` post. A post with neither should leave it out."
+  )
+}
+
+// A post at either end of the run has one neighbour, which takes the whole
+// width rather than leaving an empty half where the missing one would be.
+const both = Boolean(previous && next)
+
+const LINK =
+  "group/neighbour flex flex-col gap-2 px-5 py-5 transition-colors hover:bg-muted"
+
+const LABEL =
+  "flex items-center gap-2 font-mono text-2xs tracking-widest text-muted-foreground uppercase"
+
+const ARROW = "size-3.5 text-primary transition-transform"
+
+const TITLE =
+  "text-base font-semibold text-pretty text-foreground group-hover/neighbour:text-primary"
+---
+
+<div
+  class:list={[
+    // Pulled out by the links' own padding, so their text lines up with the
+    // post while the hover tint still has room around it.
+    "-mx-5 grid gap-2",
+    both && "sm:grid-cols-2",
+  ]}
+>
+  {previous && (
+    <a class={LINK} href={previous.href}>
+      <span class={LABEL}>
+        <Icon
+          aria-hidden="true"
+          class:list={[ARROW, "group-hover/neighbour:-translate-x-0.5"]}
+          name="lucide:arrow-left"
+        />
+        {previous.label}
+      </span>
+      <span class={TITLE}>{previous.title}</span>
+    </a>
+  )}
+
+  {next && (
+    <a
+      class:list={[LINK, both && "sm:items-end sm:text-right"]}
+      href={next.href}
+    >
+      <span class={LABEL}>
+        {next.label}
+        <Icon
+          aria-hidden="true"
+          class:list={[ARROW, "group-hover/neighbour:translate-x-0.5"]}
+          name="lucide:arrow-right"
+        />
+      </span>
+      <span class={TITLE}>{next.title}</span>
+    </a>
+  )}
+</div>

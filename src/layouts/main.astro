@@ -21,6 +21,7 @@ import { fillPlaceholders } from "@/libs/template"
 import { THEME_INIT_SOURCE } from "@/scripts/theme-init"
 
 interface Props {
+  description?: string
   title: string
 }
 
@@ -39,9 +40,9 @@ const alternates = LOCALES.map((code) => ({
   href: new URL(localizeHref(path, code), Astro.site).href,
 }))
 
-const { title } = Astro.props
+const { description, title } = Astro.props
 
-const { header, footer } = await getSettings(locale)
+const { footer, header } = await getSettings(locale)
 
 const copyright =
   footer &&
@@ -56,6 +57,7 @@ const copyright =
     <meta content="width=device-width" name="viewport" />
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
     <title>{title}</title>
+    {description && <meta content={description} name="description" />}
     <link href={canonical.href} rel="canonical" />
     {alternates.map(({ code, href }) => (
       <link href={href} hreflang={code} rel="alternate" />

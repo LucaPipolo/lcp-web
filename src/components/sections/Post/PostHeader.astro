@@ -1,0 +1,37 @@
+---
+for (const slot of ["title", "meta"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<PostHeader> requires a \`${slot}\` slot.`)
+  }
+}
+
+// A post with no cover still passes the slot, filled with the nothing its
+// condition rendered, so what it holds is what settles whether it is shown.
+const cover = Astro.slots.has("cover") ? await Astro.slots.render("cover") : ""
+---
+
+<header class="flex flex-col gap-4">
+  {Astro.slots.has("tags") && (
+    <div class="flex flex-wrap items-center gap-1.5">
+      <slot name="tags" />
+    </div>
+  )}
+
+  <h1 class="text-4xl font-semibold tracking-tight text-balance text-foreground">
+    <slot name="title" />
+  </h1>
+
+  <slot name="meta" />
+
+  {Astro.slots.has("description") && (
+    <p class="mt-2 rich-text text-lg text-pretty text-muted-foreground">
+      <slot name="description" />
+    </p>
+  )}
+
+  {cover.trim() !== "" && (
+    <figure class="mt-6 border border-border">
+      <Fragment set:html={cover} />
+    </figure>
+  )}
+</header>

@@ -1,0 +1,50 @@
+---
+import { Icon } from "astro-icon/components"
+
+import { cn } from "@/libs/utils"
+
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+
+for (const slot of ["date", "readingTime"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<PostMeta> requires a \`${slot}\` slot.`)
+  }
+}
+
+// A post that was never revised still passes the slot, filled with the nothing
+// its condition rendered, so what it holds is what settles whether it is shown.
+const updated = Astro.slots.has("updated")
+  ? await Astro.slots.render("updated")
+  : ""
+
+const ITEM = "inline-flex items-center gap-1.5"
+const ICON = "size-3.5 shrink-0"
+---
+
+<p
+  class={cn(
+    "flex flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground lowercase",
+    className
+  )}
+>
+  <span class={ITEM}>
+    <Icon aria-hidden="true" class={ICON} name="lucide:calendar" />
+    <slot name="date" />
+  </span>
+
+  <span class={ITEM}>
+    <Icon aria-hidden="true" class={ICON} name="lucide:clock" />
+    <slot name="readingTime" />
+  </span>
+
+  {updated.trim() !== "" && (
+    <span class={ITEM}>
+      <Icon aria-hidden="true" class={ICON} name="lucide:history" />
+      <Fragment set:html={updated} />
+    </span>
+  )}
+</p>

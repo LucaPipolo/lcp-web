@@ -1,6 +1,9 @@
 @theme {
   --spacing-gutter: clamp(1.5rem, 1.2368rem + 1.3158vw, 2.5rem);
   --spacing-header: 3.75rem;
+  /* The space above the footer's top line, which a rule reaching that line
+     from above has to cross. */
+  --spacing-footer: 10rem;
 
   --max-width-prose: 54ch;
   --max-width-article: 68ch;

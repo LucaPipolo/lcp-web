@@ -18,6 +18,18 @@ const settings = defineCollection({
       menuLabel: z.string(),
       nav: z.array(z.object({ label: z.string(), href: z.string() })),
     }),
+    blog: z.object({
+      readingTime: z.string(),
+      published: z.string(),
+      updated: z.string(),
+      tableOfContents: z.string(),
+      share: z.string(),
+      shareOn: z.string(),
+      copyLink: z.string(),
+      copiedLink: z.string(),
+      previous: z.string(),
+      next: z.string(),
+    }),
     footer: z.object({
       tagline: z.string(),
       action: z.object({ label: z.string(), href: z.string() }),
@@ -164,6 +176,48 @@ function articlePage(directory: string) {
   })
 }
 
+/**
+ * The posts, one Markdown file per locale a post is written in, kept in a
+ * folder named after the slug it is served under.
+ *
+ * A post that only exists in one language is the normal case rather than a
+ * mistake, so nothing here asks for the full set: the listing for a locale is
+ * built from whatever was written in it, and the rest stays unseen.
+ */
+const blog = defineCollection({
+  loader: glob({
+    pattern: "*/*.md",
+    base: "./src/content/blog",
+    // The path is the contract: the folder names the post, the file names the
+    // language. Slugifying it would let `Strict CSP/EN.md` resolve, and then
+    // the id would no longer say where the file is.
+    generateId: ({ entry }) => entry.replace(/\.md$/, ""),
+  }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      description: z.string(),
+      published: z.coerce.date(),
+      updated: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]),
+      cover: image().optional(),
+      coverAlt: z.string().optional(),
+      draft: z.boolean().default(false),
+    }),
+})
+
+const blogIndex = defineCollection({
+  loader: glob({ pattern: "*.yaml", base: "./src/content/pages/blog" }),
+  schema: z.object({
+    metadata: z.object({ title: z.string() }),
+    title: z.string(),
+    intro: z.string(),
+    empty: z.string(),
+    /** How a post's own title is written out in the browser's title bar. */
+    postTitle: z.string(),
+  }),
+})
+
 const imprint = articlePage("imprint")
 const privacy = articlePage("privacy")
 const cookies = articlePage("cookies")
@@ -173,6 +227,8 @@ const aiContent = articlePage("ai-content")
 export const collections = {
   settings,
   home,
+  blog,
+  "blog-index": blogIndex,
   imprint,
   privacy,
   cookies,

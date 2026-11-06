@@ -1,0 +1,126 @@
+import type { CollectionEntry } from "astro:content"
+
+import { getCollection } from "astro:content"
+
+import { isLocale, type Locale, localizeHref } from "@/libs/i18n"
+
+/** A post as one language tells it. */
+export type Post = CollectionEntry<"blog">
+
+/** The post either side of the one being read. */
+export interface Neighbours {
+  next?: Post
+  previous?: Post
+}
+
+/** How fast the reading time takes a Visitor to read, in words a minute. */
+const WORDS_PER_MINUTE = 200
+
+const FENCE = /^```/
+
+/**
+ * Reads the folder a post's file sits in, which is the path it is served
+ * under.
+ *
+ * @param post - The post to read.
+ *
+ * @returns The slug, shared by every language the post was written in.
+ */
+export function getPostSlug(post: Post): string {
+  return post.id.slice(0, post.id.lastIndexOf("/"))
+}
+
+/**
+ * Reads the language a post was written in from its file name.
+ *
+ * @param post - The post to read.
+ *
+ * @returns Its locale, or `undefined` for a file named after something the
+ *   site is not built in, which belongs to no listing.
+ */
+export function getPostLocale(post: Post): Locale | undefined {
+  const name = post.id.slice(post.id.lastIndexOf("/") + 1)
+
+  return isLocale(name) ? name : undefined
+}
+
+/**
+ * Points at a post in a given language.
+ *
+ * @param post - The post to link to.
+ * @param locale - The reader's locale, which is the language the post is being
+ *   listed in.
+ *
+ * @returns The path that language serves the post at.
+ */
+export function getPostHref(post: Post, locale?: string): string {
+  return localizeHref(`/blog/${getPostSlug(post)}/`, locale)
+}
+
+/**
+ * Collects the posts written in one language, newest first.
+ *
+ * A post nobody has translated yet is not a gap to fill in with another
+ * language: a Visitor reading in Italian is served the Italian posts and is
+ * told about no others.
+ *
+ * @param locale - The language to list. Anything unsupported, `undefined`
+ *   included, lists nothing, because there is no sensible language to fall
+ *   back to.
+ *
+ * @returns The posts, in the order they should be read in. Drafts are left out
+ *   of the built site and kept in the dev server, where they are being written.
+ */
+export async function getPosts(locale?: string): Promise<Post[]> {
+  if (!isLocale(locale)) return []
+
+  const posts = await getCollection(
+    "blog",
+    (post) =>
+      getPostLocale(post) === locale &&
+      (import.meta.env.DEV || !post.data.draft)
+  )
+
+  return posts.sort(
+    (a, b) => b.data.published.valueOf() - a.data.published.valueOf()
+  )
+}
+
+/**
+ * Weighs how long a post takes to get through.
+ *
+ * Everything written counts, code included, at one pace. A snippet is read
+ * more slowly than a sentence and skipped more often than either, and no
+ * arithmetic settles that, so the figure stays a plain one a Visitor can
+ * calibrate against rather than a precise-looking guess.
+ *
+ * @param post - The post to weigh.
+ *
+ * @returns Whole minutes, never fewer than one: a post that rounds to nothing
+ *   still has to be opened.
+ */
+export function getReadingTime(post: Post): number {
+  const words = (post.body ?? "")
+    .split(/\s+/)
+    .filter((token) => token !== "" && !FENCE.test(token)).length
+
+  return Math.max(1, Math.round(words / WORDS_PER_MINUTE))
+}
+
+/**
+ * Finds what to read next, and what came before.
+ *
+ * @param posts - The posts of one language, as {@link getPosts} ordered them.
+ * @param post - The one being read.
+ *
+ * @returns Its neighbours by date, each absent at the end of the run it sits
+ *   at. `next` is the newer post, which is the one a Visitor who has caught up
+ *   has not read.
+ */
+export function getNeighbours(posts: Post[], post: Post): Neighbours {
+  const index = posts.findIndex((candidate) => candidate.id === post.id)
+
+  if (index === -1) return {}
+
+  return { next: posts[index - 1], previous: posts[index + 1] }
+}

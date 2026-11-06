@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon/components"
+
+import PostTocLinks, {
+  type Heading,
+} from "@/components/sections/Post/PostTocLinks.astro"
+
+interface Props {
+  headings: Heading[]
+  /**
+   * `aside` is the panel that stays with the reader down the page and marks
+   * where they are. `inline` is the same list folded away above the post,
+   * for a screen with no room beside it.
+   */
+  variant?: "aside" | "inline"
+}
+
+const { headings, variant = "aside" } = Astro.props
+
+if (!Astro.slots.has("label")) {
+  throw new Error("<PostToc> requires a `label` slot.")
+}
+
+const LABEL =
+  "font-mono text-2xs tracking-widest text-muted-foreground uppercase"
+---
+
+{variant === "aside" ? (
+  <nav aria-labelledby="post-contents" x-data="postToc">
+    <p class:list={["flex items-center gap-2", LABEL]} id="post-contents">
+      <Icon aria-hidden="true" class="size-3.5" name="lucide:list" />
+      <slot name="label" />
+    </p>
+
+    <div class="mt-3">
+      <PostTocLinks headings={headings} spy />
+    </div>
+  </nav>
+) : (
+  <details class="border border-border">
+    <summary
+      class:list={["cursor-pointer px-4 py-3 marker:text-primary", LABEL]}
+    >
+      <slot name="label" />
+    </summary>
+
+    <div class="px-4 pb-4">
+      <PostTocLinks headings={headings} />
+    </div>
+  </details>
+)}

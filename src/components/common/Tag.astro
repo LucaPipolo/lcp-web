@@ -1,0 +1,33 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+import { cn } from "@/libs/utils"
+
+interface Props extends HTMLAttributes<"a"> {
+  /** Where the tag leads. Left out, the tag is a plain label. */
+  href?: string
+}
+
+const { class: className, href, ...rest } = Astro.props
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<Tag> requires a label.")
+}
+---
+
+{href ? (
+  <a
+    class={cn(
+      "tag transition-colors hover:border-primary hover:text-primary",
+      className
+    )}
+    href={href}
+    {...rest}
+  >
+    <slot />
+  </a>
+) : (
+  <span class={cn("tag", className)}>
+    <slot />
+  </span>
+)}

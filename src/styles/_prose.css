@@ -1,0 +1,135 @@
+/**
+ * The shape of a post's body, which is the one place on the site where the
+ * markup is written by hand in Markdown rather than composed out of
+ * components. Everything a post can produce is answered for here, because
+ * whatever is not styled falls back to the reset and reads as unstyled text.
+ *
+ * Pairs with `rich-text`, which already answers for links, inline code and
+ * emphasis wherever prose appears.
+ */
+@utility long-form {
+  & > * + * {
+    @apply mt-6;
+  }
+
+  & h2 {
+    @apply mt-14 text-2xl font-semibold tracking-tight text-balance text-foreground;
+  }
+
+  & h3 {
+    @apply mt-10 text-xl font-semibold tracking-tight text-balance text-foreground;
+  }
+
+  & h4 {
+    @apply mt-8 text-lg font-semibold tracking-tight text-foreground;
+  }
+
+  & h2 + *,
+  & h3 + *,
+  & h4 + * {
+    @apply mt-4;
+  }
+
+  & p {
+    @apply text-pretty;
+  }
+
+  & ul,
+  & ol {
+    @apply flex flex-col gap-2 pl-5;
+  }
+
+  & ul {
+    @apply list-disc;
+  }
+
+  & ol {
+    @apply list-decimal;
+  }
+
+  & li::marker {
+    @apply text-muted-foreground;
+  }
+
+  & li > ul,
+  & li > ol {
+    @apply mt-2;
+  }
+
+  & blockquote {
+    @apply mt-10 border-l-2 border-primary py-1 pl-6 text-xl font-medium tracking-tight text-pretty text-foreground;
+  }
+
+  & blockquote + * {
+    @apply mt-10;
+  }
+
+  & blockquote > * + * {
+    @apply mt-3;
+  }
+
+  /* Who said it, written as `— <cite>Name</cite>` on the quote's last line. */
+  & blockquote p:has(> cite) {
+    @apply font-mono text-2xs font-normal tracking-wider text-muted-foreground;
+  }
+
+  & blockquote cite {
+    @apply not-italic;
+  }
+
+  & hr {
+    @apply mt-12 border-t border-border;
+  }
+
+  & figure {
+    @apply mt-8 flex flex-col gap-3;
+  }
+
+  & img {
+    @apply w-full border border-border;
+  }
+
+  & figcaption {
+    @apply font-mono text-2xs tracking-wide text-muted-foreground;
+  }
+
+  /* A snippet keeps its own frame, so it sits closer than a heading does. */
+  & > pre,
+  & > .code-block {
+    @apply mt-8;
+  }
+
+  & :not(pre) > code {
+    @apply border border-border bg-muted/50 px-1 py-0.5 text-[0.9em] text-foreground;
+  }
+
+  & table {
+    @apply mt-8 block max-w-full overflow-x-auto text-sm;
+  }
+
+  & th,
+  & td {
+    @apply border-b border-border px-3 py-2 text-left align-top;
+  }
+
+  & th {
+    @apply font-mono text-2xs tracking-wider text-foreground uppercase;
+  }
+
+  & kbd {
+    @apply border border-border bg-muted px-1.5 py-0.5 font-mono text-2xs text-foreground;
+  }
+
+  & .footnotes {
+    @apply mt-14 border-t border-border pt-6 text-sm;
+  }
+
+  & .footnotes ol {
+    @apply gap-1;
+  }
+
+  /* The mark a footnote leaves in the text, which should not disturb its line. */
+  & sup a {
+    @apply px-0.5 no-underline;
+  }
+}

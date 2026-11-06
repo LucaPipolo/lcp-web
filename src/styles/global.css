@@ -3,6 +3,7 @@
 
 @import "@fontsource-variable/inter";
 @import "./_typography.css";
+@import "./_prose.css";
 
 @import "./_colors.css";
 @import "./_layout.css";
