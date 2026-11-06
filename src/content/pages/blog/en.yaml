@@ -1,0 +1,28 @@
+metadata:
+  title: "Blog | Luca Pipolo"
+
+title: "Blog"
+
+intro: >-
+  Notes on the things I build and the decisions behind them: web
+  architecture, tooling, and the parts of a project that only show up
+  once it is running.
+
+empty: "There are no posts in English yet."
+
+postTitle: "{title} | Luca Pipolo"
+
+filters:
+  search: "Search posts"
+  searchPlaceholder: "Search by title, topic or tag"
+  tags: "Tags"
+  results:
+    one: "{count} post"
+    other: "{count} posts"
+  filtered:
+    one: "Showing {count} of {total} post"
+    other: "Showing {count} of {total} posts"
+  noResults: "No posts match your search."
+  clear: "Clear filters"
+  pagination: "Blog pages"
+  page: "Page {page} of {pages}"

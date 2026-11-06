@@ -1,0 +1,28 @@
+metadata:
+  title: "Blog | Luca Pipolo"
+
+title: "Blog"
+
+intro: >-
+  Notas sobre lo que construyo y las decisiones que hay detrás:
+  arquitectura web, herramientas y las partes de un proyecto que solo
+  aparecen cuando ya está en marcha.
+
+empty: "Todavía no hay entradas en español."
+
+postTitle: "{title} | Luca Pipolo"
+
+filters:
+  search: "Buscar entradas"
+  searchPlaceholder: "Buscar por título, tema o etiqueta"
+  tags: "Etiquetas"
+  results:
+    one: "{count} entrada"
+    other: "{count} entradas"
+  filtered:
+    one: "Mostrando {count} de {total} entrada"
+    other: "Mostrando {count} de {total} entradas"
+  noResults: "Ninguna entrada coincide con la búsqueda."
+  clear: "Quitar filtros"
+  pagination: "Páginas del blog"
+  page: "Página {page} de {pages}"
