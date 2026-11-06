@@ -81,6 +81,11 @@
     @apply mt-12 border-t border-border;
   }
 
+  /* Sized to the text around it, so it reads as part of the link. */
+  & .external-link-icon {
+    @apply ml-0.5 inline-block size-[0.75em] align-baseline;
+  }
+
   & figure {
     @apply mt-8 flex flex-col gap-3;
   }

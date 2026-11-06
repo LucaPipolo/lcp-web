@@ -1,5 +1,7 @@
 import type { SatteriProcessorOptions } from "@astrojs/markdown-satteri"
 
+import { icons } from "@iconify-json/lucide"
+
 type HastPlugin = NonNullable<SatteriProcessorOptions["hastPlugins"]>[number]
 
 /**
@@ -83,4 +85,63 @@ export const imageCaptions: HastPlugin = {
       })
     },
   },
+}
+
+/**
+ * Strips the `www.` a host may or may not be written with.
+ *
+ * @param host - A hostname.
+ *
+ * @returns The same host without its `www.`.
+ */
+function bareHost(host: string): string {
+  return host.replace(/^www\./, "")
+}
+
+/**
+ * Marks every link that leaves the site with Lucide's external-link icon, the
+ * one the site's own components use, and opens it the way they open theirs: in
+ * a new tab, with no access back to this one.
+ *
+ * The icon comes from the icon set itself rather than a copy of its markup,
+ * and is joined to the link's last word so it never wraps onto a line alone.
+ *
+ * @param site - The site's own address, whose links are not external.
+ *
+ * @returns The plugin.
+ *
+ * @throws When the icon set no longer has the icon, rather than leaving every
+ *   external link quietly unmarked.
+ */
+export function externalLinks(site: string): HastPlugin {
+  const own = bareHost(new URL(site).hostname)
+  const icon = icons.icons["external-link"]
+
+  if (!icon) {
+    throw new Error(
+      "@iconify-json/lucide has no `external-link` icon. Update the name in externalLinks() in src/libs/markdown.ts."
+    )
+  }
+
+  const size = `0 0 ${icon.width ?? icons.width ?? 24} ${icon.height ?? icons.height ?? 24}`
+  const svg = `<svg aria-hidden="true" class="external-link-icon" viewBox="${size}" xmlns="http://www.w3.org/2000/svg">${icon.body}</svg>`
+
+  return {
+    name: "external-links",
+    element: {
+      filter: ["a"],
+      visit(node, ctx) {
+        const href = node.properties?.href
+
+        if (typeof href !== "string" || !/^https?:\/\//i.test(href)) return
+
+        if (bareHost(new URL(href).hostname) === own) return
+
+        ctx.setProperty(node, "target", "_blank")
+        ctx.setProperty(node, "rel", "noopener noreferrer")
+        // U+2060, a word joiner: no line break between the text and its icon.
+        ctx.appendChild(node, { type: "raw", value: `\u2060${svg}` })
+      },
+    },
+  }
 }
