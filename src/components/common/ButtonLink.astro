@@ -1,26 +1,19 @@
 ---
 import type { HTMLAttributes } from "astro/types"
 
+import {
+  BUTTON_BASE,
+  BUTTON_SIZES,
+  BUTTON_VARIANTS,
+  type ButtonSize,
+  type ButtonVariant,
+} from "@/libs/button"
 import { cn } from "@/libs/utils"
-
-const BASE =
-  "inline-flex shrink-0 items-center justify-center border border-transparent text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-gray-400 focus-visible:ring-3 focus-visible:ring-gray-400/50 active:translate-y-px [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
-
-const SIZES = {
-  md: "h-10 gap-2 px-4",
-  lg: "h-12 gap-2 px-5",
-} as const
-
-const VARIANTS = {
-  default: "bg-primary text-background hover:bg-primary/80",
-  outline: "border-border bg-background hover:bg-muted hover:text-foreground",
-  inverted: "bg-foreground text-background hover:bg-primary",
-} as const
 
 interface Props extends HTMLAttributes<"a"> {
   href: string
-  size?: keyof typeof SIZES
-  variant?: keyof typeof VARIANTS
+  size?: ButtonSize
+  variant?: ButtonVariant
 }
 
 const {
@@ -33,7 +26,12 @@ const {
 ---
 
 <a
-  class={cn(BASE, SIZES[size], VARIANTS[variant], className)}
+  class={cn(
+    BUTTON_BASE,
+    BUTTON_SIZES[size],
+    BUTTON_VARIANTS[variant],
+    className
+  )}
   data-slot="button"
   href={href}
   {...rest}
