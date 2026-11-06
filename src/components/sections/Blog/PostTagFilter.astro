@@ -1,0 +1,20 @@
+---
+for (const slot of ["label", "options"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<PostTagFilter> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<div
+  aria-labelledby="post-tags"
+  class="flex flex-wrap items-center gap-1.5 sm:justify-end"
+  role="group"
+>
+  {/* The button that opens the panel already says what it holds. */}
+  <span class="sr-only" id="post-tags">
+    <slot name="label" />
+  </span>
+
+  <slot name="options" />
+</div>

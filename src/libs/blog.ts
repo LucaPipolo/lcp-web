@@ -61,6 +61,40 @@ export function getPostHref(post: Post, locale?: string): string {
 }
 
 /**
+ * Points at the blog filtered down to one tag.
+ *
+ * The tag rides in the query rather than the path, because the filtering
+ * happens in the list itself: the blog is one page, whichever tag it shows.
+ *
+ * @param tag - The tag to filter by.
+ * @param locale - The reader's locale.
+ *
+ * @returns The blog's path in that locale, with the tag in its query.
+ */
+export function getTagHref(tag: string, locale?: string): string {
+  return `${localizeHref("/blog/", locale)}?tag=${encodeURIComponent(tag)}`
+}
+
+/**
+ * Collects every tag a run of posts uses, the most used first.
+ *
+ * @param posts - The posts of one language.
+ *
+ * @returns Each tag once, ties broken alphabetically so the order is stable.
+ */
+export function getTags(posts: Post[]): string[] {
+  const counts = new Map<string, number>()
+
+  for (const tag of posts.flatMap((post) => post.data.tags)) {
+    counts.set(tag, (counts.get(tag) ?? 0) + 1)
+  }
+
+  return [...counts.keys()].sort(
+    (a, b) => (counts.get(b) ?? 0) - (counts.get(a) ?? 0) || a.localeCompare(b)
+  )
+}
+
+/**
  * Collects the posts written in one language, newest first.
  *
  * A post nobody has translated yet is not a gap to fill in with another

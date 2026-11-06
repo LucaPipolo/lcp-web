@@ -1,0 +1,162 @@
+---
+import { Icon } from "astro-icon/components"
+
+import Layout from "@/layouts/main.astro"
+
+import ButtonLink from "@/components/common/ButtonLink.astro"
+import SectionContainer from "@/components/common/SectionContainer.astro"
+import Tag from "@/components/common/Tag.astro"
+
+import PostCard from "@/components/sections/Blog/PostCard.astro"
+import PostFilterToggle from "@/components/sections/Blog/PostFilterToggle.astro"
+import PostList from "@/components/sections/Blog/PostList.astro"
+import PostMeta from "@/components/sections/Blog/PostMeta.astro"
+import PostPagination from "@/components/sections/Blog/PostPagination.astro"
+import PostSearch from "@/components/sections/Blog/PostSearch.astro"
+import PostTagFilter from "@/components/sections/Blog/PostTagFilter.astro"
+import PostTagOption from "@/components/sections/Blog/PostTagOption.astro"
+import PostToolbar from "@/components/sections/Blog/PostToolbar.astro"
+
+import {
+  getPostHref,
+  getPosts,
+  getReadingTime,
+  getTagHref,
+  getTags,
+} from "@/libs/blog"
+import { getLocalizedStaticPaths, getSettings } from "@/libs/content"
+import { formatDate, localizeHref } from "@/libs/i18n"
+import { fillPlaceholders } from "@/libs/template"
+
+/** How many posts a page of the blog shows: three full rows of the grid. */
+const PAGE_SIZE = 9
+
+export async function getStaticPaths() {
+  const paths = await getLocalizedStaticPaths("blog-index")
+
+  return Promise.all(
+    paths.map(async (path) => ({
+      ...path,
+      props: { ...path.props, posts: await getPosts(path.props.entry.id) },
+    }))
+  )
+}
+
+const { entry, posts } = Astro.props
+const { metadata, title, intro, empty, filters } = entry.data
+
+const locale = Astro.currentLocale
+const { blog } = await getSettings(locale)
+
+const tags = getTags(posts)
+---
+
+<Layout description={intro} title={metadata.title}>
+  <SectionContainer>
+    <div class="flex flex-col gap-4 px-gutter pt-20 pb-10">
+      <h1 class="max-w-article text-4xl font-semibold tracking-tight text-foreground">
+        {title}
+      </h1>
+
+      <p class="mt-2 max-w-article rich-text text-lg text-pretty text-muted-foreground">
+        {intro}
+      </p>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <PostList
+      filtered={filters.filtered}
+      pageSize={PAGE_SIZE}
+      pageStatus={filters.page}
+      results={filters.results}
+    >
+      <Fragment slot="empty">{empty}</Fragment>
+
+      <PostToolbar slot="controls">
+        <PostSearch placeholder={filters.searchPlaceholder} slot="search">
+          {filters.search}
+        </PostSearch>
+
+        {tags.length > 0 && (
+          <PostFilterToggle controls="post-filters" slot="actions">
+            {filters.tags}
+          </PostFilterToggle>
+        )}
+
+        {/* A subscription, not a filter, so it takes the least room in the row. */}
+        <ButtonLink
+          class="w-10 px-0"
+          href={localizeHref("/blog/rss.xml", locale)}
+          size="md"
+          slot="actions"
+          title={blog.feed}
+          variant="outline"
+        >
+          <Icon aria-hidden="true" class="size-4" name="lucide:rss" />
+          <span class="sr-only">{blog.feed}</span>
+        </ButtonLink>
+      </PostToolbar>
+
+      {tags.length > 0 && (
+        <PostTagFilter slot="filters">
+          <Fragment slot="label">{filters.tags}</Fragment>
+
+          {tags.map((tag) => (
+            <PostTagOption slot="options" tag={tag}>
+              {tag}
+            </PostTagOption>
+          ))}
+        </PostTagFilter>
+      )}
+
+      <Fragment slot="noMatches">{filters.noResults}</Fragment>
+
+      <Fragment slot="clear">{filters.clear}</Fragment>
+
+      <PostPagination label={filters.pagination} slot="pagination">
+        <Fragment slot="previous">{blog.previous}</Fragment>
+        <Fragment slot="next">{blog.next}</Fragment>
+      </PostPagination>
+
+      {posts.map((post, index) => (
+        <PostCard
+          data-post-index={index}
+          data-post-tags={post.data.tags.join("|")}
+          data-post-text={[
+            post.data.title,
+            post.data.description,
+            ...post.data.tags,
+          ].join(" ")}
+          href={getPostHref(post, locale)}
+          slot="posts"
+          x-show="shows($el)"
+        >
+          <PostMeta slot="meta">
+            <Fragment slot="date">
+              {formatDate(post.data.published, locale)}
+            </Fragment>
+            <Fragment slot="readingTime">
+              {fillPlaceholders(blog.readingTime, {
+                minutes: String(getReadingTime(post)),
+              })}
+            </Fragment>
+          </PostMeta>
+
+          <Fragment slot="title">{post.data.title}</Fragment>
+          <Fragment slot="description">{post.data.description}</Fragment>
+
+          {post.data.tags.map((tag) => (
+            <Tag href={getTagHref(tag, locale)} slot="tags">
+              {tag}
+            </Tag>
+          ))}
+        </PostCard>
+      ))}
+    </PostList>
+  </SectionContainer>
+</Layout>
+
+<script>
+  import "@/scripts/post-list"
+</script>

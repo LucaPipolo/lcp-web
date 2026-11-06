@@ -1,0 +1,10 @@
+---
+if (!Astro.slots.has("search")) {
+  throw new Error("<PostToolbar> requires a `search` slot.")
+}
+---
+
+<div class="flex items-center gap-2">
+  <slot name="search" />
+  <slot name="actions" />
+</div>

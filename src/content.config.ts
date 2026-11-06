@@ -224,6 +224,24 @@ const blogIndex = defineCollection({
     empty: z.string(),
     /** How a post's own title is written out in the browser's title bar. */
     postTitle: z.string(),
+    /** The search, tag filter and pagination over the list of posts. */
+    filters: z.object({
+      search: z.string(),
+      searchPlaceholder: z.string(),
+      tags: z.string(),
+      /** How many posts match, as `{count}`, in each plural form. */
+      results: z.object({ one: z.string(), other: z.string() }),
+      /**
+       * How many of all the posts a search or tag leaves, as `{count}` of
+       * `{total}`, in each plural form `{total}` takes.
+       */
+      filtered: z.object({ one: z.string(), other: z.string() }),
+      noResults: z.string(),
+      clear: z.string(),
+      pagination: z.string(),
+      /** Where the Visitor is, as `{page}` of `{pages}`. */
+      page: z.string(),
+    }),
   }),
 })
 

@@ -1,0 +1,134 @@
+---
+import CardGrid from "@/components/common/CardGrid.astro"
+
+interface Props {
+  /** How many a search or tag leaves, as `{count}` of `{total}`. */
+  filtered?: { one: string; other: string }
+  /** The `id` the tag panel takes, for the button that opens it to point at. */
+  filtersId?: string
+  /** How many posts a page shows, once the list can be searched. */
+  pageSize?: number
+  /** Where the Visitor is among the pages, as `{page}` and `{pages}`. */
+  pageStatus?: string
+  /** How many posts match, as `{count}`, in each plural form. */
+  results?: { one: string; other: string }
+}
+
+const {
+  filtered,
+  filtersId = "post-filters",
+  pageSize = 9,
+  pageStatus,
+  results,
+} = Astro.props
+
+if (!Astro.slots.has("posts") && !Astro.slots.has("empty")) {
+  throw new Error(
+    "<PostList> requires an `empty` slot, which is what it shows when the `posts` slot is unfilled."
+  )
+}
+
+// The list only becomes searchable when it is handed the controls to search
+// it with, so the same component still lists a few posts plainly elsewhere.
+const filterable = Astro.slots.has("controls") && Astro.slots.has("posts")
+
+// The way back to every post sits next to the count it changes, and is placed
+// once here rather than handed in twice.
+const clear = Astro.slots.has("clear") ? await Astro.slots.render("clear") : ""
+
+if (filterable && Astro.slots.has("noMatches") === false) {
+  throw new Error(
+    "<PostList> requires a `noMatches` slot once it has `controls`, which is what it shows when nothing matches."
+  )
+}
+---
+
+{/* Whatever only works with the script is `hidden` until the script says
+  otherwise, so a page without it shows every post and no dead controls. */}
+<section
+  class="pb-30"
+  data-filtered-one={filterable ? filtered?.one : undefined}
+  data-filtered-other={filterable ? filtered?.other : undefined}
+  data-page-size={filterable ? pageSize : undefined}
+  data-page-status={filterable ? pageStatus : undefined}
+  data-results-one={filterable ? results?.one : undefined}
+  data-results-other={filterable ? results?.other : undefined}
+  id="posts"
+  x-data={filterable ? "postList" : undefined}
+>
+  {filterable && (
+    <div class="flex flex-col gap-4 px-gutter pb-10">
+      <slot name="controls" />
+
+      {/* What the filters did and the tags to change them share one line: the
+        count on the left, the open tags on the right. The line is only there
+        when one of them is. */}
+      <div
+        class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3"
+        hidden
+        x-bind:hidden="!detailed"
+      >
+        {/* Only a narrowed list has a count worth reading: unfiltered, it would
+          only say how many posts the page already shows. It is at least a
+          tag's height, so the tags opening beside it do not nudge it down. */}
+        <div
+          class="flex min-h-6 flex-wrap items-center gap-2 font-mono text-xs text-muted-foreground lowercase"
+          hidden
+          x-bind:hidden="!filtered"
+        >
+          <p aria-live="polite" x-text="summary()" />
+
+          {clear.trim() !== "" && (
+            <>
+              <span aria-hidden="true">|</span>
+              <button
+                class="cursor-pointer text-primary lowercase underline-offset-4 hover:underline"
+                type="button"
+                x-on:click="clear()"
+              >
+                <Fragment set:html={clear} />
+              </button>
+            </>
+          )}
+        </div>
+
+        {Astro.slots.has("filters") && (
+          <div
+            class="sm:ml-auto"
+            hidden
+            id={filtersId}
+            x-bind:hidden="!filtersOpen"
+          >
+            <slot name="filters" />
+          </div>
+        )}
+      </div>
+    </div>
+  )}
+
+  {Astro.slots.has("posts") ? (
+    <div x-bind:hidden={filterable ? "empty" : undefined}>
+      <CardGrid separators="ruled">
+        <slot name="posts" />
+      </CardGrid>
+    </div>
+  ) : (
+    <p class="border-y border-border px-gutter py-16 text-base text-muted-foreground">
+      <slot name="empty" />
+    </p>
+  )}
+
+  {filterable && (
+    <div
+      class="flex flex-col items-start gap-4 border-y border-border px-gutter py-16"
+      hidden
+      x-bind:hidden="!empty"
+    >
+      <p class="text-base text-muted-foreground">
+        <slot name="noMatches" />
+      </p>
+    </div>
+  )}
+
+  {filterable && <slot name="pagination" />}
+</section>
