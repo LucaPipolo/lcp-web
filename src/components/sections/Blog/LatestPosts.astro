@@ -1,0 +1,19 @@
+---
+import CardGrid from "@/components/common/CardGrid.astro"
+
+for (const slot of ["heading", "posts"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(
+      `<LatestPosts> requires a \`${slot}\` slot (pass a <SectionHeading> and at least one <PostCard>).`
+    )
+  }
+}
+---
+
+<section id="blog">
+  <slot name="heading" />
+
+  <CardGrid separators="ruled">
+    <slot name="posts" />
+  </CardGrid>
+</section>

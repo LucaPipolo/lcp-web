@@ -7,6 +7,11 @@ import ButtonLink from "@/components/common/ButtonLink.astro"
 import SectionContainer from "@/components/common/SectionContainer.astro"
 import SectionHeading from "@/components/common/SectionHeading.astro"
 import SocialLinks from "@/components/common/SocialLinks.astro"
+import Tag from "@/components/common/Tag.astro"
+
+import LatestPosts from "@/components/sections/Blog/LatestPosts.astro"
+import PostCard from "@/components/sections/Blog/PostCard.astro"
+import PostMeta from "@/components/sections/Blog/PostMeta.astro"
 
 import Experience from "@/components/sections/Experience/Experience.astro"
 import ExperienceBullet from "@/components/sections/Experience/ExperienceBullet.astro"
@@ -27,7 +32,13 @@ import StackItem from "@/components/sections/Stack/StackItem.astro"
 import StackPanel from "@/components/sections/Stack/StackPanel.astro"
 import StackTab from "@/components/sections/Stack/StackTab.astro"
 
-import { getLocalizedStaticPaths } from "@/libs/content"
+import { getPostHref, getPosts, getReadingTime, getTagHref } from "@/libs/blog"
+import { getLocalizedStaticPaths, getSettings } from "@/libs/content"
+import { formatDate, localizeHref } from "@/libs/i18n"
+import { fillPlaceholders } from "@/libs/template"
+
+/** How many posts the home page carries before sending a Visitor to the blog. */
+const LATEST = 3
 
 export async function getStaticPaths() {
   return getLocalizedStaticPaths("home")
@@ -36,9 +47,20 @@ export async function getStaticPaths() {
 const { entry } = Astro.props
 const { metadata } = entry.data
 
-const { hero, experience, stack, recommendations } = entry.data.sections
+const {
+  blog: writing,
+  experience,
+  hero,
+  recommendations,
+  stack,
+} = entry.data.sections
 
 const badge = hero.badge
+
+const locale = Astro.currentLocale
+const { blog } = await getSettings(locale)
+
+const posts = (await getPosts(locale)).slice(0, LATEST)
 ---
 
 <Layout title={metadata.title}>
@@ -123,6 +145,49 @@ const badge = hero.badge
           ))}
         </Stack>
       )}
+    </SectionContainer>
+  )}
+
+  {writing && posts.length > 0 && (
+    <SectionContainer>
+      <LatestPosts>
+        <SectionHeading slot="heading">
+          {writing.heading}
+          <ButtonLink
+            href={localizeHref(writing.action.href, locale)}
+            size="md"
+            slot="actions"
+            variant="outline"
+          >
+            {writing.action.label}
+            <Icon aria-hidden="true" class="size-4" name="lucide:arrow-right" />
+          </ButtonLink>
+        </SectionHeading>
+
+        {posts.map((post) => (
+          <PostCard href={getPostHref(post, locale)} slot="posts">
+            <PostMeta slot="meta">
+              <Fragment slot="date">
+                {formatDate(post.data.published, locale)}
+              </Fragment>
+              <Fragment slot="readingTime">
+                {fillPlaceholders(blog.readingTime, {
+                  minutes: String(getReadingTime(post)),
+                })}
+              </Fragment>
+            </PostMeta>
+
+            <Fragment slot="title">{post.data.title}</Fragment>
+            <Fragment slot="description">{post.data.description}</Fragment>
+
+            {post.data.tags.map((tag) => (
+              <Tag href={getTagHref(tag, locale)} slot="tags">
+                {tag}
+              </Tag>
+            ))}
+          </PostCard>
+        ))}
+      </LatestPosts>
     </SectionContainer>
   )}
 
