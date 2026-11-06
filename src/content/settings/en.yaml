@@ -25,6 +25,22 @@ header:
     - label: "contact"
       href: "mailto:hello@lucapipolo.com"
 
+blog:
+  readingTime: "{minutes} min read"
+  published: "Published"
+  updated: "Updated"
+  tableOfContents: "On this page"
+  share: "Share"
+  shareOn: "Share on {network}"
+  copyLink: "Copy link"
+  copiedLink: "Link copied"
+  copyCode: "Copy code"
+  copiedCode: "Copied"
+  previous: "Previous"
+  next: "Next"
+  feed: "RSS feed"
+  related: "Related posts"
+
 footer:
   tagline: >-
     If you want to offer me a job, talk about a project, or just

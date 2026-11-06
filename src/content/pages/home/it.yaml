@@ -302,6 +302,12 @@ sections:
               - { name: "lm studio", slug: "lmstudio" }
               - { name: "ollama", slug: "ollama" }
 
+  blog:
+    heading: "scritti"
+    action:
+      label: "Tutti i post"
+      href: "/blog/"
+
   recommendations:
     heading: "raccomandazioni"
     action:

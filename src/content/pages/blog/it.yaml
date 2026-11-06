@@ -1,0 +1,28 @@
+metadata:
+  title: "Blog | Luca Pipolo"
+
+title: "Blog"
+
+intro: >-
+  Appunti su quello che costruisco e sulle decisioni che ci stanno dietro:
+  architettura web, strumenti e le parti di un progetto che si vedono solo
+  quando è già in funzione.
+
+empty: "Non ci sono ancora articoli in italiano."
+
+postTitle: "{title} | Luca Pipolo"
+
+filters:
+  search: "Cerca articoli"
+  searchPlaceholder: "Cerca per titolo, argomento o etichetta"
+  tags: "Etichette"
+  results:
+    one: "{count} articolo"
+    other: "{count} articoli"
+  filtered:
+    one: "{count} su {total} articolo"
+    other: "{count} su {total} articoli"
+  noResults: "Nessun articolo corrisponde alla ricerca."
+  clear: "Rimuovi filtri"
+  pagination: "Pagine del blog"
+  page: "Pagina {page} di {pages}"
