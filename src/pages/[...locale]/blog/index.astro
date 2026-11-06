@@ -18,6 +18,7 @@ import PostTagOption from "@/components/sections/Blog/PostTagOption.astro"
 import PostToolbar from "@/components/sections/Blog/PostToolbar.astro"
 
 import {
+  getFeedHref,
   getPostHref,
   getPosts,
   getReadingTime,
@@ -25,7 +26,7 @@ import {
   getTags,
 } from "@/libs/blog"
 import { getLocalizedStaticPaths, getSettings } from "@/libs/content"
-import { formatDate, localizeHref } from "@/libs/i18n"
+import { formatDate } from "@/libs/i18n"
 import { fillPlaceholders } from "@/libs/template"
 
 /** How many posts a page of the blog shows: three full rows of the grid. */
@@ -87,7 +88,7 @@ const tags = getTags(posts)
         {/* A subscription, not a filter, so it takes the least room in the row. */}
         <ButtonLink
           class="w-10 px-0"
-          href={localizeHref("/blog/rss.xml", locale)}
+          href={getFeedHref(locale)}
           size="md"
           slot="actions"
           title={blog.feed}

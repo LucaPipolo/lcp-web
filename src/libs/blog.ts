@@ -61,6 +61,20 @@ export function getPostHref(post: Post, locale?: string): string {
 }
 
 /**
+ * Points at the blog's feed in one language.
+ *
+ * Built from the blog's own path rather than passed to `localizeHref()`,
+ * which leaves file paths unprefixed: each language has a feed of its own.
+ *
+ * @param locale - The reader's locale.
+ *
+ * @returns The path that language serves its feed at.
+ */
+export function getFeedHref(locale?: string): string {
+  return `${localizeHref("/blog/", locale)}rss.xml`
+}
+
+/**
  * Points at the blog filtered down to one tag.
  *
  * The tag rides in the query rather than the path, because the filtering

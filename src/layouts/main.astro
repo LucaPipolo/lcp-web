@@ -14,6 +14,7 @@ import SiteHeader from "@/components/sections/SiteHeader/SiteHeader.astro"
 import SiteHeaderLink from "@/components/sections/SiteHeader/SiteHeaderLink.astro"
 import ThemeToggle from "@/components/sections/SiteHeader/ThemeToggle.astro"
 
+import { getFeedHref } from "@/libs/blog"
 import { getSettings } from "@/libs/content"
 import { DEFAULT_LOCALE, isLocale, LOCALES, localizeHref } from "@/libs/i18n"
 import { fillPlaceholders } from "@/libs/template"
@@ -60,7 +61,7 @@ const copyright =
     {description && <meta content={description} name="description" />}
     <link href={canonical.href} rel="canonical" />
     <link
-      href={localizeHref("/blog/rss.xml", locale)}
+      href={getFeedHref(locale)}
       rel="alternate"
       title={blog.feed}
       type="application/rss+xml"
