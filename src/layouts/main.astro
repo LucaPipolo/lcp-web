@@ -23,6 +23,8 @@ import { THEME_INIT_SOURCE } from "@/scripts/theme-init"
 
 interface Props {
   description?: string
+  /** Keeps the page out of search results, as an error page should be. */
+  noindex?: boolean
   title: string
 }
 
@@ -41,7 +43,7 @@ const alternates = LOCALES.map((code) => ({
   href: new URL(localizeHref(path, code), Astro.site).href,
 }))
 
-const { description, title } = Astro.props
+const { description, noindex = false, title } = Astro.props
 
 const { blog, footer, header } = await getSettings(locale)
 
@@ -59,21 +61,27 @@ const copyright =
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
     <title>{title}</title>
     {description && <meta content={description} name="description" />}
-    <link href={canonical.href} rel="canonical" />
     <link
       href={getFeedHref(locale)}
       rel="alternate"
       title={blog.feed}
       type="application/rss+xml"
     />
-    {alternates.map(({ code, href }) => (
-      <link href={href} hreflang={code} rel="alternate" />
-    ))}
-    <link
-      href={new URL(localizeHref(path, DEFAULT_LOCALE), Astro.site).href}
-      hreflang="x-default"
-      rel="alternate"
-    />
+    {noindex ? (
+      <meta content="noindex" name="robots" />
+    ) : (
+      <>
+        <link href={canonical.href} rel="canonical" />
+        {alternates.map(({ code, href }) => (
+          <link href={href} hreflang={code} rel="alternate" />
+        ))}
+        <link
+          href={new URL(localizeHref(path, DEFAULT_LOCALE), Astro.site).href}
+          hreflang="x-default"
+          rel="alternate"
+        />
+      </>
+    )}
     <script is:inline set:html={THEME_INIT_SOURCE}></script>
     <SpeedInsights />
   </head>
