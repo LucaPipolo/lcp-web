@@ -1,0 +1,23 @@
+---
+interface Props {
+  /** The tag the button picks, or puts back. */
+  tag: string
+}
+
+const { tag } = Astro.props
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<PostTagOption> requires a label.")
+}
+---
+
+<button
+  aria-pressed="false"
+  class="tag cursor-pointer outline-none transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary hover:border-primary hover:text-primary aria-pressed:border-primary aria-pressed:bg-primary/10 aria-pressed:text-primary"
+  data-tag={tag}
+  type="button"
+  x-bind:aria-pressed="pressed($el)"
+  x-on:click="pick($el)"
+>
+  <slot />
+</button>

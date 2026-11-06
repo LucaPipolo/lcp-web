@@ -1,0 +1,56 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  /** What the navigation is named for a screen reader. */
+  label: string
+}
+
+const { label } = Astro.props
+
+for (const slot of ["previous", "next"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<PostPagination> requires a \`${slot}\` slot.`)
+  }
+}
+
+const BUTTON =
+  "inline-flex h-9 cursor-pointer items-center justify-center gap-2 border border-border px-3 text-sm max-sm:w-9 max-sm:px-0 text-foreground transition-colors hover:bg-muted disabled:pointer-events-none disabled:opacity-40"
+---
+
+<nav
+  aria-label={label}
+  class="flex items-center justify-between gap-4 px-gutter pt-8"
+  hidden
+  x-bind:hidden="!paged"
+>
+  <button
+    class={BUTTON}
+    type="button"
+    x-bind:disabled="!hasPrevious"
+    x-on:click="previous()"
+  >
+    <Icon aria-hidden="true" class="size-4" name="lucide:arrow-left" />
+    <span class="max-sm:sr-only">
+      <slot name="previous" />
+    </span>
+  </button>
+
+  <p
+    aria-live="polite"
+    class="font-mono text-2xs tracking-wider whitespace-nowrap text-muted-foreground"
+    x-text="status()"
+  />
+
+  <button
+    class={BUTTON}
+    type="button"
+    x-bind:disabled="!hasNext"
+    x-on:click="next()"
+  >
+    <span class="max-sm:sr-only">
+      <slot name="next" />
+    </span>
+    <Icon aria-hidden="true" class="size-4" name="lucide:arrow-right" />
+  </button>
+</nav>

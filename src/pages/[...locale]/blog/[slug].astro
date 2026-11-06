@@ -27,6 +27,7 @@ import {
   getPostSlugs,
   getReadingTime,
   getRelated,
+  getTagHref,
 } from "@/libs/blog"
 import { getSettings } from "@/libs/content"
 import { DEFAULT_LOCALE, formatDate, LOCALES } from "@/libs/i18n"
@@ -88,7 +89,9 @@ const readingTime = fillPlaceholders(blog.readingTime, {
     <Post>
       <PostHeader slot="header">
         {tags.map((tag) => (
-          <Tag slot="tags">{tag}</Tag>
+          <Tag href={getTagHref(tag, locale)} slot="tags">
+            {tag}
+          </Tag>
         ))}
 
         <Fragment slot="title">{title}</Fragment>
@@ -179,7 +182,9 @@ const readingTime = fillPlaceholders(blog.readingTime, {
               </Fragment>
 
               {relatedPost.data.tags.map((tag) => (
-                <Tag slot="tags">{tag}</Tag>
+                <Tag href={getTagHref(tag, locale)} slot="tags">
+                  {tag}
+                </Tag>
               ))}
             </PostCard>
           ))}

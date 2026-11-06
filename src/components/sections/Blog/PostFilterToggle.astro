@@ -1,0 +1,53 @@
+---
+import { Icon } from "astro-icon/components"
+
+import Button from "@/components/common/Button.astro"
+
+interface Props {
+  /** The `id` of the panel the button opens and closes. */
+  controls: string
+}
+
+const { controls } = Astro.props
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<PostFilterToggle> requires a label.")
+}
+---
+
+{/* The picked tags show on the button itself, so a filter is never on
+  without the Visitor being able to see it, panel open or not. */}
+<Button
+  aria-controls={controls}
+  aria-expanded="false"
+  class="group relative max-sm:w-10 max-sm:px-0"
+  hidden
+  size="md"
+  variant="outline"
+  x-bind:aria-expanded="expanded()"
+  x-bind:hidden="false"
+  x-on:click="toggleFilters()"
+>
+  <Icon aria-hidden="true" name="lucide:sliders-horizontal" />
+  <span class="max-sm:sr-only">
+    <slot />
+  </span>
+  <span
+    class="tag border-primary text-primary max-sm:hidden"
+    hidden
+    x-bind:hidden="!hasTags"
+    x-text="badge()"
+  />
+  {/* A phone has no room for the tags, so a dot says some are picked. */}
+  <span
+    aria-hidden="true"
+    class="absolute top-1.5 right-1.5 size-1.5 bg-primary sm:hidden"
+    hidden
+    x-bind:hidden="!hasTags"
+  />
+  <Icon
+    aria-hidden="true"
+    class="transition-transform group-aria-expanded:rotate-180 max-sm:hidden"
+    name="lucide:chevron-down"
+  />
+</Button>

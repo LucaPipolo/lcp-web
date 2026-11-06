@@ -1,0 +1,40 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  placeholder: string
+}
+
+const { placeholder } = Astro.props
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<PostSearch> requires a label.")
+}
+---
+
+<div class="relative min-w-0 flex-1" hidden role="search" x-bind:hidden="false">
+  <span class="sr-only" id="post-search-label">
+    <slot />
+  </span>
+
+  <Icon
+    aria-hidden="true"
+    class="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground"
+    name="lucide:search"
+  />
+
+  {/* Clearing has one place, next to the count it changes, so the browser's
+    own clear button is hidden; Escape still empties the box, as it does in
+    any search field. */}
+  <input
+    aria-labelledby="post-search-label"
+    autocomplete="off"
+    class="h-10 w-full appearance-none text-ellipsis border border-border bg-background pr-3 pl-9 text-sm text-foreground transition-colors placeholder:text-muted-foreground focus-visible:border-primary focus-visible:outline-none [&::-webkit-search-cancel-button]:appearance-none"
+    id="post-search"
+    placeholder={placeholder}
+    type="search"
+    x-model="query"
+    x-on:input="search()"
+    x-on:keydown.escape="clearQuery()"
+  />
+</div>
