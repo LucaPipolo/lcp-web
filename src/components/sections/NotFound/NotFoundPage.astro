@@ -1,0 +1,63 @@
+---
+import { Icon } from "astro-icon/components"
+import { getEntry } from "astro:content"
+
+import Layout from "@/layouts/main.astro"
+
+import ButtonLink from "@/components/common/ButtonLink.astro"
+import SectionContainer from "@/components/common/SectionContainer.astro"
+
+import { DEFAULT_LOCALE, isLocale, localizeHref } from "@/libs/i18n"
+
+import NotFound from "./NotFound.astro"
+import NotFoundLink from "./NotFoundLink.astro"
+
+const locale = Astro.currentLocale
+const resolved = isLocale(locale) ? locale : DEFAULT_LOCALE
+const entry = await getEntry("not-found", resolved)
+
+if (!entry) {
+  throw new Error(
+    `No not-found entry for the locale \`${resolved}\`. Add src/content/pages/not-found/${resolved}.yaml.`
+  )
+}
+
+const { metadata, eyebrow, heading, body, pathLabel, actions, suggestions } =
+  entry.data
+---
+
+<Layout noindex title={metadata.title}>
+  <SectionContainer>
+    <NotFound>
+      <Fragment slot="eyebrow">{eyebrow}</Fragment>
+      <Fragment slot="heading">{heading}</Fragment>
+      <Fragment slot="body">{body}</Fragment>
+      <Fragment slot="pathLabel">{pathLabel}</Fragment>
+
+      {actions.map((action) => (
+        <ButtonLink
+          href={localizeHref(action.href, locale)}
+          slot="actions"
+          variant={action.variant}
+        >
+          {action.href === "/" && (
+            <Icon aria-hidden="true" class="size-4" name="lucide:arrow-left" />
+          )}
+          {action.label}
+        </ButtonLink>
+      ))}
+
+      <Fragment slot="suggestionsHeading">{suggestions.heading}</Fragment>
+      {suggestions.links.map((link) => (
+        <NotFoundLink
+          download={link.download}
+          href={localizeHref(link.href, locale)}
+          slot="suggestions"
+        >
+          <Fragment slot="label">{link.label}</Fragment>
+          <Fragment slot="description">{link.description}</Fragment>
+        </NotFoundLink>
+      ))}
+    </NotFound>
+  </SectionContainer>
+</Layout>

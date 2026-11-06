@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components"
+
+interface Props {
+  download?: boolean
+  href: string
+}
+
+const { download, href } = Astro.props
+
+if (!Astro.slots.has("label")) {
+  throw new Error("<NotFoundLink> requires a `label` slot.")
+}
+---
+
+<li class="flex bg-background">
+  <a
+    class="group flex w-full flex-col gap-2 p-gutter transition-colors hover:bg-muted focus-visible:bg-muted focus-visible:outline-none"
+    download={download}
+    href={href}
+  >
+    <span class="flex items-center justify-between gap-3 font-mono text-sm text-foreground lowercase">
+      <slot name="label" />
+      <Icon
+        aria-hidden="true"
+        class="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:text-primary"
+        name={download ? "lucide:download" : "lucide:arrow-right"}
+      />
+    </span>
+    {Astro.slots.has("description") && (
+      <span class="text-sm text-pretty text-muted-foreground">
+        <slot name="description" />
+      </span>
+    )}
+  </a>
+</li>
