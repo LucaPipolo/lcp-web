@@ -1,0 +1,133 @@
+/**
+ * Prism marks up a snippet with class names rather than colours, which is what
+ * lets the palette live here: the policy the site sends allows no inline style
+ * at all, and a highlighter that writes one costs the build.
+ */
+
+@layer base {
+  /* Specific enough to win over the reset's own `pre` font and size. */
+  pre[class*="language-"] {
+    @apply overflow-x-auto border border-border bg-muted/40 px-5 py-4;
+    @apply font-code text-sm leading-relaxed text-foreground;
+
+    font-feature-settings:
+      "calt" 1,
+      "liga" 1;
+    tab-size: 2;
+  }
+
+  :where(pre[class*="language-"]) code {
+    @apply bg-transparent p-0 text-inherit;
+  }
+
+  :where(pre[class*="language-"]) .token.comment,
+  :where(pre[class*="language-"]) .token.prolog,
+  :where(pre[class*="language-"]) .token.doctype,
+  :where(pre[class*="language-"]) .token.cdata {
+    color: var(--syntax-comment);
+    font-style: italic;
+  }
+
+  :where(pre[class*="language-"]) .token.punctuation,
+  :where(pre[class*="language-"]) .token.operator,
+  :where(pre[class*="language-"]) .token.entity {
+    color: var(--syntax-punctuation);
+  }
+
+  :where(pre[class*="language-"]) .token.keyword,
+  :where(pre[class*="language-"]) .token.atrule,
+  :where(pre[class*="language-"]) .token.rule,
+  :where(pre[class*="language-"]) .token.important,
+  :where(pre[class*="language-"]) .token.selector {
+    color: var(--syntax-keyword);
+  }
+
+  :where(pre[class*="language-"]) .token.string,
+  :where(pre[class*="language-"]) .token.char,
+  :where(pre[class*="language-"]) .token.attr-value,
+  :where(pre[class*="language-"]) .token.regex,
+  :where(pre[class*="language-"]) .token.url {
+    color: var(--syntax-string);
+  }
+
+  :where(pre[class*="language-"]) .token.function,
+  :where(pre[class*="language-"]) .token.class-name,
+  :where(pre[class*="language-"]) .token.builtin {
+    color: var(--syntax-function);
+  }
+
+  :where(pre[class*="language-"]) .token.number,
+  :where(pre[class*="language-"]) .token.boolean,
+  :where(pre[class*="language-"]) .token.constant,
+  :where(pre[class*="language-"]) .token.symbol {
+    color: var(--syntax-value);
+  }
+
+  :where(pre[class*="language-"]) .token.tag,
+  :where(pre[class*="language-"]) .token.attr-name,
+  :where(pre[class*="language-"]) .token.property,
+  :where(pre[class*="language-"]) .token.parameter,
+  :where(pre[class*="language-"]) .token.variable {
+    color: var(--syntax-name);
+  }
+
+  /* The `${` of a template literal, which is code rather than string. */
+  :where(pre[class*="language-"]) .token.interpolation-punctuation {
+    color: var(--syntax-keyword);
+  }
+
+  :where(pre[class*="language-"]) .token.interpolation {
+    @apply text-foreground;
+  }
+
+  :where(pre[class*="language-"]) .token.namespace {
+    @apply opacity-70;
+  }
+
+  :where(pre[class*="language-"]) .token.deleted {
+    color: var(--primary);
+  }
+
+  :where(pre[class*="language-"]) .token.inserted {
+    color: var(--syntax-string);
+  }
+
+  :where(pre[class*="language-"]) .token.bold {
+    @apply font-medium;
+  }
+
+  :where(pre[class*="language-"]) .token.italic {
+    font-style: italic;
+  }
+}
+
+/**
+ * A snippet framed with a bar naming its language and holding the button that
+ * copies it, which the script builds around each block once the page is up.
+ * The frame takes over the snippet's own border and background, so a page
+ * without the script still shows a complete block.
+ */
+@utility code-block {
+  @apply border border-border bg-muted/40;
+
+  & > pre {
+    @apply border-0 bg-transparent;
+  }
+}
+
+@utility code-header {
+  @apply flex items-center justify-between gap-4 bg-muted/60 py-1.5 pr-1.5 pl-5;
+}
+
+@utility code-language {
+  @apply font-mono text-2xs tracking-wider text-muted-foreground uppercase;
+}
+
+@utility code-copy {
+  @apply ml-auto grid size-7 cursor-pointer place-items-center text-muted-foreground;
+  @apply transition-colors hover:text-foreground focus-visible:text-foreground;
+
+  & svg {
+    @apply size-3.5;
+  }
+}

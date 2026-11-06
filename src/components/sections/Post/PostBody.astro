@@ -1,9 +1,23 @@
 ---
+interface Props {
+  copiedCodeLabel: string
+  copyCodeLabel: string
+}
+
+const { copyCodeLabel, copiedCodeLabel } = Astro.props
+
 if (!Astro.slots.has("default")) {
   throw new Error("<PostBody> requires the rendered post.")
 }
 ---
 
-<div class="long-form mt-14 rich-text text-lg text-muted-foreground">
+{/* The labels ride along here, because the snippets get their copy buttons
+    from a script rather than from a component that could be passed them. */}
+<div
+  class="long-form mt-14 rich-text text-lg text-muted-foreground"
+  data-copied-code-label={copiedCodeLabel}
+  data-copy-code-label={copyCodeLabel}
+  data-post-body
+>
   <slot />
 </div>

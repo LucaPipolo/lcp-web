@@ -1,5 +1,6 @@
 @theme {
   --font-sans: "Inter Variable", sans-serif;
+  --font-code: "Fira Code Variable", ui-monospace, monospace;
 
   --text-2xs: clamp(0.6875rem, 0.6711rem + 0.0822vw, 0.75rem);
   --text-2xs--line-height: 1.5;
@@ -50,7 +51,7 @@
   }
 
   & code {
-    @apply font-mono wrap-anywhere;
+    @apply font-code wrap-anywhere;
   }
 
   & strong {

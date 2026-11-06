@@ -2,8 +2,10 @@
 @import "tw-animate-css";
 
 @import "@fontsource-variable/inter";
+@import "@fontsource-variable/fira-code";
 @import "./_typography.css";
 @import "./_prose.css";
+@import "./_code.css";
 
 @import "./_colors.css";
 @import "./_layout.css";
