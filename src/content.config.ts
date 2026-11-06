@@ -27,6 +27,8 @@ const settings = defineCollection({
       shareOn: z.string(),
       copyLink: z.string(),
       copiedLink: z.string(),
+      copyCode: z.string(),
+      copiedCode: z.string(),
       previous: z.string(),
       next: z.string(),
     }),

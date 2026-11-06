@@ -17,6 +17,18 @@
   --color-gray-950: oklch(0.145 0 0);
 
   --color-red-500: oklch(0.586 0.222 17.6);
+
+  --color-green-500: oklch(0.52 0.13 155);
+  --color-green-400: oklch(0.78 0.13 155);
+
+  --color-blue-500: oklch(0.52 0.16 265);
+  --color-blue-400: oklch(0.76 0.12 265);
+
+  --color-purple-500: oklch(0.55 0.15 300);
+  --color-purple-400: oklch(0.78 0.12 300);
+
+  --color-amber-500: oklch(0.55 0.13 60);
+  --color-amber-400: oklch(0.8 0.12 60);
 }
 
 @theme inline {
@@ -35,6 +47,14 @@
   --muted: var(--color-gray-100);
   --muted-foreground: var(--color-gray-500);
   --border: var(--color-gray-200);
+
+  --syntax-comment: var(--color-gray-500);
+  --syntax-punctuation: var(--color-gray-500);
+  --syntax-keyword: var(--color-red-500);
+  --syntax-string: var(--color-green-500);
+  --syntax-function: var(--color-blue-500);
+  --syntax-value: var(--color-purple-500);
+  --syntax-name: var(--color-amber-500);
 }
 
 .dark {
@@ -44,4 +64,12 @@
   --muted: var(--color-gray-800);
   --muted-foreground: var(--color-gray-400);
   --border: color-mix(in oklab, var(--color-white) 10%, transparent);
+
+  --syntax-comment: var(--color-gray-400);
+  --syntax-punctuation: var(--color-gray-400);
+  --syntax-keyword: var(--color-red-400);
+  --syntax-string: var(--color-green-400);
+  --syntax-function: var(--color-blue-400);
+  --syntax-value: var(--color-purple-400);
+  --syntax-name: var(--color-amber-400);
 }

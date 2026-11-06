@@ -122,7 +122,11 @@ const readingTime = fillPlaceholders(blog.readingTime, {
         </PostToc>
       )}
 
-      <PostBody slot="body">
+      <PostBody
+        copiedCodeLabel={blog.copiedCode}
+        copyCodeLabel={blog.copyCode}
+        slot="body"
+      >
         <Content />
       </PostBody>
 
@@ -168,4 +172,5 @@ const readingTime = fillPlaceholders(blog.readingTime, {
 <script>
   import "@/scripts/post-toc"
   import "@/scripts/post-share"
+  import "@/scripts/code-copy"
 </script>
