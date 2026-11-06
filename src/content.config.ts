@@ -60,6 +60,18 @@ const settings = defineCollection({
   }),
 })
 
+/** One recommendation, as written on LinkedIn and translated per locale. */
+const recommendation = z.object({
+  initials: z.string(),
+  name: z.string(),
+  role: z.string(),
+  text: z.string(),
+  href: z.url().optional(),
+  avatar: z.string().optional(),
+  /** When it was written: never shown, only what the full list is sorted by. */
+  date: z.coerce.date().optional(),
+})
+
 const home = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/pages/home" }),
   schema: z.object({
@@ -136,19 +148,23 @@ const home = defineCollection({
         .object({
           heading: z.string(),
           action: z.object({ label: z.string(), href: z.string() }).optional(),
-          quotes: z.array(
-            z.object({
-              initials: z.string(),
-              name: z.string(),
-              role: z.string(),
-              text: z.string(),
-              href: z.url().optional(),
-              avatar: z.string().optional(),
-            })
-          ),
+          quotes: z.array(recommendation),
         })
         .optional(),
     }),
+  }),
+})
+
+const recommendations = defineCollection({
+  loader: glob({
+    pattern: "*.yaml",
+    base: "./src/content/pages/recommendations",
+  }),
+  schema: z.object({
+    metadata: z.object({ title: z.string() }),
+    title: z.string(),
+    intro: z.string(),
+    quotes: z.array(recommendation).min(1),
   }),
 })
 
@@ -298,4 +314,5 @@ export const collections = {
   security,
   "ai-content": aiContent,
   "not-found": notFound,
+  recommendations,
 }
