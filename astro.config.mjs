@@ -4,6 +4,9 @@ import tailwindcss from "@tailwindcss/vite"
 import icon from "astro-icon"
 
 import { DEFAULT_LOCALE, LOCALES } from "./src/libs/i18n.ts"
+import { articleImages, imageCaptions } from "./src/libs/markdown.ts"
+
+import { satteri } from "@astrojs/markdown-satteri"
 
 import sentry from "@sentry/astro"
 
@@ -23,6 +26,7 @@ export default defineConfig({
     // `style-src 'self'` blocks and `check:csp` fails the build over. Prism
     // writes class names instead, and `_code.css` colours them.
     syntaxHighlight: "prism",
+    processor: satteri({ hastPlugins: [articleImages, imageCaptions] }),
   },
   i18n: {
     locales: [...LOCALES],

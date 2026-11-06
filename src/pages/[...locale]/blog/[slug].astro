@@ -1,5 +1,5 @@
 ---
-import { Image } from "astro:assets"
+import { Picture } from "astro:assets"
 import { getEntry, render } from "astro:content"
 
 import Layout from "@/layouts/main.astro"
@@ -25,6 +25,7 @@ import {
 } from "@/libs/blog"
 import { getSettings } from "@/libs/content"
 import { DEFAULT_LOCALE, formatDate, LOCALES } from "@/libs/i18n"
+import { ARTICLE_IMAGE_SIZES, ARTICLE_IMAGE_WIDTHS } from "@/libs/markdown"
 import { fillPlaceholders } from "@/libs/template"
 
 /** Which headings are worth listing: the ones that structure the post. */
@@ -106,11 +107,16 @@ const readingTime = fillPlaceholders(blog.readingTime, {
 
         {cover && (
           <Fragment slot="cover">
-            <Image
+            {/* The cover is the first thing a post shows, so it is fetched at once. */}
+            <Picture
               alt={coverAlt ?? ""}
               class="w-full"
+              fetchpriority="high"
+              formats={["avif", "webp"]}
               loading="eager"
+              sizes={ARTICLE_IMAGE_SIZES}
               src={cover}
+              widths={ARTICLE_IMAGE_WIDTHS}
             />
           </Fragment>
         )}
