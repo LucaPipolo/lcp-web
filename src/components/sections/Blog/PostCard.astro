@@ -1,0 +1,44 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+interface Props extends HTMLAttributes<"article"> {
+  href: string
+}
+
+const { href, ...rest } = Astro.props
+
+for (const slot of ["title", "description", "meta"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<PostCard> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<article
+  class="group/post relative flex flex-col gap-3 bg-background px-gutter pt-6 pb-8 transition-colors hover:bg-muted"
+  {...rest}
+>
+  <slot name="meta" />
+
+  <h3 class="text-xl font-semibold tracking-tight text-balance text-foreground">
+    {/* The card is one target: the link covers it, so the whole card is clickable. */}
+    <a
+      class="underline-offset-4 group-hover/post:text-primary after:absolute after:inset-0"
+      href={href}
+    >
+      <slot name="title" />
+    </a>
+  </h3>
+
+  <p class="line-clamp-3 text-base text-pretty text-muted-foreground">
+    <slot name="description" />
+  </p>
+
+  {Astro.slots.has("tags") && (
+    // Above the link that covers the card, so a tag that is a link of its own
+    // can be followed; the gaps between tags still open the post.
+    <div class="pointer-events-none relative z-10 mt-auto flex flex-wrap items-center gap-1.5 pt-3 [&>*]:pointer-events-auto">
+      <slot name="tags" />
+    </div>
+  )}
+</article>
