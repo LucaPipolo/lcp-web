@@ -2,115 +2,190 @@ metadata:
   title: "Cookie Notice | Luca Pipolo"
 
 title: "Cookie Notice"
-updated: 2026-08-12
-updatedLabel: "last updated:"
+updated: 2026-11-09
+updatedLabel: "Last updated:"
 
 intro: >-
-  This site stores only two pieces of information, and only when you yourself
-  carry out the action that generates them: the language you choose and the
-  theme you choose. Nothing tracks you, nothing builds a profile of you and
-  nothing is shared with any advertiser. That's why you won't see a cookie
-  banner on this site. This page explains in detail what data is stored, who
-  is responsible for processing it and why the law allows this site to do
-  without a cookie banner.
+  This website uses one cookie to remember your chosen language
+  and your browser's local storage to save your preference for
+  light or dark mode. Both are only saved when you change these
+  settings. There are no advertising cookies, profiling tools
+  or systems that track your browsing across visits, which is
+  why you won't see a cookie banner. I also use a few tools
+  to monitor performance, detect errors and protect the contact
+  form from spam. This notice explains how they work, what
+  information they process and why your consent isn't required.
 
 sections:
   - heading: "Data controller"
     body: >-
-      <p>The processing described on this page is carried out by somoscuatro
-      2020 S.L., who can be reached at
-      <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>. Full
-      identification details are set out in the <a href="/en/imprint/">legal
-      notice</a>.</p>
+      <p>The data controller is somoscuatro 2020 S.L.
+      You can contact the company at
+      <a href="mailto:privacy@somoscuatro.es">privacy@somoscuatro.es</a>
+      and find its full identification details in the
+      <a href="/en/imprint/">legal notice</a>.</p>
 
-  - heading: "What stays in your browser"
+  - heading: "What information is stored in your browser"
     body: >-
-      <p>The site stores nothing in your browser simply by loading a page.
-      The two values listed below are only written if you carry out the
-      action that generates them: clicking the language selector, or
-      switching the theme toggle.</p>
+      <p>This website doesn't set cookies or save preferences
+      in local storage simply because you load a page.
+      The only information stored directly by the website
+      is your chosen language and theme, and both are
+      saved only when you use the relevant controls.</p>
     items:
       - term: "locale (cookie)"
         description: >-
-          A cookie holding the language you've chosen, written only when you
-          follow a link in the language selector, never when a page loads.
-          It ensures the site opens in your language the next time you reach
-          the root address. It lasts one year, contains no identifier, and is
-          sent only to this site.
+          Stores the language you select using the website's
+          language switcher. It allows the website to open
+          in your preferred language when you return to
+          its main address, without having to select it
+          again. The cookie lasts for one year, contains
+          no personal identifiers and is only sent to
+          this website. It isn't created simply by
+          loading a page.
       - term: "lcp-theme (local storage)"
         description: >-
-          The light or dark theme you've chosen, stored in the browser's
-          local storage, not in a cookie. It's written only when you switch
-          the toggle, never when a page loads. While it stays empty, the site
-          follows your operating system's preference and changes along with
-          it. It never expires: it's removed only when you clear this site's
-          data from your browser.
+          Stores your preference for light or dark mode.
+          It's saved in your browser's local storage,
+          rather than in a cookie, and only when you use
+          the theme switcher. If you haven't chosen a
+          theme, the website automatically follows your
+          operating system's preference and adapts
+          whenever that changes. This setting has no
+          fixed expiry date and remains stored until
+          you clear the website's data from your browser.
 
   - heading: "Why there's no cookie banner"
     body: >-
       <p>Article 22.2 of
-      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002, of 11 July (LSSI-CE)</a>,
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE)</a>,
       as amended by
-      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer">Real Decreto-ley 13/2012</a>,
-      which transposes into Spanish law
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer">EU Directive 2002/58/EC</a>,
-      as amended by
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer">Directive 2009/136/EC</a>
-      (commonly known as the "Cookie Directive"), requires your consent
-      before storing information on your device or reading it, with one
-      exception: where that information is strictly necessary to provide a
-      service you yourself have explicitly requested.</p>
-      <p>Both values fall under this exception. The language is stored
-      because you've just clicked the selector to choose it, and the theme
-      because you've just switched the toggle. Neither is written unless you
-      take that action yourself, and neither serves any purpose other than
-      remembering the choice you made. The measurement described below, by
-      contrast, stores nothing on your device, so it falls outside the
-      consent requirement set out in that article.</p>
-      <p>A cookie banner asking permission for these two values would
-      disrupt your browsing for no reason, since the law doesn't require it.
-      And getting people used to clicking "accept" without reading does more
-      harm than not asking at all, when (as here) there's nothing to ask.</p>
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer">Royal Decree-Law 13/2012</a>
+      to incorporate European cookie rules into Spanish law,
+      generally requires users to give consent before
+      information can be stored on or accessed from their
+      devices. This requirement comes from
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer">Directive 2002/58/EC</a>,
+      subsequently amended by
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer">Directive 2009/136/EC</a>.</p>
+      <p>There are, however, some exceptions. In particular,
+      consent isn't required when storing or accessing
+      information is strictly necessary to provide a
+      service explicitly requested by the user.</p>
+      <p>This applies to the language and theme preferences
+      on this website. When you choose a language or
+      switch the theme, your browser saves that setting
+      solely to remember your choice for future visits.
+      The information isn't used for anything else,
+      including identifying you or analysing
+      your behaviour.</p>
+      <p>The
+      <a href="https://www.aepd.es/guias/guia-cookies.pdf" target="_blank" rel="noopener noreferrer">Spanish Data Protection Agency's (AEPD) guidance on cookies</a>
+      also confirms that preferences selected directly
+      by users, such as language or website appearance,
+      are exempt from consent when used exclusively
+      for that purpose.</p>
+      <p>The monitoring tools described in the next
+      section don't use cookies or store information
+      on your device. The contact form's spam check
+      is used to protect a feature you've
+      specifically requested.</p>
+      <p>As a result, the features and technologies
+      currently used on this website don't require
+      a cookie banner or your consent before
+      you start browsing.</p>
 
-  - heading: "Measurement doesn't use cookies"
+  - heading: "Performance monitoring and error reporting"
     body: >-
-      <p>Two services run on this site. Both work without identifying you
-      and without leaving any trace in your browser.</p>
+      <p>I use two services to monitor website performance
+      and identify technical problems. Neither sets
+      cookies or saves information in your browser's
+      local storage, and both are configured to avoid
+      collecting information that could identify visitors.</p>
     items:
       - term: "Vercel Speed Insights"
         description: >-
           <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>
-          measures page load speed. It sends the page path, device type,
-          browser, connection speed and country. Vercel states that this
-          data isn't linked back to a specific visit.
+          measures how pages perform while people use
+          the website. It collects information such
+          as the page path and URL, device type,
+          operating system, browser, connection speed,
+          country of origin and loading times.
+          According to
+          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's documentation</a>,
+          this data isn't associated with a particular
+          visitor or IP address and can't be used
+          to reconstruct someone's browsing activity
+          across different pages.
       - term: "Sentry"
         description: >-
           <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>
-          logs technical errors on the site, so I can find and fix them. It
-          sends the error message, the point in the code where it occurred
-          and the page it happened on. It's configured not to collect
-          personal information: no IP address, no form contents, no cookies.
-          Session replay, which would capture what you do on the page, is
-          switched off.
+          collects technical error reports so I can
+          identify and fix problems. These reports
+          include the error message, where the error
+          occurred in the code and the affected page.
+          The service is configured to exclude IP
+          addresses, form contents and cookies.
+          Session Replay, which would otherwise record
+          users' interactions with a page, is also
+          disabled.
 
-  - heading: "How to opt out of measurement"
+  - heading: "Contact form spam protection"
     body: >-
-      <p>If you'd rather not appear even in the aggregated, anonymous data
-      collected by Vercel Speed Insights and Sentry, you can install a
-      browser extension that blocks third-party scripts, such as
-      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.
-      An extension of this kind stops your browser sending data to either
-      service. The site will keep working exactly as before: no feature of
-      the site depends on these two tools.</p>
+      <p>The contact page uses
+      <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer">Cloudflare Turnstile</a>
+      to check that submissions are legitimate and
+      protect the form against spam and automated
+      requests. The check only loads on the contact
+      page, inside an iframe provided by Cloudflare.
+      It doesn't run when you browse other pages
+      on the website.</p>
+      <p>To carry out the check, Turnstile processes
+      your IP address and certain technical information
+      about your browser and device. In the configuration
+      used by this website, it doesn't set cookies
+      on the website's domain. Cloudflare explains
+      what information it collects and why in its
+      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">Turnstile Privacy Addendum</a>.</p>
+      <p>This check is necessary to use the contact
+      form securely and falls within the exception
+      under Article 22.2 of the LSSI-CE for features
+      explicitly requested by the user. This website
+      doesn't use it for advertising or profiling.</p>
+      <p>If the check prevents you from submitting
+      your message, you can still contact me directly
+      by email or book a call.</p>
 
-  - heading: "If anything changes"
+  - heading: "How to block monitoring tools"
     body: >-
-      <p>If I add a feature in future that requires your consent (for
-      example, a tool that stores data not strictly necessary for you to use
-      the site), I'll add a cookie banner asking for your consent before that
-      feature stores anything, and I'll update this page accordingly.</p>
-      <p>The "last updated" date at the top of the page shows the last time
-      this text was changed: if that date hasn't moved, the content of this
-      page hasn't been updated and everything described above still holds.</p>
-      <p>For everything else about how data is processed, see the
+      <p>If you'd prefer to prevent even the collection
+      of anonymous performance metrics by Vercel Speed
+      Insights or technical error reports by Sentry,
+      you can use a browser extension that blocks
+      third-party scripts, such as
+      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.</p>
+      <p>Depending on their settings and filter lists,
+      these extensions can block requests sent to
+      monitoring services. Blocking them won't affect
+      the website's main features, which don't
+      depend on these tools.</p>
+      <p>However, the same extensions may also prevent
+      Cloudflare Turnstile from working. If that
+      happens, you won't be able to submit the contact
+      form, but you can still email me directly
+      or book a call.</p>
+
+  - heading: "Changes to this notice"
+    body: >-
+      <p>If I introduce features that require cookies
+      or other technologies subject to consent,
+      I'll update this notice and provide a way
+      for you to make your choice before those
+      features are enabled.</p>
+      <p>The last updated date at the top of the
+      page shows when this notice was most
+      recently changed.</p>
+      <p>For more information about how personal
+      data is processed, the service providers
+      involved and your rights, see the
       <a href="/en/privacy/">privacy policy</a>.</p>

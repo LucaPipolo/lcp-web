@@ -2,162 +2,360 @@ metadata:
   title: "Política de privacidad | Luca Pipolo"
 
 title: "Política de privacidad"
-updated: 2026-08-12
-updatedLabel: "última actualización:"
+updated: 2026-11-09
+updatedLabel: "Última actualización:"
 
 intro: >-
-  Este sitio recoge muy poco. No construye un perfil sobre ti, no vende
-  datos a nadie y guarda únicamente el idioma y el tema que tú eliges. Aquí
-  abajo tienes exactamente qué se trata, con qué base jurídica y qué puedes
-  exigirme.
+  Este sitio web solo recoge los datos necesarios para funcionar,
+  responder a los mensajes y detectar posibles problemas técnicos.
+  No utiliza herramientas de perfilado ni vende tus datos personales.
+  Aquí te explico qué información se trata, para qué se utiliza,
+  quién puede acceder a ella, durante cuánto tiempo se conserva
+  y cómo puedes ejercer tus derechos.
 
 sections:
-  - heading: "Responsable del tratamiento"
+  - heading: "Quién es el responsable del tratamiento"
     items:
       - term: "Responsable"
         description: "somoscuatro 2020 S.L."
       - term: "Contacto"
         description: >-
-          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
-      - term: "Datos identificativos completos"
+          <a href="mailto:privacy@somoscuatro.es">privacy@somoscuatro.es</a>
+      - term: "Datos identificativos"
         description: >-
-          Están en el <a href="/imprint/">aviso legal</a>.
+          Puedes consultar los datos completos de la empresa en el
+          <a href="/imprint/">aviso legal</a>.
       - term: "Delegado de protección de datos"
         description: >-
-          No se ha nombrado. El volumen y la naturaleza del tratamiento
-          descrito en esta página no lo hacen obligatorio conforme al
-          artículo 37 del
+          No se ha designado un delegado de protección de datos
+          (DPD), ya que, por la naturaleza y las características
+          de los tratamientos descritos en esta política,
+          no se cumplen las condiciones que hacen obligatorio
+          su nombramiento conforme al artículo 37 del
           <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Reglamento (UE) 2016/679 (RGPD)</a>.
 
   - heading: "Qué datos se tratan"
     items:
-      - term: "Si me escribes un correo"
+      - term: "Formulario de contacto"
         description: >-
-          Este sitio no tiene formularios. La única forma de enviarme datos
-          por iniciativa propia es escribirme un correo directamente. En ese
-          caso trato tu dirección de correo, tu nombre si lo incluyes en el
-          mensaje y el contenido del mensaje, solo para leerlo y
-          responderte. Escribirme es totalmente opcional: si no lo haces, el
-          sitio funciona exactamente igual.
-      - term: "Tu idioma y tu tema"
+          Si utilizas el formulario de contacto, recojo el motivo
+          de tu consulta, tu nombre, tu dirección de correo
+          electrónico y el mensaje que escribas. También registro
+          la página y el idioma desde los que envías la consulta,
+          así como la fecha y la hora del envío. Utilizo esta
+          información para gestionar tu mensaje y responderte.
+          El formulario es opcional: también puedes escribirme
+          directamente por correo o reservar una llamada,
+          sin que esto afecte al funcionamiento del resto de la web.
+      - term: "Registro de la información facilitada"
         description: >-
-          El idioma que eliges se guarda en una cookie y el tema que eliges
-          en el almacenamiento local del navegador: ambos permanecen en tu
-          dispositivo, y solo se escriben cuando haces clic en el selector
-          de idioma o pulsas el interruptor del tema. Ninguno de los dos
-          permite identificarte ni vincular esta visita con otras visitas
-          anteriores o posteriores. Consulta la
-          <a href="/cookies/">política de cookies</a> para el detalle
-          técnico.
+          Cuando envías el formulario, también guardo un registro
+          de la información sobre privacidad que se te ha mostrado.
+          Incluye el texto exacto, la versión de esta política
+          a la que hace referencia, la fecha y la hora del envío,
+          la página de origen, el user agent del navegador y un
+          hash con clave generado a partir de tu dirección IP,
+          que explico más adelante. Este registro sirve para
+          acreditar qué información se te facilitó y cuándo,
+          en caso de que sea necesario demostrarlo.
+      - term: "Protección contra el spam"
+        description: >-
+          El formulario de contacto utiliza Cloudflare Turnstile
+          para distinguir las solicitudes legítimas de las
+          automatizadas. Durante esta comprobación, Cloudflare
+          trata tu dirección IP y cierta información técnica
+          sobre el navegador y el dispositivo. Turnstile solo
+          se utiliza en la página de contacto.
+      - term: "Mensajes de correo electrónico"
+        description: >-
+          Si me escribes directamente por correo electrónico,
+          trato tu dirección, el nombre que hayas indicado,
+          si lo hay, y el contenido del mensaje para leer
+          tu consulta, gestionarla y responderte.
+      - term: "Reserva de llamadas"
+        description: >-
+          Las reservas se gestionan mediante Notion Calendar,
+          en una página externa a este sitio web. Para reservar
+          una llamada se te pide el nombre y la dirección de
+          correo electrónico. La reserva se añade a mi calendario
+          junto con cualquier información adicional que
+          decidas facilitar.
+      - term: "Preferencias de idioma y apariencia"
+        description: >-
+          Cuando cambias de idioma, tu elección se guarda en
+          una cookie. Si cambias el tema visual de la web,
+          la preferencia se guarda en el almacenamiento local
+          del navegador (local storage). Ambos datos permanecen
+          en tu dispositivo y solo se almacenan cuando utilizas
+          los controles correspondientes. No se utilizan para
+          identificarte, elaborar perfiles ni relacionar
+          tus distintas visitas. Puedes consultar más detalles
+          en la <a href="/cookies/">política de cookies</a>.
       - term: "Métricas de rendimiento"
         description: >-
-          La ruta y la dirección de la página visitada, el tipo de
-          dispositivo, el sistema operativo, el navegador, la velocidad de
-          la conexión, el país de origen y los tiempos de carga de la
-          página.
+          Para comprobar el rendimiento de la web se recogen
+          datos como la ruta y la URL de la página visitada,
+          el tipo de dispositivo, el sistema operativo,
+          el navegador, la velocidad de conexión, el país
+          de procedencia y los tiempos de carga.
       - term: "Informes de errores"
         description: >-
-          Cuando algo deja de funcionar correctamente: el mensaje de error,
-          el punto del código del que procede y la página en la que ocurrió.
-          La recogida de información personal está desactivada en origen:
-          ni dirección IP, ni contenido de formularios, ni cookies, ni
-          grabación de lo que estabas haciendo en la página.
+          Cuando se produce un error técnico, se recoge
+          información que ayuda a identificar su causa,
+          como el mensaje de error, el punto del código
+          donde se ha producido y la página afectada.
+          El sistema está configurado para excluir de
+          la recogida las direcciones IP, el contenido
+          de los formularios, las cookies y las grabaciones
+          de la actividad realizada durante la navegación.
 
   - heading: "Decisiones automatizadas"
     body: >-
-      <p>Este sitio no toma ninguna decisión basada únicamente en
-      tratamiento automatizado, incluida la elaboración de perfiles.</p>
+      <p>Este sitio web no utiliza procesos de decisión
+      automatizados que produzcan efectos jurídicos o
+      consecuencias de importancia similar para los usuarios,
+      ni realiza actividades de elaboración de perfiles.</p>
+      <p>El control antispam del formulario de contacto
+      es automático y puede impedir el envío de un mensaje
+      que considere sospechoso. Si te ocurre, puedes
+      contactar conmigo por correo electrónico o reservar
+      una llamada.</p>
 
-  - heading: "Direcciones IP"
+  - heading: "Cómo se tratan las direcciones IP"
     body: >-
-      <p>Tu dirección IP no se incluye en los datos de rendimiento ni en los
-      informes de error que yo recibo, pero los servidores a los que se
-      conecta tu navegador la ven de todos modos, porque sin ella no
-      podrían responderte. Vercel declara que sus métricas de rendimiento no
-      quedan vinculadas a una visita ni a una IP concreta, y el sistema de
-      informes de error está configurado para no recogerla en absoluto.</p>
+      <p>Cuando visitas una web, los servidores con los
+      que se comunica tu navegador reciben necesariamente
+      tu dirección IP para poder responder a las solicitudes.
+      Los proveedores técnicos de este sitio también pueden
+      tratarla como parte de sus servicios.</p>
+      <p>Según la documentación de Vercel, las métricas
+      de rendimiento que proporciona no permiten asociar
+      los resultados a una visita o dirección IP concreta.
+      Por su parte, el sistema de informes de errores está
+      configurado para excluir las direcciones IP de
+      los datos recogidos.</p>
+      <p>En el formulario de contacto, la dirección IP
+      también se utiliza para limitar los envíos repetidos
+      en un periodo corto de tiempo y para realizar
+      la comprobación antispam de Cloudflare Turnstile.</p>
+      <p>En el registro de la información sobre privacidad
+      facilitada no guardo la dirección IP original,
+      sino un hash calculado mediante una clave secreta
+      que se almacena por separado. Esto permite comparar
+      los registros asociados a una misma dirección sin
+      almacenar la IP en texto claro. El hash sigue siendo
+      un dato personal seudonimizado y se conserva y elimina
+      junto con el registro al que pertenece.</p>
 
-  - heading: "Base jurídica"
+  - heading: "Bases jurídicas del tratamiento"
     body: >-
-      <p>Cuando me escribes, trato el mensaje para responderte: es
-      exactamente lo que me estás pidiendo. La base jurídica es el interés
-      legítimo previsto en el artículo 6, apartado 1, letra f, del
-      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Reglamento (UE) 2016/679 (RGPD)</a>,
-      o bien las medidas precontractuales del artículo 6, apartado 1, letra
-      b, si lo que propones es un encargo de trabajo.</p>
-      <p>Las métricas de rendimiento y los informes de error también se
-      basan en el interés legítimo: saber si el sitio carga rápido y si
-      funciona correctamente. Ese interés prevalece sobre el impacto en tu
-      privacidad precisamente porque la medición es anónima, no deja nada
-      en tu dispositivo y no permite identificarte.</p>
-      <p>El idioma y el tema se guardan porque tú mismo los has solicitado,
-      usando el selector de idioma o el interruptor del tema: es lo que el
-      artículo 22.2 de la
-      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Ley española 34/2002 (LSSI-CE)</a>
-      considera un servicio solicitado de forma expresa, sin necesidad de
-      consentimiento.</p>
-      <p>No te pido ningún consentimiento porque ningún tratamiento descrito
-      en esta página depende de él. Si en el futuro lo hubiera, te lo
-      pediría antes de empezar a tratar tus datos, no después, y en ese
-      momento podrías revocarlo en cualquier momento.</p>
+      <p>El RGPD exige que todo tratamiento de datos personales
+      tenga una base jurídica. En este sitio, la base aplicable
+      depende de la finalidad para la que se recogen y
+      utilizan los datos.</p>
+      <p><strong>Mensajes y llamadas.</strong> Cuando contactas
+      conmigo a través del formulario, por correo electrónico
+      o reservando una llamada, utilizo los datos necesarios
+      para gestionar tu consulta y responderte. El tratamiento
+      se basa en el interés legítimo previsto en el artículo 6,
+      apartado 1, letra f), del
+      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">RGPD</a>.
+      Cuando la consulta se refiere a un posible encargo
+      profesional o una relación contractual, también puede
+      resultar aplicable el artículo 6, apartado 1, letra b),
+      relativo a las medidas precontractuales adoptadas
+      a petición del interesado.</p>
+      <p><strong>Registro de la información facilitada.</strong>
+      El registro de la información sobre privacidad mostrada
+      al enviar el formulario se basa en el interés legítimo
+      de poder demostrar el cumplimiento de las obligaciones
+      de transparencia, de acuerdo con el principio de
+      responsabilidad proactiva establecido en el artículo 5,
+      apartado 2, del RGPD.</p>
+      <p><strong>Seguridad y protección contra el spam.</strong>
+      Las comprobaciones de Cloudflare Turnstile y los límites
+      a los envíos repetidos se basan en el interés legítimo
+      de proteger la web frente a abusos y solicitudes
+      automatizadas, conforme al artículo 6, apartado 1,
+      letra f), del RGPD, teniendo en cuenta también
+      el considerando 49, relativo a la seguridad de
+      las redes y los sistemas de información.</p>
+      <p><strong>Rendimiento e informes de errores.</strong>
+      Los tratamientos de datos personales que puedan ser
+      necesarios para supervisar el rendimiento y detectar
+      problemas técnicos se basan en el interés legítimo
+      de mantener la web operativa, segura y fiable.
+      La recogida se limita a la información necesaria
+      para estos fines y se utilizan configuraciones
+      destinadas a minimizar los datos personales tratados.</p>
+      <p><strong>Preferencias de idioma y apariencia.</strong>
+      Estas preferencias solo se guardan cuando decides
+      modificarlas y se utilizan exclusivamente para
+      recordar tus elecciones. En estas condiciones,
+      su almacenamiento está exento de consentimiento
+      conforme al artículo 22.2 de la
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE)</a>,
+      al tratarse de una funcionalidad solicitada
+      expresamente por el usuario.</p>
+      <p>Ninguno de los tratamientos descritos en esta política
+      utiliza el consentimiento como base jurídica.
+      La casilla del formulario de contacto sirve únicamente
+      para confirmar que has recibido la información sobre
+      privacidad. Si en el futuro se incorporan tratamientos
+      que requieran consentimiento, te lo pediré antes
+      de iniciarlos y podrás retirarlo en cualquier momento.</p>
 
-  - heading: "Quién más trata estos datos"
+  - heading: "Proveedores y servicios externos"
     body: >-
-      <p>Me apoyo en proveedores externos. Ninguno de ellos recibe tus
-      datos para sus propios fines comerciales.</p>
+      <p>Para que la web funcione utilizo varios servicios
+      externos, que tratan los datos necesarios para prestar
+      sus respectivas funciones. Las finalidades y condiciones
+      del tratamiento dependen de cada servicio y del papel
+      que desempeña su proveedor.</p>
+      <p>En particular, Cloudflare trata los datos recogidos
+      mediante Turnstile tanto para proteger el formulario
+      de contacto por mi cuenta como, en calidad de responsable
+      independiente del tratamiento, para mejorar sus propios
+      sistemas de detección de bots. Estas actividades se
+      describen en el
+      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">anexo de privacidad de Turnstile</a>.</p>
     items:
       - term: "Vercel Inc."
         description: >-
-          Se encarga del alojamiento del sitio, de la seguridad perimetral y
-          de las métricas de rendimiento, mediante
+          Se encarga del alojamiento de la web, ejecuta
+          el código de servidor del formulario de contacto,
+          gestiona la seguridad perimetral y recoge las
+          métricas de rendimiento mediante
           <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>.
-          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Su política de privacidad</a>.
+          Consulta la
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">política de privacidad de Vercel</a>.
       - term: "Functional Software, Inc."
         description: >-
-          Gestiona los informes de error mediante el servicio
-          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>.
-          <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Su política de privacidad</a>.
+          Proporciona
+          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>,
+          el servicio utilizado para recoger y analizar
+          los informes de errores.
+          Consulta la
+          <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">política de privacidad de Sentry</a>.
+      - term: "Cloudflare, Inc."
+        description: >-
+          Proporciona
+          <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer">Turnstile</a>,
+          que protege el formulario de contacto frente
+          al spam y las solicitudes automatizadas.
+          Consulta la
+          <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">política de privacidad de Cloudflare</a>.
+      - term: "Sendinblue SAS (Brevo)"
+        description: >-
+          Gestiona el envío a mi correo electrónico
+          de los mensajes recibidos mediante el formulario
+          de contacto, a través de
+          <a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer">Brevo</a>.
+          Consulta la
+          <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer">política de privacidad de Brevo</a>.
+      - term: "Neon, una empresa de Databricks"
+        description: >-
+          A través de
+          <a href="https://neon.com/" target="_blank" rel="noopener noreferrer">Neon</a>,
+          aloja en Fráncfort (Alemania) dos bases de datos
+          independientes: una para los mensajes recibidos
+          mediante el formulario de contacto y otra para
+          los registros de la información sobre privacidad
+          facilitada a los usuarios.
+          Consulta la
+          <a href="https://www.databricks.com/legal/privacynotice" target="_blank" rel="noopener noreferrer">política de privacidad de Databricks</a>.
+      - term: "Notion Labs, Inc."
+        description: >-
+          Proporciona
+          <a href="https://www.notion.com/product/calendar" target="_blank" rel="noopener noreferrer">Notion Calendar</a>,
+          utilizado para gestionar las reservas de llamadas.
+          Consulta la
+          <a href="https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091" target="_blank" rel="noopener noreferrer">política de privacidad de Notion</a>.
 
-  - heading: "Transferencias fuera del Espacio Económico Europeo"
+  - heading: "Transferencias de datos fuera del Espacio Económico Europeo"
     body: >-
-      <p>Los proveedores mencionados arriba son empresas estadounidenses,
-      por lo que los datos que tratan pueden salir del Espacio Económico
-      Europeo. Estas transferencias se basan en las
+      <p>Brevo es una empresa francesa, mientras que las bases
+      de datos del formulario de contacto alojadas por Neon
+      se encuentran en Fráncfort (Alemania). Otros proveedores,
+      como Vercel, Sentry, Cloudflare y Notion, son empresas
+      estadounidenses o forman parte de grupos con sede
+      en Estados Unidos. Neon también pertenece
+      a un grupo estadounidense.</p>
+      <p>Por este motivo, algunos datos personales pueden
+      transferirse o ser accesibles desde fuera del Espacio
+      Económico Europeo (EEE). Cuando corresponde,
+      estas transferencias se amparan en las
       <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32021D0914" target="_blank" rel="noopener noreferrer">cláusulas contractuales tipo aprobadas por la Comisión Europea mediante la Decisión de Ejecución (UE) 2021/914</a>
-      y, cuando corresponde, en la
-      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer">Decisión de Ejecución (UE) 2023/1795, que reconoce un nivel de protección adecuado a los datos transferidos en el marco del Data Privacy Framework UE-EE. UU.</a>,
-      según lo declarado por cada proveedor en su política de privacidad
-      enlazada más arriba.</p>
+      o en la
+      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer">Decisión de adecuación (UE) 2023/1795 relativa al Marco de Privacidad de Datos UE-EE. UU. (Data Privacy Framework)</a>,
+      siempre que el destinatario cumpla los requisitos
+      correspondientes.</p>
+      <p>Puedes consultar las garantías aplicadas por cada
+      proveedor en sus respectivas políticas de privacidad,
+      enlazadas en el apartado anterior.</p>
 
-  - heading: "Durante cuánto tiempo conservo los datos"
+  - heading: "Durante cuánto tiempo se conservan los datos"
     body: >-
-      <p>Los correos permanecen en mi bandeja de entrada mientras la
-      conversación siga teniendo sentido, después los elimino. Los datos de
-      rendimiento y los informes de error los conserva cada proveedor según
-      sus propios plazos, y ninguno de los dos permite identificarte. El
-      idioma y el tema permanecen en tu dispositivo hasta que borres los
-      datos de este sitio en el navegador.</p>
+      <p>Los mensajes enviados mediante el formulario
+      de contacto se conservan en la base de datos durante
+      12 meses desde su recepción y después se eliminan.
+      Los registros de la información sobre privacidad
+      facilitada en el momento del envío se conservan
+      durante 3 años para poder acreditar el cumplimiento
+      de las obligaciones de transparencia y, transcurrido
+      ese plazo, también se eliminan.</p>
+      <p>Los correos electrónicos, incluidas las copias
+      de los mensajes del formulario que llegan a mi bandeja
+      de entrada, se conservan mientras sean necesarios
+      para gestionar la conversación y las posibles
+      actividades relacionadas. Cuando dejan de ser
+      necesarios, se eliminan, salvo que exista alguna
+      obligación legal de conservación aplicable.</p>
+      <p>Las métricas de rendimiento y los informes de errores
+      se conservan durante los periodos establecidos
+      por sus respectivos proveedores y las configuraciones
+      utilizadas. Las preferencias de idioma y apariencia
+      permanecen en tu dispositivo hasta que eliminas
+      los datos de este sitio desde el navegador.</p>
 
   - heading: "Tus derechos"
     body: >-
-      <p>Puedes pedirme acceder a tus datos, corregirlos o eliminarlos,
-      oponerte al tratamiento, solicitar su limitación o exigir la
-      portabilidad de lo que me hayas enviado. Escribe a
-      <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a> y te
-      respondo en el plazo de un mes, según establece el artículo 12 del
-      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">RGPD</a>.</p>
-      <p>En la práctica, esto afecta solo a los correos que me hayas
-      escrito: la medición de rendimiento y los informes de error son
-      anónimos, así que no puedo aislar los datos de una persona concreta
-      ni comprobar que realmente sean suyos.</p>
-      <p>Si consideras que no he gestionado correctamente tus datos, puedes
-      presentar una reclamación ante la
-      <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos (AEPD)</a>,
-      o ante la autoridad de protección de datos del país en el que
-      resides.</p>
+      <p>El RGPD te reconoce varios derechos relacionados
+      con tus datos personales. Puedes solicitar información
+      sobre los datos que se tratan y obtener una copia,
+      pedir que se rectifiquen o eliminen y, en los casos
+      previstos por la ley, oponerte al tratamiento
+      o solicitar su limitación. También puedes ejercer
+      el derecho a la portabilidad cuando se cumplan
+      las condiciones del artículo 20 del RGPD.</p>
+      <p>Para ejercer estos derechos, puedes escribirme
+      a <a href="mailto:privacy@somoscuatro.es">privacy@somoscuatro.es</a>.
+      Recibirás una respuesta en el plazo de un mes desde
+      la solicitud, salvo las posibles ampliaciones
+      permitidas por el artículo 12 del
+      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">RGPD</a>,
+      de las que se te informará dentro de los plazos
+      establecidos.</p>
+      <p>Estos derechos pueden afectar, en particular,
+      a los mensajes enviados mediante el formulario
+      o por correo electrónico y a sus registros asociados.
+      En el caso de la información realmente anónima,
+      que no permite identificar a una persona, no es
+      posible localizar ni recuperar datos correspondientes
+      a un usuario concreto.</p>
+      <p>Si consideras que el tratamiento de tus datos
+      personales no cumple la normativa, puedes presentar
+      una reclamación ante la
+      <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos (AEPD)</a>
+      o ante la autoridad de control competente del país
+      donde residas, trabajes o se haya producido
+      la supuesta infracción.</p>
 
   - heading: "Cambios en esta política"
     body: >-
-      <p>Si en el futuro incorporo un servicio que trate los datos de forma
-      distinta a la descrita aquí, actualizaré esta página y cambiaré la
-      fecha de "última actualización" indicada arriba antes de activarlo.</p>
+      <p>Si en el futuro cambian los servicios utilizados,
+      las categorías de datos recogidos o las finalidades
+      del tratamiento, actualizaré esta política antes
+      de introducir los cambios, cuando sea necesario,
+      e indicaré la nueva fecha de actualización
+      al principio de la página.</p>

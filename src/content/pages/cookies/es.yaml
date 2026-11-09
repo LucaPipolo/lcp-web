@@ -2,120 +2,203 @@ metadata:
   title: "Política de cookies | Luca Pipolo"
 
 title: "Política de cookies"
-updated: 2026-08-12
-updatedLabel: "última actualización:"
+updated: 2026-11-09
+updatedLabel: "Última actualización:"
 
 intro: >-
-  Este sitio guarda solo dos datos, y únicamente cuando tú mismo realizas la
-  acción que los genera: el idioma que eliges y el tema que eliges. Nada te
-  rastrea, nada crea un perfil sobre ti y nada se comparte con ningún
-  anunciante. Por eso no verás ningún cookie banner en el sitio. Esta página
-  explica en detalle qué datos se guardan, quién es el responsable de su
-  tratamiento y por qué la ley permite prescindir de un cookie banner.
+  Esta web utiliza una cookie para recordar el idioma que eliges
+  y el almacenamiento local del navegador para guardar tu preferencia
+  entre el tema claro y el oscuro. Ambos datos se guardan únicamente
+  cuando cambias estas opciones. No hay cookies publicitarias,
+  herramientas de perfilado ni sistemas que rastreen tu navegación
+  entre distintas visitas. Por eso no aparece ningún aviso de cookies.
+  También utilizo algunas herramientas para medir el rendimiento,
+  detectar errores y proteger el formulario de contacto contra el spam.
+  Aquí te explico cómo funcionan, qué información tratan y por qué
+  no es necesario pedirte consentimiento.
 
 sections:
   - heading: "Responsable del tratamiento"
     body: >-
-      <p>El tratamiento descrito en esta página lo gestiona somoscuatro 2020
-      S.L., a la que puedes escribir a
-      <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>. Los datos
-      identificativos completos están en el <a href="/imprint/">aviso
-      legal</a>.</p>
+      <p>El responsable del tratamiento es somoscuatro 2020 S.L.
+      Puedes contactar con la empresa en
+      <a href="mailto:privacy@somoscuatro.es">privacy@somoscuatro.es</a>
+      y consultar sus datos identificativos completos en el
+      <a href="/imprint/">aviso legal</a>.</p>
 
-  - heading: "Qué queda guardado en tu navegador"
+  - heading: "Qué información se guarda en tu navegador"
     body: >-
-      <p>El sitio no guarda nada en tu navegador con la simple carga de la
-      página. Los dos valores que se detallan a continuación solo se escriben
-      si realizas la acción que los genera: hacer clic en el selector de
-      idioma, o pulsar el interruptor del tema.</p>
+      <p>Esta web no guarda cookies ni preferencias en el
+      almacenamiento local al cargar una página. Los únicos
+      datos que almacena directamente son el idioma y el tema
+      que eliges, y solo se guardan cuando utilizas
+      los controles correspondientes.</p>
     items:
       - term: "locale (cookie)"
         description: >-
-          Una cookie con el idioma que has elegido, escrita solo cuando
-          sigues un enlace del selector de idioma, nunca al cargar la página.
-          Sirve para que el sitio se abra en tu idioma la próxima vez que
-          llegues a la dirección raíz. Dura un año, no contiene ningún
-          identificador y se envía únicamente a este sitio.
+          Guarda el idioma que seleccionas cuando utilizas el
+          selector de la web. Sirve para mostrarte el contenido
+          en tu idioma preferido cuando vuelves a la dirección
+          principal, sin tener que elegirlo de nuevo.
+          La cookie dura un año, no contiene identificadores
+          personales y solo se envía a esta web. No se crea
+          por el simple hecho de cargar una página.
       - term: "lcp-theme (almacenamiento local)"
         description: >-
-          El tema claro u oscuro que has elegido, guardado en el
-          almacenamiento local del navegador, no en una cookie. Se escribe
-          solo cuando pulsas el interruptor, nunca al cargar la página.
-          Mientras permanece vacío, el sitio sigue la preferencia de tu
-          sistema operativo y cambia junto con ella. No tiene fecha de
-          caducidad: desaparece solo cuando borras los datos del sitio en el
-          navegador.
+          Guarda tu preferencia entre el tema claro y el oscuro.
+          Se almacena en el almacenamiento local del navegador
+          (local storage), por lo que no es una cookie, y solo
+          se guarda cuando utilizas el selector del tema.
+          Si no has elegido ninguno, la web utiliza
+          automáticamente la preferencia de tu sistema operativo
+          y se adapta si esta cambia. Esta configuración
+          no tiene una fecha de caducidad establecida
+          y permanece guardada hasta que eliminas los datos
+          de la web desde el navegador.
 
-  - heading: "Por qué no hay un cookie banner"
+  - heading: "Por qué no hay un aviso de cookies"
     body: >-
       <p>El artículo 22.2 de la
-      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Ley 34/2002, de 11 de julio (LSSI-CE)</a>,
-      modificado por el
-      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer">Real Decreto-ley 13/2012</a>,
-      que transpone al ordenamiento español la
-      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer">Directiva europea 2002/58/CE</a>,
-      modificada a su vez por la
-      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer">Directiva 2009/136/CE</a>
-      (la llamada "directiva de cookies"), exige tu consentimiento antes de
-      guardar información en tu dispositivo o de leerla, con una excepción:
-      cuando esa información es estrictamente necesaria para prestar un
-      servicio que tú mismo has solicitado de forma expresa.</p>
-      <p>Los dos valores descritos entran en esta excepción. El idioma se
-      guarda porque acabas de hacer clic en el selector para elegirlo, y el
-      tema porque acabas de pulsar el interruptor. Ninguno de los dos se
-      escribe si no realizas tú la acción, y ninguno sirve para otra cosa que
-      no sea recordar la elección que has hecho. La medición descrita más
-      abajo, en cambio, no guarda nada en tu dispositivo, y por eso no entra
-      dentro de la obligación de consentimiento que impone ese artículo.</p>
-      <p>Un cookie banner que te pidiera permiso para estos dos valores
-      interrumpiría tu navegación sin motivo, ya que la ley no lo exige. Y
-      acostumbrar a las personas a hacer clic en "aceptar" sin leer tiene un
-      efecto peor que no preguntar nada, cuando (como en este caso) no hay
-      nada que preguntar.</p>
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE)</a>,
+      modificada por el
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer">Real Decreto-ley 13/2012</a>
+      para incorporar la normativa europea sobre cookies,
+      establece que es necesario obtener el consentimiento
+      del usuario antes de almacenar o acceder a información
+      en su dispositivo. Esta norma deriva de la
+      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer">Directiva 2002/58/CE</a>,
+      posteriormente modificada por la
+      <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer">Directiva 2009/136/CE</a>.</p>
+      <p>La normativa contempla algunas excepciones.
+      En particular, no es necesario pedir consentimiento
+      cuando el almacenamiento o acceso a la información
+      es estrictamente necesario para prestar un servicio
+      solicitado expresamente por el usuario.</p>
+      <p>Es el caso de las preferencias de idioma y tema
+      de esta web. Cuando eliges un idioma o cambias el tema,
+      el navegador guarda esa configuración únicamente
+      para recordar tu elección en futuras visitas.
+      Esta información no se utiliza para ningún otro fin,
+      ni para identificarte o analizar tu comportamiento.</p>
+      <p>La
+      <a href="https://www.aepd.es/guias/guia-cookies.pdf" target="_blank" rel="noopener noreferrer">Guía sobre el uso de las cookies de la Agencia Española de Protección de Datos (AEPD)</a>
+      también confirma que las preferencias elegidas
+      directamente por el usuario, como el idioma
+      o la apariencia de una web, están exentas
+      de consentimiento cuando se utilizan
+      exclusivamente para esa finalidad.</p>
+      <p>Las herramientas de monitorización descritas
+      en el siguiente apartado no utilizan cookies
+      ni guardan información en tu dispositivo.
+      Por su parte, el control antispam del formulario
+      de contacto se utiliza para proteger una función
+      solicitada por el usuario.</p>
+      <p>Por tanto, las funcionalidades y tecnologías
+      que utiliza actualmente esta web no requieren
+      mostrar un aviso de cookies ni solicitar
+      tu consentimiento antes de navegar.</p>
 
-  - heading: "La medición no usa cookies"
+  - heading: "Medición del rendimiento y detección de errores"
     body: >-
-      <p>En este sitio funcionan dos servicios. Ambos operan sin
-      identificarte y sin dejar rastro en el navegador.</p>
+      <p>Utilizo dos servicios para comprobar el rendimiento
+      de la web y detectar posibles problemas técnicos.
+      Ambos funcionan sin instalar cookies ni guardar
+      información en el almacenamiento local del navegador,
+      y están configurados para no recoger datos
+      que permitan identificar a los visitantes.</p>
     items:
       - term: "Vercel Speed Insights"
         description: >-
           <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>
-          mide la velocidad de carga de las páginas. Envía la ruta de la
-          página, el tipo de dispositivo, el navegador, la velocidad de la
-          conexión y el país. Vercel declara que estos datos no quedan
-          vinculados a una visita concreta.
+          mide el rendimiento de las páginas durante
+          la navegación. Recoge información como la ruta
+          y la URL de la página visitada, el tipo
+          de dispositivo, el sistema operativo,
+          el navegador, la velocidad de conexión,
+          el país de procedencia y los tiempos de carga.
+          Según la
+          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer">documentación de Vercel</a>,
+          estos datos no se asocian a un visitante
+          ni a una dirección IP concreta y no permiten
+          reconstruir la navegación de una persona
+          entre varias páginas.
       - term: "Sentry"
         description: >-
           <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>
-          registra los errores técnicos del sitio, para que pueda
-          detectarlos y corregirlos. Envía el mensaje de error, el punto del
-          código en el que se produjo y la página en la que ocurrió. Está
-          configurado para no recopilar información personal: ni dirección
-          IP, ni contenido de formularios, ni cookies. La grabación de
-          sesión, que reproduciría lo que haces en la página, está
-          desactivada.
+          recoge informes de errores técnicos para ayudarme
+          a detectarlos y corregirlos. La información incluye
+          el mensaje de error, el punto del código donde
+          se ha producido y la página afectada.
+          El servicio está configurado para excluir
+          las direcciones IP, el contenido de los formularios
+          y las cookies. También está desactivada
+          la grabación de sesiones, que permitiría
+          reproducir las interacciones del usuario
+          con la página.
 
-  - heading: "Cómo desactivar la medición"
+  - heading: "Protección contra el spam en el formulario de contacto"
     body: >-
-      <p>Si prefieres no aparecer ni siquiera en los datos agregados y
-      anónimos que recogen Vercel Speed Insights y Sentry, puedes instalar
-      una extensión que bloquee los scripts de terceros, como
-      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.
-      Una extensión de este tipo impide que el navegador envíe datos a
-      ambos servicios. El sitio seguirá funcionando exactamente igual: ninguna
-      función del sitio depende de estas dos herramientas.</p>
+      <p>La página de contacto utiliza
+      <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer">Cloudflare Turnstile</a>
+      para comprobar que los mensajes proceden de solicitudes
+      legítimas y proteger el formulario frente al spam
+      y los envíos automatizados. Este control solo
+      se carga en la página de contacto, dentro de
+      un iframe proporcionado por Cloudflare,
+      y no se ejecuta durante la navegación
+      por las demás páginas de la web.</p>
+      <p>Para realizar la comprobación, Turnstile trata
+      la dirección IP y cierta información técnica
+      sobre el navegador y el dispositivo. En la
+      configuración utilizada por esta web, no instala
+      cookies en el dominio del sitio.
+      Cloudflare explica qué información recoge
+      y para qué la utiliza en su
+      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">anexo de privacidad de Turnstile</a>.</p>
+      <p>Este control es necesario para utilizar
+      el formulario de contacto de forma segura
+      y está incluido en la excepción prevista
+      en el artículo 22.2 de la LSSI-CE para
+      las funciones solicitadas expresamente
+      por el usuario. Esta web no lo utiliza
+      con fines publicitarios ni de perfilado.</p>
+      <p>Si el control impide enviar tu mensaje,
+      puedes contactar conmigo directamente
+      por correo electrónico o reservar una llamada.</p>
 
-  - heading: "Si algo cambia"
+  - heading: "Cómo bloquear las herramientas de monitorización"
     body: >-
-      <p>Si en el futuro añado una función que requiera tu consentimiento
-      (por ejemplo, una herramienta que guarde datos no estrictamente
-      necesarios para que uses el sitio), incorporaré un cookie banner que
-      pida tu consentimiento antes de que esa función guarde ningún dato, y
-      actualizaré esta página en consecuencia.</p>
-      <p>La fecha de "última actualización" indicada en la parte superior de
-      la página señala la última vez que se modificó este texto: si esa fecha
-      no cambia, el contenido de esta página no se ha actualizado y lo
-      descrito arriba sigue siendo válido.</p>
-      <p>Para el resto del tratamiento de datos, consulta la
+      <p>Si prefieres evitar incluso la recogida
+      de las métricas anónimas de Vercel Speed Insights
+      o los informes técnicos de Sentry, puedes utilizar
+      una extensión del navegador que bloquee
+      los scripts de terceros, como
+      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.</p>
+      <p>Dependiendo de su configuración y de las listas
+      de filtros utilizadas, estas extensiones pueden
+      bloquear las solicitudes enviadas a los servicios
+      de monitorización. Bloquearlos no afecta
+      a las funciones principales de la web,
+      que no dependen de estas herramientas.</p>
+      <p>Sin embargo, estas mismas extensiones
+      también pueden impedir que funcione
+      Cloudflare Turnstile. En ese caso,
+      no podrás enviar el formulario de contacto,
+      pero siempre podrás escribirme directamente
+      por correo electrónico o reservar una llamada.</p>
+
+  - heading: "Cambios en esta política"
+    body: >-
+      <p>Si en el futuro incorporo funciones que requieran
+      el uso de cookies u otras tecnologías sujetas
+      a consentimiento, actualizaré esta política
+      e introduciré un sistema para recoger tu elección
+      antes de activar esas funciones.</p>
+      <p>La fecha de última actualización,
+      indicada al principio de la página,
+      te permite saber cuándo se modificó
+      este texto por última vez.</p>
+      <p>Para más información sobre el tratamiento
+      de datos personales, los proveedores utilizados
+      y tus derechos, consulta la
       <a href="/privacy/">política de privacidad</a>.</p>

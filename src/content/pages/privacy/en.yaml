@@ -2,158 +2,328 @@ metadata:
   title: "Privacy Policy | Luca Pipolo"
 
 title: "Privacy Policy"
-updated: 2026-08-12
-updatedLabel: "last updated:"
+updated: 2026-11-09
+updatedLabel: "Last updated:"
 
 intro: >-
-  This site collects very little. It doesn't build a profile of you, doesn't
-  sell data to anyone and stores only the language and theme you choose.
-  Below you'll find exactly what's processed, on what legal basis and what
-  you can expect from me.
+  This website only collects the data it needs to work, respond to
+  messages and identify technical problems. It doesn't use profiling
+  tools or sell your personal data. Here you'll find out what
+  information is processed, why it's needed, who has access to it,
+  how long it's kept and how you can exercise your rights.
 
 sections:
-  - heading: "Data controller"
+  - heading: "Who is responsible for your data"
     items:
-      - term: "Controller"
+      - term: "Data controller"
         description: "somoscuatro 2020 S.L."
       - term: "Contact"
         description: >-
-          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
-      - term: "Full identification details"
+          <a href="mailto:privacy@somoscuatro.es">privacy@somoscuatro.es</a>
+      - term: "Company details"
         description: >-
-          Set out in the <a href="/en/imprint/">legal notice</a>.
+          You can find the company's full details in the
+          <a href="/en/imprint/">legal notice</a>.
       - term: "Data Protection Officer"
         description: >-
-          None has been appointed. The volume and nature of the processing
-          described on this page don't make it mandatory under Article 37
-          of the
-          <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Regulation (EU) 2016/679 (GDPR)</a>.
+          No Data Protection Officer (DPO) has been appointed.
+          Based on the nature and characteristics of the
+          processing described in this policy, the conditions
+          requiring a DPO under Article 37 of
+          <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Regulation (EU) 2016/679 (GDPR)</a>
+          do not apply.
 
   - heading: "What data is processed"
     items:
-      - term: "If you email me"
+      - term: "Contact form"
         description: >-
-          This site has no forms. The only way to send me data on your own
-          initiative is to email me directly. In that case, I process your
-          email address, your name if you include it in the message, and
-          the content of the message itself, solely to read it and reply.
-          Emailing me is entirely optional: if you don't, the site works
-          exactly the same.
-      - term: "Your language and theme"
+          If you use the contact form, I collect the reason for
+          your enquiry, your name, email address and message.
+          I also record the page and language you submitted it
+          from, along with the date and time. I use this information
+          to handle your enquiry and reply to you. The form is
+          optional: you can also email me directly or book a call,
+          without affecting how the rest of the website works.
+      - term: "Record of privacy information provided"
         description: >-
-          The language you choose is stored in a cookie, and the theme you
-          choose is stored in the browser's local storage: both stay on
-          your device, and both are only written when you click the
-          language selector or switch the theme toggle. Neither lets
-          anyone identify you or link this visit to any earlier or later
-          visit. See the <a href="/en/cookies/">cookie notice</a> for the
-          technical detail.
+          When you submit the form, I also keep a record of the
+          privacy information shown to you. This includes the
+          exact wording, the version of this policy it refers to,
+          the date and time of submission, the page you came from,
+          your browser's user agent and a keyed hash derived from
+          your IP address, explained further below. This record
+          allows me to demonstrate what information you were
+          given and when, should I ever need to.
+      - term: "Spam protection"
+        description: >-
+          The contact form uses Cloudflare Turnstile to distinguish
+          legitimate submissions from automated requests. During
+          this check, Cloudflare processes your IP address and
+          certain technical information about your browser and
+          device. Turnstile is only used on the contact page.
+      - term: "Email messages"
+        description: >-
+          If you contact me directly by email, I process your
+          email address, any name you provide and the contents
+          of your message to read, handle and respond to
+          your enquiry.
+      - term: "Booking a call"
+        description: >-
+          Call bookings are handled through Notion Calendar
+          on a page outside this website. You'll be asked
+          for your name and email address, and the booking
+          will be added to my calendar along with any
+          additional information you choose to provide.
+      - term: "Language and theme preferences"
+        description: >-
+          When you change the language, your choice is saved
+          in a cookie. If you change the website's theme,
+          that preference is saved in your browser's local
+          storage. Both remain on your device and are only
+          stored when you use the relevant controls. They're
+          not used to identify you, build a profile or link
+          your visits together. For more information, see
+          the <a href="/en/cookies/">cookie policy</a>.
       - term: "Performance metrics"
         description: >-
-          The path and address of the page visited, device type, operating
-          system, browser, connection speed, country of origin and page
-          load times.
+          To monitor website performance, information such
+          as the page path and URL, device type, operating
+          system, browser, connection speed, country of
+          origin and page loading times is collected.
       - term: "Error reports"
         description: >-
-          When something breaks: the error message, the point in the code
-          it came from and the page it happened on. Collection of personal
-          information is switched off at source: no IP address, no form
-          contents, no cookies, no recording of what you were doing on the
-          page.
+          When a technical error occurs, information that
+          helps identify its cause is collected, such as
+          the error message, the location in the code where
+          it occurred and the affected page. The system is
+          configured to exclude IP addresses, form contents,
+          cookies and recordings of your browsing activity
+          from this collection.
 
   - heading: "Automated decision-making"
     body: >-
-      <p>This site makes no decisions based solely on automated processing,
-      including profiling.</p>
+      <p>This website doesn't use automated decision-making
+      that produces legal or similarly significant effects
+      on users, and it doesn't carry out profiling.</p>
+      <p>The contact form's spam protection is automated
+      and may block a message it considers suspicious.
+      If this happens, you can still contact me by email
+      or book a call.</p>
 
-  - heading: "IP addresses"
+  - heading: "How IP addresses are handled"
     body: >-
-      <p>Your IP address isn't included in the performance data or the
-      error reports I receive, but the servers your browser connects to see
-      it regardless, since they couldn't respond to you otherwise. Vercel
-      states that its performance metrics aren't linked back to a specific
-      visit or IP address, and the error reporting system is configured not
-      to collect it at all.</p>
+      <p>When you visit a website, the servers your browser
+      communicates with necessarily receive your IP address
+      so they can respond to requests. This website's
+      technical service providers may also process it
+      as part of their services.</p>
+      <p>According to Vercel's documentation, its performance
+      metrics cannot be linked to a specific visit or IP
+      address. The error reporting system is configured
+      to exclude IP addresses from the data it collects.</p>
+      <p>For the contact form, your IP address is also used
+      to limit repeated submissions within a short period
+      and to carry out Cloudflare Turnstile's spam check.</p>
+      <p>In the record of privacy information provided,
+      I don't store your original IP address. Instead,
+      I store a hash calculated using a secret key kept
+      separately. This makes it possible to compare records
+      associated with the same address without storing
+      the IP address in plain text. The hash is still
+      considered pseudonymised personal data and is
+      retained and deleted along with the record
+      it belongs to.</p>
 
-  - heading: "Legal basis"
+  - heading: "Legal bases for processing"
     body: >-
-      <p>When you email me, I process the message in order to reply to you,
-      which is exactly what you're asking me to do. The legal basis is
-      legitimate interest under Article 6(1)(f) of the
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Regulation (EU) 2016/679 (GDPR)</a>,
-      or pre-contractual measures under Article 6(1)(b) if what you're
-      proposing is a work engagement.</p>
-      <p>Performance metrics and error reports also rest on legitimate
-      interest: knowing whether the site loads quickly and whether it's
-      working correctly. That interest outweighs the impact on your privacy
-      precisely because the measurement is anonymous, leaves nothing on
-      your device and doesn't allow you to be identified.</p>
-      <p>Your language and theme are stored because you yourself requested
-      them, by using the language selector or the theme toggle: this is
-      what Article 22.2 of
-      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002 (LSSI-CE)</a>
-      treats as a service explicitly requested, requiring no consent.</p>
-      <p>I don't ask for any consent because no processing described on
-      this page depends on it. If there ever were one, I'd ask before I
-      started processing your data, not after, and you'd be free to
-      withdraw it at any time.</p>
+      <p>The GDPR requires all processing of personal data
+      to have a legal basis. The basis that applies on this
+      website depends on why the information is collected
+      and used.</p>
+      <p><strong>Messages and calls.</strong> When you contact
+      me through the form, by email or by booking a call,
+      I use the information needed to handle your enquiry
+      and respond. This processing is based on legitimate
+      interests under Article 6(1)(f) of the
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">GDPR</a>.
+      If your enquiry concerns a potential professional
+      engagement or contractual relationship, Article 6(1)(b)
+      may also apply, covering steps taken at your request
+      before entering into a contract.</p>
+      <p><strong>Record of privacy information provided.</strong>
+      Keeping a record of the privacy information shown
+      when you submit the form is based on the legitimate
+      interest in demonstrating compliance with transparency
+      obligations, in line with the accountability principle
+      under Article 5(2) of the GDPR.</p>
+      <p><strong>Security and spam protection.</strong>
+      Cloudflare Turnstile checks and limits on repeated
+      submissions are based on the legitimate interest
+      in protecting the website against abuse and automated
+      requests, under Article 6(1)(f) of the GDPR.
+      This also takes account of Recital 49, which addresses
+      network and information security.</p>
+      <p><strong>Performance and error reporting.</strong>
+      Any processing of personal data necessary to monitor
+      performance and identify technical problems is based
+      on the legitimate interest in keeping the website
+      working, secure and reliable. Data collection is
+      limited to what is necessary for these purposes,
+      with settings designed to minimise the personal
+      data processed.</p>
+      <p><strong>Language and theme preferences.</strong>
+      These settings are only stored when you choose
+      to change them, and they're used solely to remember
+      your preferences. Under these conditions, storing
+      them is exempt from consent under Article 22.2 of
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE)</a>,
+      as they form part of a service explicitly requested
+      by the user.</p>
+      <p>None of the processing described in this policy
+      relies on consent as its legal basis. The checkbox
+      on the contact form simply confirms that you've
+      received the privacy information. If any future
+      processing requires consent, I'll ask for it
+      beforehand, and you'll be able to withdraw it
+      at any time.</p>
 
-  - heading: "Who else processes this data"
+  - heading: "External providers and services"
     body: >-
-      <p>I rely on external providers. Neither one receives your data for
-      its own commercial purposes.</p>
+      <p>I use several external services to run this website.
+      These providers process the information needed to
+      perform their respective functions. The purposes
+      and conditions of processing depend on each service
+      and the provider's role.</p>
+      <p>In particular, Cloudflare processes data collected
+      through Turnstile both to protect the contact form
+      on my behalf and, as an independent data controller,
+      to improve its own bot detection systems.
+      These activities are explained in the
+      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">Turnstile Privacy Addendum</a>.</p>
     items:
       - term: "Vercel Inc."
         description: >-
-          Handles hosting for the site, perimeter security and performance
-          metrics, through
+          Hosts the website, runs the server-side code
+          for the contact form, provides perimeter security
+          and collects performance metrics through
           <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>.
-          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Its privacy policy</a>.
+          See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's privacy policy</a>.
       - term: "Functional Software, Inc."
         description: >-
-          Handles error reporting through the
-          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>
-          service.
-          <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Its privacy policy</a>.
+          Provides
+          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>,
+          which is used to collect and analyse error reports.
+          See <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Sentry's privacy policy</a>.
+      - term: "Cloudflare, Inc."
+        description: >-
+          Provides
+          <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer">Turnstile</a>,
+          which protects the contact form against spam
+          and automated requests.
+          See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare's privacy policy</a>.
+      - term: "Sendinblue SAS (Brevo)"
+        description: >-
+          Delivers messages submitted through the contact
+          form to my email inbox using
+          <a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer">Brevo</a>.
+          See <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer">Brevo's privacy policy</a>.
+      - term: "Neon, a Databricks company"
+        description: >-
+          Through <a href="https://neon.com/" target="_blank" rel="noopener noreferrer">Neon</a>,
+          hosts two separate databases in Frankfurt, Germany:
+          one for messages received through the contact form
+          and another for records of the privacy information
+          provided to users.
+          See <a href="https://www.databricks.com/legal/privacynotice" target="_blank" rel="noopener noreferrer">Databricks' privacy notice</a>.
+      - term: "Notion Labs, Inc."
+        description: >-
+          Provides
+          <a href="https://www.notion.com/product/calendar" target="_blank" rel="noopener noreferrer">Notion Calendar</a>,
+          which is used to manage call bookings.
+          See <a href="https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091" target="_blank" rel="noopener noreferrer">Notion's privacy policy</a>.
 
-  - heading: "Transfers outside the European Economic Area"
+  - heading: "Data transfers outside the European Economic Area"
     body: >-
-      <p>Both providers listed above are US companies, so the data they
-      process may leave the European Economic Area. These transfers rely on
-      the
+      <p>Brevo is a French company, while the contact form
+      databases hosted by Neon are located in Frankfurt,
+      Germany. Other providers, including Vercel, Sentry,
+      Cloudflare and Notion, are US companies or belong
+      to groups based in the United States. Neon is also
+      part of a US-based group.</p>
+      <p>As a result, some personal data may be transferred
+      or made accessible outside the European Economic
+      Area (EEA). Where applicable, these transfers
+      are covered by the
       <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32021D0914" target="_blank" rel="noopener noreferrer">standard contractual clauses approved by the European Commission under Implementing Decision (EU) 2021/914</a>
-      and, where applicable, on
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer">Implementing Decision (EU) 2023/1795, which recognises an adequate level of protection for data transferred under the EU-US Data Privacy Framework</a>,
-      as stated by each provider in its privacy policy linked above.</p>
+      or by the
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer">adequacy decision (EU) 2023/1795 concerning the EU-US Data Privacy Framework</a>,
+      provided the recipient meets the relevant
+      requirements.</p>
+      <p>You can find information about the safeguards
+      used by each provider in their respective privacy
+      policies, linked in the previous section.</p>
 
-  - heading: "How long I keep this data"
+  - heading: "How long data is kept"
     body: >-
-      <p>Emails stay in my inbox for as long as the conversation is still
-      relevant, then I delete them. Performance data and error reports are
-      kept by each provider according to its own retention periods, and
-      neither allows me to trace them back to you. Your language and theme
-      stay on your device until you clear this site's data from your
-      browser.</p>
+      <p>Messages submitted through the contact form are
+      stored in the database for 12 months after receipt,
+      then deleted. Records of the privacy information
+      provided when the form was submitted are kept
+      for 3 years to demonstrate compliance with
+      transparency obligations, after which they're
+      also deleted.</p>
+      <p>Emails, including copies of contact form messages
+      delivered to my inbox, are kept for as long as
+      necessary to manage the conversation and any
+      related activities. Once they're no longer needed,
+      they're deleted, unless an applicable legal
+      obligation requires them to be retained.</p>
+      <p>Performance metrics and error reports are kept
+      for the periods set by their respective providers
+      and the configurations in use. Language and theme
+      preferences remain on your device until you clear
+      this website's data from your browser.</p>
 
   - heading: "Your rights"
     body: >-
-      <p>You can ask me to access your data, correct or delete it, object
-      to its processing, request that it be restricted, or ask for the
-      portability of whatever you've sent me. Write to
-      <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a> and I'll
-      reply within a month, as required by Article 12 of the
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">GDPR</a>.</p>
-      <p>In practice this only concerns emails you've sent me: performance
-      measurement and error reporting are anonymous, so I can't isolate one
-      person's data or verify it's genuinely theirs.</p>
-      <p>If you think I haven't handled your data properly, you can lodge a
-      complaint with Spain's data protection authority, the
-      <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">AEPD</a>,
-      or with the data protection authority in the country where you
-      live.</p>
+      <p>The GDPR gives you several rights concerning
+      your personal data. You can ask what information
+      is being processed and request a copy, ask for
+      it to be corrected or deleted, and, where the
+      law provides, object to processing or request
+      that it be restricted. You may also exercise
+      your right to data portability when the
+      conditions set out in Article 20 of the GDPR
+      are met.</p>
+      <p>To exercise these rights, you can email me at
+      <a href="mailto:privacy@somoscuatro.es">privacy@somoscuatro.es</a>.
+      You'll receive a response within one month of
+      your request, subject to any extensions permitted
+      under Article 12 of the
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">GDPR</a>.
+      If an extension is needed, you'll be informed
+      within the required timeframe.</p>
+      <p>These rights may apply, in particular, to
+      messages you've sent through the contact form
+      or by email, and their associated records.
+      Where information is genuinely anonymous
+      and cannot identify an individual, it's
+      not possible to locate or retrieve data
+      relating to a particular user.</p>
+      <p>If you believe your personal data hasn't
+      been handled in accordance with the law,
+      you can lodge a complaint with Spain's
+      data protection authority, the
+      <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos (AEPD)</a>,
+      or with the relevant supervisory authority
+      in the country where you live, work or
+      where the alleged infringement took place.</p>
 
   - heading: "Changes to this policy"
     body: >-
-      <p>If I add a service in future that processes data differently from
-      what's described here, I'll update this page and change the "last
-      updated" date above before switching it on.</p>
+      <p>If the services used, the categories of data
+      collected or the purposes of processing change,
+      I'll update this policy before introducing
+      those changes where necessary, and show
+      the new last updated date at the top
+      of the page.</p>
