@@ -96,7 +96,7 @@ Keeping them separate makes sense because they serve different purposes and have
 The next question was how to make sure the data actually gets deleted when those periods expire. I created `api/cleanup.ts`, a Vercel Function that runs every night at 03:00 UTC through a [Cron Job](https://vercel.com/docs/cron-jobs):
 
 ```json
-"crons": [{ "path": "/api/cleanup", "schedule": "0 3 * * *" }]
+"crons": [{ "path": "/api/cleanup/", "schedule": "0 3 * * *" }]
 ```
 
 The function runs two `DELETE` queries, one against each database, applying the relevant retention period. The endpoint is protected using `CRON_SECRET`, which Vercel includes in the `Authorization` header of scheduled requests. Any request without the correct secret is rejected.

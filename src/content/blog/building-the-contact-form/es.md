@@ -96,7 +96,7 @@ La separación facilita la gestión porque ambos tipos de datos tienen finalidad
 La siguiente cuestión era asegurarme de que los datos se eliminaran realmente cuando terminara su plazo de conservación. Para ello creé `api/cleanup.ts`, una función de Vercel que se ejecuta todas las noches a las 03:00 UTC mediante un [Cron Job](https://vercel.com/docs/cron-jobs):
 
 ```json
-"crons": [{ "path": "/api/cleanup", "schedule": "0 3 * * *" }]
+"crons": [{ "path": "/api/cleanup/", "schedule": "0 3 * * *" }]
 ```
 
 La función ejecuta dos consultas `DELETE`, una por base de datos, aplicando el plazo correspondiente a cada una. El endpoint está protegido con `CRON_SECRET`, que Vercel envía en la cabecera `Authorization` de las peticiones programadas. Cualquier solicitud que no incluya el secreto correcto se rechaza.
