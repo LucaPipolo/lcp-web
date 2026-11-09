@@ -1,4 +1,9 @@
-import { LOCALE_COOKIE, LOCALE_MAX_AGE } from "@/libs/i18n"
+import {
+  isLocale,
+  LOCALE_COOKIE,
+  LOCALE_MAX_AGE,
+  translateAnchor,
+} from "@/libs/i18n"
 
 /**
  * Records the language a Visitor picks, for the edge to read on their next
@@ -15,11 +20,16 @@ for (const link of document.querySelectorAll<HTMLAnchorElement>(
 )) {
   link.addEventListener("click", () => {
     const { locale } = link.dataset
-    if (!locale) return
+    if (!isLocale(locale)) return
 
     // Dropped over plain HTTP, which would refuse the cookie in development.
     const secure = location.protocol === "https:" ? "; Secure" : ""
 
     document.cookie = `${LOCALE_COOKIE}=${locale}; Path=/; Max-Age=${LOCALE_MAX_AGE}; SameSite=Lax${secure}`
+
+    // Read at click time, because following a section link changes the hash
+    // long after the switcher was rendered.
+    const anchor = translateAnchor(location.hash.slice(1), locale)
+    if (anchor) link.hash = anchor
   })
 }
