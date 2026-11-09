@@ -20,7 +20,7 @@ Ho quindi deciso di aggiungere un modulo di contatto, cercando però di mantener
 
 Avevo anche altri due requisiti. Il primo era limitare lo spam senza complicare la compilazione per le persone reali. Il secondo riguardava la privacy: il modulo avrebbe raccolto nomi, indirizzi email e messaggi, quindi dovevo decidere come trattare queste informazioni, quanto conservarle e come cancellarle quando non sarebbero più servite.
 
-Il risultato è il [modulo che trovi nella pagina di contatto](/it/contact/). Per realizzarlo ho utilizzato Vercel Functions, Cloudflare Turnstile, Brevo e Neon, mantenendo il frontend statico e aggiungendo codice server soltanto dove necessario.
+Il risultato è il [modulo che trovi nella pagina di contatto](/it/contatti/). Per realizzarlo ho utilizzato Vercel Functions, Cloudflare Turnstile, Brevo e Neon, mantenendo il frontend statico e aggiungendo codice server soltanto dove necessario.
 
 ## Aggiungere un modulo senza rinunciare al sito statico
 
@@ -162,4 +162,4 @@ Resta ancora un piccolo miglioramento da fare: rimuovere l'indirizzo email pubbl
 
 Più avanti vorrei aggiungere anche una newsletter. Potrò riutilizzare parte dell'infrastruttura, soprattutto Brevo, Turnstile e il sistema di registrazione, ma con una differenza importante: l'iscrizione richiederà un consenso specifico e una doppia conferma. Gli indirizzi raccolti attraverso il modulo di contatto rimarranno separati.
 
-Nel frattempo, il nuovo modulo è disponibile nella [pagina di contatto](/it/contact/).
+Nel frattempo, il nuovo modulo è disponibile nella [pagina di contatto](/it/contatti/).

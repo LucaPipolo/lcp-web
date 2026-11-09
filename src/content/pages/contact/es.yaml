@@ -50,7 +50,7 @@ form:
 
   acknowledgement: >-
     He leído la información sobre protección de datos y la
-    <a href="/privacy/" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
+    <a href="/privacidad/" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
 
   submit: "Enviar mensaje"
   sending: "Enviando…"
@@ -115,7 +115,7 @@ notice:
     - term: "Más información"
       description: >-
         Consulta la
-        <a href="/privacy/" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
+        <a href="/privacidad/" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
 
 booking:
   heading: "¿Prefieres hablar?"

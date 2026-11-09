@@ -5,7 +5,7 @@ greeting: "Hola, {name}:"
 
 privacy:
   label: "Consulta la política de privacidad actualizada"
-  href: "/privacy/"
+  href: "/privacidad/"
 
 rights: >-
   Si quieres que elimine tu mensaje o deseas oponerte al tratamiento
