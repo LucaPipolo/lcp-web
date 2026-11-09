@@ -54,7 +54,7 @@ const tags = getTags(posts)
 
 <Layout
   alternates={getAlternates("/blog/")}
-  description={intro}
+  description={metadata.description ?? intro}
   title={metadata.title}
   type="CollectionPage"
 >
