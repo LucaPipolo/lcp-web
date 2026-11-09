@@ -24,7 +24,7 @@ sections:
       - term: "Dati identificativi"
         description: >-
           Puoi trovare i miei dati identificativi completi nelle
-          <a href="/it/imprint/">note legali</a>.
+          <a href="/it/note-legali/">note legali</a>.
       - term: "Responsabile della protezione dei dati"
         description: >-
           Non è stato nominato un Responsabile della protezione dei dati
@@ -88,7 +88,7 @@ sections:
           controlli. Non sono utilizzate per identificarti,
           profilarti o collegare tra loro le tue visite.
           Per maggiori dettagli puoi consultare
-          l'<a href="/it/cookies/">informativa sui cookie</a>.
+          l'<a href="/it/cookie/">informativa sui cookie</a>.
       - term: "Metriche di prestazione"
         description: >-
           Per verificare le prestazioni del sito vengono rilevate

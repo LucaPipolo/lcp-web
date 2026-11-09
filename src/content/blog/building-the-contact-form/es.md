@@ -20,7 +20,7 @@ Decidí añadir un formulario de contacto, aunque quería evitar que una funcion
 
 También tenía otros dos requisitos. Por un lado, quería reducir el spam sin obligar a las personas a superar comprobaciones molestas cada vez que me escribieran. Por otro, el formulario iba a recoger nombres, direcciones de correo y mensajes, así que necesitaba decidir cómo tratar esos datos, durante cuánto tiempo conservarlos y cómo eliminarlos cuando dejaran de ser necesarios.
 
-El resultado es el [formulario que encontrarás en la página de contacto](/contact/). Para desarrollarlo he utilizado Vercel Functions, Cloudflare Turnstile, Brevo y Neon, manteniendo el frontend estático y reservando el código de servidor para las operaciones que realmente lo necesitan.
+El resultado es el [formulario que encontrarás en la página de contacto](/contacto/). Para desarrollarlo he utilizado Vercel Functions, Cloudflare Turnstile, Brevo y Neon, manteniendo el frontend estático y reservando el código de servidor para las operaciones que realmente lo necesitan.
 
 ## Añadir un formulario sin renunciar a una web estática
 
@@ -162,4 +162,4 @@ Todavía me queda una pequeña mejora pendiente: eliminar la dirección de corre
 
 Más adelante también me gustaría añadir una newsletter. Podré reutilizar parte de esta infraestructura, especialmente Brevo, Turnstile y el sistema de registros, aunque en ese caso la suscripción requerirá un consentimiento específico y una doble confirmación. Las direcciones recogidas a través del formulario de contacto seguirán completamente separadas.
 
-Mientras tanto, ya puedes utilizar el nuevo formulario desde la [página de contacto](/contact/).
+Mientras tanto, ya puedes utilizar el nuevo formulario desde la [página de contacto](/contacto/).
