@@ -36,15 +36,10 @@ import { fillPlaceholders } from "@/libs/template"
 import { THEME_INIT_SOURCE } from "@/scripts/theme-init"
 
 interface Props {
-  /**
-   * Where this page is served in each locale that has it. A locale left out
-   * gets no `hreflang`, and the switcher sends it to its home page instead.
-   */
   alternates?: Alternates
   article?: { modified?: Date; published: Date; tags: string[] }
   description?: string
   nodes?: SchemaNode[]
-  /** Keeps the page out of search results, as an error page should be. */
   noindex?: boolean
   title: string
   type?: PageType
