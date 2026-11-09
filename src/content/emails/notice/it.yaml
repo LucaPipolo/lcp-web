@@ -1,0 +1,21 @@
+# Testo fisso incluso in ogni comunicazione privacy inviata da api/notify.
+# {name} è il nome indicato nel modulo di contatto.
+
+greeting: "Ciao {name},"
+
+privacy:
+  label: "Leggi l'informativa sulla privacy aggiornata"
+  href: "/it/privacy/"
+
+rights: >-
+  Se desideri che cancelli il tuo messaggio o vuoi opporti
+  al trattamento dei tuoi dati, puoi rispondere direttamente
+  a questa email oppure scrivermi a privacy@somoscuatro.es.
+
+reason: >-
+  Ricevi questa email perché mi hai contattato tramite il modulo
+  di lucapipolo.com e le modifiche riguardano il trattamento
+  dei dati che mi hai fornito. È una comunicazione occasionale
+  sulla privacy, non un'email commerciale né una newsletter.
+
+signature: "Luca Pipolo"

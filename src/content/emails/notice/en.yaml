@@ -1,0 +1,21 @@
+# Fixed text included in every privacy notice sent by api/notify.
+# {name} is the name provided in the contact form.
+
+greeting: "Hi {name},"
+
+privacy:
+  label: "Read the updated privacy policy"
+  href: "/en/privacy/"
+
+rights: >-
+  If you'd like me to delete your message or want to object to how
+  your data is being handled, you can reply to this email or write
+  to privacy@somoscuatro.es.
+
+reason: >-
+  You're receiving this email because you contacted me through
+  the form on lucapipolo.com, and the changes affect how your
+  information is handled. This is a one-off notification,
+  not a marketing email or newsletter.
+
+signature: "Luca Pipolo"
