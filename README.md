@@ -7,6 +7,10 @@ with [Astro](https://astro.build/).
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Alpine.js](https://alpinejs.dev/)
+- [Vercel Functions](https://vercel.com/docs/functions)
+- [Neon](https://neon.tech/) (Postgres)
+- [Brevo](https://www.brevo.com/) (email)
+- [Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/)
 - [Sentry](https://sentry.io/)
 
 ## Project structure
@@ -193,6 +197,29 @@ This serves the site at `localhost:4321` with no HTTPS, but it is otherwise iden
 > [!CAUTION]
 > The [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) run inside the Docker container, so
 > without it you'll need `git commit --no-verify` to commit. Options A and B both run it.
+
+## Deploying the contact form
+
+The contact form posts to `api/contact.ts`, a Vercel Function that checks
+[Turnstile](https://developers.cloudflare.com/turnstile/), stores the message and a record of the privacy notice the
+sender was shown, and emails it through [Brevo](https://developers.brevo.com/). It needs these variables in the
+Vercel project, for Production and Preview:
+
+| Variable                                     | What it is                                                                                      |
+| -------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `TURNSTILE_SITE_KEY`, `TURNSTILE_SECRET_KEY` | The Turnstile widget's keys. Preview uses Cloudflare's test keys, which always pass.            |
+| `BREVO_API_KEY`                              | A Brevo API key (`xkeysib-`, not an SMTP key) allowed to send transactional email.              |
+| `CONTACT_TO_EMAIL`                           | The inbox messages are delivered to.                                                            |
+| `DB_MESSAGES_DATABASE_URL`                   | The Neon database messages are kept in. Set by Vercel's Neon integration, prefix `DB_MESSAGES`. |
+| `DB_CONSENT_DATABASE_URL`                    | The separate Neon database proof records are kept in, prefix `DB_CONSENT`.                      |
+| `CONSENT_IP_HASH_SECRET`                     | A random string the sender's IP address is hashed with before it's stored.                      |
+
+Both databases create their table on first use, so a new preview branch needs no migration.
+
+> [!NOTE]
+> `api/` is compiled file by file and run as an ES module on Node, not bundled, so a relative import there needs
+> its `.js` extension (`../src/libs/contact.js`). Bun resolves it without one, so a missing extension only fails
+> once deployed.
 
 ## AI tooling
 
