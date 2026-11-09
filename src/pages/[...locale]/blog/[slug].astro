@@ -21,7 +21,9 @@ import PostToc from "@/components/sections/Post/PostToc.astro"
 
 import {
   getNeighbours,
+  getPostAlternates,
   getPostHref,
+  getPostLocale,
   getPosts,
   getPostSlug,
   getPostSlugs,
@@ -40,17 +42,19 @@ const LISTED = [2, 3]
 export async function getStaticPaths() {
   const paths = []
   const slugs = await getPostSlugs()
+  const published = await Promise.all(LOCALES.map((locale) => getPosts(locale)))
 
-  for (const locale of LOCALES) {
-    const posts = await getPosts(locale)
-
+  for (const posts of published) {
     for (const post of posts) {
+      const locale = getPostLocale(post)
+
       paths.push({
         params: {
           locale: locale === DEFAULT_LOCALE ? undefined : locale,
           slug: getPostSlug(post),
         },
         props: {
+          alternates: getPostAlternates(post, published.flat()),
           post,
           related: getRelated(posts, post, slugs),
           ...getNeighbours(posts, post),
@@ -62,7 +66,7 @@ export async function getStaticPaths() {
   return paths
 }
 
-const { post, previous, next, related } = Astro.props
+const { alternates, post, previous, next, related } = Astro.props
 const { title, description, published, updated, tags, cover, coverAlt } =
   post.data
 
@@ -82,6 +86,7 @@ const readingTime = fillPlaceholders(blog.readingTime, {
 ---
 
 <Layout
+  alternates={alternates}
   description={description}
   title={fillPlaceholders(page!.data.postTitle, { title })}
 >

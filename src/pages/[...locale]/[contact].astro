@@ -12,16 +12,21 @@ import ContactForm from "@/components/sections/Contact/ContactForm.astro"
 import ContactReason from "@/components/sections/Contact/ContactReason.astro"
 
 import { getLocalizedStaticPaths } from "@/libs/content"
+import { getAlternates } from "@/libs/i18n"
 
 export async function getStaticPaths() {
-  return getLocalizedStaticPaths("contact")
+  return getLocalizedStaticPaths("contact", "contact")
 }
 
 const { entry } = Astro.props
 const { booking, form, intro, metadata, notice, title } = entry.data
 ---
 
-<Layout description={intro} title={metadata.title}>
+<Layout
+  alternates={getAlternates("/contact/")}
+  description={intro}
+  title={metadata.title}
+>
   <SectionContainer>
     <div class="flex flex-col gap-4 px-gutter pt-20 pb-10">
       <h1 class="max-w-article text-4xl font-semibold tracking-tight text-foreground">

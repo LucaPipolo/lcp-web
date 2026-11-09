@@ -14,6 +14,68 @@
       "includeFiles": "src/content/{emails/notice,pages/contact,pages/privacy}/*.yaml"
     }
   },
+  "redirects": [
+    {
+      "source": "/contact{/}?",
+      "destination": "/contacto/",
+      "permanent": true
+    },
+    {
+      "source": "/imprint{/}?",
+      "destination": "/aviso-legal/",
+      "permanent": true
+    },
+    {
+      "source": "/privacy{/}?",
+      "destination": "/privacidad/",
+      "permanent": true
+    },
+    {
+      "source": "/security{/}?",
+      "destination": "/seguridad/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-content{/}?",
+      "destination": "/contenido-ia/",
+      "permanent": true
+    },
+    {
+      "source": "/recommendations{/}?",
+      "destination": "/recomendaciones/",
+      "permanent": true
+    },
+    {
+      "source": "/it/contact{/}?",
+      "destination": "/it/contatti/",
+      "permanent": true
+    },
+    {
+      "source": "/it/imprint{/}?",
+      "destination": "/it/note-legali/",
+      "permanent": true
+    },
+    {
+      "source": "/it/cookies{/}?",
+      "destination": "/it/cookie/",
+      "permanent": true
+    },
+    {
+      "source": "/it/security{/}?",
+      "destination": "/it/sicurezza/",
+      "permanent": true
+    },
+    {
+      "source": "/it/ai-content{/}?",
+      "destination": "/it/contenuti-ia/",
+      "permanent": true
+    },
+    {
+      "source": "/it/recommendations{/}?",
+      "destination": "/it/raccomandazioni/",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

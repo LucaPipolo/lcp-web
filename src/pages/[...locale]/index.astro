@@ -34,7 +34,7 @@ import StackTab from "@/components/sections/Stack/StackTab.astro"
 
 import { getPostHref, getPosts, getReadingTime, getTagHref } from "@/libs/blog"
 import { getLocalizedStaticPaths, getSettings } from "@/libs/content"
-import { formatDate, localizeHref } from "@/libs/i18n"
+import { formatDate, getAlternates, localizeHref } from "@/libs/i18n"
 import { fillPlaceholders } from "@/libs/template"
 
 /** How many posts the home page carries before sending a Visitor to the blog. */
@@ -63,7 +63,7 @@ const { blog } = await getSettings(locale)
 const posts = (await getPosts(locale)).slice(0, LATEST)
 ---
 
-<Layout title={metadata.title}>
+<Layout alternates={getAlternates("/")} title={metadata.title}>
   <Hero>
     <HeroHeader slot="header">
       {badge && (
