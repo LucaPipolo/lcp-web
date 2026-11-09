@@ -18,7 +18,7 @@ with [Astro](https://astro.build/).
 ```
 src/
 ├── pages/[...locale]/    routes, one tree per locale
-├── pages/*.xml.ts, *.txt.ts  sitemap and robots.txt, one for the whole site
+├── pages/*.xml.ts, *.txt.ts  sitemap, robots.txt and llms.txt, one for the whole site
 ├── pages/og/               a link preview image for every page, drawn at build time
 ├── content/               content collections: pages, settings, blog posts
 ├── components/
