@@ -30,6 +30,9 @@ src/
 
 api/contact.ts             contact form endpoint, a Vercel Function
 api/cleanup.ts             daily deletion of expired contact data, a Vercel Cron Job
+api/notify.ts              privacy notices to people who wrote, sent by hand
+scripts/notify.ts          triggers api/notify from your machine
+notices/                   privacy notices sent by hand, plus a template
 middleware.ts              locale negotiation, at the edge
 vercel.json                security headers
 rift.yaml                  local dev environment, read by Rift
@@ -215,6 +218,7 @@ Vercel project, for Production and Preview:
 | `DB_CONSENT_DATABASE_URL`                    | The separate Neon database proof records are kept in, prefix `DB_CONSENT`.                      |
 | `CONSENT_IP_HASH_SECRET`                     | A random string the sender's IP address is hashed with before it's stored.                      |
 | `CRON_SECRET`                                | A random string Vercel sends with each run of `api/cleanup.ts`, so only Vercel can trigger it.  |
+| `PRIVACY_NOTICE_SECRET`                      | A random string `bun run notify` must send, so only you can email people. Production only.      |
 
 Both databases create their table on first use, so a new preview branch needs no migration.
 
@@ -233,6 +237,74 @@ deployment.
 > `api/` is compiled file by file and run as an ES module on Node, not bundled, so a relative import there needs
 > its `.js` extension (`../src/libs/contact.js`). Bun resolves it without one, so a missing extension only fails
 > once deployed.
+
+## Notifying people of a privacy policy change
+
+Rewording the privacy policy only needs its "last updated" date changed. A material change to how the data people
+already sent is handled (a new controller, a new purpose, data moving outside the EU) has to be told to them
+directly, under the
+[EDPB's transparency guidelines](https://www.edpb.europa.eu/system/files/2023-09/wp260rev01_en.pdf). `api/notify.ts`
+emails everyone whose contact form message is still kept, once per address, in the language they wrote in, with
+`Reply-To` set to `CONTACT_TO_EMAIL`. Each run that sends leaves a row in the `notices` table of the consent database
+(when, which policy version, how many it reached), with no addresses.
+
+It's triggered by hand with `bun run notify`. Vercel never hands out the database and Brevo keys, so the sending
+happens on Vercel and the script only carries the notice and two secrets.
+
+### Once, before the first notice
+
+1. Generate a secret with `openssl rand -hex 32`, and add it in Vercel as `PRIVACY_NOTICE_SECRET` (Sensitive,
+   Production and Preview).
+2. Vercel's bot protection challenges any request that isn't a browser, which the script isn't. In Vercel, open
+   **Settings → Deployment Protection → Protection Bypass for Automation**, add a secret and copy it. It lets the
+   script past the bot protection, and past Vercel Authentication on previews, on every plan. The endpoint still
+   refuses any request without `PRIVACY_NOTICE_SECRET`.
+3. Keep both secrets in a password manager. You'll export them in your shell each time you send.
+
+### Each time
+
+1. Copy `notices/example.yaml` to a file named after the change, such as `notices/2027-03-01-new-controller.yaml`,
+   and write the subject and body in Spanish, English and Italian. The greeting, the link to the privacy policy, how
+   to object and why the recipient is getting it come from `src/content/emails/notice/`.
+2. Publish the updated privacy policy first, so the link in the email shows the new version.
+3. Export both secrets in your shell, then count who would get it. Nothing is sent:
+
+   ```bash
+   export PRIVACY_NOTICE_SECRET=...
+   export VERCEL_AUTOMATION_BYPASS_SECRET=...
+   docker compose exec -e PRIVACY_NOTICE_SECRET -e VERCEL_AUTOMATION_BYPASS_SECRET \
+     app bun run notify notices/2027-03-01-new-controller.yaml
+   ```
+
+4. Send the three language versions to your own inbox and read them:
+
+   ```bash
+   docker compose exec -e PRIVACY_NOTICE_SECRET -e VERCEL_AUTOMATION_BYPASS_SECRET \
+     app bun run notify notices/2027-03-01-new-controller.yaml --test
+   ```
+
+5. Send it to everyone, once:
+
+   ```bash
+   docker compose exec -e PRIVACY_NOTICE_SECRET -e VERCEL_AUTOMATION_BYPASS_SECRET \
+     app bun run notify notices/2027-03-01-new-controller.yaml --send
+   ```
+
+   The answer reports how many it reached and how many failed. Each email is retried once if Brevo doesn't take it
+   the first time, under the same key, so a retry never delivers it twice; a failure after that is in the
+   function's logs in Vercel. A run is limited to Vercel's maximum function duration (5 minutes on Hobby), enough for
+   about 80 recipients even if every email needs its retry.
+
+6. Commit the notice file, so the repository keeps what was sent and when.
+
+> [!CAUTION]
+> `--send` emails everyone, every time it runs. Run it once per notice.
+
+> [!NOTE]
+> To try it on a preview deployment, whose database branch only holds test messages, also set `NOTIFY_URL` to the
+> preview's `/api/notify` address and pass it with `-e NOTIFY_URL`. The same
+> [Protection Bypass for Automation](https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation)
+> secret works for previews too.
 
 ## AI tooling
 

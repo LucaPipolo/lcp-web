@@ -9,6 +9,9 @@
   "functions": {
     "api/contact.ts": {
       "includeFiles": "src/content/pages/{contact,privacy}/*.yaml"
+    },
+    "api/notify.ts": {
+      "includeFiles": "src/content/{emails/notice,pages/contact,pages/privacy}/*.yaml"
     }
   },
   "headers": [

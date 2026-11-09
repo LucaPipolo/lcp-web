@@ -84,13 +84,15 @@ async function connect(variable: string, schema: string) {
   }
 
   const sql = neon(url)
+  // One database can hold more than one table, so each is tracked on its own.
+  const key = `${variable} ${schema}`
 
-  if (!ready.has(variable)) ready.set(variable, sql.query(schema))
+  if (!ready.has(key)) ready.set(key, sql.query(schema))
 
   try {
-    await ready.get(variable)
+    await ready.get(key)
   } catch (error) {
-    ready.delete(variable)
+    ready.delete(key)
     throw error
   }
 
@@ -155,4 +157,63 @@ export async function deleteExpiredProofs(): Promise<number> {
     RETURNING id`
 
   return deleted.length
+}
+
+/** Someone who wrote through the form and whose message is still kept. */
+export interface Recipient {
+  email: string
+  locale: string
+  name: string
+}
+
+/**
+ * Lists everyone whose message is still kept, once per address.
+ *
+ * @returns Each address with the name and language of its latest message.
+ */
+export async function listRecipients(): Promise<Recipient[]> {
+  const sql = await connect("DB_MESSAGES_DATABASE_URL", MESSAGES_SCHEMA)
+
+  return (await sql`
+    SELECT DISTINCT ON (lower(email)) email, name, locale
+    FROM messages
+    ORDER BY lower(email), created_at DESC`) as Recipient[]
+}
+
+const NOTICES_SCHEMA = `
+  CREATE TABLE IF NOT EXISTS notices (
+    id uuid PRIMARY KEY,
+    sent_at timestamptz NOT NULL,
+    policy_version text NOT NULL,
+    subject text NOT NULL,
+    recipients integer NOT NULL,
+    delivered integer NOT NULL,
+    failed integer NOT NULL
+  )`
+
+/** What a notice sent to everyone leaves behind: no address, only counts. */
+export interface SentNotice {
+  delivered: number
+  failed: number
+  id: string
+  policyVersion: string
+  recipients: number
+  sentAt: string
+  subject: string
+}
+
+/**
+ * Records that a notice went out, as proof that people were told.
+ *
+ * @param notice - When, which policy version, and how many it reached.
+ */
+export async function recordNotice(notice: SentNotice): Promise<void> {
+  const sql = await connect("DB_CONSENT_DATABASE_URL", NOTICES_SCHEMA)
+
+  await sql`
+    INSERT INTO notices (id, sent_at, policy_version, subject, recipients,
+      delivered, failed)
+    VALUES (${notice.id}, ${notice.sentAt}, ${notice.policyVersion},
+      ${notice.subject}, ${notice.recipients}, ${notice.delivered},
+      ${notice.failed})`
 }
