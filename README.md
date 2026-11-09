@@ -20,6 +20,7 @@ src/
 ├── pages/[...locale]/    routes, one tree per locale
 ├── pages/*.xml.ts, *.txt.ts  sitemap, robots.txt and llms.txt, one for the whole site
 ├── pages/og/               a link preview image for every page, drawn at build time
+├── pages/[icon].png.ts, site.webmanifest.ts  home screen icons and the web manifest
 ├── content/               content collections: pages, settings, blog posts
 ├── components/
 │   ├── common/            generic, reusable primitives

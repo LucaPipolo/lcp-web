@@ -2,22 +2,11 @@ import { Resvg } from "@resvg/resvg-js"
 import { readFile } from "node:fs/promises"
 import satori from "satori"
 
-import { asterisk } from "@/libs/asterisk"
+import { BRAND_COLORS, getMarkSvg } from "@/libs/brand"
 import { formatDate, type Locale } from "@/libs/i18n"
 import { getPageSummaries } from "@/libs/pages"
 
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
-
-/**
- * The palette's light theme, in sRGB: the renderer reads no `oklch()`.
- * Converted from `src/styles/_colors.css`.
- */
-const COLORS = {
-  background: "#ffffff",
-  foreground: "#0a0a0a",
-  muted: "#737373",
-  primary: "#e11d48",
-}
 
 export interface OgCard {
   eyebrow?: string
@@ -63,27 +52,6 @@ export async function getOgCards(): Promise<OgCard[]> {
 let font: Buffer | undefined
 
 /**
- * Draws the site's mark, as the favicon and the hero draw it.
- *
- * @param size - The mark's width and height, in pixels.
- *
- * @returns The mark as an SVG data URI.
- */
-function getMark(size: number): string {
-  const radius = size / 2
-  const { bars, strokeWidth } = asterisk(radius)
-  const lines = bars
-    .map(
-      ([x1, y1, x2, y2]) =>
-        `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${COLORS.primary}" stroke-width="${strokeWidth}" stroke-linecap="round"/>`
-    )
-    .join("")
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="${-radius} ${-radius} ${size} ${size}">${lines}</svg>`
-
-  return `data:image/svg+xml;base64,${Buffer.from(svg).toString("base64")}`
-}
-
-/**
  * Renders a link preview.
  *
  * @param card - What the preview says.
@@ -121,10 +89,10 @@ export async function renderOgCard(
           width: "100%",
           height: "100%",
           padding: 72,
-          background: COLORS.background,
-          color: COLORS.foreground,
+          background: BRAND_COLORS.background,
+          color: BRAND_COLORS.foreground,
           fontFamily: "Inter",
-          borderTop: `12px solid ${COLORS.primary}`,
+          borderTop: `12px solid ${BRAND_COLORS.primary}`,
         },
         children: [
           {
@@ -134,7 +102,11 @@ export async function renderOgCard(
               children: [
                 {
                   type: "img",
-                  props: { src: getMark(48), width: 48, height: 48 },
+                  props: {
+                    src: `data:image/svg+xml;base64,${Buffer.from(getMarkSvg(48)).toString("base64")}`,
+                    width: 48,
+                    height: 48,
+                  },
                 },
                 text("lucapipolo.com", { fontSize: 32, fontWeight: 700 }),
               ],
@@ -146,7 +118,12 @@ export async function renderOgCard(
               style: { display: "flex", flexDirection: "column", gap: 20 },
               children: [
                 ...(card.eyebrow
-                  ? [text(card.eyebrow, { fontSize: 28, color: COLORS.muted })]
+                  ? [
+                      text(card.eyebrow, {
+                        fontSize: 28,
+                        color: BRAND_COLORS.muted,
+                      }),
+                    ]
                   : []),
                 text(card.title, {
                   fontSize,
@@ -157,7 +134,7 @@ export async function renderOgCard(
               ],
             },
           },
-          text(signature, { fontSize: 28, color: COLORS.muted }),
+          text(signature, { fontSize: 28, color: BRAND_COLORS.muted }),
         ],
       },
     },
