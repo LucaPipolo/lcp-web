@@ -21,6 +21,5 @@ Sentry.init({
      */
     Sentry.browserTracingIntegration(),
   ],
-  enableLogs: true,
   tracesSampleRate: 1.0,
 })
