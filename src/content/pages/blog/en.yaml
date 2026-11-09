@@ -1,5 +1,7 @@
 metadata:
-  title: "Blog | Luca Pipolo"
+  title: "Web Development Blog | Luca Pipolo"
+  description: >-
+    Notes on what I build and why: web architecture, tooling and the parts of a project that only show up once it is running.
 
 title: "Blog"
 
