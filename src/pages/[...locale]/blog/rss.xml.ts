@@ -3,7 +3,7 @@ import type { APIContext } from "astro"
 import rss from "@astrojs/rss"
 import { getEntry } from "astro:content"
 
-import { getPostHref, getPosts } from "@/libs/blog"
+import { getPostHref, getPostKey, getPosts } from "@/libs/blog"
 import { DEFAULT_LOCALE, isLocale, LOCALES } from "@/libs/i18n"
 
 /**
@@ -45,6 +45,9 @@ export async function GET(context: APIContext) {
       description: post.data.description,
       pubDate: post.data.published,
       link: getPostHref(post, locale),
+      // A reader keys a post on its guid, and a URL-based one makes a renamed
+      // slug arrive as a new post. Its folder and language never change.
+      customData: `<guid isPermaLink="false">tag:lucapipolo.com,2026:blog/${getPostKey(post)}/${locale}</guid>`,
       categories: post.data.tags,
     })),
     customData: `<language>${locale}</language>`,
