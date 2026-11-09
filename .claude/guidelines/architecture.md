@@ -30,6 +30,14 @@ Links are written locale-less and in English (`/contact/`, `/#experience`) and p
 language switcher are all built; a locale without that page gets no `hreflang` and is switched to its home page.
 Request-time language negotiation happens at the edge (see Vercel).
 
+## Discovery
+
+`sitemap.xml`, `robots.txt`, `llms.txt` and each page's Open Graph image (`src/pages/og/`) are built from one list,
+`getPageSummaries()` (`src/libs/pages.ts`), which reads the route table and the content collections. A new post
+needs nothing else. A new page needs only its entry in `PAGE_SLUGS` (`i18n.ts`), which its routing requires anyway,
+and a collection named after it; one without copy for a locale fails the build. The JSON-LD and Open Graph tags
+each page carries come from `src/libs/structured-data.ts` and the layout.
+
 ## Vercel
 
 `middleware.ts`, at the project root because it follows Vercel's own Edge Middleware convention rather than
