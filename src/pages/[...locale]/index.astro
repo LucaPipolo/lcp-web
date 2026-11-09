@@ -67,6 +67,7 @@ const posts = (await getPosts(locale)).slice(0, LATEST)
   alternates={getAlternates("/")}
   description={metadata.description}
   title={metadata.title}
+  type="ProfilePage"
 >
   <Hero>
     <HeroHeader slot="header">

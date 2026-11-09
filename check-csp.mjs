@@ -8,6 +8,9 @@ const PLACEHOLDER = "__CSP_REPORT_URI__"
 
 const INLINE = /<(script|style)([^>]*)>([\s\S]+?)<\/\1>/g
 const SRC = /\ssrc=/
+// Structured data is a data block: browsers never run it, so script-src does
+// not govern it and it needs no hash.
+const DATA_BLOCK = /\stype="application\/ld\+json"/
 const STYLE_ATTRIBUTE = /\sstyle="/
 
 /**
@@ -77,7 +80,7 @@ async function main() {
     }
 
     for (const [, tag, attributes, body] of html.matchAll(INLINE)) {
-      if (SRC.test(attributes)) continue
+      if (SRC.test(attributes) || DATA_BLOCK.test(attributes)) continue
 
       const hash = createHash("sha256").update(body).digest("base64")
 
