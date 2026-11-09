@@ -2,88 +2,131 @@ metadata:
   title: "Aviso legal | Luca Pipolo"
 
 title: "Aviso legal"
-updated: 2026-08-12
-updatedLabel: "última actualización:"
+updated: 2026-11-09
+updatedLabel: "Última actualización:"
 
 intro: >-
-  De acuerdo con lo establecido en la
-  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Ley 34/2002, de 11 de julio, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE)</a>,
-  se informa a los usuarios de los siguientes datos identificativos del
-  titular de este sitio web.
+  Esta página recoge la información legal y los datos identificativos
+  del titular de la web, de acuerdo con lo establecido en el artículo 10
+  de la
+  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE)</a>.
+  También encontrarás las condiciones relativas al uso de los contenidos,
+  los enlaces externos y la responsabilidad sobre la información publicada.
 
 sections:
-  - heading: "Titular del sitio web"
+  - heading: "Titular de la web"
     items:
-      - term: "Titular"
-        description: "somoscuatro 2020 S.L."
+      - term: "Nombre"
+        description: "Luca Pipolo"
       - term: "NIF"
-        description: "ES B01765432"
-      - term: "Domicilio social"
-        description: "Carrer Bailén 41, 1º 2ªB, 08010 Barcelona, España"
-      - term: "Domicilio operativo"
-        description: "Carrer de la Llacuna 22, Planta 4 Oficina 3, 08010 Barcelona, España"
+        description: "Y4675193C"
+      - term: "Domicilio"
+        description: "Carrer de Bailèn 41, 1º 2ªB, 08010 Barcelona, España"
       - term: "Correo electrónico"
         description: >-
-          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
-      - term: "Datos registrales"
-        description: >-
-          Inscrita en el Registro Mercantil de Barcelona, Tomo 47455, Folio
-          100, Hoja B-552334, Inscripción 1.
-      - term: "Relación con el titular del sitio"
-        description: >-
-          Luca Pipolo es titular de somoscuatro 2020 S.L. y publica este
-          sitio en el marco de su actividad profesional con la sociedad.
+          <a href="mailto:privacy@lucapipolo.com">privacy@lucapipolo.com</a>
       - term: "Actividad"
         description: >-
-          Sitio personal y portfolio profesional de Luca Pipolo, Full-Stack
-          Web Developer y Team Lead.
+          Web personal y portfolio profesional de Luca Pipolo,
+          Full-Stack Web Developer y Team Lead.
 
-  - heading: "Para qué sirve este sitio"
+  - heading: "Finalidad de la web"
     body: >-
-      <p>El sitio cuenta mi trayectoria profesional, los proyectos en los
-      que he trabajado y cómo contactarme. No vende nada, no gestiona pagos
-      y no requiere registro.</p>
+      <p>Esta web presenta mi trayectoria profesional,
+      los proyectos en los que he trabajado y las competencias
+      que he adquirido a lo largo de los años. También publico
+      artículos y contenidos técnicos relacionados con mi trabajo
+      y ofrezco distintas formas de contactar conmigo.</p>
+      <p>La web no vende productos ni servicios directamente,
+      no gestiona pagos y no requiere crear una cuenta
+      para consultar sus contenidos.</p>
 
   - heading: "Propiedad intelectual"
     body: >-
-      <p>Los textos, el diseño gráfico y las imágenes son míos, salvo donde
-      se indique lo contrario. Puedes citarlos indicando la fuente y
-      enlazando la página original. Reproducirlos íntegramente o usarlos con
-      fines comerciales requiere mi autorización por escrito.</p>
-      <p>Las marcas y logotipos de terceros que puedan aparecer pertenecen a
-      sus respectivos titulares y se utilizan solo para identificar la
-      tecnología o la empresa de la que se está hablando.</p>
+      <p>Salvo que se indique lo contrario, los textos,
+      el diseño y las imágenes originales publicados
+      en esta web son de mi propiedad y están protegidos
+      por la normativa aplicable en materia de propiedad
+      intelectual.</p>
+      <p>Puedes citar fragmentos breves de los contenidos,
+      dentro de los límites establecidos por la ley,
+      indicando claramente el autor e incluyendo
+      un enlace a la página original. Para reproducir
+      los contenidos íntegramente o utilizarlos
+      con fines comerciales, necesitas mi autorización
+      por escrito, salvo en los casos permitidos
+      por la legislación aplicable.</p>
+      <p>Las marcas, logotipos y demás elementos
+      pertenecientes a terceros siguen siendo propiedad
+      de sus respectivos titulares. Su presencia en esta
+      web tiene únicamente la finalidad de identificar
+      las empresas, productos, servicios o tecnologías
+      mencionados en los contenidos.</p>
 
-  - heading: "Enlaces a otros sitios"
+  - heading: "Enlaces a sitios externos"
     body: >-
-      <p>Algunas páginas contienen enlaces a sitios que no gestiono ni
-      controlo. Están presentes porque el contenido enlazado es pertinente,
-      no porque apruebe su contenido, sus condiciones de uso o el
-      tratamiento que hacen de tus datos. Al seguir un enlace, accedes a un
-      sitio independiente de este, sujeto a las reglas de quien lo gestiona,
-      del que no me hago responsable.</p>
+      <p>Algunas páginas incluyen enlaces a webs y servicios
+      externos que no gestiono y sobre los que no tengo
+      ningún control. Los comparto porque pueden aportar
+      información útil o ampliar los temas tratados,
+      sin que esto implique necesariamente que respalde
+      sus contenidos, condiciones de uso o prácticas
+      de tratamiento de datos personales.</p>
+      <p>Cuando sigues uno de estos enlaces, accedes
+      a una web independiente, sujeta a las condiciones
+      y políticas de su propio responsable. No puedo
+      garantizar que sus contenidos sigan disponibles,
+      sean correctos o estén actualizados, ni respondo
+      de las actividades de sus responsables, salvo
+      en los casos previstos por la ley.</p>
 
-  - heading: "Responsabilidad"
+  - heading: "Responsabilidad sobre los contenidos"
     body: >-
-      <p>Reviso los contenidos antes de publicarlos, pero no garantizo que
-      estén libres de errores ni que permanezcan exactos con el paso del
-      tiempo. La información técnica que aparece aquí refleja mi
-      experiencia, no constituye asesoramiento sobre tu caso concreto.</p>
-      <p>Tampoco puedo garantizar que el sitio esté siempre disponible, ya
-      que depende de servicios de terceros y de tu conexión.</p>
+      <p>Procuro que la información que publico sea
+      correcta y esté actualizada, pero no puedo
+      garantizar que los contenidos sean siempre
+      completos, estén libres de errores o mantengan
+      su vigencia con el paso del tiempo. En particular,
+      los artículos técnicos reflejan mis conocimientos
+      y experiencia en el momento de su publicación,
+      y las herramientas, tecnologías y procedimientos
+      que describo pueden cambiar.</p>
+      <p>Los artículos y ejemplos de esta web tienen
+      una finalidad informativa y divulgativa.
+      Antes de aplicar una solución técnica a un proyecto,
+      conviene comprobar que se adapta a su contexto
+      y a sus requisitos específicos.</p>
+      <p>También procuro mantener la web accesible
+      y funcionando correctamente, aunque no puedo
+      garantizar su disponibilidad ininterrumpida.
+      Pueden producirse interrupciones temporales
+      por tareas de mantenimiento, problemas técnicos
+      o incidencias en los servicios de terceros.</p>
+      <p>Estas aclaraciones no excluyen ni limitan
+      las responsabilidades establecidas
+      por la legislación aplicable.</p>
 
-  - heading: "Alojamiento"
+  - heading: "Alojamiento web"
     body: >-
-      <p>El sitio está alojado por
+      <p>Esta web está alojada en
       <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel Inc.</a>,
-      con sede en Estados Unidos. Su política de privacidad puede
-      consultarse en
-      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">vercel.com/legal/privacy-policy</a>.</p>
+      una empresa con sede en Estados Unidos.
+      Puedes consultar más información sobre
+      cómo trata los datos este proveedor en su
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</p>
 
-  - heading: "Ley aplicable"
+  - heading: "Legislación aplicable y jurisdicción"
     body: >-
-      <p>Este aviso se rige por la legislación española. Para cualquier
-      controversia relacionada con el sitio, salvo que la ley imponga un
-      fuero distinto (por ejemplo, cuando la otra parte sea un consumidor),
-      las partes se someten a la competencia de los juzgados y tribunales de
-      la ciudad de Barcelona, España.</p>
+      <p>Esta web y el presente aviso legal se rigen
+      por la legislación española, sin perjuicio
+      de las disposiciones imperativas que
+      puedan resultar aplicables.</p>
+      <p>Para las controversias relacionadas con
+      la web, cuando la ley lo permita y exista
+      un acuerdo válido entre las partes,
+      serán competentes los juzgados y tribunales
+      de Barcelona, España. En los demás casos,
+      la competencia se determinará conforme
+      a la normativa aplicable, incluidas
+      las disposiciones de protección
+      de los consumidores.</p>
