@@ -302,7 +302,7 @@ happens on Vercel and the script only carries the notice and two secrets.
 
 > [!NOTE]
 > To try it on a preview deployment, whose database branch only holds test messages, also set `NOTIFY_URL` to the
-> preview's `/api/notify` address and pass it with `-e NOTIFY_URL`. The same
+> preview's `/api/notify/` address and pass it with `-e NOTIFY_URL`. The same
 > [Protection Bypass for Automation](https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation)
 > secret works for previews too.
 

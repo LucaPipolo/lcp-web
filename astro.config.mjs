@@ -19,6 +19,9 @@ const SITE = "https://www.lucapipolo.com"
 // https://astro.build/config
 export default defineConfig({
   site: SITE,
+  // Vercel redirects every path without one to its trailing-slash version
+  // (`trailingSlash` in `vercel.json`), so the dev server refuses them too.
+  trailingSlash: "always",
   env: {
     schema: {
       // Public by design: Cloudflare expects it in the page. Its secret

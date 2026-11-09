@@ -16,7 +16,7 @@
 import { readFile } from "node:fs/promises"
 import { parse } from "yaml"
 
-const DEFAULT_URL = "https://www.lucapipolo.com/api/notify"
+const DEFAULT_URL = "https://www.lucapipolo.com/api/notify/"
 
 const [file, flag] = process.argv.slice(2)
 const mode = flag === "--send" ? "send" : flag === "--test" ? "test" : "dry-run"
