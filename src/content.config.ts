@@ -77,7 +77,7 @@ const home = defineCollection({
   schema: z.object({
     metadata: z.object({
       title: z.string(),
-      description: z.string().optional(),
+      description: z.string(),
     }),
     sections: z.object({
       hero: z.object({
@@ -291,7 +291,7 @@ function articlePage(directory: string) {
     schema: z.object({
       metadata: z.object({
         title: z.string(),
-        description: z.string().optional(),
+        description: z.string(),
       }),
       title: z.string(),
       updated: z.coerce.date(),
