@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig } from "astro/config"
+import { defineConfig, envField } from "astro/config"
 import tailwindcss from "@tailwindcss/vite"
 import icon from "astro-icon"
 
@@ -19,6 +19,16 @@ const SITE = "https://www.lucapipolo.com"
 // https://astro.build/config
 export default defineConfig({
   site: SITE,
+  env: {
+    schema: {
+      // Public by design: Cloudflare expects it in the page. Its secret
+      // counterpart only ever reaches `api/contact`.
+      TURNSTILE_SITE_KEY: envField.string({
+        context: "client",
+        access: "public",
+      }),
+    },
+  },
   integrations: [
     icon(),
     sentry({

@@ -1,16 +1,20 @@
+import { ipAddress } from "@vercel/functions"
+
 import {
   checkContact,
   type ContactInput,
   type ContactReason,
   MIN_ELAPSED,
-} from "../src/libs/contact"
-import { sendEmail } from "../src/libs/email"
+} from "../src/libs/contact.js"
+import { sendEmail } from "../src/libs/email.js"
 
 /**
  * We decided to check every submission here, in this order, from the cheapest
- * check to the one that costs something, because each one that fails saves
- * the next: a bot caught by the hidden field never costs an email.
+ * check to the one that calls Cloudflare, because each one that fails saves
+ * the next: a bot caught by the hidden field never costs a Turnstile lookup.
  */
+
+const SITEVERIFY = "https://challenges.cloudflare.com/turnstile/v0/siteverify"
 
 /** How each reason reads in the subject line of the email Luca gets. */
 const REASONS: Record<ContactReason, string> = {
@@ -25,6 +29,7 @@ interface Submission extends ContactInput {
   elapsed: number
   locale: string
   page: string
+  token: string
   website: string
 }
 
@@ -67,8 +72,37 @@ function read(body: unknown): Submission {
     name: text("name"),
     page: text("page"),
     reason: text("reason"),
+    token: text("token"),
     website: text("website"),
   }
+}
+
+/**
+ * Asks Cloudflare whether the Turnstile token is genuine and unused.
+ *
+ * @param token - The token the widget issued.
+ * @param ip - The Visitor's address, which Cloudflare weighs alongside it.
+ *
+ * @returns Whether the token passed.
+ */
+async function verify(token: string, ip: string | undefined): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY
+
+  if (!secret || !token) return false
+
+  const form = new FormData()
+
+  form.append("secret", secret)
+  form.append("response", token)
+  if (ip) form.append("remoteip", ip)
+
+  const response = await fetch(SITEVERIFY, { body: form, method: "POST" })
+
+  if (!response.ok) return false
+
+  const result = (await response.json()) as { success?: boolean }
+
+  return result.success === true
 }
 
 /**
@@ -136,6 +170,14 @@ export default {
     const fields = checkContact(submission)
 
     if (Object.keys(fields).length > 0) return json({ fields }, 422)
+
+    try {
+      if (!(await verify(submission.token, ipAddress(request)))) {
+        return json({ error: "verification" }, 403)
+      }
+    } catch {
+      return json({ error: "generic" }, 502)
+    }
 
     try {
       await deliver(submission)

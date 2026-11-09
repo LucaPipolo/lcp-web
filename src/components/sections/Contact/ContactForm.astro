@@ -101,6 +101,10 @@ for (const slot of [
     </div>
 
     <div class="flex flex-col items-start gap-4">
+      {/* Cloudflare Turnstile draws here only when it needs the Visitor to
+        prove they're human; most never see it. */}
+      <div x-ref="turnstile"></div>
+
       <Button
         class="disabled:cursor-wait disabled:opacity-60"
         type="submit"
