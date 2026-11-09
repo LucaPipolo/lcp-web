@@ -1,19 +1,10 @@
 import { Resvg } from "@resvg/resvg-js"
-import { getEntry } from "astro:content"
 import { readFile } from "node:fs/promises"
 import satori from "satori"
 
 import { asterisk } from "@/libs/asterisk"
-import { getPostHref, getPosts } from "@/libs/blog"
-import { getSettings } from "@/libs/content"
-import {
-  formatDate,
-  getAlternates,
-  getPageSlug,
-  type Locale,
-  LOCALES,
-  PAGES,
-} from "@/libs/i18n"
+import { formatDate, type Locale } from "@/libs/i18n"
+import { getPageSummaries } from "@/libs/pages"
 
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 }
 
@@ -56,46 +47,16 @@ export function getOgImageHref(href: string): string {
  * @returns The cards, titled with what each page heads itself with.
  */
 export async function getOgCards(): Promise<OgCard[]> {
-  const cards: OgCard[] = []
-
-  for (const locale of LOCALES) {
-    const home = await getEntry("home", locale)
-    const { author } = await getSettings(locale)
-
-    cards.push({
-      href: getAlternates("/")[locale]!,
+  return (await getPageSummaries()).map(
+    ({ href, locale, published, section, title }) => ({
+      eyebrow: published
+        ? [section, formatDate(published, locale)].filter(Boolean).join(" · ")
+        : undefined,
+      href,
       locale,
-      title: home?.data.sections.hero.subheading ?? author.name,
+      title,
     })
-
-    for (const page of PAGES) {
-      const collection = page === "blog" ? "blog-index" : page
-      const entry = await getEntry(collection, locale)
-
-      if (!entry || !("title" in entry.data)) continue
-
-      cards.push({
-        href: getAlternates(`/${getPageSlug(page, "en")}/`)[locale]!,
-        locale,
-        title: entry.data.title,
-      })
-    }
-
-    const blog = await getEntry("blog-index", locale)
-
-    for (const post of await getPosts(locale)) {
-      cards.push({
-        eyebrow: [blog?.data.title, formatDate(post.data.published, locale)]
-          .filter(Boolean)
-          .join(" · "),
-        href: getPostHref(post, locale),
-        locale,
-        title: post.data.title,
-      })
-    }
-  }
-
-  return cards
+  )
 }
 
 /** Inter, the site's own face. Satori draws the bold from the variable file. */
