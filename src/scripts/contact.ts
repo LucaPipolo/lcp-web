@@ -1,3 +1,5 @@
+import { TURNSTILE_SITE_KEY } from "astro:env/client"
+
 import {
   checkContact,
   checkField,
@@ -10,6 +12,28 @@ import { register } from "@/scripts/alpine"
 
 /** Where the form is sent. */
 const ENDPOINT = "/api/contact"
+
+const TURNSTILE_SCRIPT =
+  "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+
+/**
+ * How long a submission waits for Turnstile, in ms, when the Visitor is faster
+ * than the check. Past that, it's blocked or broken, and waiting longer won't
+ * help.
+ */
+const TURNSTILE_TIMEOUT = 10_000
+
+/** The part of Cloudflare's Turnstile API the form uses. */
+interface Turnstile {
+  render(container: HTMLElement, options: Record<string, unknown>): string
+  reset(widget: string): void
+}
+
+declare global {
+  interface Window {
+    turnstile?: Turnstile
+  }
+}
 
 /** Codes the server can answer with beyond a field failing its rules. */
 type ServerError = "generic" | "rateLimited" | "verification"
@@ -27,6 +51,68 @@ register("contactForm", () => {
   let copy = {} as Copy
   let hints: Record<string, string> = {}
   let startedAt = 0
+
+  // A token proves one submission only, so it's dropped after every attempt,
+  // and anything already waiting on it is answered when the next one arrives.
+  let token = ""
+  let waiting: ((token: string) => void)[] = []
+  let widget: string | undefined
+
+  /**
+   * Hands over the current token, or the next one Turnstile issues.
+   *
+   * @returns The token, or an empty string when none came in time.
+   */
+  function verified(): Promise<string> {
+    if (token) return Promise.resolve(token)
+
+    return new Promise((resolve) => {
+      waiting.push(resolve)
+      setTimeout(() => resolve(""), TURNSTILE_TIMEOUT)
+    })
+  }
+
+  /**
+   * Loads Turnstile and draws its widget, which stays invisible unless it
+   * needs the Visitor to interact.
+   *
+   * @param container - Where the widget goes.
+   */
+  function protect(container: HTMLElement) {
+    const script = document.createElement("script")
+
+    script.src = TURNSTILE_SCRIPT
+    script.async = true
+    script.addEventListener("load", () => {
+      widget = window.turnstile?.render(container, {
+        appearance: "interaction-only",
+        callback: (issued: string) => {
+          token = issued
+          for (const resolve of waiting) resolve(issued)
+          waiting = []
+        },
+        "error-callback": () => {
+          token = ""
+        },
+        "expired-callback": () => {
+          token = ""
+        },
+        language: document.documentElement.lang,
+        sitekey: TURNSTILE_SITE_KEY,
+      })
+    })
+
+    document.head.append(script)
+  }
+
+  /**
+   * Spends the current token: Cloudflare accepts each one once, so the next
+   * attempt needs a fresh one.
+   */
+  function spend() {
+    token = ""
+    if (widget) window.turnstile?.reset(widget)
+  }
 
   return {
     acknowledged: false,
@@ -51,6 +137,8 @@ register("contactForm", () => {
         )
       )
       startedAt = Date.now()
+
+      if (this.$refs.turnstile) protect(this.$refs.turnstile)
     },
 
     /**
@@ -150,6 +238,14 @@ register("contactForm", () => {
       this.status = "sending"
       this.failure = ""
 
+      const proof = await verified()
+
+      if (!proof) {
+        this.fail("verification")
+
+        return
+      }
+
       try {
         const response = await fetch(ENDPOINT, {
           body: JSON.stringify({
@@ -161,11 +257,14 @@ register("contactForm", () => {
             name: this.name,
             page: location.pathname,
             reason: this.reason,
+            token: proof,
             website: this.website,
           }),
           headers: { "Content-Type": "application/json" },
           method: "POST",
         })
+
+        spend()
 
         if (response.ok) {
           this.status = "sent"
@@ -196,6 +295,7 @@ register("contactForm", () => {
 
         this.fail(body.error ?? "generic")
       } catch {
+        spend()
         this.fail("generic")
       }
     },
