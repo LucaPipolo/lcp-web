@@ -74,6 +74,21 @@
       "source": "/it/recommendations{/}?",
       "destination": "/it/raccomandazioni/",
       "permanent": true
+    },
+    {
+      "source": "/blog/building-rift{/}?",
+      "destination": "/blog/agentes-ia-en-paralelo-con-docker/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/building-rift{/}?",
+      "destination": "/en/blog/parallel-ai-agents-with-docker/",
+      "permanent": true
+    },
+    {
+      "source": "/it/blog/building-rift{/}?",
+      "destination": "/it/blog/agenti-ai-in-parallelo-con-docker/",
+      "permanent": true
     }
   ],
   "headers": [
