@@ -39,10 +39,9 @@ async function getSiteNodes(site: URL, locale: string): Promise<SchemaNode[]> {
     "@id": getSiteNodeId(site, "website"),
     url: new URL("/", site).href,
     inLanguage: [...LOCALES],
-    ...(author && { name: author.name, publisher: { "@id": person } }),
+    name: author.name,
+    publisher: { "@id": person },
   }
-
-  if (!author) return [website]
 
   const sections = home?.data.sections
   const role = sections?.experience?.roles[0]
@@ -99,7 +98,6 @@ export async function getStructuredData(options: {
 }): Promise<string> {
   const { description, locale, nodes = [], site, title, type, url } = options
   const siteNodes = await getSiteNodes(site, locale)
-  const hasPerson = siteNodes.some((node) => node["@type"] === "Person")
 
   const page: SchemaNode = {
     "@type": type,
@@ -109,8 +107,9 @@ export async function getStructuredData(options: {
     ...(description && { description }),
     inLanguage: locale,
     isPartOf: { "@id": getSiteNodeId(site, "website") },
-    ...(type === "ProfilePage" &&
-      hasPerson && { mainEntity: { "@id": getSiteNodeId(site, "person") } }),
+    ...(type === "ProfilePage" && {
+      mainEntity: { "@id": getSiteNodeId(site, "person") },
+    }),
   }
 
   const graph = {

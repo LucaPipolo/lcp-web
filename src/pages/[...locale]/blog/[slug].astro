@@ -83,18 +83,14 @@ const url = new URL(getPostHref(post, locale), Astro.site).href
 
 const nodes = [
   getPostNode(post, url, Astro.site!),
-  ...(author
-    ? [
-        getBreadcrumbNode(
-          [
-            { href: localizeHref("/", locale), name: author.name },
-            { href: localizeHref("/blog/", locale), name: page!.data.title },
-            { href: url, name: title },
-          ],
-          Astro.site!
-        ),
-      ]
-    : []),
+  getBreadcrumbNode(
+    [
+      { href: localizeHref("/", locale), name: author.name },
+      { href: localizeHref("/blog/", locale), name: page!.data.title },
+      { href: url, name: title },
+    ],
+    Astro.site!
+  ),
 ]
 
 const readingTime = fillPlaceholders(blog.readingTime, {

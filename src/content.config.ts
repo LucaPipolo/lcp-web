@@ -5,7 +5,7 @@ import { defineCollection } from "astro:content"
 const settings = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/settings" }),
   schema: z.object({
-    author: z.object({ name: z.string() }).optional(),
+    author: z.object({ name: z.string() }),
     socialLinks: z.array(
       z.object({
         platform: z.enum(["github", "linkedin", "email"]),
