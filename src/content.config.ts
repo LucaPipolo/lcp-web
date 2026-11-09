@@ -168,6 +168,78 @@ const recommendations = defineCollection({
   }),
 })
 
+/** A text field on the contact form: what it's called and how it guides. */
+const contactField = z.object({
+  label: z.string(),
+  placeholder: z.string().optional(),
+  hint: z.string().optional(),
+})
+
+const contact = defineCollection({
+  loader: glob({ pattern: "*.yaml", base: "./src/content/pages/contact" }),
+  schema: z.object({
+    metadata: z.object({ title: z.string() }),
+    title: z.string(),
+    intro: z.string(),
+    form: z.object({
+      reasons: z.object({
+        legend: z.string(),
+        /**
+         * Why someone is getting in touch. The `id` is what the server
+         * receives; the `hint` replaces the message placeholder once picked.
+         */
+        options: z
+          .array(
+            z.object({
+              id: z.enum(["job", "project", "collaboration", "other"]),
+              label: z.string(),
+              hint: z.string(),
+            })
+          )
+          .min(1),
+      }),
+      name: contactField,
+      email: contactField,
+      message: contactField,
+      /** The acknowledgement box, as HTML so it can link the policy. */
+      acknowledgement: z.string(),
+      submit: z.string(),
+      sending: z.string(),
+      /** Shown in place of the form when JavaScript isn't running. */
+      noscript: z.string(),
+      success: z.object({ heading: z.string(), body: z.string() }),
+      /**
+       * What each code the server can answer with means to a Visitor, so the
+       * copy stays here rather than in the function.
+       */
+      errors: z.object({
+        required: z.string(),
+        email: z.string(),
+        tooShort: z.string(),
+        tooLong: z.string(),
+        links: z.string(),
+        acknowledgement: z.string(),
+        verification: z.string(),
+        rateLimited: z.string(),
+        generic: z.string(),
+      }),
+    }),
+    /** The first layer of data protection information, next to the form. */
+    notice: z.object({
+      heading: z.string(),
+      items: z
+        .array(z.object({ term: z.string(), description: z.string() }))
+        .min(1),
+    }),
+    booking: z.object({
+      heading: z.string(),
+      body: z.string(),
+      label: z.string(),
+      href: z.url(),
+    }),
+  }),
+})
+
 const notFound = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/pages/not-found" }),
   schema: z.object({
@@ -315,4 +387,5 @@ export const collections = {
   "ai-content": aiContent,
   "not-found": notFound,
   recommendations,
+  contact,
 }
