@@ -1,5 +1,6 @@
 ---
 title: "Rift: cómo trabajo con varios agentes de IA en paralelo usando Docker y Git worktrees"
+slug: "agentes-ia-en-paralelo-con-docker"
 description: >-
   Cada agente de IA con su propio entorno Docker, sus puertos y un dominio
   HTTPS local. Cómo desarrollé Rift con Laravel Zero y cómo lo utilizo junto

@@ -1,5 +1,6 @@
 ---
 title: "A spam-resistant contact form on a static site: Astro, Vercel and Turnstile"
+slug: "spam-free-contact-form"
 description: >-
   How I built this site's contact form with Astro, Vercel Functions and
   Cloudflare Turnstile, kept a strict CSP and handled personal data
