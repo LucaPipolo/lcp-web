@@ -5,7 +5,7 @@
     "": {
       "name": "lcp-web",
       "dependencies": {
-        "@alpinejs/csp": "^3.17.3",
+        "@alpinejs/csp": "^3.17.5",
         "@astrojs/markdown-satteri": "^0.4.7",
         "@astrojs/rss": "^4.0.19",
         "@fontsource-variable/fira-code": "^5.3.0",
@@ -45,7 +45,7 @@
     },
   },
   "packages": {
-    "@alpinejs/csp": ["@alpinejs/csp@3.17.3", "", { "dependencies": { "@vue/reactivity": "~3.5.40" } }, "sha512-Y24sCNahmtdfSp4awWBRmdqHfWrZPfuoa++0YqI6BuEaZ/Xjn8BOuBOScO+fzCXK0V2Vo9Ryy9tWQnTIVMyObQ=="],
+    "@alpinejs/csp": ["@alpinejs/csp@3.17.5", "", { "dependencies": { "@vue/reactivity": "~3.5.40" } }, "sha512-7e5lYgzJJL2eZ7esnx+E7wtxws+VDs9em9ztttZ+AQAYEng2bABHFp2SUga0wt84RyfL7hc6B+S/RGglXsPf6w=="],
 
     "@antfu/install-pkg": ["@antfu/install-pkg@2.1.0", "", { "dependencies": { "package-manager-detector": "^1.8.0", "tinyexec": "^1.3.1" } }, "sha512-sdg9NxU3zR4Mnawfbc/x6GB5Wf17WYud5qOuEuxXjaKpYpMkISSJEjItGebXJ2bQ4DIcly4NYH23mtkGJjvKUw=="],
 
@@ -509,9 +509,9 @@
 
     "@vercel/speed-insights": ["@vercel/speed-insights@2.0.0", "", { "peerDependencies": { "@sveltejs/kit": "^1 || ^2", "next": ">= 13", "nuxt": ">= 3", "react": "^18 || ^19 || ^19.0.0-rc", "svelte": ">= 4", "vue": "^3", "vue-router": "^4" }, "optionalPeers": ["@sveltejs/kit", "next", "nuxt", "react", "svelte", "vue", "vue-router"] }, "sha512-jwkNcrTeafWxjmWq4AHBaptSqZiJkYU5adLC9QBSqeim0GcqDMgN5Ievh8OG1rJ6W3A4l1oiP7qr9CWxGuzu3w=="],
 
-    "@vue/reactivity": ["@vue/reactivity@3.5.42", "", { "dependencies": { "@vue/shared": "3.5.42" } }, "sha512-TzNNfKpb7hDxbQltwAut8VDQA5YP+BuRlxntHUuRjyKwlMvmAPbs3unhCvieijifY6vFfVBwsS7wG/C7uq+bEQ=="],
+    "@vue/reactivity": ["@vue/reactivity@3.5.45", "", { "dependencies": { "@vue/shared": "3.5.45" } }, "sha512-WqkyubNWpI4OYBOipSrjIssMdJO8K1i9Zts/Wm8Er10/0msOEwCyWWWvZnAI7WW3kQsTong6DJp8Cbb+vd4cPA=="],
 
-    "@vue/shared": ["@vue/shared@3.5.42", "", {}, "sha512-2rPxex1jQf4jvl9MOHl6YaXCPcrNqz/FstMOEh3QWY+/OME9nQTvl9WYeCwhW7AFjaR0SnngZGlp/wkR6rkI6g=="],
+    "@vue/shared": ["@vue/shared@3.5.45", "", {}, "sha512-ue9fgHmVNPlP7iW3+cxoBX/Cnlw53dHlVSw0JKGY6z1lObg8pHoj928M2nzG4/yVsMZ3NaRZ2s2z61uC16NDwQ=="],
 
     "acorn": ["acorn@8.18.0", "", { "bin": { "acorn": "bin/acorn" } }, "sha512-lGq+9yr1/GuAWaVYIHRjvvySG5/4VfKIvC8EWxStPdcDh/Ka7FG3twP6v4d5BkravUilhIAsG4Qj83t02LWUPQ=="],
 
