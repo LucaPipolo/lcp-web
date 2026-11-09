@@ -18,8 +18,15 @@ interface Address {
   name?: string
 }
 
-/** One plain-text email. */
+/** One email, always with a plain-text version. */
 export interface Email {
+  /** An HTML version, for clients that show one; the text is the fallback. */
+  html?: string
+  /**
+   * A UUID that makes Brevo send this email once however many times it's
+   * posted within 30 minutes, so a retry can't deliver it twice.
+   */
+  idempotencyKey?: string
   replyTo?: Address
   subject: string
   tags?: string[]
@@ -30,8 +37,9 @@ export interface Email {
 /**
  * Sends an email through Brevo.
  *
- * Plain text only: nothing a Visitor typed can turn into markup in the inbox
- * reading it.
+ * Anything a Visitor typed only ever goes in the plain text, so it can't turn
+ * into markup in the inbox reading it. An HTML version is only for copy the
+ * site itself writes, escaped where it carries a name.
  *
  * @param email - What to send, and to whom.
  *
@@ -49,6 +57,10 @@ export async function sendEmail(email: Email): Promise<void> {
 
   const response = await fetch(ENDPOINT, {
     body: JSON.stringify({
+      headers: email.idempotencyKey
+        ? { idempotencyKey: email.idempotencyKey }
+        : undefined,
+      htmlContent: email.html,
       replyTo: email.replyTo,
       sender: SENDER,
       subject: email.subject,

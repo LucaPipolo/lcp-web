@@ -14,7 +14,8 @@
     "check:csp": "node check-csp.mjs",
     "dev": "astro dev",
     "build": "astro build && bun run check:csp",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "notify": "bun scripts/notify.ts"
   },
   "lint-staged": {
     "*.{ts,astro}": [
