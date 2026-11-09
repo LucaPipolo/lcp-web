@@ -100,6 +100,7 @@ const readingTime = fillPlaceholders(blog.readingTime, {
 
 <Layout
   alternates={alternates}
+  article={{ modified: updated, published, tags }}
   description={description}
   nodes={nodes}
   title={fillPlaceholders(page!.data.postTitle, { title })}

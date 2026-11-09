@@ -194,6 +194,17 @@ export function getAlternates(href: string): Alternates {
 }
 
 /**
+ * Names a locale with its region, as Open Graph's `og:locale` expects.
+ *
+ * @param locale - The locale to name.
+ *
+ * @returns The language and region joined by an underscore, as `es_ES`.
+ */
+export function getOpenGraphLocale(locale: Locale): string {
+  return FORMATTING_LOCALES[locale].replace("-", "_")
+}
+
+/**
  * Formats a date in the reader's language.
  *
  * @param date - The date to format.
