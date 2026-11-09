@@ -1,6 +1,9 @@
 ---
 title: "Rift: come gestisco più agenti AI in parallelo con Docker e Git worktree"
 slug: "agenti-ai-in-parallelo-con-docker"
+metaTitle: "Rift: più agenti AI in parallelo con Docker e Git"
+metaDescription: >-
+  Ogni agente AI con il suo ambiente Docker, le sue porte e un dominio HTTPS locale: come ho creato Rift con Laravel Zero e lo uso con Orca.
 description: >-
   Ogni agente AI con il proprio ambiente Docker, le proprie porte e un dominio
   HTTPS locale. Come ho sviluppato Rift con Laravel Zero e come lo utilizzo

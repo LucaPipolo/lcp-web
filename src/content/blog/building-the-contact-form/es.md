@@ -1,6 +1,9 @@
 ---
 title: "Un formulario de contacto sin spam en una web estática: Astro, Vercel y Turnstile"
 slug: "formulario-de-contacto-sin-spam"
+metaTitle: "Formulario de contacto sin spam con Astro y Turnstile"
+metaDescription: >-
+  Cómo creé el formulario de contacto de esta web con Astro, Vercel Functions y Turnstile, con una CSP estricta y los datos personales bajo control.
 description: >-
   Cómo he creado el formulario de contacto de esta web con Astro,
   Vercel Functions y Cloudflare Turnstile, manteniendo una CSP estricta

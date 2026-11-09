@@ -1,6 +1,9 @@
 ---
 title: "Un modulo di contatto senza spam su un sito statico: Astro, Vercel e Turnstile"
 slug: "modulo-di-contatto-senza-spam"
+metaTitle: "Modulo di contatto senza spam con Astro e Turnstile"
+metaDescription: >-
+  Come ho creato il modulo di contatto di questo sito con Astro, Vercel Functions e Turnstile, con una CSP rigorosa e i dati personali sotto controllo.
 description: >-
   Come ho realizzato il modulo di contatto di questo sito con Astro,
   Vercel Functions e Cloudflare Turnstile, mantenendo una CSP rigorosa
