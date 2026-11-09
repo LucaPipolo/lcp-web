@@ -1,5 +1,6 @@
 ---
 title: "Rift: how I run multiple AI agents in parallel with Docker and Git worktrees"
+slug: "parallel-ai-agents-with-docker"
 description: >-
   A separate Docker environment, ports and local HTTPS domain for every AI
   agent. How I built Rift with Laravel Zero and use it alongside Orca to work
