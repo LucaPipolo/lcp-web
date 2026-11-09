@@ -29,6 +29,7 @@ src/
 └── icons/                 hand-authored SVGs
 
 api/contact.ts             contact form endpoint, a Vercel Function
+api/cleanup.ts             daily deletion of expired contact data, a Vercel Cron Job
 middleware.ts              locale negotiation, at the edge
 vercel.json                security headers
 rift.yaml                  local dev environment, read by Rift
@@ -213,8 +214,20 @@ Vercel project, for Production and Preview:
 | `DB_MESSAGES_DATABASE_URL`                   | The Neon database messages are kept in. Set by Vercel's Neon integration, prefix `DB_MESSAGES`. |
 | `DB_CONSENT_DATABASE_URL`                    | The separate Neon database proof records are kept in, prefix `DB_CONSENT`.                      |
 | `CONSENT_IP_HASH_SECRET`                     | A random string the sender's IP address is hashed with before it's stored.                      |
+| `CRON_SECRET`                                | A random string Vercel sends with each run of `api/cleanup.ts`, so only Vercel can trigger it.  |
 
 Both databases create their table on first use, so a new preview branch needs no migration.
+
+`api/cleanup.ts` runs once a day as a [Vercel Cron Job](https://vercel.com/docs/cron-jobs) (`crons` in
+`vercel.json`) and deletes messages older than 12 months and proof records older than 3 years, the periods the
+privacy policy promises. Both are set in `RETENTION` (`src/libs/storage.ts`). Cron jobs only run on the production
+deployment.
+
+> [!CAUTION]
+> Vercel's bot protection challenges requests that don't come from a browser. After the first deploy to production,
+> open **Settings → Cron Jobs** and check the job's last run answered `200`. If it answered `429`, the bot protection
+> blocked it and nothing is ever deleted until that's fixed. Hobby has no custom bypass rules, so the way out is
+> switching the bot protection ruleset to log only, under **Firewall**.
 
 > [!NOTE]
 > `api/` is compiled file by file and run as an ES module on Node, not bundled, so a relative import there needs
