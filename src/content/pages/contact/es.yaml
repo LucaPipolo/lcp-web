@@ -1,0 +1,126 @@
+metadata:
+  title: "Contacto | Luca Pipolo"
+
+title: "Contacto"
+
+intro: >-
+  Cuéntame qué tienes en mente y te responderé, normalmente
+  en un plazo de dos días laborables. Si prefieres hablarlo,
+  también puedes reservar una llamada.
+
+form:
+  reasons:
+    legend: "¿Sobre qué quieres escribirme?"
+    options:
+      - id: "job"
+        label: "Una oportunidad laboral"
+        hint: >-
+          Cuéntame qué empresa es, en qué consiste el puesto
+          y en qué trabaja el equipo. Si tienes un enlace
+          a la oferta, mejor.
+      - id: "project"
+        label: "Un proyecto"
+        hint: >-
+          Cuéntame qué estás desarrollando, en qué fase
+          se encuentra y cuándo te gustaría empezar.
+      - id: "collaboration"
+        label: "Una colaboración"
+        hint: >-
+          Una charla, un artículo, un proyecto de código abierto
+          u otra iniciativa. Cuéntame qué propones y dónde
+          se llevaría a cabo.
+      - id: "other"
+        label: "Otro asunto"
+        hint: >-
+          Sea lo que sea, con un par de líneas
+          es suficiente para empezar.
+
+  name:
+    label: "Nombre"
+    placeholder: "Ada Lovelace"
+
+  email:
+    label: "Correo electrónico"
+    placeholder: "ada@ejemplo.com"
+    hint: "Solo lo utilizaré para responderte."
+
+  message:
+    label: "Mensaje"
+    placeholder: "Elige un tema y te sugeriré qué información incluir."
+
+  acknowledgement: >-
+    He leído la información sobre protección de datos y la
+    <a href="/privacy/" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
+
+  submit: "Enviar mensaje"
+  sending: "Enviando…"
+
+  noscript: >-
+    Este formulario necesita JavaScript para funcionar
+    con la protección contra el spam. También puedes
+    reservar una llamada desde esta página.
+
+  success:
+    heading: "Mensaje enviado"
+    body: >-
+      Gracias por escribirme. Te responderé al correo
+      que has indicado, normalmente en un plazo
+      de dos días laborables.
+
+  errors:
+    required: "Este campo es obligatorio."
+    email: "Introduce un correo válido, como nombre@ejemplo.com."
+    tooShort: "Añade algún detalle más para que pueda responderte mejor."
+    tooLong: "El mensaje debe tener menos de 5.000 caracteres."
+    links: "Puedes incluir un máximo de tres enlaces."
+    acknowledgement: "Confirma que has leído la información sobre privacidad."
+    verification: >-
+      No se ha podido completar la comprobación antispam.
+      Recarga la página y vuelve a intentarlo.
+    rateLimited: >-
+      Se han enviado demasiados mensajes en poco tiempo.
+      Espera unos minutos antes de volver a intentarlo.
+    generic: >-
+      Ha ocurrido un error y no se ha podido enviar tu mensaje.
+      Inténtalo de nuevo o reserva una llamada.
+
+notice:
+  heading: "Protección de datos"
+  items:
+    - term: "Responsable"
+      description: "somoscuatro 2020 S.L."
+    - term: "Finalidad"
+      description: >-
+        Recibir, gestionar y responder a tu consulta.
+    - term: "Base jurídica"
+      description: >-
+        Interés legítimo conforme al
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">artículo 6.1.f) del RGPD</a>,
+        o aplicación de medidas precontractuales a petición
+        del interesado conforme al artículo 6.1.b),
+        cuando corresponda.
+    - term: "Destinatarios"
+      description: >-
+        Proveedores que intervienen en el alojamiento,
+        la protección antispam, el envío y el almacenamiento
+        de los mensajes, según se detalla en la política
+        de privacidad.
+    - term: "Tus derechos"
+      description: >-
+        Puedes solicitar el acceso, la rectificación,
+        la supresión o la limitación del tratamiento,
+        oponerte a él y ejercer el derecho a la portabilidad
+        cuando corresponda. Escribe a
+        <a href="mailto:privacy@somoscuatro.es">privacy@somoscuatro.es</a>.
+    - term: "Más información"
+      description: >-
+        Consulta la
+        <a href="/privacy/" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
+
+booking:
+  heading: "¿Prefieres hablar?"
+  body: >-
+    Reserva una videollamada de 30 minutos cuando mejor
+    te venga. Te confirmaré la reserva por correo.
+  label: "Reservar una llamada"
+  href: "https://calendar.notion.so/meet/lpipolo/call"
