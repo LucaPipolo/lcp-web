@@ -1,0 +1,87 @@
+/*
+ * Lets a person read /sitemap.xml in a browser. Crawlers never load it.
+ *
+ * We decided on CSS rather than an XSL stylesheet because browsers are
+ * removing XSLT, while styling XML with CSS stays supported.
+ * @see https://developer.chrome.com/docs/web-platform/deprecating-xslt
+ */
+@namespace url(http://www.sitemaps.org/schemas/sitemap/0.9);
+@namespace xhtml url(http://www.w3.org/1999/xhtml);
+
+urlset {
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --muted: oklch(0.556 0 0);
+  --border: oklch(0.922 0 0);
+  --primary: oklch(0.586 0.222 17.6);
+
+  display: block;
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: var(--background);
+  color: var(--foreground);
+  font:
+    0.875rem/1.5 ui-sans-serif,
+    system-ui,
+    sans-serif;
+  counter-reset: url;
+}
+
+@media (prefers-color-scheme: dark) {
+  urlset {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --muted: oklch(0.708 0 0);
+    --border: oklch(1 0 0 / 10%);
+  }
+}
+
+url {
+  display: block;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  counter-increment: url;
+}
+
+url::before {
+  content: counter(url);
+  float: right;
+  color: var(--muted);
+}
+
+loc {
+  display: block;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+lastmod {
+  display: block;
+  color: var(--muted);
+}
+
+lastmod::before {
+  content: "lastmod ";
+}
+
+xhtml|link {
+  display: block;
+  color: var(--muted);
+  font-family: ui-monospace, monospace;
+  font-size: 0.8125rem;
+  overflow-wrap: anywhere;
+}
+
+xhtml|link::before {
+  content: attr(hreflang);
+  display: inline-block;
+  min-width: 5.5rem;
+  color: var(--foreground);
+}
+
+xhtml|link::after {
+  content: attr(href);
+}
