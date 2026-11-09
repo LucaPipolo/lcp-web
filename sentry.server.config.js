@@ -11,6 +11,5 @@ Sentry.init({
     httpBodies: [],
     cookies: false,
   },
-  enableLogs: true,
   tracesSampleRate: 1.0,
 })
