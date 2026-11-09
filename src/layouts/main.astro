@@ -1,6 +1,7 @@
 ---
 import "@/styles/global.css"
 
+import Analytics from "@vercel/analytics/astro"
 import SpeedInsights from "@vercel/speed-insights/astro"
 
 import ButtonLink from "@/components/common/ButtonLink.astro"
@@ -187,6 +188,7 @@ const copyright =
       </>
     )}
     <script is:inline set:html={THEME_INIT_SOURCE}></script>
+    <Analytics />
     <SpeedInsights />
   </head>
   <body>
