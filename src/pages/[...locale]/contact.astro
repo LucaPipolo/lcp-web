@@ -1,0 +1,101 @@
+---
+import Layout from "@/layouts/main.astro"
+
+import DefinitionItem from "@/components/common/DefinitionItem.astro"
+import DefinitionList from "@/components/common/DefinitionList.astro"
+import SectionContainer from "@/components/common/SectionContainer.astro"
+
+import Contact from "@/components/sections/Contact/Contact.astro"
+import ContactBooking from "@/components/sections/Contact/ContactBooking.astro"
+import ContactField from "@/components/sections/Contact/ContactField.astro"
+import ContactForm from "@/components/sections/Contact/ContactForm.astro"
+import ContactReason from "@/components/sections/Contact/ContactReason.astro"
+
+import { getLocalizedStaticPaths } from "@/libs/content"
+
+export async function getStaticPaths() {
+  return getLocalizedStaticPaths("contact")
+}
+
+const { entry } = Astro.props
+const { booking, form, intro, metadata, notice, title } = entry.data
+---
+
+<Layout description={intro} title={metadata.title}>
+  <SectionContainer>
+    <div class="flex flex-col gap-4 px-gutter pt-20 pb-10">
+      <h1 class="max-w-article text-4xl font-semibold tracking-tight text-foreground">
+        {title}
+      </h1>
+
+      <p class="mt-2 max-w-article rich-text text-lg text-pretty text-muted-foreground">
+        {intro}
+      </p>
+    </div>
+  </SectionContainer>
+
+  <SectionContainer>
+    <Contact>
+      <ContactForm errors={form.errors} slot="form">
+        <Fragment slot="legend">{form.reasons.legend}</Fragment>
+        {form.reasons.options.map((option) => (
+          <ContactReason hint={option.hint} slot="reasons" value={option.id}>
+            {option.label}
+          </ContactReason>
+        ))}
+
+        <ContactField
+          autocomplete="name"
+          field="name"
+          placeholder={form.name.placeholder}
+          slot="fields"
+        >
+          <Fragment slot="label">{form.name.label}</Fragment>
+        </ContactField>
+        <ContactField
+          autocomplete="email"
+          field="email"
+          placeholder={form.email.placeholder}
+          slot="fields"
+        >
+          <Fragment slot="label">{form.email.label}</Fragment>
+          {form.email.hint && (
+            <Fragment slot="hint">{form.email.hint}</Fragment>
+          )}
+        </ContactField>
+        <ContactField
+          field="message"
+          placeholder={form.message.placeholder}
+          slot="fields"
+        >
+          <Fragment slot="label">{form.message.label}</Fragment>
+        </ContactField>
+
+        <Fragment set:html={form.acknowledgement} slot="acknowledgement" />
+        <Fragment slot="submit">{form.submit}</Fragment>
+        <Fragment slot="sending">{form.sending}</Fragment>
+        <Fragment slot="noscript">{form.noscript}</Fragment>
+        <Fragment slot="successHeading">{form.success.heading}</Fragment>
+        <Fragment slot="successBody">{form.success.body}</Fragment>
+      </ContactForm>
+
+      <ContactBooking href={booking.href} slot="aside">
+        <Fragment slot="heading">{booking.heading}</Fragment>
+        <Fragment slot="body">{booking.body}</Fragment>
+        <Fragment slot="label">{booking.label}</Fragment>
+      </ContactBooking>
+
+      <section class="flex flex-col gap-3" slot="aside">
+        <h2 class="text-lg font-semibold text-foreground">{notice.heading}</h2>
+        <DefinitionList class="text-sm">
+          {notice.items.map((item) => (
+            <DefinitionItem>
+              <Fragment slot="term">{item.term}</Fragment>
+              <Fragment set:html={item.description} slot="description" />
+            </DefinitionItem>
+          ))}
+        </DefinitionList>
+      </section>
+    </Contact>
+  </SectionContainer>
+</Layout>

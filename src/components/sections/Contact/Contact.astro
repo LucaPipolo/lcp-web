@@ -1,0 +1,19 @@
+---
+for (const slot of ["form", "aside"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<Contact> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<section
+  class="grid gap-12 border-t border-border px-gutter py-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-16"
+  id="contact"
+>
+  <div class="max-w-article">
+    <slot name="form" />
+  </div>
+  <aside class="flex flex-col gap-10">
+    <slot name="aside" />
+  </aside>
+</section>
