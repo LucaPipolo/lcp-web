@@ -25,7 +25,7 @@
     "*.{tsx,js,mjs,cjs,json,md,css,yaml,yml}": "prettier --write"
   },
   "dependencies": {
-    "@alpinejs/csp": "^3.17.3",
+    "@alpinejs/csp": "^3.17.5",
     "@astrojs/markdown-satteri": "^0.4.7",
     "@astrojs/rss": "^4.0.19",
     "@fontsource-variable/fira-code": "^5.3.0",
