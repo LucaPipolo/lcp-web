@@ -24,6 +24,7 @@ src/
 ├── styles/                Tailwind config in CSS, plus partials
 └── icons/                 hand-authored SVGs
 
+api/contact.ts             contact form endpoint, a Vercel Function
 middleware.ts              locale negotiation, at the edge
 vercel.json                security headers
 rift.yaml                  local dev environment, read by Rift
