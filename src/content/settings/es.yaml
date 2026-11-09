@@ -70,7 +70,7 @@ footer:
         - label: "linkedin"
           href: "https://www.linkedin.com/in/lucapipolo/?locale=es-ES"
         - label: "cv.pdf"
-          href: "/resumes/luca-pipolo-full-stack-developer-resume-es.pdf"
+          href: "/resumes/luca-pipolo-desarrollador-full-stack-cv.pdf"
           download: true
     - label: "legal"
       links:
