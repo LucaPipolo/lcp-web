@@ -19,10 +19,12 @@ import { getSettings } from "@/libs/content"
 import {
   type Alternates,
   DEFAULT_LOCALE,
+  getOpenGraphLocale,
   isLocale,
   LOCALES,
   localizeHref,
 } from "@/libs/i18n"
+import { getOgImageHref, OG_IMAGE_SIZE } from "@/libs/og"
 import {
   getStructuredData,
   type PageType,
@@ -38,6 +40,7 @@ interface Props {
    * gets no `hreflang`, and the switcher sends it to its home page instead.
    */
   alternates?: Alternates
+  article?: { modified?: Date; published: Date; tags: string[] }
   description?: string
   nodes?: SchemaNode[]
   /** Keeps the page out of search results, as an error page should be. */
@@ -48,6 +51,7 @@ interface Props {
 
 const {
   alternates = {},
+  article,
   description,
   nodes,
   noindex = false,
@@ -79,7 +83,16 @@ const structuredData = await getStructuredData({
   url: canonical,
 })
 
-const { blog, footer, header } = await getSettings(locale)
+const { author, blog, footer, header } = await getSettings(locale)
+
+const ogImage = absolute(
+  getOgImageHref(alternates[locale] ?? Astro.url.pathname)
+)
+const ogType = article
+  ? "article"
+  : type === "ProfilePage"
+    ? "profile"
+    : "website"
 
 const copyright =
   footer &&
@@ -121,6 +134,47 @@ const copyright =
           set:html={structuredData}
           type="application/ld+json"
         />
+        <meta content={author.name} property="og:site_name" />
+        <meta content={ogType} property="og:type" />
+        <meta content={title} property="og:title" />
+        {description && (
+          <meta content={description} property="og:description" />
+        )}
+        <meta content={canonical} property="og:url" />
+        <meta content={getOpenGraphLocale(locale)} property="og:locale" />
+        {translations
+          .filter(({ code }) => code !== locale)
+          .map(({ code }) => (
+            <meta
+              content={getOpenGraphLocale(code)}
+              property="og:locale:alternate"
+            />
+          ))}
+        <meta content={ogImage} property="og:image" />
+        <meta content="image/png" property="og:image:type" />
+        <meta content={String(OG_IMAGE_SIZE.width)} property="og:image:width" />
+        <meta
+          content={String(OG_IMAGE_SIZE.height)}
+          property="og:image:height"
+        />
+        <meta content={title} property="og:image:alt" />
+        <meta content="summary_large_image" name="twitter:card" />
+        {article && (
+          <>
+            <meta
+              content={article.published.toISOString()}
+              property="article:published_time"
+            />
+            <meta
+              content={(article.modified ?? article.published).toISOString()}
+              property="article:modified_time"
+            />
+            <meta content={absolute(homeHref)} property="article:author" />
+            {article.tags.map((tag) => (
+              <meta content={tag} property="article:tag" />
+            ))}
+          </>
+        )}
       </>
     )}
     <script is:inline set:html={THEME_INIT_SOURCE}></script>
