@@ -33,7 +33,7 @@
     "@iconify-json/lucide": "^1.2.152",
     "@neondatabase/serverless": "^1.2.0",
     "@sentry/astro": "^10.74.0",
-    "@tailwindcss/vite": "^4.3.3",
+    "@tailwindcss/vite": "^4.3.5",
     "@vercel/functions": "^3.9.8",
     "@vercel/speed-insights": "^2.0.0",
     "astro": "^7.4.7",
