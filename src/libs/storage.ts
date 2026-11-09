@@ -9,6 +9,18 @@ import { hashProof, type Proof } from "./consent.js"
  * the other. A shared id ties a message to its proof.
  */
 
+/**
+ * How long each is kept, as Postgres intervals. The privacy policy promises
+ * these exact periods in every language, so changing one means changing it
+ * there too.
+ */
+export const RETENTION = {
+  /** Long enough to answer, follow up and pick a conversation back up. */
+  messages: "12 months",
+  /** The time a data protection authority has to act on a complaint. */
+  proofs: "3 years",
+} as const
+
 /** A message as it's kept. */
 export interface StoredMessage {
   createdAt: string
@@ -113,4 +125,34 @@ export async function storeProof(proof: Proof): Promise<void> {
     VALUES (${proof.id}, ${proof.recordedAt}, ${proof.purpose}, ${proof.locale},
       ${proof.page}, ${proof.notice}, ${proof.noticeVersion}, ${proof.userAgent},
       ${proof.ipHash}, ${hashProof(proof)})`
+}
+
+/**
+ * Deletes the messages kept longer than {@link RETENTION} allows.
+ *
+ * @returns How many were deleted.
+ */
+export async function deleteExpiredMessages(): Promise<number> {
+  const sql = await connect("DB_MESSAGES_DATABASE_URL", MESSAGES_SCHEMA)
+  const deleted = await sql`
+    DELETE FROM messages
+    WHERE created_at < now() - ${RETENTION.messages}::interval
+    RETURNING id`
+
+  return deleted.length
+}
+
+/**
+ * Deletes the proof records kept longer than {@link RETENTION} allows.
+ *
+ * @returns How many were deleted.
+ */
+export async function deleteExpiredProofs(): Promise<number> {
+  const sql = await connect("DB_CONSENT_DATABASE_URL", PROOFS_SCHEMA)
+  const deleted = await sql`
+    DELETE FROM proofs
+    WHERE recorded_at < now() - ${RETENTION.proofs}::interval
+    RETURNING id`
+
+  return deleted.length
 }

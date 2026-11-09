@@ -1,5 +1,11 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "crons": [
+    {
+      "path": "/api/cleanup",
+      "schedule": "0 3 * * *"
+    }
+  ],
   "functions": {
     "api/contact.ts": {
       "includeFiles": "src/content/pages/{contact,privacy}/*.yaml"
