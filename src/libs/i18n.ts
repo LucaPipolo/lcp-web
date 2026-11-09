@@ -49,6 +49,8 @@ const PAGE_SLUGS = {
 /** A page served under its own segment, named by its English one. */
 export type Page = keyof typeof PAGE_SLUGS
 
+export const PAGES = Object.keys(PAGE_SLUGS) as Page[]
+
 /**
  * The id each linkable home page section carries, per locale, keyed by the
  * English one the same way {@link PAGE_SLUGS} is.
