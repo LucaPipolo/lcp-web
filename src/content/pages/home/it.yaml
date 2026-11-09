@@ -23,7 +23,7 @@ sections:
       digitale a Barcellona.
     actions:
       - label: "Contattami"
-        href: "mailto:ciao@lucapipolo.com"
+        href: "/contact/"
         variant: "inverted"
       - label: "Scarica il CV"
         href: "/resumes/luca-pipolo-full-stack-developer-resume-it.pdf"

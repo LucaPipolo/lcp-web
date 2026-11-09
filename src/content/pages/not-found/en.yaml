@@ -12,7 +12,7 @@ actions:
     href: "/"
     variant: "inverted"
   - label: "Get in touch"
-    href: "mailto:hello@lucapipolo.com"
+    href: "/contact/"
     variant: "outline"
 
 suggestions:

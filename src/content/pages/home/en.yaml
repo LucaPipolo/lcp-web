@@ -24,7 +24,7 @@ sections:
       digital consultancy based in Barcelona.
     actions:
       - label: "Get in touch"
-        href: "mailto:hello@lucapipolo.com"
+        href: "/contact/"
         variant: "inverted"
       - label: "Download my CV"
         href: "/resumes/luca-pipolo-full-stack-developer-resume-en.pdf"
