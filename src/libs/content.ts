@@ -2,7 +2,13 @@ import type { CollectionKey } from "astro:content"
 
 import { getCollection, getEntry } from "astro:content"
 
-import { DEFAULT_LOCALE, isLocale, LOCALES } from "@/libs/i18n"
+import {
+  DEFAULT_LOCALE,
+  getPageSlug,
+  isLocale,
+  LOCALES,
+  type Page,
+} from "@/libs/i18n"
 
 /**
  * Builds the static paths for a page from a collection holding one entry per
@@ -14,6 +20,11 @@ import { DEFAULT_LOCALE, isLocale, LOCALES } from "@/libs/i18n"
  *
  * @param collection - The collection to build the routes from, holding one
  *   YAML file per locale and named after it.
+ * @param page - The page the routes serve, for a route file named after it,
+ *   such as `[contact].astro`, which then gets that locale's segment as its
+ *   param. Astro only takes identifiers as param names, so a hyphen in the
+ *   page's name is an underscore in the file's: `[ai_content].astro`. Left out
+ *   for a route whose path is fixed, such as the home page.
  *
  * @returns One path per locale, each carrying its entry as a prop.
  *
@@ -21,7 +32,8 @@ import { DEFAULT_LOCALE, isLocale, LOCALES } from "@/libs/i18n"
  *   quietly disappearing from the built site.
  */
 export async function getLocalizedStaticPaths<C extends CollectionKey>(
-  collection: C
+  collection: C,
+  page?: Page
 ) {
   const entries = (await getCollection(collection)).filter((entry) =>
     isLocale(entry.id)
@@ -36,7 +48,12 @@ export async function getLocalizedStaticPaths<C extends CollectionKey>(
   }
 
   return entries.map((entry) => ({
-    params: { locale: entry.id === DEFAULT_LOCALE ? undefined : entry.id },
+    params: {
+      locale: entry.id === DEFAULT_LOCALE ? undefined : entry.id,
+      ...(page && isLocale(entry.id)
+        ? { [page.replaceAll("-", "_")]: getPageSlug(page, entry.id) }
+        : {}),
+    },
     props: { entry },
   }))
 }

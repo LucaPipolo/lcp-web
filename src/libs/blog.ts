@@ -2,7 +2,12 @@ import type { CollectionEntry } from "astro:content"
 
 import { getCollection } from "astro:content"
 
-import { isLocale, type Locale, localizeHref } from "@/libs/i18n"
+import {
+  type Alternates,
+  isLocale,
+  type Locale,
+  localizeHref,
+} from "@/libs/i18n"
 
 /** A post as one language tells it. */
 export type Post = CollectionEntry<"blog">
@@ -58,6 +63,30 @@ export function getPostLocale(post: Post): Locale | undefined {
  */
 export function getPostHref(post: Post, locale?: string): string {
   return localizeHref(`/blog/${getPostSlug(post)}/`, locale)
+}
+
+/**
+ * Lists where a post is served in each language it was written in.
+ *
+ * @param post - The post being read.
+ * @param posts - Every published post, whatever its language.
+ *
+ * @returns The path of each translation, the post's own included. A language
+ *   the post was not written in is left out rather than pointed at a page
+ *   that does not exist.
+ */
+export function getPostAlternates(post: Post, posts: Post[]): Alternates {
+  const slug = getPostSlug(post)
+
+  return Object.fromEntries(
+    posts.flatMap((candidate) => {
+      const locale = getPostLocale(candidate)
+
+      return locale && getPostSlug(candidate) === slug
+        ? [[locale, getPostHref(candidate, locale)]]
+        : []
+    })
+  )
 }
 
 /**

@@ -1,6 +1,8 @@
 ---
 import CardGrid from "@/components/common/CardGrid.astro"
 
+import { getAnchor } from "@/libs/i18n"
+
 for (const slot of ["heading", "posts"]) {
   if (!Astro.slots.has(slot)) {
     throw new Error(
@@ -10,7 +12,7 @@ for (const slot of ["heading", "posts"]) {
 }
 ---
 
-<section id="blog">
+<section id={getAnchor("blog", Astro.currentLocale)}>
   <slot name="heading" />
 
   <CardGrid separators="ruled">

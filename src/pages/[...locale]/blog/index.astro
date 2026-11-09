@@ -26,7 +26,7 @@ import {
   getTags,
 } from "@/libs/blog"
 import { getLocalizedStaticPaths, getSettings } from "@/libs/content"
-import { formatDate } from "@/libs/i18n"
+import { formatDate, getAlternates } from "@/libs/i18n"
 import { fillPlaceholders } from "@/libs/template"
 
 /** How many posts a page of the blog shows: three full rows of the grid. */
@@ -52,7 +52,11 @@ const { blog } = await getSettings(locale)
 const tags = getTags(posts)
 ---
 
-<Layout description={intro} title={metadata.title}>
+<Layout
+  alternates={getAlternates("/blog/")}
+  description={intro}
+  title={metadata.title}
+>
   <SectionContainer>
     <div class="flex flex-col gap-4 px-gutter pt-20 pb-10">
       <h1 class="max-w-article text-4xl font-semibold tracking-tight text-foreground">

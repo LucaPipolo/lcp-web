@@ -16,34 +16,44 @@ import ThemeToggle from "@/components/sections/SiteHeader/ThemeToggle.astro"
 
 import { getFeedHref } from "@/libs/blog"
 import { getSettings } from "@/libs/content"
-import { DEFAULT_LOCALE, isLocale, LOCALES, localizeHref } from "@/libs/i18n"
+import {
+  type Alternates,
+  DEFAULT_LOCALE,
+  isLocale,
+  LOCALES,
+  localizeHref,
+} from "@/libs/i18n"
 import { fillPlaceholders } from "@/libs/template"
 
 import { THEME_INIT_SOURCE } from "@/scripts/theme-init"
 
 interface Props {
+  /**
+   * Where this page is served in each locale that has it. A locale left out
+   * gets no `hreflang`, and the switcher sends it to its home page instead.
+   */
+  alternates?: Alternates
   description?: string
   /** Keeps the page out of search results, as an error page should be. */
   noindex?: boolean
   title: string
 }
 
-const locale = Astro.currentLocale
-const homeHref = locale && locale !== DEFAULT_LOCALE ? `/${locale}/` : "/"
+const { alternates = {}, description, noindex = false, title } = Astro.props
 
-const path =
-  isLocale(locale) && locale !== DEFAULT_LOCALE
-    ? Astro.url.pathname.slice(`/${locale}`.length) || "/"
-    : Astro.url.pathname
+const locale = isLocale(Astro.currentLocale)
+  ? Astro.currentLocale
+  : DEFAULT_LOCALE
+const homeHref = localizeHref("/", locale)
 
-const canonical = new URL(localizeHref(path, locale), Astro.site)
+const absolute = (href: string) => new URL(href, Astro.site).href
 
-const alternates = LOCALES.map((code) => ({
-  code,
-  href: new URL(localizeHref(path, code), Astro.site).href,
-}))
-
-const { description, noindex = false, title } = Astro.props
+const canonical = absolute(alternates[locale] ?? Astro.url.pathname)
+const translations = LOCALES.flatMap((code) => {
+  const href = alternates[code]
+  return href ? [{ code, href: absolute(href) }] : []
+})
+const fallback = alternates[DEFAULT_LOCALE]
 
 const { blog, footer, header } = await getSettings(locale)
 
@@ -71,15 +81,17 @@ const copyright =
       <meta content="noindex" name="robots" />
     ) : (
       <>
-        <link href={canonical.href} rel="canonical" />
-        {alternates.map(({ code, href }) => (
+        <link href={canonical} rel="canonical" />
+        {translations.map(({ code, href }) => (
           <link href={href} hreflang={code} rel="alternate" />
         ))}
-        <link
-          href={new URL(localizeHref(path, DEFAULT_LOCALE), Astro.site).href}
-          hreflang="x-default"
-          rel="alternate"
-        />
+        {fallback && (
+          <link
+            href={absolute(fallback)}
+            hreflang="x-default"
+            rel="alternate"
+          />
+        )}
       </>
     )}
     <script is:inline set:html={THEME_INIT_SOURCE}></script>
@@ -148,7 +160,9 @@ const copyright =
                 : "text-muted-foreground hover:text-foreground",
             ]}
             data-locale={code}
-            href={code === DEFAULT_LOCALE ? "/" : `/${code}/`}
+            href={alternates[code] ?? localizeHref("/", code)}
+            hreflang={code}
+            lang={code}
             slot="locales"
           >
             {code}

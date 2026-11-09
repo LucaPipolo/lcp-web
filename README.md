@@ -34,7 +34,7 @@ api/notify.ts              privacy notices to people who wrote, sent by hand
 scripts/notify.ts          triggers api/notify from your machine
 notices/                   privacy notices sent by hand, plus a template
 middleware.ts              locale negotiation, at the edge
-vercel.json                security headers
+vercel.json                security headers and redirects
 rift.yaml                  local dev environment, read by Rift
 compose.yaml               dev containers
 check-csp.mjs              build-time CSP check

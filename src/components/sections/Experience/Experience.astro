@@ -1,4 +1,6 @@
 ---
+import { getAnchor } from "@/libs/i18n"
+
 if (!Astro.slots.has("heading")) {
   throw new Error(
     "<Experience> requires a `heading` slot (pass a <SectionHeading>)."
@@ -12,7 +14,10 @@ if (!Astro.slots.has("roles")) {
 }
 ---
 
-<section id="experience" x-data="experienceRoles">
+<section
+  id={getAnchor("experience", Astro.currentLocale)}
+  x-data="experienceRoles"
+>
   <slot name="heading" />
 
   <div class="flex flex-col gap-8 px-gutter">

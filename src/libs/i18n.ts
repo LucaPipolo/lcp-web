@@ -23,6 +23,51 @@ const FORMATTING_LOCALES: Record<Locale, string> = {
 }
 
 /**
+ * The path segment each page is served under, per locale.
+ *
+ * Keyed by the English segment, which is also how content names a page
+ * (`/contact/`), so that a link is written once and every locale reads it in
+ * its own words. Kept in code rather than content because
+ * {@link localizeHref} runs synchronously in every component that renders a
+ * link.
+ */
+const PAGE_SLUGS = {
+  "ai-content": { es: "contenido-ia", en: "ai-content", it: "contenuti-ia" },
+  blog: { es: "blog", en: "blog", it: "blog" },
+  contact: { es: "contacto", en: "contact", it: "contatti" },
+  cookies: { es: "cookies", en: "cookies", it: "cookie" },
+  imprint: { es: "aviso-legal", en: "imprint", it: "note-legali" },
+  privacy: { es: "privacidad", en: "privacy", it: "privacy" },
+  recommendations: {
+    es: "recomendaciones",
+    en: "recommendations",
+    it: "raccomandazioni",
+  },
+  security: { es: "seguridad", en: "security", it: "sicurezza" },
+} as const satisfies Record<string, Record<Locale, string>>
+
+/** A page served under its own segment, named by its English one. */
+export type Page = keyof typeof PAGE_SLUGS
+
+/**
+ * The id each linkable home page section carries, per locale, keyed by the
+ * English one the same way {@link PAGE_SLUGS} is.
+ */
+const ANCHORS = {
+  blog: { es: "blog", en: "blog", it: "blog" },
+  experience: { es: "experiencia", en: "experience", it: "esperienza" },
+  recommendations: {
+    es: "recomendaciones",
+    en: "recommendations",
+    it: "raccomandazioni",
+  },
+  stack: { es: "stack", en: "stack", it: "stack" },
+} as const satisfies Record<string, Record<Locale, string>>
+
+/** A home page section a link can jump to, named by its English id. */
+export type Anchor = keyof typeof ANCHORS
+
+/**
  * Narrows an unknown value to a supported locale.
  *
  * @param value - The value to test, usually `Astro.currentLocale`, which is
@@ -36,28 +81,94 @@ export function isLocale(value: unknown): value is Locale {
   )
 }
 
+function isPage(value: string): value is Page {
+  return Object.hasOwn(PAGE_SLUGS, value)
+}
+
+function isAnchor(value: string): value is Anchor {
+  return Object.hasOwn(ANCHORS, value)
+}
+
 /**
- * Puts a path behind the reader's locale, so that content can name a page once
- * and have every locale link to its own copy of it.
+ * Reads the segment a page is served under in one locale.
+ *
+ * @param page - The page, by its English segment.
+ * @param locale - The locale to read it in.
+ *
+ * @returns The segment, without slashes.
+ */
+export function getPageSlug(page: Page, locale: Locale): string {
+  return PAGE_SLUGS[page][locale]
+}
+
+/**
+ * Reads the id a home page section carries in one locale.
+ *
+ * @param anchor - The section, by its English id.
+ * @param locale - The reader's locale. Anything unsupported, `undefined`
+ *   included, falls back to {@link DEFAULT_LOCALE}.
+ *
+ * @returns The id, without the `#`.
+ */
+export function getAnchor(anchor: Anchor, locale?: string): string {
+  return ANCHORS[anchor][isLocale(locale) ? locale : DEFAULT_LOCALE]
+}
+
+/**
+ * Puts a path behind the reader's locale and into its words, so that content
+ * can name a page once and have every locale link to its own copy of it.
  *
  * Only in-site pages are rewritten. An absolute URL, a `mailto:`, and a file
  * such as a PDF are all served from one place whatever the reader's language,
  * so a prefix on those would point at something that is not there.
  *
- * @param href - The path as content writes it, rooted at the site, such as
- *   `/#experience`.
+ * @param href - The path as content writes it, rooted at the site and in
+ *   English, such as `/contact/` or `/#experience`. A first segment or a hash
+ *   the site has no translation for is kept as written.
  * @param locale - The reader's locale. Anything unsupported, `undefined`
  *   included, falls back to {@link DEFAULT_LOCALE}.
  *
- * @returns The path as that locale serves it. {@link DEFAULT_LOCALE} is served
- *   at the root, so its paths come back untouched.
+ * @returns The path as that locale serves it, such as `/it/contatti/`.
+ *   {@link DEFAULT_LOCALE} is served at the root, so its paths get no prefix.
  */
 export function localizeHref(href: string, locale?: string): string {
   if (!href.startsWith("/") || /\.[a-z0-9]+$/i.test(href)) return href
 
   const resolved = isLocale(locale) ? locale : DEFAULT_LOCALE
 
-  return resolved === DEFAULT_LOCALE ? href : `/${resolved}${href}`
+  const [rest, hash] = href.split("#", 2)
+  const [path, query] = rest.split("?", 2)
+  const [, first = "", ...others] = path.split("/")
+
+  const segment = isPage(first) ? getPageSlug(first, resolved) : first
+  const translated = ["", segment, ...others].join("/")
+
+  const localized =
+    resolved === DEFAULT_LOCALE ? translated : `/${resolved}${translated}`
+
+  return [
+    localized,
+    query === undefined ? "" : `?${query}`,
+    hash === undefined
+      ? ""
+      : `#${isAnchor(hash) ? getAnchor(hash, resolved) : hash}`,
+  ].join("")
+}
+
+/** Where one page is served in each locale that has it. */
+export type Alternates = Partial<Record<Locale, string>>
+
+/**
+ * Lists where a page is served in every locale, for a page every locale has.
+ *
+ * @param href - The page as content writes it, such as `/contact/`.
+ *
+ * @returns Its path in each locale, as {@link localizeHref} builds it.
+ */
+export function getAlternates(href: string): Alternates {
+  return Object.fromEntries(
+    LOCALES.map((locale) => [locale, localizeHref(href, locale)])
+  )
 }
 
 /**

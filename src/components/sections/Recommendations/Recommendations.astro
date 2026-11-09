@@ -1,6 +1,8 @@
 ---
 import CardGrid from "@/components/common/CardGrid.astro"
 
+import { getAnchor } from "@/libs/i18n"
+
 if (!Astro.slots.has("heading")) {
   throw new Error(
     "<Recommendations> requires a `heading` slot (pass a <SectionHeading>)."
@@ -14,7 +16,7 @@ if (!Astro.slots.has("quotes")) {
 }
 ---
 
-<section id="recommendations">
+<section id={getAnchor("recommendations", Astro.currentLocale)}>
   <slot name="heading" />
 
   <CardGrid>

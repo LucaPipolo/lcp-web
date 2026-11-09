@@ -10,10 +10,10 @@ import Article from "@/components/sections/Article/Article.astro"
 import ArticleSection from "@/components/sections/Article/ArticleSection.astro"
 
 import { getLocalizedStaticPaths } from "@/libs/content"
-import { formatDate } from "@/libs/i18n"
+import { formatDate, getAlternates } from "@/libs/i18n"
 
 export async function getStaticPaths() {
-  return getLocalizedStaticPaths("security")
+  return getLocalizedStaticPaths("imprint", "imprint")
 }
 
 const { entry } = Astro.props
@@ -22,7 +22,7 @@ const { metadata, title, updated, updatedLabel, intro, sections } = entry.data
 const updatedOn = `${updatedLabel} ${formatDate(updated, Astro.currentLocale)}`
 ---
 
-<Layout title={metadata.title}>
+<Layout alternates={getAlternates("/imprint/")} title={metadata.title}>
   <SectionContainer>
     <Article>
       <Fragment slot="title">{title}</Fragment>

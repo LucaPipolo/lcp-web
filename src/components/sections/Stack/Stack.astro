@@ -1,4 +1,6 @@
 ---
+import { getAnchor } from "@/libs/i18n"
+
 if (!Astro.slots.has("heading")) {
   throw new Error(
     "<Stack> requires a `heading` slot (pass a <SectionHeading>)."
@@ -20,7 +22,7 @@ if (!headingHtml.includes('role="tablist"')) {
 }
 ---
 
-<section id="stack" x-data="stackTabs">
+<section id={getAnchor("stack", Astro.currentLocale)} x-data="stackTabs">
   <slot name="heading" />
 
   <div class="flex flex-col gap-6 px-gutter">
