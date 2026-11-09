@@ -108,6 +108,7 @@ const copyright =
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
     <title>{title}</title>
     {description && <meta content={description} name="description" />}
+    <meta content={author.name} name="author" />
     <link
       href={getFeedHref(locale)}
       rel="alternate"
