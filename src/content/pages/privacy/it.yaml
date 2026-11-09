@@ -10,8 +10,8 @@ updated: 2026-11-09
 updatedLabel: "Ultimo aggiornamento:"
 
 intro: >-
-  Questo sito raccoglie solo i dati necessari per funzionare, rispondere
-  ai messaggi e individuare eventuali problemi tecnici. Non utilizza
+  Questo sito raccoglie solo i dati necessari per funzionare, contare
+  le visite, rispondere ai messaggi e individuare eventuali problemi tecnici. Non utilizza
   strumenti di profilazione né vende i tuoi dati personali. Qui trovi
   quali informazioni vengono trattate, per quali motivi, chi può
   accedervi, per quanto tempo vengono conservate e come puoi esercitare
@@ -93,6 +93,18 @@ sections:
           profilarti o collegare tra loro le tue visite.
           Per maggiori dettagli puoi consultare
           l'<a href="/it/cookie/">informativa sui cookie</a>.
+      - term: "Statistiche delle visite"
+        description: >-
+          Per capire quali pagine vengono lette e come i visitatori
+          arrivano al sito, per ogni pagina visualizzata vengono
+          registrati la data e l'ora, l'indirizzo della pagina,
+          il sito di provenienza, i parametri di campagna presenti
+          nell'indirizzo, come <code>utm_source</code>, la posizione
+          approssimativa (Paese, regione e città), il sistema
+          operativo, il browser e le relative versioni, e il tipo
+          di dispositivo. Le pagine visualizzate dallo stesso
+          visitatore vengono raggruppate per un solo giorno,
+          come spiegato più avanti.
       - term: "Metriche di prestazione"
         description: >-
           Per verificare le prestazioni del sito vengono rilevate
@@ -128,6 +140,12 @@ sections:
       poter rispondere alle richieste. Anche i fornitori tecnici
       di questo sito possono trattarlo nell'ambito dei propri
       servizi.</p>
+      <p>Per contare le visite senza cookie, Vercel Web Analytics
+      raggruppa le pagine visualizzate dallo stesso visitatore
+      tramite un hash calcolato a partire dalla richiesta,
+      che viene rinnovato ogni 24 ore. Non è quindi possibile
+      collegare visite di giorni diversi o di altri siti,
+      e i dati che conserva non includono il tuo indirizzo IP.</p>
       <p>Le metriche di prestazione fornite da Vercel non consentono,
       secondo la documentazione del servizio, di ricondurre i
       risultati a una visita o a un indirizzo IP specifico.
@@ -178,11 +196,13 @@ sections:
       del GDPR, tenendo conto anche del considerando 49
       relativo alla sicurezza delle reti e dei sistemi
       informativi.</p>
-      <p><strong>Prestazioni e segnalazioni di errore.</strong>
-      I trattamenti di dati personali eventualmente necessari
-      per monitorare le prestazioni e individuare problemi
-      tecnici si basano sul legittimo interesse a mantenere
-      il sito funzionante, sicuro e affidabile. La raccolta
+      <p><strong>Statistiche delle visite, prestazioni
+      e segnalazioni di errore.</strong> I trattamenti
+      di dati personali eventualmente necessari per contare
+      le visite, monitorare le prestazioni e individuare
+      problemi tecnici si basano sul legittimo interesse
+      a capire come viene usato il sito e a mantenerlo
+      funzionante, sicuro e affidabile. La raccolta
       è limitata alle informazioni necessarie per queste finalità,
       con configurazioni volte a ridurre al minimo
       i dati personali trattati.</p>
@@ -219,10 +239,13 @@ sections:
       - term: "Vercel Inc."
         description: >-
           Fornisce l'hosting del sito, esegue il codice server
-          del modulo di contatto, gestisce la sicurezza perimetrale
-          e raccoglie le metriche di prestazione tramite
+          del modulo di contatto, gestisce la sicurezza perimetrale,
+          raccoglie le statistiche delle visite tramite
+          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer">Vercel Web Analytics</a>
+          e le metriche di prestazione tramite
           <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>.
-          Consulta l'<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Vercel</a>.
+          Consulta l'<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Vercel</a>
+          e <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">come Web Analytics tratta i dati</a>.
       - term: "Functional Software, Inc."
         description: >-
           Fornisce <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>,
@@ -291,8 +314,8 @@ sections:
       e le eventuali attività collegate. Quando non sono
       più necessarie, vengono cancellate, fatti salvi
       eventuali obblighi di conservazione applicabili.</p>
-      <p>Le metriche di prestazione e le segnalazioni di errore
-      sono conservate dai rispettivi fornitori secondo i periodi
+      <p>Le statistiche delle visite, le metriche di prestazione
+      e le segnalazioni di errore sono conservate dai rispettivi fornitori secondo i periodi
       previsti dai loro servizi e dalle configurazioni adottate.
       Le preferenze di lingua e tema rimangono sul tuo
       dispositivo finché non cancelli i dati del sito

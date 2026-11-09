@@ -16,8 +16,8 @@ intro: >-
   queste impostazioni. Non ci sono cookie pubblicitari, strumenti di
   profilazione o sistemi che tracciano la tua navigazione tra più
   visite. Per questo motivo non compare alcun cookie banner.
-  Il sito utilizza inoltre alcuni strumenti per monitorare le
-  prestazioni, rilevare gli errori e proteggere il modulo di contatto
+  Il sito utilizza inoltre alcuni strumenti per contare le visite,
+  monitorare le prestazioni, rilevare gli errori e proteggere il modulo di contatto
   dallo spam. Qui trovi come funzionano, quali informazioni trattano
   e perché non è necessario richiedere il tuo consenso.
 
@@ -101,15 +101,37 @@ sections:
       mostrare un cookie banner o richiedere il consenso
       prima della navigazione.</p>
 
-  - heading: "Monitoraggio delle prestazioni ed errori"
+  - heading: "Statistiche delle visite, prestazioni ed errori"
     body: >-
-      <p>Utilizzo due servizi per controllare le prestazioni
-      del sito e individuare eventuali problemi tecnici.
-      Entrambi funzionano senza installare cookie o salvare
-      informazioni nel local storage del browser e sono
-      configurati per non raccogliere dati che permettano
-      di identificare i visitatori.</p>
+      <p>Utilizzo tre servizi per capire come viene usato
+      il sito e individuare eventuali problemi tecnici.
+      Nessuno di essi installa cookie o salva informazioni
+      nel local storage del browser, e ciascuno raccoglie
+      il minimo indispensabile sulle persone che
+      lo visitano.</p>
     items:
+      - term: "Vercel Web Analytics"
+        description: >-
+          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer">Vercel Web Analytics</a>
+          conta le visite per permettermi di sapere quali
+          pagine vengono lette e da dove arrivano i visitatori.
+          Per ogni pagina visualizzata registra la data e l'ora,
+          l'indirizzo della pagina, il sito di provenienza,
+          i parametri di campagna presenti nell'indirizzo,
+          come <code>utm_source</code>, la posizione approssimativa
+          (Paese, regione e città), il sistema operativo,
+          il browser e le relative versioni, e il tipo
+          di dispositivo. Invece di un cookie, raggruppa
+          le pagine visualizzate dallo stesso visitatore
+          tramite un hash calcolato a partire dalla richiesta,
+          che viene rinnovato ogni 24 ore: non è quindi
+          possibile collegare visite di giorni diversi
+          o di altri siti. Secondo la
+          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">documentazione di Vercel</a>,
+          non raccoglie identificatori che permettano
+          di seguire una persona tra siti diversi,
+          e io posso consultare i risultati soltanto
+          come statistiche aggregate.
       - term: "Vercel Speed Insights"
         description: >-
           <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>
@@ -169,10 +191,11 @@ sections:
   - heading: "Come bloccare gli strumenti di monitoraggio"
     body: >-
       <p>Se preferisci impedire anche la raccolta delle
-      metriche anonime di Vercel Speed Insights o delle
+      statistiche delle visite di Vercel Web Analytics,
+      delle metriche anonime di Vercel Speed Insights o delle
       segnalazioni tecniche di Sentry, puoi utilizzare
       un'estensione del browser che blocca gli script
-      di terze parti, come
+      di analisi e monitoraggio, come
       <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.</p>
       <p>A seconda delle impostazioni e delle liste di
       filtri utilizzate, queste estensioni possono bloccare

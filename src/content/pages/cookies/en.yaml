@@ -16,7 +16,7 @@ intro: >-
   settings. There are no advertising cookies, profiling tools
   or systems that track your browsing across visits, which is
   why you won't see a cookie banner. I also use a few tools
-  to monitor performance, detect errors and protect the contact
+  to count visits, monitor performance, detect errors and protect the contact
   form from spam. This notice explains how they work, what
   information they process and why your consent isn't required.
 
@@ -99,14 +99,33 @@ sections:
       a cookie banner or your consent before
       you start browsing.</p>
 
-  - heading: "Performance monitoring and error reporting"
+  - heading: "Visit statistics, performance and error reporting"
     body: >-
-      <p>I use two services to monitor website performance
-      and identify technical problems. Neither sets
-      cookies or saves information in your browser's
-      local storage, and both are configured to avoid
-      collecting information that could identify visitors.</p>
+      <p>I use three services to understand how the website
+      is used and to identify technical problems. None of
+      them sets cookies or saves information in your
+      browser's local storage, and each one collects
+      as little as possible about the people visiting.</p>
     items:
+      - term: "Vercel Web Analytics"
+        description: >-
+          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer">Vercel Web Analytics</a>
+          counts visits so I can see which pages are read
+          and where visitors come from. For each page view,
+          it records the date and time, the page address,
+          the referring website, campaign parameters in the
+          address such as <code>utm_source</code>, the approximate
+          location (country, region and city), the operating
+          system, the browser and their versions, and the
+          device type. Instead of a cookie, it groups page
+          views from the same visitor using a hash calculated
+          from the request, which resets every 24 hours,
+          so visits can't be linked across different days
+          or different websites. According to
+          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's documentation</a>,
+          it collects no identifiers that track people
+          across websites, and I can only see the results
+          as aggregated statistics.
       - term: "Vercel Speed Insights"
         description: >-
           <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>
@@ -163,10 +182,11 @@ sections:
   - heading: "How to block monitoring tools"
     body: >-
       <p>If you'd prefer to prevent even the collection
-      of anonymous performance metrics by Vercel Speed
+      of visit statistics by Vercel Web Analytics,
+      anonymous performance metrics by Vercel Speed
       Insights or technical error reports by Sentry,
       you can use a browser extension that blocks
-      third-party scripts, such as
+      analytics and monitoring scripts, such as
       <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.</p>
       <p>Depending on their settings and filter lists,
       these extensions can block requests sent to

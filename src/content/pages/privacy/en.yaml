@@ -10,8 +10,8 @@ updated: 2026-11-09
 updatedLabel: "Last updated:"
 
 intro: >-
-  This website only collects the data it needs to work, respond to
-  messages and identify technical problems. It doesn't use profiling
+  This website only collects the data it needs to work, count visits,
+  respond to messages and identify technical problems. It doesn't use profiling
   tools or sell your personal data. Here you'll find out what
   information is processed, why it's needed, who has access to it,
   how long it's kept and how you can exercise your rights.
@@ -88,6 +88,17 @@ sections:
           not used to identify you, build a profile or link
           your visits together. For more information, see
           the <a href="/en/cookies/">cookie policy</a>.
+      - term: "Visit statistics"
+        description: >-
+          To understand which pages are read and how visitors
+          find the website, each page view records the date
+          and time, the page address, the referring website,
+          campaign parameters in the address such as
+          <code>utm_source</code>, the approximate location
+          (country, region and city), the operating system,
+          the browser and their versions, and the device type.
+          Page views from the same visitor are grouped for
+          a single day only, as explained below.
       - term: "Performance metrics"
         description: >-
           To monitor website performance, information such
@@ -121,6 +132,12 @@ sections:
       so they can respond to requests. This website's
       technical service providers may also process it
       as part of their services.</p>
+      <p>To count visits without cookies, Vercel Web Analytics
+      groups the page views of the same visitor using a hash
+      calculated from the request, which resets every
+      24 hours. As a result, visits can't be linked across
+      different days or different websites, and the data
+      it stores doesn't include your IP address.</p>
       <p>According to Vercel's documentation, its performance
       metrics cannot be linked to a specific visit or IP
       address. The error reporting system is configured
@@ -167,11 +184,12 @@ sections:
       requests, under Article 6(1)(f) of the GDPR.
       This also takes account of Recital 49, which addresses
       network and information security.</p>
-      <p><strong>Performance and error reporting.</strong>
-      Any processing of personal data necessary to monitor
-      performance and identify technical problems is based
-      on the legitimate interest in keeping the website
-      working, secure and reliable. Data collection is
+      <p><strong>Visit statistics, performance and error
+      reporting.</strong> Any processing of personal data
+      necessary to count visits, monitor performance and
+      identify technical problems is based on the legitimate
+      interest in understanding how the website is used
+      and keeping it working, secure and reliable. Data collection is
       limited to what is necessary for these purposes,
       with settings designed to minimise the personal
       data processed.</p>
@@ -208,10 +226,13 @@ sections:
       - term: "Vercel Inc."
         description: >-
           Hosts the website, runs the server-side code
-          for the contact form, provides perimeter security
-          and collects performance metrics through
+          for the contact form, provides perimeter security,
+          collects visit statistics through
+          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer">Vercel Web Analytics</a>
+          and performance metrics through
           <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>.
-          See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's privacy policy</a>.
+          See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's privacy policy</a>
+          and <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">how Web Analytics handles data</a>.
       - term: "Functional Software, Inc."
         description: >-
           Provides
@@ -282,7 +303,7 @@ sections:
       related activities. Once they're no longer needed,
       they're deleted, unless an applicable legal
       obligation requires them to be retained.</p>
-      <p>Performance metrics and error reports are kept
+      <p>Visit statistics, performance metrics and error reports are kept
       for the periods set by their respective providers
       and the configurations in use. Language and theme
       preferences remain on your device until you clear
