@@ -1,0 +1,37 @@
+# An example notice for `bun run notify`. Copy it to a new file named after the
+# change (e.g. notices/2027-03-01-new-controller.yaml), write the subject and the
+# body in every language, and commit it, so the repository keeps what was sent.
+#
+# The body is plain text: paragraphs separated by a blank line, no markup. The
+# greeting, why the recipient is getting it, how to object and the link to the
+# privacy policy are added for you, from src/content/emails/notice/.
+
+es:
+  subject: "Actualización sobre el tratamiento de tus datos"
+  body: |
+    He actualizado la política de privacidad de lucapipolo.com.
+    Los cambios afectan a los datos que me facilitaste a través
+    del formulario de contacto.
+
+    [Explica brevemente qué ha cambiado, cómo afecta a los datos
+    de la persona que recibe el mensaje y desde qué fecha se aplica.]
+
+en:
+  subject: "Update to how your personal data is handled"
+  body: |
+    I've updated the privacy policy on lucapipolo.com.
+    The changes affect the information you shared with me
+    through the contact form.
+
+    [Briefly explain what's changed, how it affects the recipient's
+    data and the date the changes take effect.]
+
+it:
+  subject: "Aggiornamento sul trattamento dei tuoi dati"
+  body: |
+    Ho aggiornato l'informativa sulla privacy di lucapipolo.com.
+    Le modifiche riguardano i dati che mi hai inviato tramite
+    il modulo di contatto.
+
+    [Spiega brevemente cosa è cambiato, quali conseguenze ha
+    per i dati del destinatario e da quando si applicano le modifiche.]

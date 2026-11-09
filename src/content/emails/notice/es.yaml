@@ -1,0 +1,21 @@
+# Texto fijo incluido en cada aviso de privacidad enviado por api/notify.
+# {name} es el nombre indicado en el formulario de contacto.
+
+greeting: "Hola, {name}:"
+
+privacy:
+  label: "Consulta la política de privacidad actualizada"
+  href: "/privacy/"
+
+rights: >-
+  Si quieres que elimine tu mensaje o deseas oponerte al tratamiento
+  de tus datos, puedes responder directamente a este correo o
+  escribirme a privacy@somoscuatro.es.
+
+reason: >-
+  Recibes este correo porque contactaste conmigo a través del
+  formulario de lucapipolo.com y los cambios afectan al tratamiento
+  de los datos que me facilitaste. Es una comunicación puntual
+  sobre privacidad, no un correo comercial ni una newsletter.
+
+signature: "Luca Pipolo"
