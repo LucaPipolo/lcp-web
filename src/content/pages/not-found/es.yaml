@@ -29,5 +29,5 @@ suggestions:
       href: "/recommendations/"
     - label: "cv.pdf"
       description: "Mi currículum completo, listo para descargar."
-      href: "/resumes/luca-pipolo-full-stack-developer-resume-es.pdf"
+      href: "/resumes/luca-pipolo-desarrollador-full-stack-cv.pdf"
       download: true

@@ -26,7 +26,7 @@ sections:
         href: "/contact/"
         variant: "inverted"
       - label: "Scarica il CV"
-        href: "/resumes/luca-pipolo-full-stack-developer-resume-it.pdf"
+        href: "/resumes/luca-pipolo-full-stack-developer-cv.pdf"
         variant: "outline"
         download: true
 
