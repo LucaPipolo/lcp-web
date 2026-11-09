@@ -115,6 +115,26 @@ export function getAnchor(anchor: Anchor, locale?: string): string {
 }
 
 /**
+ * Translates a home page section's id, whichever locale it was read in.
+ *
+ * @param id - The id, without the `#`, such as `esperienza`.
+ * @param locale - The locale to translate it into.
+ *
+ * @returns The id that locale gives the same section, or `undefined` for an
+ *   id that names none, such as a post's heading.
+ */
+export function translateAnchor(
+  id: string,
+  locale: Locale
+): string | undefined {
+  const anchor = (Object.keys(ANCHORS) as Anchor[]).find((key) =>
+    Object.values<string>(ANCHORS[key]).includes(id)
+  )
+
+  return anchor && ANCHORS[anchor][locale]
+}
+
+/**
  * Puts a path behind the reader's locale and into its words, so that content
  * can name a page once and have every locale link to its own copy of it.
  *
