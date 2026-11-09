@@ -354,13 +354,26 @@ const blog = defineCollection({
        * Left out, the posts sharing the most tags are pointed to instead.
        */
       related: z.array(z.string()).optional(),
+      /**
+       * What search results and link previews call the post, when its own
+       * title runs past what they show.
+       */
+      metaTitle: z.string().optional(),
+      /**
+       * What search results and link previews say about the post, when its
+       * description runs past what they show.
+       */
+      metaDescription: z.string().optional(),
     }),
 })
 
 const blogIndex = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/pages/blog" }),
   schema: z.object({
-    metadata: z.object({ title: z.string() }),
+    metadata: z.object({
+      title: z.string(),
+      description: z.string().optional(),
+    }),
     title: z.string(),
     intro: z.string(),
     empty: z.string(),
