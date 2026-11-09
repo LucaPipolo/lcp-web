@@ -107,7 +107,7 @@ const copyright =
         <Fragment slot="tagline">{footer.tagline}</Fragment>
         <ButtonLink
           class="self-start"
-          href={footer.action.href}
+          href={localizeHref(footer.action.href, locale)}
           slot="action"
           variant="inverted"
         >

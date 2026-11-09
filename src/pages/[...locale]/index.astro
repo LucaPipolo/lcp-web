@@ -76,7 +76,7 @@ const posts = (await getPosts(locale)).slice(0, LATEST)
     {hero.actions.map((action) => (
       <ButtonLink
         download={action.download}
-        href={action.href}
+        href={localizeHref(action.href, locale)}
         slot="actions"
         variant={action.variant}
       >
