@@ -1,5 +1,7 @@
 import { ipAddress } from "@vercel/functions"
+import { randomUUID } from "node:crypto"
 
+import { hashIp, readNotice } from "../src/libs/consent.js"
 import {
   checkContact,
   type ContactInput,
@@ -7,6 +9,8 @@ import {
   MIN_ELAPSED,
 } from "../src/libs/contact.js"
 import { sendEmail } from "../src/libs/email.js"
+import { isLocale, type Locale } from "../src/libs/i18n.js"
+import { storeMessage, storeProof } from "../src/libs/storage.js"
 
 /**
  * We decided to check every submission here, in this order, from the cheapest
@@ -15,6 +19,9 @@ import { sendEmail } from "../src/libs/email.js"
  */
 
 const SITEVERIFY = "https://challenges.cloudflare.com/turnstile/v0/siteverify"
+
+/** Longer than any real browser's, so the rest is never worth keeping. */
+const MAX_USER_AGENT = 512
 
 /** How each reason reads in the subject line of the email Luca gets. */
 const REASONS: Record<ContactReason, string> = {
@@ -138,6 +145,57 @@ async function deliver(submission: Submission): Promise<void> {
   })
 }
 
+/**
+ * Keeps a submission and the proof of what its Visitor was told, both under
+ * one id.
+ *
+ * @param submission - A submission that passed every check.
+ * @param request - The request it came in, for the address and browser.
+ */
+async function keep(
+  submission: Submission & { locale: Locale },
+  request: Request
+): Promise<void> {
+  const secret = process.env.CONSENT_IP_HASH_SECRET
+
+  if (!secret) {
+    throw new Error(
+      "No key to hash addresses with. Set `CONSENT_IP_HASH_SECRET` in this Vercel environment."
+    )
+  }
+
+  const id = randomUUID()
+  const now = new Date().toISOString()
+  const notice = await readNotice(submission.locale)
+
+  await Promise.all([
+    storeMessage({
+      createdAt: now,
+      email: submission.email.trim(),
+      id,
+      locale: submission.locale,
+      message: submission.message.trim(),
+      name: submission.name.trim(),
+      page: submission.page,
+      reason: submission.reason,
+    }),
+    storeProof({
+      id,
+      ipHash: hashIp(ipAddress(request) ?? "", secret),
+      locale: submission.locale,
+      notice: notice.text,
+      noticeVersion: notice.version,
+      page: submission.page,
+      purpose: "contact",
+      recordedAt: now,
+      userAgent: (request.headers.get("user-agent") ?? "").slice(
+        0,
+        MAX_USER_AGENT
+      ),
+    }),
+  ])
+}
+
 export default {
   /**
    * Checks a contact form submission and answers the form.
@@ -171,6 +229,10 @@ export default {
 
     if (Object.keys(fields).length > 0) return json({ fields }, 422)
 
+    // The locale picks which notice is read from disk, so nothing else may
+    // get that far.
+    if (!isLocale(submission.locale)) return json({ error: "generic" }, 400)
+
     try {
       if (!(await verify(submission.token, ipAddress(request)))) {
         return json({ error: "verification" }, 403)
@@ -179,11 +241,18 @@ export default {
       return json({ error: "generic" }, 502)
     }
 
-    try {
-      await deliver(submission)
-    } catch (error) {
-      console.error(error)
+    // Either one reaching Luca is enough: the message isn't lost, and an
+    // error would only make the Visitor send it again.
+    const [kept, delivered] = await Promise.allSettled([
+      keep({ ...submission, locale: submission.locale }, request),
+      deliver(submission),
+    ])
 
+    for (const outcome of [kept, delivered]) {
+      if (outcome.status === "rejected") console.error(outcome.reason)
+    }
+
+    if (kept.status === "rejected" && delivered.status === "rejected") {
       return json({ error: "generic" }, 502)
     }
 

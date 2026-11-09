@@ -1,5 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/contact.ts": {
+      "includeFiles": "src/content/pages/{contact,privacy}/*.yaml"
+    }
+  },
   "headers": [
     {
       "source": "/(.*)",
