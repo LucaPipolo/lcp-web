@@ -1,0 +1,125 @@
+metadata:
+  title: "Contatti | Luca Pipolo"
+
+title: "Contatti"
+
+intro: >-
+  Raccontami cosa hai in mente e ti risponderò,
+  di solito entro due giorni lavorativi. Se preferisci
+  parlarne a voce, puoi anche prenotare una chiamata.
+
+form:
+  reasons:
+    legend: "Per cosa mi scrivi?"
+    options:
+      - id: "job"
+        label: "Un'opportunità di lavoro"
+        hint: >-
+          Raccontami di quale azienda si tratta, qual è
+          il ruolo e su cosa lavora il team. Se hai
+          un link all'annuncio, ancora meglio.
+      - id: "project"
+        label: "Un progetto"
+        hint: >-
+          Raccontami cosa stai sviluppando, a che punto
+          è il progetto e quando vorresti iniziare.
+      - id: "collaboration"
+        label: "Una collaborazione"
+        hint: >-
+          Un intervento a un evento, un articolo, un progetto
+          open source o un'altra iniziativa. Raccontami
+          cosa proponi e dove si svolgerebbe.
+      - id: "other"
+        label: "Altro"
+        hint: >-
+          Qualunque sia l'argomento, bastano un paio
+          di righe per iniziare.
+
+  name:
+    label: "Nome"
+    placeholder: "Ada Lovelace"
+
+  email:
+    label: "Indirizzo email"
+    placeholder: "ada@esempio.com"
+    hint: "Lo userò soltanto per risponderti."
+
+  message:
+    label: "Messaggio"
+    placeholder: "Scegli un argomento e ti suggerirò cosa scrivere."
+
+  acknowledgement: >-
+    Ho letto le informazioni sul trattamento dei dati e
+    l'<a href="/it/privacy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy</a>.
+
+  submit: "Invia messaggio"
+  sending: "Invio in corso…"
+
+  noscript: >-
+    Per funzionare con la protezione antispam, questo
+    modulo richiede JavaScript. Puoi comunque prenotare
+    una chiamata tramite il link presente nella pagina.
+
+  success:
+    heading: "Messaggio inviato"
+    body: >-
+      Grazie per avermi scritto. Ti risponderò all'indirizzo
+      email che hai indicato, di solito entro due
+      giorni lavorativi.
+
+  errors:
+    required: "Questo campo è obbligatorio."
+    email: "Inserisci un indirizzo email valido, come nome@esempio.com."
+    tooShort: "Aggiungi qualche dettaglio in più, così potrò risponderti meglio."
+    tooLong: "Il messaggio deve contenere meno di 5.000 caratteri."
+    links: "Puoi inserire al massimo tre link."
+    acknowledgement: "Conferma di aver letto le informazioni sulla privacy."
+    verification: >-
+      Non è stato possibile completare il controllo antispam.
+      Ricarica la pagina e riprova.
+    rateLimited: >-
+      Sono stati inviati troppi messaggi in poco tempo.
+      Aspetta qualche minuto prima di riprovare.
+    generic: >-
+      Si è verificato un errore e il messaggio non è stato inviato.
+      Riprova oppure prenota una chiamata.
+
+notice:
+  heading: "Protezione dei dati personali"
+  items:
+    - term: "Titolare"
+      description: "somoscuatro 2020 S.L."
+    - term: "Finalità"
+      description: >-
+        Ricevere, gestire e rispondere alla tua richiesta.
+    - term: "Base giuridica"
+      description: >-
+        Legittimo interesse ai sensi
+        dell'<a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">articolo 6, paragrafo 1, lettera f), del GDPR</a>,
+        oppure misure precontrattuali adottate su richiesta
+        dell'interessato ai sensi della lettera b),
+        quando applicabile.
+    - term: "Destinatari"
+      description: >-
+        Fornitori coinvolti nell'hosting, nella protezione
+        antispam, nell'invio e nella conservazione dei
+        messaggi, come indicato nell'informativa sulla privacy.
+    - term: "I tuoi diritti"
+      description: >-
+        Puoi chiedere l'accesso, la rettifica, la cancellazione
+        o la limitazione del trattamento, opporti al trattamento
+        ed esercitare il diritto alla portabilità, quando previsto.
+        Scrivi a
+        <a href="mailto:privacy@somoscuatro.es">privacy@somoscuatro.es</a>.
+    - term: "Maggiori informazioni"
+      description: >-
+        Consulta
+        l'<a href="/it/privacy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy</a>.
+
+booking:
+  heading: "Preferisci parlarne?"
+  body: >-
+    Prenota una videochiamata di 30 minuti quando ti è
+    più comodo. Ti confermerò la prenotazione via email.
+  label: "Prenota una chiamata"
+  href: "https://calendar.notion.so/meet/lpipolo/call"

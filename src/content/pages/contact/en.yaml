@@ -1,0 +1,120 @@
+metadata:
+  title: "Contact | Luca Pipolo"
+
+title: "Contact"
+
+intro: >-
+  Tell me what you have in mind and I'll get back to you,
+  usually within two working days. If you'd rather talk
+  things through, you can book a call instead.
+
+form:
+  reasons:
+    legend: "What's your enquiry about?"
+    options:
+      - id: "job"
+        label: "A job opportunity"
+        hint: >-
+          Tell me about the company, the role and what the team
+          is working on. A link to the job description would help.
+      - id: "project"
+        label: "A project"
+        hint: >-
+          Tell me what you're building, how far along it is
+          and roughly when you'd like to get started.
+      - id: "collaboration"
+        label: "A collaboration"
+        hint: >-
+          A talk, an article, an open-source project or something
+          else. Tell me what you have in mind and where it would happen.
+      - id: "other"
+        label: "Something else"
+        hint: >-
+          Whatever it's about, a couple of lines are enough
+          to get started.
+
+  name:
+    label: "Name"
+    placeholder: "Ada Lovelace"
+
+  email:
+    label: "Email address"
+    placeholder: "ada@example.com"
+    hint: "I'll only use it to reply to you."
+
+  message:
+    label: "Message"
+    placeholder: "Choose a topic and I'll suggest what to include."
+
+  acknowledgement: >-
+    I've read the data protection information and the
+    <a href="/en/privacy/" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+
+  submit: "Send message"
+  sending: "Sending…"
+
+  noscript: >-
+    This form requires JavaScript for spam protection.
+    You can still book a call using the link on this page.
+
+  success:
+    heading: "Message sent"
+    body: >-
+      Thanks for getting in touch. I'll reply to the email
+      address you provided, usually within two working days.
+
+  errors:
+    required: "This field is required."
+    email: "Enter a valid email address, such as name@example.com."
+    tooShort: "Please add a little more detail so I can give you a useful reply."
+    tooLong: "Please keep your message under 5,000 characters."
+    links: "Please include no more than three links."
+    acknowledgement: "Please confirm that you've read the privacy information."
+    verification: >-
+      I couldn't complete the spam check. Please reload the page
+      and try again.
+    rateLimited: >-
+      Too many messages have been sent in a short time.
+      Please wait a few minutes before trying again.
+    generic: >-
+      Something went wrong and your message wasn't sent.
+      Please try again or book a call instead.
+
+notice:
+  heading: "Data protection"
+  items:
+    - term: "Data controller"
+      description: "somoscuatro 2020 S.L."
+    - term: "Purpose"
+      description: >-
+        To receive, manage and respond to your enquiry.
+    - term: "Legal basis"
+      description: >-
+        Legitimate interests under
+        <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Article 6(1)(f) GDPR</a>,
+        or steps taken at your request before entering into
+        a contract under Article 6(1)(b), where applicable.
+    - term: "Recipients"
+      description: >-
+        Service providers involved in hosting, spam protection,
+        message delivery and storage, as described in the
+        privacy policy.
+    - term: "Your rights"
+      description: >-
+        You can request access, rectification, erasure or
+        restriction, object to processing and exercise your
+        right to data portability where applicable.
+        Write to
+        <a href="mailto:privacy@somoscuatro.es">privacy@somoscuatro.es</a>.
+    - term: "More information"
+      description: >-
+        See the
+        <a href="/en/privacy/" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+
+booking:
+  heading: "Prefer to talk?"
+  body: >-
+    Book a 30-minute video call at a time that suits you.
+    I'll confirm the booking by email.
+  label: "Book a call"
+  href: "https://calendar.notion.so/meet/lpipolo/call"
