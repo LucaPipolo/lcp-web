@@ -2,6 +2,26 @@ import { glob } from "astro/loaders"
 import { z } from "astro/zod"
 import { defineCollection } from "astro:content"
 
+const TITLE_LIMIT = 60
+
+const DESCRIPTION_LIMIT = 160
+
+const searchTitle = () =>
+  z
+    .string()
+    .max(
+      TITLE_LIMIT,
+      `Shorten it to ${TITLE_LIMIT} characters, which is what search results show.`
+    )
+
+const searchDescription = () =>
+  z
+    .string()
+    .max(
+      DESCRIPTION_LIMIT,
+      `Shorten it to ${DESCRIPTION_LIMIT} characters, which is what search results show.`
+    )
+
 const settings = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/settings" }),
   schema: z.object({
@@ -77,8 +97,8 @@ const home = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/pages/home" }),
   schema: z.object({
     metadata: z.object({
-      title: z.string(),
-      description: z.string(),
+      title: searchTitle(),
+      description: searchDescription(),
     }),
     sections: z.object({
       hero: z.object({
@@ -165,7 +185,7 @@ const recommendations = defineCollection({
     base: "./src/content/pages/recommendations",
   }),
   schema: z.object({
-    metadata: z.object({ title: z.string() }),
+    metadata: z.object({ title: searchTitle() }),
     title: z.string(),
     intro: z.string(),
     quotes: z.array(recommendation).min(1),
@@ -182,7 +202,7 @@ const contactField = z.object({
 const contact = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/pages/contact" }),
   schema: z.object({
-    metadata: z.object({ title: z.string() }),
+    metadata: z.object({ title: searchTitle() }),
     title: z.string(),
     intro: z.string(),
     form: z.object({
@@ -247,7 +267,7 @@ const contact = defineCollection({
 const notFound = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/pages/not-found" }),
   schema: z.object({
-    metadata: z.object({ title: z.string() }),
+    metadata: z.object({ title: searchTitle() }),
     eyebrow: z.string(),
     heading: z.string(),
     body: z.string(),
@@ -291,8 +311,8 @@ function articlePage(directory: string) {
     }),
     schema: z.object({
       metadata: z.object({
-        title: z.string(),
-        description: z.string(),
+        title: searchTitle(),
+        description: searchDescription(),
       }),
       title: z.string(),
       updated: z.coerce.date(),
@@ -329,50 +349,60 @@ const blog = defineCollection({
     generateId: ({ entry }) => entry.replace(/\.md$/, ""),
   }),
   schema: ({ image }) =>
-    z.object({
-      title: z.string(),
-      description: z.string(),
-      published: z.coerce.date(),
-      updated: z.coerce.date().optional(),
-      tags: z.array(z.string()).default([]),
-      cover: image().optional(),
-      coverAlt: z.string().optional(),
-      draft: z.boolean().default(false),
-      /**
-       * The path segment this language serves the post under, so each one
-       * reads in its own words. Left out, the folder's name is used.
-       */
-      slug: z
-        .string()
-        .regex(
-          /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
-          "Use lowercase ASCII letters and digits joined by single hyphens, such as `spam-free-contact-form`."
-        )
-        .optional(),
-      /**
-       * The posts to point to after this one, by their folder's name.
-       * Left out, the posts sharing the most tags are pointed to instead.
-       */
-      related: z.array(z.string()).optional(),
-      /**
-       * What search results and link previews call the post, when its own
-       * title runs past what they show.
-       */
-      metaTitle: z.string().optional(),
-      /**
-       * What search results and link previews say about the post, when its
-       * description runs past what they show.
-       */
-      metaDescription: z.string().optional(),
-    }),
+    z
+      .object({
+        title: z.string(),
+        description: z.string(),
+        published: z.coerce.date(),
+        updated: z.coerce.date().optional(),
+        tags: z.array(z.string()).default([]),
+        cover: image().optional(),
+        coverAlt: z.string().optional(),
+        draft: z.boolean().default(false),
+        /**
+         * The path segment this language serves the post under, so each one
+         * reads in its own words. Left out, the folder's name is used.
+         */
+        slug: z
+          .string()
+          .regex(
+            /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
+            "Use lowercase ASCII letters and digits joined by single hyphens, such as `spam-free-contact-form`."
+          )
+          .optional(),
+        /**
+         * The posts to point to after this one, by their folder's name.
+         * Left out, the posts sharing the most tags are pointed to instead.
+         */
+        related: z.array(z.string()).optional(),
+        /**
+         * What search results and link previews call the post, when its own
+         * title runs past what they show.
+         */
+        metaTitle: searchTitle().optional(),
+        /**
+         * What search results and link previews say about the post, when its
+         * description runs past what they show.
+         */
+        metaDescription: searchDescription().optional(),
+      })
+      .refine(
+        (post) =>
+          post.metaDescription !== undefined ||
+          post.description.length <= DESCRIPTION_LIMIT,
+        {
+          message: `Runs past the ${DESCRIPTION_LIMIT} characters search results show. Add a \`metaDescription\` that fits.`,
+          path: ["description"],
+        }
+      ),
 })
 
 const blogIndex = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/pages/blog" }),
   schema: z.object({
     metadata: z.object({
-      title: z.string(),
-      description: z.string().optional(),
+      title: searchTitle(),
+      description: searchDescription(),
     }),
     title: z.string(),
     intro: z.string(),
