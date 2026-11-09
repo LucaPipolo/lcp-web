@@ -11,7 +11,7 @@ import {
 import { register } from "@/scripts/alpine"
 
 /** Where the form is sent. */
-const ENDPOINT = "/api/contact"
+const ENDPOINT = "/api/contact/"
 
 const TURNSTILE_SCRIPT =
   "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
