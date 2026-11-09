@@ -12,6 +12,7 @@ with [Astro](https://astro.build/).
 - [Brevo](https://www.brevo.com/) (email)
 - [Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/)
 - [Sentry](https://sentry.io/)
+- [Vercel Web Analytics](https://vercel.com/docs/analytics) and [Speed Insights](https://vercel.com/docs/speed-insights)
 
 ## Project structure
 
