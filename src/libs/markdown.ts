@@ -1,6 +1,7 @@
 import type { SatteriProcessorOptions } from "@astrojs/markdown-satteri"
 
 import { icons } from "@iconify-json/lucide"
+import Slugger from "github-slugger"
 
 type HastPlugin = NonNullable<SatteriProcessorOptions["hastPlugins"]>[number]
 
@@ -15,6 +16,36 @@ export const ARTICLE_IMAGE_SIZES = "(min-width: 48rem) 43rem, 100vw"
  * and two device pixels a CSS pixel. Astro skips any wider than the source.
  */
 export const ARTICLE_IMAGE_WIDTHS = [480, 720, 1080, 1440]
+
+/**
+ * Gives every heading in a post an id with its accents dropped, so a link to
+ * a section reads `#anadir-un-formulario` rather than `#a%C3%B1adir-…` once
+ * it is copied or shared.
+ *
+ * Runs ahead of Astro's own heading step, which keeps an id a heading already
+ * has, so the table of contents links to the same id. The slugging is Astro's
+ * own, so a heading with no accent keeps the id it always had.
+ */
+export const headingIds: HastPlugin = () => {
+  const slugger = new Slugger()
+
+  return {
+    name: "ascii-heading-ids",
+    element: {
+      filter: ["h1", "h2", "h3", "h4", "h5", "h6"],
+      visit(node, ctx) {
+        if (typeof node.properties?.id === "string") return
+
+        const text = ctx
+          .textContent(node)
+          .normalize("NFD")
+          .replace(/\p{Mn}/gu, "")
+
+        ctx.setProperty(node, "id", slugger.slug(text))
+      },
+    },
+  }
+}
 
 /**
  * Hands each raster image in a post the widths and sizes it is drawn at, which

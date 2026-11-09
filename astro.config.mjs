@@ -6,6 +6,7 @@ import icon from "astro-icon"
 import { DEFAULT_LOCALE, LOCALES } from "./src/libs/i18n.ts"
 import {
   articleImages,
+  headingIds,
   externalLinks,
   imageCaptions,
 } from "./src/libs/markdown.ts"
@@ -46,7 +47,12 @@ export default defineConfig({
     // writes class names instead, and `_code.css` colours them.
     syntaxHighlight: "prism",
     processor: satteri({
-      hastPlugins: [articleImages, imageCaptions, externalLinks(SITE)],
+      hastPlugins: [
+        headingIds,
+        articleImages,
+        imageCaptions,
+        externalLinks(SITE),
+      ],
     }),
   },
   i18n: {
