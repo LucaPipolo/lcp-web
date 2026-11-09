@@ -332,7 +332,18 @@ const blog = defineCollection({
       coverAlt: z.string().optional(),
       draft: z.boolean().default(false),
       /**
-       * The posts to point to after this one, by slug (their folder's name).
+       * The path segment this language serves the post under, so each one
+       * reads in its own words. Left out, the folder's name is used.
+       */
+      slug: z
+        .string()
+        .regex(
+          /^[a-z0-9]+(?:-[a-z0-9]+)*$/,
+          "Use lowercase ASCII letters and digits joined by single hyphens, such as `spam-free-contact-form`."
+        )
+        .optional(),
+      /**
+       * The posts to point to after this one, by their folder's name.
        * Left out, the posts sharing the most tags are pointed to instead.
        */
       related: z.array(z.string()).optional(),

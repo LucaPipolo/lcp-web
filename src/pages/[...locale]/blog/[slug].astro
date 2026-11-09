@@ -23,10 +23,10 @@ import {
   getNeighbours,
   getPostAlternates,
   getPostHref,
+  getPostKeys,
   getPostLocale,
   getPosts,
   getPostSlug,
-  getPostSlugs,
   getReadingTime,
   getRelated,
   getTagHref,
@@ -41,7 +41,7 @@ const LISTED = [2, 3]
 
 export async function getStaticPaths() {
   const paths = []
-  const slugs = await getPostSlugs()
+  const keys = await getPostKeys()
   const published = await Promise.all(LOCALES.map((locale) => getPosts(locale)))
 
   for (const posts of published) {
@@ -56,7 +56,7 @@ export async function getStaticPaths() {
         props: {
           alternates: getPostAlternates(post, published.flat()),
           post,
-          related: getRelated(posts, post, slugs),
+          related: getRelated(posts, post, keys),
           ...getNeighbours(posts, post),
         },
       })
