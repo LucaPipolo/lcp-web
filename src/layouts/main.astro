@@ -15,6 +15,7 @@ import SiteHeaderLink from "@/components/sections/SiteHeader/SiteHeaderLink.astr
 import ThemeToggle from "@/components/sections/SiteHeader/ThemeToggle.astro"
 
 import { getFeedHref } from "@/libs/blog"
+import { BRAND_COLORS } from "@/libs/brand"
 import { getSettings } from "@/libs/content"
 import {
   type Alternates,
@@ -106,6 +107,18 @@ const copyright =
     <meta charset="utf-8" />
     <meta content="width=device-width" name="viewport" />
     <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" />
+    <link href="/site.webmanifest" rel="manifest" />
+    <meta
+      content={BRAND_COLORS.background}
+      media="(prefers-color-scheme: light)"
+      name="theme-color"
+    />
+    <meta
+      content={BRAND_COLORS.darkBackground}
+      media="(prefers-color-scheme: dark)"
+      name="theme-color"
+    />
     <title>{title}</title>
     {description && <meta content={description} name="description" />}
     <meta content={author.name} name="author" />
