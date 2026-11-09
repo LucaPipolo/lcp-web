@@ -90,6 +90,16 @@
       "source": "/it/blog/building-rift{/}?",
       "destination": "/it/blog/agenti-ai-in-parallelo-con-docker/",
       "permanent": true
+    },
+    {
+      "source": "/resumes/luca-pipolo-full-stack-developer-resume-es.pdf",
+      "destination": "/resumes/luca-pipolo-desarrollador-full-stack-cv.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/resumes/luca-pipolo-full-stack-developer-resume-it.pdf",
+      "destination": "/resumes/luca-pipolo-full-stack-developer-cv.pdf",
+      "permanent": true
     }
   ],
   "headers": [
