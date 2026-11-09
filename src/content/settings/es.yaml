@@ -25,7 +25,7 @@ header:
     - label: "blog"
       href: "/blog/"
     - label: "contacto"
-      href: "mailto:hola@lucapipolo.com"
+      href: "/contact/"
 
 blog:
   readingTime: "{minutes} min de lectura"
@@ -49,7 +49,7 @@ footer:
     simplemente charlar sobre código e IA, escríbeme.
   action:
     label: "Contáctame"
-    href: "mailto:hola@lucapipolo.com"
+    href: "/contact/"
   columns:
     - label: "contenidos"
       links:
@@ -61,6 +61,8 @@ footer:
           href: "/recommendations/"
         - label: "blog"
           href: "/blog/"
+        - label: "contacto"
+          href: "/contact/"
     - label: "links"
       links:
         - label: "github"
