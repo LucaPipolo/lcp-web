@@ -96,7 +96,7 @@ La separazione risponde soprattutto a un'esigenza di gestione: i messaggi e le p
 Il problema successivo era assicurarmi che questi dati venissero realmente eliminati alla scadenza. Ho quindi creato `api/cleanup.ts`, una Vercel Function richiamata ogni notte alle 03:00 UTC tramite un [Cron Job](https://vercel.com/docs/cron-jobs):
 
 ```json
-"crons": [{ "path": "/api/cleanup", "schedule": "0 3 * * *" }]
+"crons": [{ "path": "/api/cleanup/", "schedule": "0 3 * * *" }]
 ```
 
 La funzione esegue due query `DELETE`, applicando a ciascun database il rispettivo periodo di conservazione. L'endpoint è protetto tramite `CRON_SECRET`, che Vercel invia nell'header `Authorization` delle richieste programmate. Qualsiasi richiesta priva del segreto corretto viene rifiutata.
