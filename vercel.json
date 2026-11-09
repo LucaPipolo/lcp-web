@@ -100,6 +100,21 @@
       "source": "/resumes/luca-pipolo-full-stack-developer-resume-it.pdf",
       "destination": "/resumes/luca-pipolo-full-stack-developer-cv.pdf",
       "permanent": true
+    },
+    {
+      "source": "/blog/building-the-contact-form{/}?",
+      "destination": "/blog/formulario-de-contacto-sin-spam/",
+      "permanent": true
+    },
+    {
+      "source": "/en/blog/building-the-contact-form{/}?",
+      "destination": "/en/blog/spam-free-contact-form/",
+      "permanent": true
+    },
+    {
+      "source": "/it/blog/building-the-contact-form{/}?",
+      "destination": "/it/blog/modulo-di-contatto-senza-spam/",
+      "permanent": true
     }
   ],
   "headers": [
