@@ -32,8 +32,9 @@ import {
   getTagHref,
 } from "@/libs/blog"
 import { getSettings } from "@/libs/content"
-import { DEFAULT_LOCALE, formatDate, LOCALES } from "@/libs/i18n"
+import { DEFAULT_LOCALE, formatDate, LOCALES, localizeHref } from "@/libs/i18n"
 import { ARTICLE_IMAGE_SIZES, ARTICLE_IMAGE_WIDTHS } from "@/libs/markdown"
+import { getBreadcrumbNode, getPostNode } from "@/libs/structured-data"
 import { fillPlaceholders } from "@/libs/template"
 
 /** Which headings are worth listing: the ones that structure the post. */
@@ -71,7 +72,7 @@ const { title, description, published, updated, tags, cover, coverAlt } =
   post.data
 
 const locale = Astro.currentLocale
-const { blog } = await getSettings(locale)
+const { author, blog } = await getSettings(locale)
 
 const page = await getEntry("blog-index", locale ?? DEFAULT_LOCALE)
 
@@ -79,6 +80,22 @@ const { Content, headings } = await render(post)
 const contents = headings.filter((heading) => LISTED.includes(heading.depth))
 
 const url = new URL(getPostHref(post, locale), Astro.site).href
+
+const nodes = [
+  getPostNode(post, url, Astro.site!),
+  ...(author
+    ? [
+        getBreadcrumbNode(
+          [
+            { href: localizeHref("/", locale), name: author.name },
+            { href: localizeHref("/blog/", locale), name: page!.data.title },
+            { href: url, name: title },
+          ],
+          Astro.site!
+        ),
+      ]
+    : []),
+]
 
 const readingTime = fillPlaceholders(blog.readingTime, {
   minutes: String(getReadingTime(post)),
@@ -88,6 +105,7 @@ const readingTime = fillPlaceholders(blog.readingTime, {
 <Layout
   alternates={alternates}
   description={description}
+  nodes={nodes}
   title={fillPlaceholders(page!.data.postTitle, { title })}
 >
   <SectionContainer>

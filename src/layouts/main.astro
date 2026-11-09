@@ -23,6 +23,11 @@ import {
   LOCALES,
   localizeHref,
 } from "@/libs/i18n"
+import {
+  getStructuredData,
+  type PageType,
+  type SchemaNode,
+} from "@/libs/structured-data"
 import { fillPlaceholders } from "@/libs/template"
 
 import { THEME_INIT_SOURCE } from "@/scripts/theme-init"
@@ -34,12 +39,21 @@ interface Props {
    */
   alternates?: Alternates
   description?: string
+  nodes?: SchemaNode[]
   /** Keeps the page out of search results, as an error page should be. */
   noindex?: boolean
   title: string
+  type?: PageType
 }
 
-const { alternates = {}, description, noindex = false, title } = Astro.props
+const {
+  alternates = {},
+  description,
+  nodes,
+  noindex = false,
+  title,
+  type = "WebPage",
+} = Astro.props
 
 const locale = isLocale(Astro.currentLocale)
   ? Astro.currentLocale
@@ -54,6 +68,16 @@ const translations = LOCALES.flatMap((code) => {
   return href ? [{ code, href: absolute(href) }] : []
 })
 const fallback = alternates[DEFAULT_LOCALE]
+
+const structuredData = await getStructuredData({
+  description,
+  locale,
+  nodes,
+  site: Astro.site!,
+  title,
+  type,
+  url: canonical,
+})
 
 const { blog, footer, header } = await getSettings(locale)
 
@@ -92,6 +116,11 @@ const copyright =
             rel="alternate"
           />
         )}
+        <script
+          is:inline
+          set:html={structuredData}
+          type="application/ld+json"
+        />
       </>
     )}
     <script is:inline set:html={THEME_INIT_SOURCE}></script>
