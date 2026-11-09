@@ -2,88 +2,121 @@ metadata:
   title: "Note legali | Luca Pipolo"
 
 title: "Note legali"
-updated: 2026-08-12
-updatedLabel: "ultimo aggiornamento:"
+updated: 2026-11-09
+updatedLabel: "Ultimo aggiornamento:"
 
 intro: >-
-  In conformità con quanto stabilito dalla
-  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">legge spagnola 34/2002, dell'11 luglio, sui servizi della società dell'informazione e del commercio elettronico (LSSI-CE)</a>,
-  si informano gli utenti dei seguenti dati identificativi del titolare di
-  questo sito web.
+  Questa pagina contiene le informazioni legali e i dati
+  identificativi del titolare del sito, come previsto
+  dall'articolo 10 della
+  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">legge spagnola 34/2002 sui servizi della società dell'informazione e del commercio elettronico (LSSI-CE)</a>.
+  Trovi inoltre le condizioni relative all'utilizzo dei
+  contenuti, ai collegamenti esterni e alla responsabilità
+  per le informazioni pubblicate.
 
 sections:
   - heading: "Titolare del sito"
     items:
-      - term: "Titolare"
-        description: "somoscuatro 2020 S.L."
+      - term: "Nome"
+        description: "Luca Pipolo"
       - term: "NIF"
-        description: "ES B01765432"
-      - term: "Sede legale"
-        description: "Carrer Bailén 41, 1º 2ªB, 08010 Barcellona, Spagna"
-      - term: "Sede operativa"
-        description: "Carrer de la Llacuna 22, Planta 4 Oficina 3, 08010 Barcellona, Spagna"
+        description: "Y4675193C"
+      - term: "Indirizzo"
+        description: "Carrer de Bailèn 41, 1º 2ªB, 08010 Barcellona, Spagna"
       - term: "Email"
         description: >-
-          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
-      - term: "Dati registrali"
-        description: >-
-          Iscritta al Registro Mercantile di Barcellona, Tomo 47455, Folio
-          100, Hoja B-552334, Inscripción 1.
-      - term: "Rapporto con il titolare del sito"
-        description: >-
-          Luca Pipolo è titolare di somoscuatro 2020 S.L. e pubblica questo
-          sito nell'ambito della propria attività professionale con la
-          società.
+          <a href="mailto:privacy@lucapipolo.com">privacy@lucapipolo.com</a>
       - term: "Attività"
         description: >-
           Sito personale e portfolio professionale di Luca Pipolo,
           Full-Stack Web Developer e Team Lead.
 
-  - heading: "A cosa serve questo sito"
+  - heading: "Finalità del sito"
     body: >-
-      <p>Il sito racconta il mio percorso professionale, i progetti su cui ho
-      lavorato e come contattarmi. Non vende nulla, non gestisce pagamenti e
-      non richiede registrazione.</p>
+      <p>Questo sito presenta il mio percorso professionale,
+      i progetti a cui ho lavorato e le competenze che ho
+      maturato nel tempo. Pubblico anche articoli e contenuti
+      tecnici legati al mio lavoro e metto a disposizione
+      diversi modi per contattarmi.</p>
+      <p>Il sito non vende prodotti o servizi direttamente,
+      non gestisce pagamenti e non richiede la creazione
+      di un account per consultare i contenuti.</p>
 
   - heading: "Proprietà intellettuale"
     body: >-
-      <p>Testi, progetto grafico e immagini sono miei, salvo dove indicato
-      diversamente. Puoi citarli indicando la fonte e linkando la pagina
-      originale. Riprodurli integralmente o usarli a scopo commerciale
-      richiede il mio permesso scritto.</p>
-      <p>Marchi e loghi di terzi eventualmente presenti appartengono ai
-      rispettivi titolari e servono solo a identificare la tecnologia o
-      l'azienda di cui sto parlando.</p>
+      <p>Salvo dove diversamente indicato, i testi, il design
+      e le immagini originali pubblicati su questo sito
+      sono di mia proprietà e sono protetti dalla normativa
+      applicabile in materia di proprietà intellettuale.</p>
+      <p>Puoi citare brevi estratti dei contenuti, nel rispetto
+      dei limiti previsti dalla legge, indicando chiaramente
+      l'autore e inserendo un link alla pagina originale.
+      Per riprodurre integralmente i contenuti o utilizzarli
+      a fini commerciali è necessaria la mia autorizzazione
+      scritta, salvo gli utilizzi consentiti dalla legge.</p>
+      <p>Eventuali marchi, loghi e altri elementi appartenenti
+      a terzi rimangono di proprietà dei rispettivi titolari.
+      Sono utilizzati esclusivamente per identificare
+      aziende, prodotti, servizi o tecnologie citati
+      nei contenuti del sito.</p>
 
-  - heading: "Link verso altri siti"
+  - heading: "Collegamenti a siti esterni"
     body: >-
-      <p>Alcune pagine contengono link verso siti che non gestisco né
-      controllo. Sono presenti perché il contenuto collegato è pertinente,
-      non perché ne approvi contenuti, condizioni d'uso o trattamento dei
-      dati. Una volta seguito il link, sei su un sito indipendente da questo,
-      soggetto alle regole del suo gestore, del quale non mi assumo alcuna
-      responsabilità.</p>
+      <p>Alcune pagine contengono link a siti e servizi esterni
+      che non gestisco e sui quali non ho alcun controllo.
+      Li inserisco perché possono offrire informazioni utili
+      o approfondimenti pertinenti agli argomenti trattati,
+      senza che questo implichi necessariamente un'approvazione
+      dei loro contenuti, delle condizioni d'uso o delle
+      modalità di trattamento dei dati personali.</p>
+      <p>Quando segui uno di questi collegamenti, accedi
+      a un sito indipendente, soggetto alle condizioni
+      e alle informative del rispettivo gestore.
+      Non posso garantire che i contenuti esterni
+      rimangano disponibili, corretti o aggiornati,
+      né rispondo delle attività svolte dai relativi
+      gestori, salvo nei casi previsti dalla legge.</p>
 
-  - heading: "Responsabilità"
+  - heading: "Responsabilità sui contenuti"
     body: >-
-      <p>Controllo i contenuti prima di pubblicarli, ma non garantisco che
-      siano privi di errori né che restino accurati nel tempo. Le
-      informazioni tecniche riportate qui riflettono la mia esperienza, non
-      sono una consulenza sul tuo caso specifico.</p>
-      <p>Non posso garantire nemmeno che il sito sia sempre raggiungibile,
-      perché dipende da servizi di terzi e dalla tua connessione.</p>
+      <p>Presto attenzione all'accuratezza delle informazioni
+      che pubblico, ma non posso garantire che siano sempre
+      complete, prive di errori o aggiornate. In particolare,
+      i contenuti tecnici riflettono le mie conoscenze
+      ed esperienze al momento della pubblicazione:
+      strumenti, tecnologie e procedure possono cambiare
+      nel tempo.</p>
+      <p>Gli articoli e gli esempi presenti sul sito
+      hanno finalità informative e divulgative.
+      Prima di applicare una soluzione tecnica
+      a un progetto, è opportuno valutarne l'adeguatezza
+      rispetto al proprio contesto e ai requisiti specifici.</p>
+      <p>Mi impegno a mantenere il sito accessibile e
+      funzionante, ma non posso garantirne la disponibilità
+      continua. Possono verificarsi interruzioni temporanee
+      dovute a manutenzione, problemi tecnici o disservizi
+      dei fornitori esterni.</p>
+      <p>Queste precisazioni non escludono né limitano
+      le responsabilità previste dalla normativa applicabile.</p>
 
   - heading: "Hosting"
     body: >-
       <p>Il sito è ospitato da
       <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel Inc.</a>,
-      con sede negli Stati Uniti. La sua informativa è consultabile su
-      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">vercel.com/legal/privacy-policy</a>.</p>
+      società con sede negli Stati Uniti.
+      Per maggiori informazioni sul trattamento dei dati
+      da parte del fornitore, puoi consultare la
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">politica sulla privacy di Vercel</a>.</p>
 
-  - heading: "Legge applicabile"
+  - heading: "Legge applicabile e foro competente"
     body: >-
-      <p>Queste note sono regolate dalla legge spagnola. Per ogni
-      controversia legata al sito, salvo quando la legge impone un foro
-      diverso (ad esempio quando la controparte è un consumatore), le parti
-      si sottopongono alla competenza dei giudici e tribunali della città di
-      Barcellona, Spagna.</p>
+      <p>Il presente sito e queste note legali sono soggetti
+      alla normativa spagnola, fatte salve le disposizioni
+      inderogabili eventualmente applicabili.</p>
+      <p>Per le controversie relative al sito, quando
+      consentito dalla legge e validamente concordato
+      tra le parti, il foro competente è quello
+      di Barcellona, Spagna. Negli altri casi,
+      la competenza è determinata dalle disposizioni
+      di legge applicabili, comprese quelle a tutela
+      dei consumatori.</p>

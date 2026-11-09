@@ -2,85 +2,123 @@ metadata:
   title: "Legal Notice | Luca Pipolo"
 
 title: "Legal Notice"
-updated: 2026-08-12
-updatedLabel: "last updated:"
+updated: 2026-11-09
+updatedLabel: "Last updated:"
 
 intro: >-
-  In accordance with
-  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002, of 11 July, on information society services and electronic commerce (LSSI-CE)</a>,
-  users are informed of the following identification details of the owner
-  of this website.
+  This page provides the legal information and identification details
+  required under Article 10 of
+  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE)</a>.
+  It also explains the conditions relating to the use of
+  content, external links and responsibility for the
+  information published on this website.
 
 sections:
-  - heading: "Site owner"
+  - heading: "Website owner"
     items:
-      - term: "Owner"
-        description: "somoscuatro 2020 S.L."
-      - term: "Tax ID (NIF)"
-        description: "ES B01765432"
-      - term: "Registered office"
-        description: "Carrer Bailén 41, 1º 2ªB, 08010 Barcelona, Spain"
-      - term: "Operating office"
-        description: "Carrer de la Llacuna 22, Planta 4 Oficina 3, 08010 Barcelona, Spain"
+      - term: "Name"
+        description: "Luca Pipolo"
+      - term: "Tax identification number (NIF)"
+        description: "Y4675193C"
+      - term: "Address"
+        description: "Carrer de Bailèn 41, 1º 2ªB, 08010 Barcelona, Spain"
       - term: "Email"
         description: >-
-          <a href="mailto:dpo@somoscuatro.es">dpo@somoscuatro.es</a>
-      - term: "Company registration details"
-        description: >-
-          Registered with the Companies Registry (Registro Mercantil) of
-          Barcelona, Volume 47455, Page 100, Sheet B-552334, Entry 1.
-      - term: "Relationship to the site owner"
-        description: >-
-          Luca Pipolo owns somoscuatro 2020 S.L. and publishes this site as
-          part of his professional activity through the company.
+          <a href="mailto:privacy@lucapipolo.com">privacy@lucapipolo.com</a>
       - term: "Activity"
         description: >-
-          Personal site and professional portfolio of Luca Pipolo,
+          Personal website and professional portfolio of Luca Pipolo,
           Full-Stack Web Developer and Team Lead.
 
-  - heading: "What this site is for"
+  - heading: "Purpose of this website"
     body: >-
-      <p>This site covers my professional background, the projects I've
-      worked on and how to get in touch. It doesn't sell anything, doesn't
-      process payments and doesn't require registration.</p>
+      <p>This website presents my professional background,
+      the projects I've worked on and the skills I've
+      developed over the years. I also publish articles
+      and technical content related to my work and provide
+      different ways to get in touch with me.</p>
+      <p>The website doesn't sell products or services
+      directly, process payments or require you to
+      create an account to access its content.</p>
 
   - heading: "Intellectual property"
     body: >-
-      <p>The text, visual design and images are mine, unless stated
-      otherwise. You may quote them if you credit the source and link to
-      the original page. Reproducing them in full or using them
-      commercially requires my written permission.</p>
-      <p>Any third-party trademarks or logos shown belong to their
-      respective owners and are used only to identify the technology or
-      company being referred to.</p>
+      <p>Unless otherwise stated, the original text,
+      design and images published on this website
+      belong to me and are protected by applicable
+      intellectual property laws.</p>
+      <p>You may quote short extracts from the content,
+      within the limits permitted by law, provided
+      you clearly credit the author and link to the
+      original page. Reproducing content in full
+      or using it for commercial purposes requires
+      my written permission, except where such use
+      is permitted by law.</p>
+      <p>Any third-party trademarks, logos or other
+      materials remain the property of their respective
+      owners. They're used solely to identify companies,
+      products, services or technologies mentioned
+      on this website.</p>
 
-  - heading: "Links to other websites"
+  - heading: "Links to external websites"
     body: >-
-      <p>Some pages link to sites I don't run or control. They're there
-      because the linked content is relevant, not because I endorse its
-      content, terms of use or how it handles your data. Once you follow a
-      link, you're on a site independent of this one, subject to that
-      site's own rules, for which I take no responsibility.</p>
+      <p>Some pages contain links to external websites
+      and services that I don't manage or control.
+      I include them because they may provide useful
+      information or further reading on the topics
+      discussed. This doesn't necessarily mean
+      I endorse their content, terms of use
+      or personal data practices.</p>
+      <p>When you follow one of these links, you're
+      visiting an independent website governed by
+      its own terms and policies. I can't guarantee
+      that external content will remain available,
+      accurate or up to date, and I'm not responsible
+      for the activities of external website operators,
+      except where required by law.</p>
 
-  - heading: "Liability"
+  - heading: "Responsibility for content"
     body: >-
-      <p>I review content before publishing it, but I cannot guarantee it
-      is free of errors or that it remains accurate over time. The
-      technical information here reflects my own experience; it is not
-      advice on your specific situation.</p>
-      <p>Nor can I guarantee the site will always be available, since this
-      depends on third-party services and your own connection.</p>
+      <p>I take care to ensure the information I publish
+      is accurate, but I can't guarantee that it's
+      always complete, free from errors or up to date.
+      In particular, technical articles reflect my
+      knowledge and experience at the time of publication.
+      The tools, technologies and procedures they
+      describe may change over time.</p>
+      <p>Articles and examples on this website are
+      provided for general information and educational
+      purposes. Before applying a technical solution
+      to a project, you should assess whether it's
+      suitable for your particular circumstances
+      and requirements.</p>
+      <p>I also do my best to keep the website accessible
+      and working properly, but I can't guarantee
+      uninterrupted availability. Temporary disruptions
+      may occur due to maintenance, technical issues
+      or problems with third-party services.</p>
+      <p>Nothing in this notice excludes or limits
+      any liability that cannot be excluded
+      or limited under applicable law.</p>
 
   - heading: "Hosting"
     body: >-
-      <p>This site is hosted by
+      <p>This website is hosted by
       <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel Inc.</a>,
-      based in the United States. Its privacy policy is available at
-      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">vercel.com/legal/privacy-policy</a>.</p>
+      a company based in the United States.
+      For more information about how this provider
+      processes data, see
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's privacy policy</a>.</p>
 
-  - heading: "Governing law"
+  - heading: "Governing law and jurisdiction"
     body: >-
-      <p>This notice is governed by Spanish law. For any dispute relating
-      to the site, save where the law requires a different forum (for
-      example, where the other party is a consumer), the parties submit to
-      the jurisdiction of the courts of the city of Barcelona, Spain.</p>
+      <p>This website and legal notice are governed
+      by Spanish law, without prejudice to any
+      mandatory legal provisions that may apply.</p>
+      <p>For disputes relating to this website,
+      where permitted by law and validly agreed
+      between the parties, the courts of Barcelona,
+      Spain, shall have jurisdiction. In all other
+      cases, jurisdiction shall be determined
+      under the applicable legal rules, including
+      those protecting consumers.</p>
