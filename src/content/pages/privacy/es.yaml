@@ -11,7 +11,7 @@ updatedLabel: "Última actualización:"
 
 intro: >-
   Este sitio web solo recoge los datos necesarios para funcionar,
-  responder a los mensajes y detectar posibles problemas técnicos.
+  contar las visitas, responder a los mensajes y detectar posibles problemas técnicos.
   No utiliza herramientas de perfilado ni vende tus datos personales.
   Aquí te explico qué información se trata, para qué se utiliza,
   quién puede acceder a ella, durante cuánto tiempo se conserva
@@ -95,6 +95,18 @@ sections:
           identificarte, elaborar perfiles ni relacionar
           tus distintas visitas. Puedes consultar más detalles
           en la <a href="/cookies/">política de cookies</a>.
+      - term: "Estadísticas de visitas"
+        description: >-
+          Para saber qué páginas se leen y cómo llegan
+          los visitantes a la web, en cada página vista
+          se registran la fecha y la hora, la dirección
+          de la página, la web de procedencia, los parámetros
+          de campaña de la dirección, como <code>utm_source</code>,
+          la ubicación aproximada (país, región y ciudad),
+          el sistema operativo, el navegador y sus versiones,
+          y el tipo de dispositivo. Las páginas vistas
+          por un mismo visitante solo se agrupan durante
+          un día, como se explica más adelante.
       - term: "Métricas de rendimiento"
         description: >-
           Para comprobar el rendimiento de la web se recogen
@@ -132,6 +144,13 @@ sections:
       tu dirección IP para poder responder a las solicitudes.
       Los proveedores técnicos de este sitio también pueden
       tratarla como parte de sus servicios.</p>
+      <p>Para contar las visitas sin cookies, Vercel Web
+      Analytics agrupa las páginas vistas por un mismo
+      visitante mediante un hash calculado a partir de
+      la solicitud, que se renueva cada 24 horas. Por eso
+      no es posible relacionar visitas de días distintos
+      ni de otras webs, y los datos que almacena
+      no incluyen tu dirección IP.</p>
       <p>Según la documentación de Vercel, las métricas
       de rendimiento que proporciona no permiten asociar
       los resultados a una visita o dirección IP concreta.
@@ -184,11 +203,13 @@ sections:
       letra f), del RGPD, teniendo en cuenta también
       el considerando 49, relativo a la seguridad de
       las redes y los sistemas de información.</p>
-      <p><strong>Rendimiento e informes de errores.</strong>
-      Los tratamientos de datos personales que puedan ser
-      necesarios para supervisar el rendimiento y detectar
+      <p><strong>Estadísticas de visitas, rendimiento
+      e informes de errores.</strong> Los tratamientos
+      de datos personales que puedan ser necesarios para
+      contar las visitas, supervisar el rendimiento y detectar
       problemas técnicos se basan en el interés legítimo
-      de mantener la web operativa, segura y fiable.
+      de entender cómo se usa la web y mantenerla
+      operativa, segura y fiable.
       La recogida se limita a la información necesaria
       para estos fines y se utilizan configuraciones
       destinadas a minimizar los datos personales tratados.</p>
@@ -228,11 +249,14 @@ sections:
         description: >-
           Se encarga del alojamiento de la web, ejecuta
           el código de servidor del formulario de contacto,
-          gestiona la seguridad perimetral y recoge las
-          métricas de rendimiento mediante
+          gestiona la seguridad perimetral, recoge las
+          estadísticas de visitas mediante
+          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer">Vercel Web Analytics</a>
+          y las métricas de rendimiento mediante
           <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>.
           Consulta la
-          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">política de privacidad de Vercel</a>.
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">política de privacidad de Vercel</a>
+          y <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">cómo trata los datos Web Analytics</a>.
       - term: "Functional Software, Inc."
         description: >-
           Proporciona
@@ -315,7 +339,8 @@ sections:
       actividades relacionadas. Cuando dejan de ser
       necesarios, se eliminan, salvo que exista alguna
       obligación legal de conservación aplicable.</p>
-      <p>Las métricas de rendimiento y los informes de errores
+      <p>Las estadísticas de visitas, las métricas de rendimiento
+      y los informes de errores
       se conservan durante los periodos establecidos
       por sus respectivos proveedores y las configuraciones
       utilizadas. Las preferencias de idioma y apariencia
