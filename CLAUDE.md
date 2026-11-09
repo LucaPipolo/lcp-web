@@ -40,7 +40,7 @@ src/
 └── icons/                      hand-authored SVGs
 
 middleware.ts                   Vercel Edge Middleware — locale negotiation
-vercel.json                     Vercel HTTP response headers (CSP, HSTS, …)
+vercel.json                     Vercel HTTP response headers (CSP, HSTS, …) and redirects
 rift.yaml                       local dev environment — Rift settings
 compose.yaml                    local dev containers
 check-csp.mjs                   build-time CSP check

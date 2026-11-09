@@ -21,14 +21,20 @@ every one of them has registered.
 
 Locale is a route param, not a subtree: `src/libs/i18n.ts` defines `LOCALES` (`es` default, `en`, `it`), and every
 route lives under `src/pages/[...locale]/`. `getLocalizedStaticPaths()` (`src/libs/content.ts`) builds one route
-per locale from a collection; the default locale's route gets no prefix. Links are written locale-less and passed
-through `localizeHref(href, locale)` at render time. Request-time language negotiation happens at the edge (see
-Vercel).
+per locale from a collection; the default locale's route gets no prefix. Paths are translated too (`/contacto/`,
+`/en/contact/`, `/it/contatti/`): `i18n.ts` maps each page and home page section anchor to its slug per locale, a
+page's route file is named after it (`[contact].astro`, `[ai_content].astro`) and takes that slug as its param.
+Links are written locale-less and in English (`/contact/`, `/#experience`) and passed through
+`localizeHref(href, locale)` at render time, which prefixes and translates them. Every page hands the layout its
+`alternates`, its own path in each locale that has it, from which the canonical, `hreflang` links and the footer
+language switcher are all built; a locale without that page gets no `hreflang` and is switched to its home page.
+Request-time language negotiation happens at the edge (see Vercel).
 
 ## Vercel
 
 `middleware.ts`, at the project root because it follows Vercel's own Edge Middleware convention rather than
 Astro's `src/middleware.ts`, negotiates `Accept-Language`/a `locale` cookie ahead of the cache. `vercel.json`
-declares the Content-Security-Policy and the rest of the security headers. `bun run check:csp`
+declares the Content-Security-Policy and the rest of the security headers, and the permanent redirects
+from paths the site no longer serves, such as each page's path from before it was translated. `bun run check:csp`
 (`check-csp.mjs`) walks the built `dist/` HTML and fails the build over any inline `style` attribute or an
 inline `<script>`/`<style>` whose hash isn't allowlisted in that policy.
