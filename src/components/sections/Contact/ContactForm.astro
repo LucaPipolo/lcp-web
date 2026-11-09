@@ -1,0 +1,144 @@
+---
+import Button from "@/components/common/Button.astro"
+
+interface Props {
+  /** Every error message the form can show, keyed by code. */
+  errors: Record<string, string>
+}
+
+const { errors } = Astro.props
+
+for (const slot of [
+  "legend",
+  "reasons",
+  "fields",
+  "acknowledgement",
+  "submit",
+  "sending",
+  "noscript",
+  "successHeading",
+  "successBody",
+]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<ContactForm> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<div data-errors={JSON.stringify(errors)} x-data="contactForm">
+  <noscript>
+    <p class="text-muted-foreground">
+      <slot name="noscript" />
+    </p>
+  </noscript>
+
+  {/* Hidden until Alpine runs: the form can't keep spam out without it, so
+    without it there's nothing to fill in and the noscript note shows. */}
+  <form
+    class="flex flex-col gap-8"
+    hidden
+    novalidate
+    x-bind:hidden="sent()"
+    x-on:submit.prevent="submit()"
+  >
+    <fieldset class="flex flex-col gap-3">
+      <legend class="mb-3 text-sm font-medium text-foreground">
+        <slot name="legend" />
+      </legend>
+      <div class="flex flex-wrap gap-2" role="presentation">
+        <slot name="reasons" />
+      </div>
+      <p
+        class="text-sm text-primary"
+        data-field="reason"
+        hidden
+        id="contact-reason-error"
+        x-bind:hidden="!hasError($el)"
+        x-text="errorFor($el)"
+      ></p>
+    </fieldset>
+
+    <slot name="fields" />
+
+    {/* A field only a script would fill in: people never see it, and screen
+      readers and keyboards skip it. */}
+    <div aria-hidden="true" class="sr-only">
+      <label for="contact-website">Website</label>
+      <input
+        autocomplete="off"
+        id="contact-website"
+        name="website"
+        tabindex="-1"
+        type="text"
+        x-model="website"
+      />
+    </div>
+
+    <div class="flex flex-col gap-2">
+      {/* eslint-disable-next-line astro/jsx-a11y/label-has-associated-control -- the text arrives through a slot, which the rule can't see into */}
+      <label class="flex items-start gap-3 text-sm text-muted-foreground">
+        <input
+          aria-describedby="contact-acknowledged-error"
+          class="mt-0.5 size-4 flex-none accent-primary"
+          data-field="acknowledged"
+          type="checkbox"
+          x-bind:aria-invalid="hasError($el)"
+          x-model="acknowledged"
+          x-on:change="recheck($el)"
+        />
+        <span class="rich-text">
+          <slot name="acknowledgement" />
+        </span>
+      </label>
+      <p
+        class="text-sm text-primary"
+        data-field="acknowledged"
+        hidden
+        id="contact-acknowledged-error"
+        x-bind:hidden="!hasError($el)"
+        x-text="errorFor($el)"
+      ></p>
+    </div>
+
+    <div class="flex flex-col items-start gap-4">
+      <Button
+        class="disabled:cursor-wait disabled:opacity-60"
+        type="submit"
+        variant="inverted"
+        x-bind:disabled="sending()"
+      >
+        <span x-show="!sending()">
+          <slot name="submit" />
+        </span>
+        <span x-show="sending()">
+          <slot name="sending" />
+        </span>
+      </Button>
+
+      <p
+        class="text-sm text-primary"
+        hidden
+        role="alert"
+        x-bind:hidden="!failed()"
+        x-text="failure"
+      ></p>
+    </div>
+  </form>
+
+  <div class="flex flex-col gap-3" hidden role="status" x-bind:hidden="!sent()">
+    <h2
+      class="text-2xl font-semibold tracking-tight text-foreground focus:outline-none"
+      tabindex="-1"
+      x-ref="success"
+    >
+      <slot name="successHeading" />
+    </h2>
+    <p class="text-muted-foreground">
+      <slot name="successBody" />
+    </p>
+  </div>
+</div>
+
+<script>
+  import "@/scripts/contact"
+</script>

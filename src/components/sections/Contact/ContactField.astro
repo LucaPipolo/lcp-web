@@ -1,0 +1,76 @@
+---
+interface Props {
+  autocomplete?: string
+  field: "email" | "message" | "name"
+  placeholder?: string
+}
+
+const { autocomplete, field, placeholder } = Astro.props
+
+if (!Astro.slots.has("label")) {
+  throw new Error("<ContactField> requires a `label` slot.")
+}
+
+const id = `contact-${field}`
+const hasHint = Astro.slots.has("hint")
+const describedBy = [hasHint && `${id}-hint`, `${id}-error`]
+  .filter(Boolean)
+  .join(" ")
+
+const CONTROL =
+  "w-full border border-border bg-background px-3 text-base text-foreground transition-colors placeholder:text-muted-foreground focus-visible:border-primary focus-visible:outline-none aria-invalid:border-primary"
+---
+
+<div class="flex flex-col gap-2">
+  {/* eslint-disable-next-line astro/jsx-a11y/label-has-associated-control -- the text arrives through a slot, which the rule can't see into */}
+  <label class="text-sm font-medium text-foreground" for={id}>
+    <slot name="label" />
+  </label>
+
+  {field === "message" ? (
+    <textarea
+      aria-describedby={describedBy}
+      class:list={[CONTROL, "min-h-40 resize-y py-2"]}
+      data-field={field}
+      data-placeholder={placeholder}
+      id={id}
+      name={field}
+      rows="6"
+      x-bind:aria-invalid="hasError($el)"
+      x-bind:placeholder="placeholder($el)"
+      x-model="message"
+      x-on:blur="check($el)"
+      x-on:input="recheck($el)"
+    ></textarea>
+  ) : (
+    <input
+      aria-describedby={describedBy}
+      autocomplete={autocomplete}
+      class:list={[CONTROL, "h-11"]}
+      data-field={field}
+      id={id}
+      name={field}
+      placeholder={placeholder}
+      type={field === "email" ? "email" : "text"}
+      x-bind:aria-invalid="hasError($el)"
+      x-model={field}
+      x-on:blur="check($el)"
+      x-on:input="recheck($el)"
+    />
+  )}
+
+  {hasHint && (
+    <p class="text-sm text-muted-foreground" id={`${id}-hint`}>
+      <slot name="hint" />
+    </p>
+  )}
+
+  <p
+    class="text-sm text-primary"
+    data-field={field}
+    hidden
+    id={`${id}-error`}
+    x-bind:hidden="!hasError($el)"
+    x-text="errorFor($el)"
+  ></p>
+</div>

@@ -1,0 +1,33 @@
+---
+import type { ContactReason as Reason } from "@/libs/contact"
+
+interface Props {
+  /** What the message box suggests once this reason is picked. */
+  hint: string
+  value: Reason
+}
+
+const { hint, value } = Astro.props
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<ContactReason> requires a label.")
+}
+---
+
+{/* eslint-disable-next-line astro/jsx-a11y/label-has-associated-control -- the text arrives through a slot, which the rule can't see into */}
+<label class="cursor-pointer">
+  <input
+    aria-describedby="contact-reason-error"
+    class="peer sr-only"
+    data-field="reason"
+    data-hint={hint}
+    name="reason"
+    type="radio"
+    value={value}
+    x-model="reason"
+    x-on:change="recheck($el)"
+  />
+  <span class="inline-flex h-10 items-center border border-border px-4 text-sm text-muted-foreground transition-colors peer-checked:border-foreground peer-checked:bg-foreground peer-checked:text-background peer-focus-visible:ring-3 peer-focus-visible:ring-gray-400/50 hover:text-foreground">
+    <slot />
+  </span>
+</label>

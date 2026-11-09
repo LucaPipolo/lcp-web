@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components"
+
+import ButtonLink from "@/components/common/ButtonLink.astro"
+
+interface Props {
+  href: string
+}
+
+const { href } = Astro.props
+
+for (const slot of ["heading", "body", "label"]) {
+  if (!Astro.slots.has(slot)) {
+    throw new Error(`<ContactBooking> requires a \`${slot}\` slot.`)
+  }
+}
+---
+
+<section class="flex flex-col items-start gap-3">
+  <h2 class="text-lg font-semibold text-foreground">
+    <slot name="heading" />
+  </h2>
+  <p class="text-muted-foreground">
+    <slot name="body" />
+  </p>
+  <ButtonLink
+    class="mt-1"
+    href={href}
+    rel="noopener noreferrer"
+    target="_blank"
+    variant="outline"
+  >
+    <slot name="label" />
+    <Icon aria-hidden="true" class="size-4" name="lucide:external-link" />
+  </ButtonLink>
+</section>
