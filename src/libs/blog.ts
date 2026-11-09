@@ -27,15 +27,26 @@ const WORDS_PER_MINUTE = 200
 const FENCE = /^```/
 
 /**
- * Reads the folder a post's file sits in, which is the path it is served
- * under.
+ * Reads the folder a post's file sits in, which is what ties its translations
+ * together.
  *
  * @param post - The post to read.
  *
- * @returns The slug, shared by every language the post was written in.
+ * @returns The key, shared by every language the post was written in.
+ */
+export function getPostKey(post: Post): string {
+  return post.id.slice(0, post.id.lastIndexOf("/"))
+}
+
+/**
+ * Reads the path segment a post is served under in its own language.
+ *
+ * @param post - The post to read.
+ *
+ * @returns Its `slug`, or its key when it has none.
  */
 export function getPostSlug(post: Post): string {
-  return post.id.slice(0, post.id.lastIndexOf("/"))
+  return post.data.slug ?? getPostKey(post)
 }
 
 /**
@@ -76,13 +87,13 @@ export function getPostHref(post: Post, locale?: string): string {
  *   that does not exist.
  */
 export function getPostAlternates(post: Post, posts: Post[]): Alternates {
-  const slug = getPostSlug(post)
+  const key = getPostKey(post)
 
   return Object.fromEntries(
     posts.flatMap((candidate) => {
       const locale = getPostLocale(candidate)
 
-      return locale && getPostSlug(candidate) === slug
+      return locale && getPostKey(candidate) === key
         ? [[locale, getPostHref(candidate, locale)]]
         : []
     })
@@ -206,14 +217,14 @@ export function getNeighbours(posts: Post[], post: Post): Neighbours {
 }
 
 /**
- * Collects the slug of every post the blog has, whatever its language.
+ * Collects the key of every post the blog has, whatever its language.
  *
- * @returns The slugs, one each however many languages a post is written in.
+ * @returns The keys, one each however many languages a post is written in.
  */
-export async function getPostSlugs(): Promise<Set<string>> {
+export async function getPostKeys(): Promise<Set<string>> {
   const posts = await getCollection("blog")
 
-  return new Set(posts.map(getPostSlug))
+  return new Set(posts.map(getPostKey))
 }
 
 /**
@@ -226,36 +237,36 @@ export async function getPostSlugs(): Promise<Set<string>> {
  *
  * @param posts - The posts of one language, as {@link getPosts} ordered them.
  * @param post - The one being read.
- * @param slugs - Every slug the blog has in any language, as
- *   {@link getPostSlugs} collects them.
+ * @param keys - Every key the blog has in any language, as
+ *   {@link getPostKeys} collects them.
  *
- * @returns Up to three posts. A slug the list names that this language has no
+ * @returns Up to three posts. A key the list names that this language has no
  *   post for is passed over: it is a post not translated yet, not a mistake.
  *
- * @throws When the list names a slug no post has in any language, which is a
- *   mistyped slug the build would otherwise pass over in silence.
+ * @throws When the list names a key no post has in any language, which is a
+ *   mistyped folder name the build would otherwise pass over in silence.
  */
 export function getRelated(
   posts: Post[],
   post: Post,
-  slugs: Set<string>
+  keys: Set<string>
 ): Post[] {
   const { related, tags } = post.data
 
   if (related && related.length > 0) {
-    for (const slug of related) {
-      if (!slugs.has(slug)) {
+    for (const key of related) {
+      if (!keys.has(key)) {
         throw new Error(
-          `The post \`${post.id}\` lists \`${slug}\` as related, but no post has that slug. Use the name of a folder in src/content/blog/.`
+          `The post \`${post.id}\` lists \`${key}\` as related, but no post is in that folder. Use the name of a folder in src/content/blog/.`
         )
       }
     }
 
     return related
-      .flatMap((slug) =>
+      .flatMap((key) =>
         posts.filter(
           (candidate) =>
-            getPostSlug(candidate) === slug && candidate.id !== post.id
+            getPostKey(candidate) === key && candidate.id !== post.id
         )
       )
       .slice(0, RELATED)
