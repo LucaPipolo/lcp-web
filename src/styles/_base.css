@@ -24,6 +24,10 @@
     @apply bg-background px-2 text-foreground;
   }
 
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+  }
+
   ::selection {
     @apply bg-primary text-white;
   }
