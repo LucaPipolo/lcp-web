@@ -1,3 +1,7 @@
+import type { PostIndexEntry } from "@/libs/blog"
+
+import * as Sentry from "@sentry/astro"
+
 import { normalize } from "@/libs/search"
 import { fillPlaceholders } from "@/libs/template"
 
@@ -6,6 +10,14 @@ import { chooseTheme, clearThemeChoice } from "@/scripts/theme"
 
 /** How far each arrow key moves the highlight through the results. */
 const STEPS: Record<string, number> = { ArrowDown: 1, ArrowUp: -1 }
+
+/**
+ * We decided to list at most this many posts, newest first, because the
+ * palette is for jumping somewhere quickly: past a handful, typing more narrows
+ * faster than scrolling, and the blog's own search is there for browsing them
+ * all.
+ */
+const POST_LIMIT = 5
 
 /** How long a command says it copied before the palette closes, in ms. */
 const COPIED_DELAY = 1000
@@ -40,32 +52,53 @@ async function copyText(text: string): Promise<boolean> {
   }
 }
 
+/** A post as the palette lists it, with what its option binds. */
+interface PostOption extends PostIndexEntry {
+  id: string
+  search: string
+}
+
+/**
+ * Narrows what the posts list returned to the entries it promises.
+ *
+ * @param value - One item of the parsed response.
+ *
+ * @returns Whether it is a post the palette can list.
+ */
+function isPostIndexEntry(value: unknown): value is PostIndexEntry {
+  if (typeof value !== "object" || value === null) return false
+
+  const { href, tags, title } = value as Record<string, unknown>
+
+  return (
+    typeof href === "string" &&
+    typeof title === "string" &&
+    Array.isArray(tags) &&
+    tags.every((tag) => typeof tag === "string")
+  )
+}
+
 register("commandPalette", () => {
-  // Read from the markup once and kept out of the component's state: they
-  // never change, and the CSP build refuses writes to DOM objects anyway.
-  let options: HTMLElement[] = []
-  let texts = new Map<HTMLElement, string>()
+  // Kept out of the component's state: read once, never reactive, and the
+  // CSP build refuses writes to DOM objects anyway.
+  let root: HTMLElement | undefined
   let labels = { empty: "", one: "", other: "" }
   let plurals = new Intl.PluralRules()
+  let postsRequested = false
 
   return {
     query: "",
     activeId: "",
     copiedId: "",
+    posts: [] as PostOption[],
+    // Bumped once the list has rendered, so whatever reads it reads it anew.
+    renders: 0,
 
     /**
-     * Reads every command the page rendered, and the words each one answers
-     * to, which are its label and its group's.
+     * Reads the labels the markup carries for what the script words itself.
      */
     init() {
-      const root = this.$el
-      options = [...root.querySelectorAll<HTMLElement>('[role="option"]')]
-      texts = new Map(
-        options.map((option) => [
-          option,
-          normalize(option.dataset.search ?? option.textContent ?? ""),
-        ])
-      )
+      root = this.$el
       labels = {
         empty: root.dataset.empty ?? "",
         one: root.dataset.resultsOne ?? "",
@@ -83,10 +116,33 @@ register("commandPalette", () => {
      * @returns Whether it stays listed.
      */
     matches(option: HTMLElement) {
-      const text = texts.get(option) ?? ""
+      return this.answers(option.dataset.search ?? "")
+    },
+
+    /**
+     * Tells whether a text holds every word typed so far, in any order and
+     * whatever their accents.
+     *
+     * @param text - What a command answers to.
+     *
+     * @returns Whether it matches the search.
+     */
+    answers(text: string) {
+      const haystack = normalize(text)
       return normalize(this.query)
         .split(/\s+/)
-        .every((term) => text.includes(term))
+        .every((term) => haystack.includes(term))
+    },
+
+    /**
+     * Lists the posts to render: the newest that match, up to the limit.
+     *
+     * @returns The posts.
+     */
+    shownPosts() {
+      return this.posts
+        .filter((post) => this.answers(post.search))
+        .slice(0, POST_LIMIT)
     },
 
     /**
@@ -95,7 +151,13 @@ register("commandPalette", () => {
      * @returns The matching commands.
      */
     results() {
-      return options.filter((option) => this.matches(option))
+      // Read live, since the posts rendered change with the search; reading
+      // `renders` runs every binding asking again once they have.
+      if (!root || this.renders < 0) return []
+
+      return [...root.querySelectorAll<HTMLElement>('[role="option"]')].filter(
+        (option) => this.matches(option)
+      )
     },
 
     /**
@@ -156,7 +218,26 @@ register("commandPalette", () => {
      * Highlights the first result, as the list changes under the typing.
      */
     search() {
-      this.activeId = this.results()[0]?.id ?? ""
+      this.refresh(false)
+    },
+
+    /**
+     * Reads the list again once Alpine has rendered the posts it now shows.
+     *
+     * @param keep - Whether a highlight still showing stays where it is,
+     *   rather than going back to the first result.
+     */
+    refresh(keep: boolean) {
+      this.$nextTick(() => {
+        this.renders++
+
+        const results = this.results()
+        if (keep && results.some((option) => option.id === this.activeId)) {
+          return
+        }
+
+        this.activeId = results[0]?.id ?? ""
+      })
     },
 
     /**
@@ -199,6 +280,55 @@ register("commandPalette", () => {
       this.copiedId = ""
       this.search()
       dialog.showModal()
+
+      void this.loadPosts()
+    },
+
+    /**
+     * Fetches the posts, once, the first time the palette opens.
+     *
+     * A failure leaves the palette working without them. One the site caused,
+     * a missing or malformed list, is reported; a network that dropped is the
+     * Visitor's, and only means trying again on the next open.
+     */
+    async loadPosts() {
+      const href = root?.dataset.posts
+      if (!href || postsRequested) return
+
+      postsRequested = true
+
+      let response: Response
+      try {
+        response = await fetch(href)
+      } catch {
+        postsRequested = false
+        return
+      }
+
+      const entries: unknown = response.ok
+        ? await response.json().catch(() => undefined)
+        : undefined
+
+      if (!Array.isArray(entries) || !entries.every(isPostIndexEntry)) {
+        Sentry.captureException(
+          new Error(
+            `The command palette could not list posts from ${href} (HTTP ${response.status}).`
+          )
+        )
+        return
+      }
+
+      const group = root?.dataset.postsLabel ?? ""
+
+      this.posts = entries.map((entry, index) => ({
+        ...entry,
+        id: `command-palette-post-${index}`,
+        search: [group, entry.title, ...entry.tags].join(" "),
+      }))
+
+      // Typed ahead of the posts, the highlight may have nothing left to sit
+      // on; one the Visitor moved and still showing stays where it is.
+      this.refresh(true)
     },
 
     /**

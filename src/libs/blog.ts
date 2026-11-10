@@ -115,6 +115,25 @@ export function getFeedHref(locale?: string): string {
 }
 
 /**
+ * Points at the list of posts in one language, as data rather than a page,
+ * for the command palette to fetch when it first opens.
+ *
+ * @param locale - The reader's locale.
+ *
+ * @returns The path that language serves its list at.
+ */
+export function getPostIndexHref(locale?: string): string {
+  return `${localizeHref("/blog/", locale)}posts.json`
+}
+
+/** A post as the command palette lists it. */
+export interface PostIndexEntry {
+  href: string
+  tags: string[]
+  title: string
+}
+
+/**
  * Points at the blog filtered down to one tag.
  *
  * The tag rides in the query rather than the path, because the filtering

@@ -4,13 +4,18 @@ import type { HTMLAttributes } from "astro/types"
 import { Icon } from "astro-icon/components"
 
 import { isExternalHref } from "@/libs/links"
+import { cn } from "@/libs/utils"
 
+/**
+ * `id` and `search` are left out by an option rendered in the browser, from
+ * an `x-for` template, which binds them instead.
+ */
 type Props = HTMLAttributes<"a"> & {
-  id: string
-  search: string
+  id?: string
+  search?: string
 }
 
-const { search, ...rest } = Astro.props
+const { class: className, search, ...rest } = Astro.props
 
 if (!Astro.slots.has("default")) {
   throw new Error("<CommandPaletteOption> requires a label.")
@@ -18,7 +23,7 @@ if (!Astro.slots.has("default")) {
 
 // A command that goes somewhere is a link; one that does something in place,
 // such as switching the theme, is a button.
-const Tag = rest.href ? "a" : "button"
+const Tag = rest.href || "x-bind:href" in rest ? "a" : "button"
 
 // Leaving the site opens a new tab, as every other external link here does.
 const external =
@@ -28,10 +33,17 @@ const external =
 ---
 
 {/* Never focused itself: focus stays in the input, which points at the
-  highlighted option, so `tabindex` keeps it out of the Tab order. */}
+  highlighted option, so `tabindex` keeps it out of the Tab order.
+
+  The caller's attributes come first: Alpine evaluates bindings in order, and
+  a bound `data-search` must be in place before `hidden` reads it. */}
 <Tag
+  {...rest}
   aria-selected="false"
-  class="flex w-full cursor-pointer items-center px-4 py-2 text-left font-mono text-sm text-muted-foreground lowercase aria-selected:bg-muted aria-selected:text-foreground"
+  class={cn(
+    "flex w-full cursor-pointer items-center px-4 py-2 text-left font-mono text-sm text-muted-foreground lowercase aria-selected:bg-muted aria-selected:text-foreground",
+    className
+  )}
   data-search={search}
   rel={external ? "noopener noreferrer" : undefined}
   role="option"
@@ -41,7 +53,6 @@ const external =
   x-bind:aria-selected="isActive($el)"
   x-bind:hidden="!matches($el)"
   x-on:pointermove="activate($el)"
-  {...rest}
 >
   <slot />
   {external && (
