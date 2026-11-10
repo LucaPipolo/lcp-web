@@ -192,6 +192,15 @@ const copyright =
     <SpeedInsights />
   </head>
   <body>
+    {header.skipLink && (
+      <a
+        class="sr-only bg-foreground font-mono text-xs text-background focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-3"
+        href="#main"
+      >
+        {header.skipLink}
+      </a>
+    )}
+
     <SiteHeader homeHref={homeHref}>
       {header.nav.map((link) => (
         <SiteHeaderLink href={localizeHref(link.href, locale)} slot="nav">
@@ -206,7 +215,11 @@ const copyright =
       <Fragment slot="menuLabel">{header.menuLabel}</Fragment>
     </SiteHeader>
 
-    <slot />
+    {/* Focusable only from script and the skip link, so the next Tab continues
+      from the content; it is not a control, so it draws no focus ring. */}
+    <main class="outline-none" id="main" tabindex="-1">
+      <slot />
+    </main>
 
     {footer && (
       <SiteFooter homeHref={homeHref}>
