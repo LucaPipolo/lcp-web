@@ -35,6 +35,7 @@ const settings = defineCollection({
       })
     ),
     header: z.object({
+      skipLink: z.string().optional(),
       themeToggleLabel: z.string(),
       menuLabel: z.string(),
       nav: z.array(z.object({ label: z.string(), href: z.string() })),
