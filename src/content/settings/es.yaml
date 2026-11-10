@@ -31,6 +31,34 @@ header:
     - label: "contacto"
       href: "/contact/"
 
+commandPalette:
+  open: "Abrir la paleta de comandos"
+  label: "Buscar páginas y comandos"
+  placeholder: "Escribe un comando o busca…"
+  empty: "Sin resultados"
+  results:
+    one: "{count} resultado"
+    other: "{count} resultados"
+  home: "inicio"
+  groups:
+    actions: "acciones"
+    language: "idioma"
+    theme: "tema"
+  actions:
+    email: "envíame un correo"
+    copyEmail: "copiar mi correo"
+    copyLink: "copiar el enlace de esta página"
+    copied: "copiado"
+    source: "ver el código fuente"
+  theme:
+    light: "claro"
+    dark: "oscuro"
+    system: "sistema"
+  keys:
+    navigate: "navegar"
+    select: "seleccionar"
+    close: "cerrar"
+
 blog:
   readingTime: "{minutes} min de lectura"
   published: "Publicado"

@@ -31,6 +31,34 @@ header:
     - label: "contact"
       href: "/contact/"
 
+commandPalette:
+  open: "Open the command palette"
+  label: "Search pages and commands"
+  placeholder: "Type a command or search…"
+  empty: "No results"
+  results:
+    one: "{count} result"
+    other: "{count} results"
+  home: "home"
+  groups:
+    actions: "actions"
+    language: "language"
+    theme: "theme"
+  actions:
+    email: "send me an email"
+    copyEmail: "copy my email address"
+    copyLink: "copy this page's link"
+    copied: "copied"
+    source: "view the source code"
+  theme:
+    light: "light"
+    dark: "dark"
+    system: "system"
+  keys:
+    navigate: "navigate"
+    select: "select"
+    close: "close"
+
 blog:
   readingTime: "{minutes} min read"
   published: "Published"
