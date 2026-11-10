@@ -6,6 +6,8 @@ import SpeedInsights from "@vercel/speed-insights/astro"
 
 import ButtonLink from "@/components/common/ButtonLink.astro"
 
+import CommandPalette from "@/components/sections/CommandPalette/CommandPalette.astro"
+
 import SiteFooter from "@/components/sections/SiteFooter/SiteFooter.astro"
 import SiteFooterColophon from "@/components/sections/SiteFooter/SiteFooterColophon.astro"
 import SiteFooterColumn from "@/components/sections/SiteFooter/SiteFooterColumn.astro"
@@ -207,6 +209,8 @@ const copyright =
           {link.label}
         </SiteHeaderLink>
       ))}
+
+      <CommandPalette alternates={alternates} slot="commandPalette" />
 
       <ThemeToggle slot="themeToggle">
         <Fragment slot="label">{header.themeToggleLabel}</Fragment>

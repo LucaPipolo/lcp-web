@@ -2,7 +2,7 @@ import { THEME_STORAGE_KEY } from "@/libs/theme-storage"
 
 import { register } from "@/scripts/alpine"
 
-type Theme = "dark" | "light"
+export type Theme = "dark" | "light"
 
 const systemQuery = window.matchMedia("(prefers-color-scheme: dark)")
 
@@ -53,17 +53,13 @@ function paintTheme(theme: Theme) {
 }
 
 /**
- * Switches to the other theme and records it as the Visitor's own choice. A
- * browser that refuses to store it still gets the switch for this page view,
- * on the grounds that forgetting beats failing.
+ * Switches to a theme and records it as the Visitor's own choice. A browser
+ * that refuses to store it still gets the switch for this page view, on the
+ * grounds that forgetting beats failing.
  *
- * @returns Nothing.
+ * @param theme - The theme to switch to.
  */
-function toggleTheme() {
-  const theme: Theme = document.documentElement.classList.contains("dark")
-    ? "light"
-    : "dark"
-
+export function chooseTheme(theme: Theme) {
   try {
     localStorage.setItem(THEME_STORAGE_KEY, theme)
   } catch {
@@ -74,9 +70,18 @@ function toggleTheme() {
 }
 
 /**
+ * Switches to the other theme, as the Visitor's own choice.
+ */
+function toggleTheme() {
+  chooseTheme(
+    document.documentElement.classList.contains("dark") ? "light" : "dark"
+  )
+}
+
+/**
  * Drops the Visitor's choice and hands the site back to their system.
  */
-function clearThemeChoice() {
+export function clearThemeChoice() {
   try {
     localStorage.removeItem(THEME_STORAGE_KEY)
   } catch {
@@ -98,8 +103,8 @@ systemQuery.addEventListener("change", (event) => {
 })
 
 /**
- * The toggle makes a choice and nothing on the page unmakes one, so
- * `window.lcpTheme.clear()` from a console is the way back to the system.
+ * The command palette's system theme is the way back from a choice on the
+ * page; `window.lcpTheme` does the same from a console.
  */
 window.lcpTheme = { stored: storedTheme, clear: clearThemeChoice }
 
