@@ -16,6 +16,7 @@ socialLinks:
     handle: "hola@lucapipolo.com"
 
 header:
+  skipLink: "Saltar al contenido"
   themeToggleLabel: "Cambiar tema"
   menuLabel: "Menú"
   nav:
