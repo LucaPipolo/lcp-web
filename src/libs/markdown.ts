@@ -3,6 +3,8 @@ import type { SatteriProcessorOptions } from "@astrojs/markdown-satteri"
 import { icons } from "@iconify-json/lucide"
 import Slugger from "github-slugger"
 
+import { isExternalHref } from "./links"
+
 type HastPlugin = NonNullable<SatteriProcessorOptions["hastPlugins"]>[number]
 
 /**
@@ -119,17 +121,6 @@ export const imageCaptions: HastPlugin = {
 }
 
 /**
- * Strips the `www.` a host may or may not be written with.
- *
- * @param host - A hostname.
- *
- * @returns The same host without its `www.`.
- */
-function bareHost(host: string): string {
-  return host.replace(/^www\./, "")
-}
-
-/**
  * Marks every link that leaves the site with Lucide's external-link icon, the
  * one the site's own components use, and opens it the way they open theirs: in
  * a new tab, with no access back to this one.
@@ -145,7 +136,6 @@ function bareHost(host: string): string {
  *   external link quietly unmarked.
  */
 export function externalLinks(site: string): HastPlugin {
-  const own = bareHost(new URL(site).hostname)
   const icon = icons.icons["external-link"]
 
   if (!icon) {
@@ -164,9 +154,7 @@ export function externalLinks(site: string): HastPlugin {
       visit(node, ctx) {
         const href = node.properties?.href
 
-        if (typeof href !== "string" || !/^https?:\/\//i.test(href)) return
-
-        if (bareHost(new URL(href).hostname) === own) return
+        if (typeof href !== "string" || !isExternalHref(href, site)) return
 
         ctx.setProperty(node, "target", "_blank")
         ctx.setProperty(node, "rel", "noopener noreferrer")
