@@ -3,7 +3,7 @@
  * button, so the two cannot drift apart.
  */
 export const BUTTON_BASE =
-  "inline-flex shrink-0 cursor-pointer items-center justify-center border border-transparent text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-gray-400 focus-visible:ring-3 focus-visible:ring-gray-400/50 active:translate-y-px [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
+  "inline-flex shrink-0 cursor-pointer items-center justify-center border border-transparent text-sm font-medium whitespace-nowrap transition-all select-none active:translate-y-px [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4"
 
 export const BUTTON_SIZES = {
   md: "h-10 gap-2 px-4",

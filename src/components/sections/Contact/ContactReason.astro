@@ -27,7 +27,7 @@ if (!Astro.slots.has("default")) {
     x-model="reason"
     x-on:change="recheck($el)"
   />
-  <span class="inline-flex h-10 items-center border border-border px-4 text-sm text-muted-foreground transition-colors peer-checked:border-foreground peer-checked:bg-foreground peer-checked:text-background peer-focus-visible:ring-3 peer-focus-visible:ring-gray-400/50 hover:text-foreground">
+  <span class="inline-flex h-10 items-center border border-border px-4 text-sm text-muted-foreground transition-colors peer-checked:border-foreground peer-checked:bg-foreground peer-checked:text-background peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-primary hover:text-foreground">
     <slot />
   </span>
 </label>
