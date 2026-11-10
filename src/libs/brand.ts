@@ -2,6 +2,9 @@ import { Resvg } from "@resvg/resvg-js"
 
 import { asterisk } from "@/libs/asterisk"
 
+/** Where the site's own source code is published. */
+export const REPO_HREF = "https://github.com/LucaPipolo/lcp-web"
+
 /**
  * The palette's light theme, in sRGB, for images drawn at build time: their
  * renderer reads no `oklch()`. Converted from `src/styles/_colors.css`.
