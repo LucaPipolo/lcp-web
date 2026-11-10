@@ -1,0 +1,35 @@
+---
+import type { HTMLAttributes } from "astro/types"
+
+type Props = HTMLAttributes<"a"> & {
+  id: string
+  search: string
+}
+
+const { search, ...rest } = Astro.props
+
+if (!Astro.slots.has("default")) {
+  throw new Error("<CommandPaletteOption> requires a label.")
+}
+
+// A command that goes somewhere is a link; one that does something in place,
+// such as switching the theme, is a button.
+const Tag = rest.href ? "a" : "button"
+---
+
+{/* Never focused itself: focus stays in the input, which points at the
+  highlighted option, so `tabindex` keeps it out of the Tab order. */}
+<Tag
+  aria-selected="false"
+  class="flex w-full cursor-pointer items-center px-4 py-2 text-left font-mono text-sm text-muted-foreground lowercase aria-selected:bg-muted aria-selected:text-foreground"
+  data-search={search}
+  role="option"
+  tabindex="-1"
+  type={Tag === "button" ? "button" : undefined}
+  x-bind:aria-selected="isActive($el)"
+  x-bind:hidden="!matches($el)"
+  x-on:pointermove="activate($el)"
+  {...rest}
+>
+  <slot />
+</Tag>
