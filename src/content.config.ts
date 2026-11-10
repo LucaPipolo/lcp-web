@@ -69,6 +69,13 @@ const settings = defineCollection({
         select: z.string(),
         close: z.string(),
       }),
+      /**
+       * Extra words a command answers to, searched but never shown. A link is
+       * keyed by its `href` as this file writes it (`/contact/`), one of the
+       * palette's own commands by name: `email`, `copyEmail`, `copyLink`,
+       * `feed`, `source`, `light`, `dark` or `system`.
+       */
+      keywords: z.record(z.string(), z.string()).optional(),
     }),
     blog: z.object({
       readingTime: z.string(),

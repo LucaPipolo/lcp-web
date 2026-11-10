@@ -41,6 +41,8 @@ interface Command {
   command?: "copy" | "theme"
   download?: boolean
   href?: string
+  /** What `commandPalette.keywords` names it by, see the schema. */
+  key: string
   label: string
   value?: string
 }
@@ -59,6 +61,7 @@ const columns = (footer?.columns ?? []).map((column, index) => ({
   ].map((link): Command => ({
     ...link,
     href: localizeHref(link.href, locale),
+    key: link.href,
   })),
 }))
 
@@ -67,8 +70,9 @@ const email = socialLinks.find(({ platform }) => platform === "email")
 const actions: Command[] = [
   ...(email
     ? [
-        { label: copy.actions.email, href: email.href },
+        { label: copy.actions.email, href: email.href, key: "email" },
         {
+          key: "copyEmail",
           label: copy.actions.copyEmail,
           command: "copy" as const,
           value: email.href.replace(/^mailto:/, ""),
@@ -76,16 +80,40 @@ const actions: Command[] = [
       ]
     : []),
   // No value: the page's own address is only known in the browser.
-  { label: copy.actions.copyLink, command: "copy" },
-  { label: blog.feed, href: getFeedHref(locale) },
-  { label: copy.actions.source, href: REPO_HREF },
+  { label: copy.actions.copyLink, command: "copy", key: "copyLink" },
+  { label: blog.feed, href: getFeedHref(locale), key: "feed" },
+  { label: copy.actions.source, href: REPO_HREF, key: "source" },
 ]
 
 const themes = (["light", "dark", "system"] as const).map((value): Command => ({
   label: copy.theme[value],
   command: "theme",
+  key: value,
   value,
 }))
+
+const keywords = copy.keywords ?? {}
+
+const known = new Set(
+  [...columns.flatMap(({ commands }) => commands), ...actions, ...themes].map(
+    ({ key }) => key
+  )
+)
+
+for (const key of Object.keys(keywords)) {
+  if (!known.has(key)) {
+    throw new Error(
+      `The command palette has keywords for \`${key}\`, which names no command. Rename or remove it under \`commandPalette.keywords\` in src/content/settings/${locale}.yaml.`
+    )
+  }
+}
+
+/**
+ * Words what a command answers to: its group, its label, and any keywords
+ * content gives it, which are searched but never shown.
+ */
+const searchText = (group: string, { key, label }: Command) =>
+  [group, label, keywords[key]].filter(Boolean).join(" ")
 
 const languages = LOCALES.map((code) => ({
   code,
@@ -172,7 +200,7 @@ const nextId = () => `command-palette-option-${count++}`
               download={command.download}
               href={command.href}
               id={nextId()}
-              search={`${column.label} ${command.label}`}
+              search={searchText(column.label, command)}
             >
               {command.label}
             </CommandPaletteOption>
@@ -188,7 +216,7 @@ const nextId = () => `command-palette-option-${count++}`
             data-value={command.value}
             href={command.href}
             id={nextId()}
-            search={`${copy.groups.actions} ${command.label}`}
+            search={searchText(copy.groups.actions, command)}
           >
             {command.command === "copy" ? (
               <>
@@ -211,7 +239,7 @@ const nextId = () => `command-palette-option-${count++}`
             data-command={command.command}
             data-value={command.value}
             id={nextId()}
-            search={`${copy.groups.theme} ${command.label}`}
+            search={searchText(copy.groups.theme, command)}
           >
             {command.label}
           </CommandPaletteOption>
