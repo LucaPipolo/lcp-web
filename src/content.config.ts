@@ -35,41 +35,41 @@ const settings = defineCollection({
       })
     ),
     header: z.object({
-      skipLink: z.string().optional(),
+      skipLink: z.string(),
       themeToggleLabel: z.string(),
       menuLabel: z.string(),
       nav: z.array(z.object({ label: z.string(), href: z.string() })),
     }),
-    commandPalette: z
-      .object({
-        open: z.string(),
-        label: z.string(),
-        placeholder: z.string(),
-        empty: z.string(),
-        results: z.object({ one: z.string(), other: z.string() }),
-        home: z.string(),
-        groups: z.object({
-          actions: z.string(),
-          language: z.string(),
-          theme: z.string().optional(),
-        }),
-        actions: z.object({
-          email: z.string(),
-          copyEmail: z.string().optional(),
-          copyLink: z.string().optional(),
-          copied: z.string().optional(),
-          source: z.string().optional(),
-        }),
-        theme: z
-          .object({ light: z.string(), dark: z.string(), system: z.string() })
-          .optional(),
-        keys: z.object({
-          navigate: z.string(),
-          select: z.string(),
-          close: z.string(),
-        }),
-      })
-      .optional(),
+    commandPalette: z.object({
+      open: z.string(),
+      label: z.string(),
+      placeholder: z.string(),
+      empty: z.string(),
+      results: z.object({ one: z.string(), other: z.string() }),
+      home: z.string(),
+      groups: z.object({
+        actions: z.string(),
+        language: z.string(),
+        theme: z.string(),
+      }),
+      actions: z.object({
+        email: z.string(),
+        copyEmail: z.string(),
+        copyLink: z.string(),
+        copied: z.string(),
+        source: z.string(),
+      }),
+      theme: z.object({
+        light: z.string(),
+        dark: z.string(),
+        system: z.string(),
+      }),
+      keys: z.object({
+        navigate: z.string(),
+        select: z.string(),
+        close: z.string(),
+      }),
+    }),
     blog: z.object({
       readingTime: z.string(),
       published: z.string(),

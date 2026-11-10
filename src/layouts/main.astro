@@ -194,14 +194,12 @@ const copyright =
     <SpeedInsights />
   </head>
   <body>
-    {header.skipLink && (
-      <a
-        class="sr-only bg-foreground font-mono text-xs text-background focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-3"
-        href="#main"
-      >
-        {header.skipLink}
-      </a>
-    )}
+    <a
+      class="sr-only bg-foreground font-mono text-xs text-background focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-3"
+      href="#main"
+    >
+      {header.skipLink}
+    </a>
 
     <SiteHeader homeHref={homeHref}>
       {header.nav.map((link) => (
