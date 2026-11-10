@@ -4,7 +4,7 @@ import { Icon } from "astro-icon/components"
 import CommandPaletteGroup from "@/components/sections/CommandPalette/CommandPaletteGroup.astro"
 import CommandPaletteOption from "@/components/sections/CommandPalette/CommandPaletteOption.astro"
 
-import { getFeedHref } from "@/libs/blog"
+import { getFeedHref, getPostIndexHref } from "@/libs/blog"
 import { REPO_HREF } from "@/libs/brand"
 import { getSettings } from "@/libs/content"
 import {
@@ -29,6 +29,7 @@ const {
   blog,
   commandPalette: copy,
   footer,
+  header,
   socialLinks,
 } = await getSettings(locale)
 
@@ -92,6 +93,9 @@ const languages = LOCALES.map((code) => ({
   label: new Intl.DisplayNames([code], { type: "language" }).of(code) ?? code,
 }))
 
+// Posts are headed by the blog's own name in the navigation.
+const postsLabel = header.nav.find(({ href }) => href === "/blog/")?.label
+
 let count = 0
 const nextId = () => `command-palette-option-${count++}`
 ---
@@ -99,6 +103,8 @@ const nextId = () => `command-palette-option-${count++}`
 <div
   class="contents"
   data-empty={copy.empty}
+  data-posts={postsLabel && getPostIndexHref(locale)}
+  data-posts-label={postsLabel}
   data-results-one={copy.results.one}
   data-results-other={copy.results.other}
   x-data="commandPalette"
@@ -228,6 +234,23 @@ const nextId = () => `command-palette-option-${count++}`
           </CommandPaletteOption>
         ))}
       </CommandPaletteGroup>
+
+      {postsLabel && (
+        <CommandPaletteGroup id="command-palette-group-posts">
+          <Fragment slot="label">{postsLabel}</Fragment>
+          <template x-bind:key="post.id" x-for="post in shownPosts()">
+            {/* A title is prose, so it keeps its own capitals. */}
+            <CommandPaletteOption
+              class="normal-case"
+              x-bind:data-search="post.search"
+              x-bind:href="post.href"
+              x-bind:id="post.id"
+            >
+              <span x-text="post.title" />
+            </CommandPaletteOption>
+          </template>
+        </CommandPaletteGroup>
+      )}
     </div>
 
     <p
