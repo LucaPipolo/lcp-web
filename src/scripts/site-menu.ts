@@ -20,17 +20,15 @@ register("siteMenu", () => ({
   },
 
   /**
-   * Closes the panel, used by the Escape key.
-   */
-  close() {
-    this.open = false
-  },
-
-  /**
    * Closes the panel and puts focus back on the button that opened it, so it
    * does not fall to the body once the element holding it is hidden.
+   *
+   * Does nothing while the panel is closed: Escape is heard window-wide, and
+   * pressing it elsewhere on the page must not pull focus to the header.
    */
-  closeAndRefocus() {
+  close() {
+    if (!this.open) return
+
     this.open = false
     this.$refs.button?.focus()
   },

@@ -70,7 +70,7 @@ for (const slot of ["nav", "themeToggle", "menuLabel"]) {
     class="absolute inset-x-0 top-full md:hidden!"
     id="site-menu"
     x-cloak=""
-    x-on:click="closeAndRefocus()"
+    x-on:click="close()"
     x-ref="panel"
     x-show="open"
     x-transition:enter="transition duration-200 ease-out"
