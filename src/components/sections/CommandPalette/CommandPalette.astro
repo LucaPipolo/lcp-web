@@ -53,7 +53,7 @@ const columns = (footer?.columns ?? []).map((column, index) => ({
   label: column.label,
   commands: [
     // Home has no link in the footer, whose wordmark stands in for one.
-    ...(index === 0 && copy ? [{ label: copy.home, href: "/" }] : []),
+    ...(index === 0 ? [{ label: copy.home, href: "/" }] : []),
     ...column.links,
   ].map((link): Command => ({
     ...link,
@@ -64,9 +64,9 @@ const columns = (footer?.columns ?? []).map((column, index) => ({
 const email = socialLinks.find(({ platform }) => platform === "email")
 
 const actions: Command[] = [
-  ...(email && copy ? [{ label: copy.actions.email, href: email.href }] : []),
-  ...(email && copy?.actions.copyEmail
+  ...(email
     ? [
+        { label: copy.actions.email, href: email.href },
         {
           label: copy.actions.copyEmail,
           command: "copy" as const,
@@ -75,24 +75,16 @@ const actions: Command[] = [
       ]
     : []),
   // No value: the page's own address is only known in the browser.
-  ...(copy?.actions.copyLink
-    ? [{ label: copy.actions.copyLink, command: "copy" as const }]
-    : []),
+  { label: copy.actions.copyLink, command: "copy" },
   { label: blog.feed, href: getFeedHref(locale) },
-  ...(copy?.actions.source
-    ? [{ label: copy.actions.source, href: REPO_HREF }]
-    : []),
+  { label: copy.actions.source, href: REPO_HREF },
 ]
 
-const themeLabels = copy?.theme
-
-const themes: Command[] = themeLabels
-  ? (["light", "dark", "system"] as const).map((value) => ({
-      label: themeLabels[value],
-      command: "theme",
-      value,
-    }))
-  : []
+const themes = (["light", "dark", "system"] as const).map((value): Command => ({
+  label: copy.theme[value],
+  command: "theme",
+  value,
+}))
 
 const languages = LOCALES.map((code) => ({
   code,
@@ -104,170 +96,166 @@ let count = 0
 const nextId = () => `command-palette-option-${count++}`
 ---
 
-{copy && (
-  <div
-    class="contents"
-    data-empty={copy.empty}
-    data-results-one={copy.results.one}
-    data-results-other={copy.results.other}
-    x-data="commandPalette"
-    x-on:keydown.window="shortcut($event)"
-  >
-    {/* A shortcut hint rather than an icon, so the button teaches the key
+<div
+  class="contents"
+  data-empty={copy.empty}
+  data-results-one={copy.results.one}
+  data-results-other={copy.results.other}
+  x-data="commandPalette"
+  x-on:keydown.window="shortcut($event)"
+>
+  {/* A shortcut hint rather than an icon, so the button teaches the key
       that opens it; hidden on narrow screens, which rarely have a keyboard. */}
-    <button
-      aria-haspopup="dialog"
-      aria-keyshortcuts="Meta+K Control+K"
-      class="hidden h-8 cursor-pointer items-center border border-border px-2 font-mono text-xs text-muted-foreground transition-colors hover:border-primary hover:text-primary md:flex"
-      type="button"
-      x-on:click="open()"
-    >
-      <span class="sr-only">{copy.open}</span>
-      <kbd aria-hidden="true" x-text="shortcutLabel()">
-        ⌘K
-      </kbd>
-    </button>
+  <button
+    aria-haspopup="dialog"
+    aria-keyshortcuts="Meta+K Control+K"
+    class="hidden h-8 cursor-pointer items-center border border-border px-2 font-mono text-xs text-muted-foreground transition-colors hover:border-primary hover:text-primary md:flex"
+    type="button"
+    x-on:click="open()"
+  >
+    <span class="sr-only">{copy.open}</span>
+    <kbd aria-hidden="true" x-text="shortcutLabel()">
+      ⌘K
+    </kbd>
+  </button>
 
-    <dialog
-      aria-label={copy.label}
-      class="mx-auto mt-24 w-[calc(100%-var(--spacing-gutter)*2)] max-w-xl border border-border bg-background text-foreground shadow-lg backdrop:bg-foreground/20 backdrop:backdrop-blur-sm"
-      x-on:click="dismiss($event)"
-      x-ref="dialog"
-    >
-      <div class="relative border-b border-border">
-        <Icon
-          aria-hidden="true"
-          class="pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2 text-muted-foreground"
-          name="lucide:search"
-        />
-        {/* The input is the palette's only focus stop, and its caret already
+  <dialog
+    aria-label={copy.label}
+    class="mx-auto mt-24 w-[calc(100%-var(--spacing-gutter)*2)] max-w-xl border border-border bg-background text-foreground shadow-lg backdrop:bg-foreground/20 backdrop:backdrop-blur-sm"
+    x-on:click="dismiss($event)"
+    x-ref="dialog"
+  >
+    <div class="relative border-b border-border">
+      <Icon
+        aria-hidden="true"
+        class="pointer-events-none absolute top-1/2 left-4 size-4 -translate-y-1/2 text-muted-foreground"
+        name="lucide:search"
+      />
+      {/* The input is the palette's only focus stop, and its caret already
           marks it, so it draws no outline of its own. */}
-        <input
-          aria-autocomplete="list"
-          aria-controls="command-palette-list"
-          aria-expanded="true"
-          aria-label={copy.label}
-          autocomplete="off"
-          class="h-12 w-full bg-transparent pr-4 pl-11 text-base outline-none placeholder:text-muted-foreground"
-          placeholder={copy.placeholder}
-          role="combobox"
-          spellcheck="false"
-          type="text"
-          x-bind:aria-activedescendant="activeId"
-          x-model="query"
-          x-on:input="search()"
-          x-on:keydown="move($event)"
-        />
-      </div>
-
-      <div
+      <input
+        aria-autocomplete="list"
+        aria-controls="command-palette-list"
+        aria-expanded="true"
         aria-label={copy.label}
-        class="max-h-80 overflow-y-auto py-1"
-        id="command-palette-list"
-        role="listbox"
-        x-on:click="choose($event)"
-      >
-        {columns.map((column, index) => (
-          <CommandPaletteGroup id={`command-palette-group-${index}`}>
-            <Fragment slot="label">{column.label}</Fragment>
-            {column.commands.map((command) => (
-              <CommandPaletteOption
-                download={command.download}
-                href={command.href}
-                id={nextId()}
-                search={`${column.label} ${command.label}`}
-              >
-                {command.label}
-              </CommandPaletteOption>
-            ))}
-          </CommandPaletteGroup>
-        ))}
+        autocomplete="off"
+        class="h-12 w-full bg-transparent pr-4 pl-11 text-base outline-none placeholder:text-muted-foreground"
+        placeholder={copy.placeholder}
+        role="combobox"
+        spellcheck="false"
+        type="text"
+        x-bind:aria-activedescendant="activeId"
+        x-model="query"
+        x-on:input="search()"
+        x-on:keydown="move($event)"
+      />
+    </div>
 
-        <CommandPaletteGroup id="command-palette-group-actions">
-          <Fragment slot="label">{copy.groups.actions}</Fragment>
-          {actions.map((command) => (
+    <div
+      aria-label={copy.label}
+      class="max-h-80 overflow-y-auto py-1"
+      id="command-palette-list"
+      role="listbox"
+      x-on:click="choose($event)"
+    >
+      {columns.map((column, index) => (
+        <CommandPaletteGroup id={`command-palette-group-${index}`}>
+          <Fragment slot="label">{column.label}</Fragment>
+          {column.commands.map((command) => (
             <CommandPaletteOption
-              data-command={command.command}
-              data-value={command.value}
+              download={command.download}
               href={command.href}
               id={nextId()}
-              search={`${copy.groups.actions} ${command.label}`}
+              search={`${column.label} ${command.label}`}
             >
-              {command.command === "copy" && copy.actions.copied ? (
-                <>
-                  <span x-bind:hidden="isCopied($el)">{command.label}</span>
-                  <span hidden x-bind:hidden="!isCopied($el)">
-                    {copy.actions.copied}
-                  </span>
-                </>
-              ) : (
-                command.label
-              )}
+              {command.label}
             </CommandPaletteOption>
           ))}
         </CommandPaletteGroup>
+      ))}
 
-        {copy.groups.theme && themes.length > 0 && (
-          <CommandPaletteGroup id="command-palette-group-theme">
-            <Fragment slot="label">{copy.groups.theme}</Fragment>
-            {themes.map((command) => (
-              <CommandPaletteOption
-                data-command={command.command}
-                data-value={command.value}
-                id={nextId()}
-                search={`${copy.groups.theme} ${command.label}`}
-              >
-                {command.label}
-              </CommandPaletteOption>
-            ))}
-          </CommandPaletteGroup>
-        )}
+      <CommandPaletteGroup id="command-palette-group-actions">
+        <Fragment slot="label">{copy.groups.actions}</Fragment>
+        {actions.map((command) => (
+          <CommandPaletteOption
+            data-command={command.command}
+            data-value={command.value}
+            href={command.href}
+            id={nextId()}
+            search={`${copy.groups.actions} ${command.label}`}
+          >
+            {command.command === "copy" ? (
+              <>
+                <span x-bind:hidden="isCopied($el)">{command.label}</span>
+                <span hidden x-bind:hidden="!isCopied($el)">
+                  {copy.actions.copied}
+                </span>
+              </>
+            ) : (
+              command.label
+            )}
+          </CommandPaletteOption>
+        ))}
+      </CommandPaletteGroup>
 
-        <CommandPaletteGroup id="command-palette-group-language">
-          <Fragment slot="label">{copy.groups.language}</Fragment>
-          {languages.map(({ code, href, label }) => (
-            <CommandPaletteOption
-              aria-current={code === locale ? "page" : undefined}
-              data-locale={code}
-              href={href}
-              hreflang={code}
-              id={nextId()}
-              lang={code}
-              search={`${copy.groups.language} ${code} ${label}`}
-            >
-              {label}
-            </CommandPaletteOption>
-          ))}
-        </CommandPaletteGroup>
-      </div>
+      <CommandPaletteGroup id="command-palette-group-theme">
+        <Fragment slot="label">{copy.groups.theme}</Fragment>
+        {themes.map((command) => (
+          <CommandPaletteOption
+            data-command={command.command}
+            data-value={command.value}
+            id={nextId()}
+            search={`${copy.groups.theme} ${command.label}`}
+          >
+            {command.label}
+          </CommandPaletteOption>
+        ))}
+      </CommandPaletteGroup>
 
-      <p
-        class="px-4 py-8 text-center text-sm text-muted-foreground"
-        hidden
-        x-bind:hidden="hasResults()"
-      >
-        {copy.empty}
-      </p>
+      <CommandPaletteGroup id="command-palette-group-language">
+        <Fragment slot="label">{copy.groups.language}</Fragment>
+        {languages.map(({ code, href, label }) => (
+          <CommandPaletteOption
+            aria-current={code === locale ? "page" : undefined}
+            data-locale={code}
+            href={href}
+            hreflang={code}
+            id={nextId()}
+            lang={code}
+            search={`${copy.groups.language} ${code} ${label}`}
+          >
+            {label}
+          </CommandPaletteOption>
+        ))}
+      </CommandPaletteGroup>
+    </div>
 
-      <p aria-live="polite" class="sr-only" x-text="status()" />
+    <p
+      class="px-4 py-8 text-center text-sm text-muted-foreground"
+      hidden
+      x-bind:hidden="hasResults()"
+    >
+      {copy.empty}
+    </p>
 
-      <div
-        aria-hidden="true"
-        class="flex gap-4 border-t border-border px-4 py-2 font-mono text-2xs text-muted-foreground"
-      >
-        <span>
-          <kbd class="text-foreground">↑↓</kbd> {copy.keys.navigate}
-        </span>
-        <span>
-          <kbd class="text-foreground">↵</kbd> {copy.keys.select}
-        </span>
-        <span>
-          <kbd class="text-foreground">esc</kbd> {copy.keys.close}
-        </span>
-      </div>
-    </dialog>
-  </div>
-)}
+    <p aria-live="polite" class="sr-only" x-text="status()" />
+
+    <div
+      aria-hidden="true"
+      class="flex gap-4 border-t border-border px-4 py-2 font-mono text-2xs text-muted-foreground"
+    >
+      <span>
+        <kbd class="text-foreground">↑↓</kbd> {copy.keys.navigate}
+      </span>
+      <span>
+        <kbd class="text-foreground">↵</kbd> {copy.keys.select}
+      </span>
+      <span>
+        <kbd class="text-foreground">esc</kbd> {copy.keys.close}
+      </span>
+    </div>
+  </dialog>
+</div>
 
 <script>
   import "@/scripts/command-palette"
