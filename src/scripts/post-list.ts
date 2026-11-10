@@ -1,3 +1,4 @@
+import { normalize } from "@/libs/search"
 import { fillPlaceholders } from "@/libs/template"
 
 import { register } from "@/scripts/alpine"
@@ -15,22 +16,6 @@ const PARAMS = { page: "page", query: "q", tag: "tag" } as const
 interface Entry {
   tags: string[]
   text: string
-}
-
-/**
- * Puts text in the form the search compares: lower case, and with its accents
- * taken off, so that `cache` finds `caché` and the other way round.
- *
- * @param text - What to normalise.
- *
- * @returns The comparable form.
- */
-function normalize(text: string): string {
-  return text
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .toLowerCase()
-    .trim()
 }
 
 register("postList", () => {
