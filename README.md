@@ -1,4 +1,5 @@
 [![Build][badge-build]][workflow-build]
+[![Tests][badge-tests]][workflow-tests]
 [![Types][badge-types]][workflow-types]
 [![Lint][badge-lint]][workflow-lint]
 [![CodeQL][badge-codeql]][workflow-codeql]
@@ -43,6 +44,8 @@ api/contact.ts             contact form endpoint, a Vercel Function
 api/cleanup.ts             daily deletion of expired contact data, a Vercel Cron Job
 api/notify.ts              privacy notices to people who wrote, sent by hand
 scripts/notify.ts          triggers api/notify from your machine
+tests/                     Vitest unit tests, kept out of api/, where every file deploys as a function
+vitest.config.ts           test runner and coverage settings
 notices/                   privacy notices sent by hand, plus a template
 patches/                   fixes to dependencies, applied by bun install until upstream ships them
 middleware.ts              locale negotiation, at the edge
@@ -50,7 +53,7 @@ vercel.json                security headers and redirects
 rift.yaml                  local dev environment, read by Rift
 compose.yaml               dev containers
 check-csp.mjs              build-time CSP check
-.github/workflows/         CI: lint, type check, build, CodeQL, dependency audit and commit messages
+.github/workflows/         CI: tests, lint, type check, build, CodeQL, dependency audit and commit messages
 SECURITY.md                how to report a vulnerability
 ```
 
@@ -103,13 +106,15 @@ Add `-v` (for example, `rift up -v`) for full output instead of one line per ste
 To run project scripts, use `docker compose exec` against the app container, from this checkout's own root:
 
 ```bash
-docker compose exec app bun run dev         # dev server
-docker compose exec app bun run build       # production build
-docker compose exec app bun run preview     # preview the build
-docker compose exec app bun run lint        # run ESLint
-docker compose exec app bun run check:type  # run astro check
-docker compose exec app bun run check:audit # audit dependencies
-docker compose exec app bun run format      # run ESLint + Prettier fix
+docker compose exec app bun run dev           # dev server
+docker compose exec app bun run build         # production build
+docker compose exec app bun run preview       # preview the build
+docker compose exec app bun run test          # run the tests
+docker compose exec app bun run test:coverage # run the tests with the 100% coverage threshold
+docker compose exec app bun run lint          # run ESLint
+docker compose exec app bun run check:type    # run astro check
+docker compose exec app bun run check:audit   # audit dependencies
+docker compose exec app bun run format        # run ESLint + Prettier fix
 ```
 
 #### **Built for git worktrees**
@@ -216,7 +221,8 @@ This serves the site at `localhost:4321` with no HTTPS, but it is otherwise iden
 
 > [!CAUTION]
 > The [git hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) run inside the Docker container, so
-> without it you'll need `git commit --no-verify` to commit. Options A and B both run it.
+> without it you'll need `git commit --no-verify` to commit and `git push --no-verify` to push. Options A and B both
+> run it.
 
 ## Deploying the contact form
 
@@ -375,11 +381,13 @@ Configured in `.mcp.json`, committed so every checkout gets them:
 [MIT](./LICENSE.md)
 
 [badge-build]: https://img.shields.io/github/actions/workflow/status/LucaPipolo/lcp-web/build.yml?branch=main&label=build&style=flat-square&logo=githubactions&logoColor=white
+[badge-tests]: https://img.shields.io/github/actions/workflow/status/LucaPipolo/lcp-web/tests.yml?branch=main&label=tests&style=flat-square&logo=githubactions&logoColor=white
 [badge-types]: https://img.shields.io/github/actions/workflow/status/LucaPipolo/lcp-web/types.yml?branch=main&label=types&style=flat-square&logo=githubactions&logoColor=white
 [badge-lint]: https://img.shields.io/github/actions/workflow/status/LucaPipolo/lcp-web/lint.yml?branch=main&label=lint&style=flat-square&logo=githubactions&logoColor=white
 [badge-codeql]: https://img.shields.io/github/actions/workflow/status/LucaPipolo/lcp-web/codeql.yml?branch=main&label=codeql&style=flat-square&logo=githubactions&logoColor=white
 [badge-audit]: https://img.shields.io/github/actions/workflow/status/LucaPipolo/lcp-web/audit.yml?branch=main&label=audit&style=flat-square&logo=githubactions&logoColor=white
 [workflow-build]: https://github.com/LucaPipolo/lcp-web/actions/workflows/build.yml
+[workflow-tests]: https://github.com/LucaPipolo/lcp-web/actions/workflows/tests.yml
 [workflow-types]: https://github.com/LucaPipolo/lcp-web/actions/workflows/types.yml
 [workflow-lint]: https://github.com/LucaPipolo/lcp-web/actions/workflows/lint.yml
 [workflow-codeql]: https://github.com/LucaPipolo/lcp-web/actions/workflows/codeql.yml
