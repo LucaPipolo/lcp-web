@@ -1,0 +1,46 @@
+name: Preview cleanup
+
+# We decided to delete a branch's preview deployments as soon as its pull
+# request closes, rather than wait for Vercel's retention, because each one
+# keeps a Neon branch alive and the plan caps how many can exist at once.
+on:
+  pull_request:
+    types: [closed]
+
+permissions: {}
+
+jobs:
+  cleanup:
+    name: Delete preview deployments
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: ${{ github.event.pull_request.head.ref }}
+      PROJECT_ID: prj_CAbtFlArxeSEHJZ76n9wCXBWkb5t
+      TEAM_ID: team_0HlV920vDAMPJfqHDsyH0owJ
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+    steps:
+      - name: Delete the branch's preview deployments
+        run: |
+          api() {
+            curl --fail-with-body --silent --show-error \
+              --header "Authorization: Bearer $VERCEL_TOKEN" "$@"
+          }
+
+          branch=$(jq --raw-output --null-input 'env.BRANCH | @uri')
+          list="https://api.vercel.com/v7/deployments?projectId=$PROJECT_ID&teamId=$TEAM_ID&target=preview&branch=$branch&limit=100"
+          url="$list"
+          ids=""
+          while [ -n "$url" ]; do
+            page=$(api "$url")
+            ids="$ids$(jq --raw-output '.deployments[] | select(.target != "production") | .uid // .id' <<< "$page")"$'\n'
+            next=$(jq --raw-output '.pagination.next // empty' <<< "$page")
+            url=${next:+"$list&until=$next"}
+          done
+
+          for id in $ids; do
+            api --request DELETE --output /dev/null "https://api.vercel.com/v13/deployments/$id?teamId=$TEAM_ID"
+            echo "Deleted $id"
+          done
+
+          echo "Deleted $(echo "$ids" | grep --count . || true) preview deployments of $BRANCH."
