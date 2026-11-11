@@ -48,6 +48,9 @@
       },
     },
   },
+  "patchedDependencies": {
+    "@alpinejs/csp@3.17.5": "patches/@alpinejs%2Fcsp@3.17.5.patch",
+  },
   "packages": {
     "@alpinejs/csp": ["@alpinejs/csp@3.17.5", "", { "dependencies": { "@vue/reactivity": "~3.5.40" } }, "sha512-7e5lYgzJJL2eZ7esnx+E7wtxws+VDs9em9ztttZ+AQAYEng2bABHFp2SUga0wt84RyfL7hc6B+S/RGglXsPf6w=="],
 

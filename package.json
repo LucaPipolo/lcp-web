@@ -65,5 +65,8 @@
     "tailwind-merge": "^3.7.0",
     "typescript": "~6",
     "typescript-eslint": "^8.72.1"
+  },
+  "patchedDependencies": {
+    "@alpinejs/csp@3.17.5": "patches/@alpinejs%2Fcsp@3.17.5.patch"
   }
 }

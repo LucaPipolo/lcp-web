@@ -37,6 +37,7 @@ api/cleanup.ts             daily deletion of expired contact data, a Vercel Cron
 api/notify.ts              privacy notices to people who wrote, sent by hand
 scripts/notify.ts          triggers api/notify from your machine
 notices/                   privacy notices sent by hand, plus a template
+patches/                   fixes to dependencies, applied by bun install until upstream ships them
 middleware.ts              locale negotiation, at the edge
 vercel.json                security headers and redirects
 rift.yaml                  local dev environment, read by Rift
