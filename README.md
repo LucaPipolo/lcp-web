@@ -53,7 +53,7 @@ vercel.json                security headers and redirects
 rift.yaml                  local dev environment, read by Rift
 compose.yaml               dev containers
 check-csp.mjs              build-time CSP check
-.github/workflows/         CI: tests, lint, type check, build, CodeQL, dependency audit and commit messages
+.github/workflows/         CI checks, CodeQL, dependency audit and preview cleanup
 SECURITY.md                how to report a vulnerability
 ```
 
@@ -243,6 +243,11 @@ Vercel project, for Production and Preview:
 | `PRIVACY_NOTICE_SECRET`                      | A random string `bun run notify` must send, so only you can email people. Production only.      |
 
 Both databases create their table on first use, so a new preview branch needs no migration.
+
+Each preview deployment keeps a Neon branch alive until the deployment is deleted, and the Neon plan caps how many
+can exist at once. `.github/workflows/preview-cleanup.yml` deletes a branch's preview deployments when its pull
+request closes. It needs a [Vercel access token](https://vercel.com/account/settings/tokens) scoped to the team, saved
+as the `VERCEL_TOKEN` repository secret under **Settings → Secrets and variables → Actions**.
 
 `api/cleanup.ts` runs once a day as a [Vercel Cron Job](https://vercel.com/docs/cron-jobs) (`crons` in
 `vercel.json`) and deletes messages older than 12 months and proof records older than 3 years, the periods the
