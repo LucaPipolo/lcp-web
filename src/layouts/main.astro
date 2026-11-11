@@ -28,6 +28,7 @@ import {
   LOCALES,
   localizeHref,
 } from "@/libs/i18n"
+import { NEW_TAB_HINT_ID } from "@/libs/links"
 import { getOgImageHref, OG_IMAGE_SIZE } from "@/libs/og"
 import {
   getStructuredData,
@@ -82,7 +83,7 @@ const structuredData = await getStructuredData({
   url: canonical,
 })
 
-const { author, blog, footer, header } = await getSettings(locale)
+const { author, blog, footer, header, newTab } = await getSettings(locale)
 
 const ogImage = absolute(
   getOgImageHref(alternates[locale] ?? Astro.url.pathname)
@@ -200,6 +201,12 @@ const copyright =
     >
       {header.skipLink}
     </a>
+
+    {newTab && (
+      <span hidden id={NEW_TAB_HINT_ID}>
+        {newTab}
+      </span>
+    )}
 
     <SiteHeader homeHref={homeHref}>
       {header.nav.map((link) => (

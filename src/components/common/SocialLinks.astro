@@ -2,8 +2,12 @@
 import { Icon } from "astro-icon/components"
 
 import { getSettings } from "@/libs/content"
+import { isExternalHref, NEW_TAB_HINT_ID } from "@/libs/links"
 
 const { socialLinks } = await getSettings(Astro.currentLocale)
+
+const external = (href: string) =>
+  Astro.site !== undefined && isExternalHref(href, Astro.site.href)
 
 const ICONS = {
   github: "simple-icons:github",
@@ -14,11 +18,12 @@ const ICONS = {
 
 {socialLinks.map((socialLink) => (
   <a
+    aria-describedby={external(socialLink.href) ? NEW_TAB_HINT_ID : undefined}
     aria-label={socialLink.label}
     class="flex min-w-0 items-center gap-3 bg-background px-6 py-5 transition-colors hover:bg-muted"
     href={socialLink.href}
-    rel="noopener noreferrer"
-    target="_blank"
+    rel={external(socialLink.href) ? "noopener noreferrer" : undefined}
+    target={external(socialLink.href) ? "_blank" : undefined}
   >
     <span class="grid size-10 flex-none place-items-center border border-border text-foreground">
       <Icon

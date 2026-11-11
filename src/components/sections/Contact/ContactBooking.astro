@@ -3,6 +3,8 @@ import { Icon } from "astro-icon/components"
 
 import ButtonLink from "@/components/common/ButtonLink.astro"
 
+import { NEW_TAB_HINT_ID } from "@/libs/links"
+
 interface Props {
   href: string
 }
@@ -24,6 +26,7 @@ for (const slot of ["heading", "body", "label"]) {
     <slot name="body" />
   </p>
   <ButtonLink
+    aria-describedby={NEW_TAB_HINT_ID}
     class="mt-1"
     href={href}
     rel="noopener noreferrer"

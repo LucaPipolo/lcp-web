@@ -3,7 +3,7 @@ import type { HTMLAttributes } from "astro/types"
 
 import { Icon } from "astro-icon/components"
 
-import { isExternalHref } from "@/libs/links"
+import { isExternalHref, NEW_TAB_HINT_ID } from "@/libs/links"
 import { cn } from "@/libs/utils"
 
 /**
@@ -39,6 +39,7 @@ const external =
   a bound `data-search` must be in place before `hidden` reads it. */}
 <Tag
   {...rest}
+  aria-describedby={external ? NEW_TAB_HINT_ID : undefined}
   aria-selected="false"
   class={cn(
     "flex w-full cursor-pointer items-center px-4 py-2 text-left font-mono text-sm text-muted-foreground lowercase aria-selected:bg-muted aria-selected:text-foreground",
