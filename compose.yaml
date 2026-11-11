@@ -4,7 +4,7 @@
 # served by a Caddy container they all share.
 #
 # See rift.yaml. Start it with `rift setup` (or `rift up` once set up); plain
-# `docker compose up` works too, as described in the README.
+# `docker compose up` works too, as described in CONTRIBUTING.md.
 
 name: "${COMPOSE_PROJECT_NAME:?run rift setup first}"
 
