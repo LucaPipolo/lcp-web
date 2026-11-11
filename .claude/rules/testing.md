@@ -36,6 +36,9 @@ A module that only holds constants gets no test; one that could only repeat the 
 - Code that reads content collections runs against `tests/support/astro-content.ts`, a stand-in for
   `astro:content` that each test fills with only the entries it needs, never against `src/content/`, which changes
   whenever the copy does. Build posts with its `post()` helper.
+- Code that reads content files at request time (`api/` and what it imports) runs against `tests/support/files.ts`,
+  a stand-in for `node:fs/promises` filled the same way. Check a rendered image's size with `pngSize()` from
+  `tests/support/png.ts`.
 - Before trusting a new test, see it fail: break the code or the expectation once. A test that passes for the wrong
   reason, such as raw HTML that never reaches the plugin under test, hides the gap it was meant to close.
 - Name each test as a plain sentence about behaviour: `leaves a placeholder with no value as it is`.
