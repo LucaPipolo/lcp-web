@@ -202,11 +202,9 @@ const copyright =
       {header.skipLink}
     </a>
 
-    {newTab && (
-      <span hidden id={NEW_TAB_HINT_ID}>
-        {newTab}
-      </span>
-    )}
+    <span hidden id={NEW_TAB_HINT_ID}>
+      {newTab}
+    </span>
 
     <SiteHeader homeHref={homeHref}>
       {header.nav.map((link) => (
