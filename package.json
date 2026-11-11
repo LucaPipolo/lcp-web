@@ -67,7 +67,7 @@
     "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwind-merge": "^3.7.0",
     "typescript": "~6",
-    "typescript-eslint": "^8.72.1"
+    "typescript-eslint": "^8.72.2"
   },
   "patchedDependencies": {
     "@alpinejs/csp@3.17.5": "patches/@alpinejs%2Fcsp@3.17.5.patch"
