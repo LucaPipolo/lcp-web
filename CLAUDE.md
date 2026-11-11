@@ -11,6 +11,7 @@ for details.
 
 - astro — 7
 - typescript — 6
+- vitest — 5
 - tailwindcss — 4
 - @alpinejs/csp — 3
 - astro-icon — 1
@@ -44,6 +45,8 @@ vercel.json                     Vercel HTTP response headers (CSP, HSTS, …) an
 rift.yaml                       local dev environment — Rift settings
 compose.yaml                    local dev containers
 check-csp.mjs                   build-time CSP check
+tests/                          Vitest unit tests, mirroring src/libs/ and api/
+vitest.config.ts                test runner and coverage settings
 ```
 
 ## Development environment

@@ -35,10 +35,11 @@ Add `-v` for full output. `rift setup` also requires `.test` domains resolving l
 failure at that step is usually a one-time host-level DNS/certificate issue, not a Rift bug.
 
 ```bash
-docker compose exec app bun run dev|build|preview|lint|format|format:check|check:csp
+docker compose exec app bun run dev|build|preview|test|test:coverage|lint|format|format:check|check:type|check:audit|check:csp
 ```
 
 ## Git hooks
 
-Husky's `pre-commit` (lint-staged) and `commit-msg` (commitlint) hooks run inside the container. If it is not
-running, either start it first or commit with `git commit --no-verify`.
+Husky's `pre-commit` (lint-staged), `commit-msg` (commitlint) and `pre-push` (tests with coverage) hooks run
+inside the container. If it is not running, either start it first or skip them with `git commit --no-verify` or
+`git push --no-verify`.

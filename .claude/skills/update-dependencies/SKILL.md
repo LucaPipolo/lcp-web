@@ -30,6 +30,7 @@ git status --short
 docker compose exec app bun run format:check
 docker compose exec app bun run lint
 docker compose exec app bun run check:type
+docker compose exec app bun run test:coverage
 docker compose exec app bun run build
 ```
 
@@ -49,8 +50,6 @@ git checkout -b "update/$(date +%F)"
 `date +%F` gives `YYYY-MM-DD`, e.g. `update/2026-08-14`. If that branch already exists, an update pass already
 ran today; check it out instead of creating a new one (`git checkout "update/$(date +%F)"`) and continue the
 queue from there rather than starting over.
-
-- There is no test runner in this project yet. When one is added, its command joins this list.
 
 ## Update order (mandatory)
 
@@ -108,6 +107,7 @@ production/development position, in whatever order `bun outdated` lists it.
    docker compose exec app bun run format
    docker compose exec app bun run lint
    docker compose exec app bun run check:type
+   docker compose exec app bun run test:coverage
    docker compose exec app bun run build
    ```
 
