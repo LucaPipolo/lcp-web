@@ -160,7 +160,7 @@ export function localizeHref(href: string, locale?: string): string {
 
   const [rest, hash] = href.split("#", 2)
   const [path, query] = rest.split("?", 2)
-  const [, first = "", ...others] = path.split("/")
+  const [, first, ...others] = path.split("/")
 
   const segment = isPage(first) ? getPageSlug(first, resolved) : first
   const translated = ["", segment, ...others].join("/")
