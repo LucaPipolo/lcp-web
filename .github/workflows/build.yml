@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and CSP check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@v2
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+        env:
+          HUSKY: "0"
+
+      # Builds without SENTRY_AUTH_TOKEN, so no source maps are uploaded, and
+      # with Cloudflare's public test key, which always passes.
+      - name: Build and check the CSP
+        run: bun run build
+        env:
+          TURNSTILE_SITE_KEY: 1x00000000000000000000AA
