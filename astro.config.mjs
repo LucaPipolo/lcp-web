@@ -13,7 +13,7 @@ import {
 
 import { satteri } from "@astrojs/markdown-satteri"
 
-import sentry from "@sentry/astro"
+import sentry from "@sentry/astro/integration"
 
 const SITE = "https://www.lucapipolo.com"
 
