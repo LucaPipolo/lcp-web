@@ -46,3 +46,7 @@ declares the Content-Security-Policy and the rest of the security headers, and t
 from paths the site no longer serves, such as each page's path from before it was translated. `bun run check:csp`
 (`check-csp.mjs`) walks the built `dist/` HTML and fails the build over any inline `style` attribute or an
 inline `<script>`/`<style>` whose hash isn't allowlisted in that policy.
+
+`api/` holds Vercel Functions, compiled file by file and run as ES modules on Node rather than bundled, so a
+relative import there needs its `.js` extension (`../src/libs/contact.js`). Bun resolves it without one, so a
+missing extension only fails once deployed.

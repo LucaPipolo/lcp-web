@@ -15,7 +15,7 @@ for details.
 - tailwindcss — 4
 - @alpinejs/csp — 3
 - astro-icon — 1
-- @sentry/astro — 10
+- @sentry/astro — 11
 - prettier — 3
 - eslint — 10
 - husky — 9
@@ -29,6 +29,8 @@ src/
 ├── pages/[...locale]/         routes — getStaticPaths() drives locale routing
 ├── content.config.ts          Zod schema for every collection below
 ├── content/
+│   ├── blog/<post>/<locale>.md      blog posts
+│   ├── emails/<name>/<locale>.yaml  fixed copy of the emails api/ sends
 │   ├── pages/<name>/<locale>.yaml   per-locale page copy (home, legal pages)
 │   └── settings/<locale>.yaml       shared site copy — nav, footer
 ├── components/
@@ -38,8 +40,11 @@ src/
 ├── libs/                       i18n, content loaders, templating, utils
 ├── scripts/                    client-side browser scripts (theme, TOC, share…)
 ├── styles/                     Tailwind config-in-CSS + partials
+├── types/                      type declarations for untyped packages
 └── icons/                      hand-authored SVGs
 
+api/                            Vercel Functions — contact form, cleanup cron, privacy notices
+scripts/notify.ts               triggers api/notify from the command line
 middleware.ts                   Vercel Edge Middleware — locale negotiation
 vercel.json                     Vercel HTTP response headers (CSP, HSTS, …) and redirects
 rift.yaml                       local dev environment — Rift settings
