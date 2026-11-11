@@ -127,7 +127,7 @@ sections:
           che viene rinnovato ogni 24 ore: non è quindi
           possibile collegare visite di giorni diversi
           o di altri siti. Secondo la
-          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentazione di Vercel</a>,
+          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentazione di Vercel<span class="sr-only"> su Web Analytics</span></a>,
           non raccoglie identificatori che permettano
           di seguire una persona tra siti diversi,
           e io posso consultare i risultati soltanto
@@ -141,7 +141,7 @@ sections:
           il sistema operativo, il browser, la velocità della
           connessione, il Paese di provenienza e i tempi
           di caricamento. Secondo la
-          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentazione di Vercel</a>,
+          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentazione di Vercel<span class="sr-only"> su Speed Insights</span></a>,
           questi dati non vengono associati a un visitatore
           o a un indirizzo IP specifico e non consentono
           di ricostruire la navigazione di una persona

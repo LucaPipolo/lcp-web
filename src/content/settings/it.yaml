@@ -99,6 +99,7 @@ blog:
   next: "Successivo"
   feed: "Feed RSS"
   related: "Articoli correlati"
+  tagLink: "articoli con il tag {tag}"
 
 footer:
   tagline: >-
@@ -116,6 +117,7 @@ footer:
           href: "/#stack"
         - label: "raccomandazioni"
           href: "/recommendations/"
+          srLabel: "tutte le {label}"
         - label: "blog"
           href: "/blog/"
         - label: "contatti"

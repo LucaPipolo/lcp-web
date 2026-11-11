@@ -99,6 +99,7 @@ blog:
   next: "Next"
   feed: "RSS feed"
   related: "Related posts"
+  tagLink: "posts tagged {tag}"
 
 footer:
   tagline: >-
@@ -116,6 +117,7 @@ footer:
           href: "/#stack"
         - label: "recommendations"
           href: "/recommendations/"
+          srLabel: "all {label}"
         - label: "blog"
           href: "/blog/"
         - label: "contact"

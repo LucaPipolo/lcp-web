@@ -128,7 +128,7 @@ sections:
           24 horas, por lo que no es posible relacionar
           visitas de días distintos ni de otras webs.
           Según la
-          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentación de Vercel</a>,
+          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentación de Vercel<span class="sr-only"> sobre Web Analytics</span></a>,
           no recoge identificadores que permitan seguir
           a una persona entre distintas webs, y yo solo
           puedo consultar los resultados como
@@ -143,7 +143,7 @@ sections:
           el navegador, la velocidad de conexión,
           el país de procedencia y los tiempos de carga.
           Según la
-          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentación de Vercel</a>,
+          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentación de Vercel<span class="sr-only"> sobre Speed Insights</span></a>,
           estos datos no se asocian a un visitante
           ni a una dirección IP concreta y no permiten
           reconstruir la navegación de una persona
