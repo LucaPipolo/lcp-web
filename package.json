@@ -11,6 +11,7 @@
     "lint": "eslint .",
     "format:check": "prettier --check . && eslint .",
     "format": "eslint . --fix && prettier --write .",
+    "check:audit": "bun audit --audit-level=high",
     "check:csp": "node check-csp.mjs",
     "check:type": "astro check",
     "dev": "astro dev",
