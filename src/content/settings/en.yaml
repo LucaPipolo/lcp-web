@@ -1,6 +1,8 @@
 author:
   name: "Luca Pipolo"
 
+newTab: "opens in a new tab"
+
 socialLinks:
   - platform: github
     href: "https://github.com/LucaPipolo"

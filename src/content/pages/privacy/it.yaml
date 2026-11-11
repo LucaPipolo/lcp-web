@@ -36,7 +36,7 @@ sections:
           trattamenti descritti in questa informativa, non ricorrono
           le condizioni che ne rendono obbligatoria la nomina ai sensi
           dell'articolo 37 del
-          <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Regolamento (UE) 2016/679 (GDPR)</a>.
+          <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Regolamento (UE) 2016/679 (GDPR)</a>.
 
   - heading: "Quali dati vengono trattati"
     items:
@@ -175,7 +175,7 @@ sections:
       utilizzo i dati necessari per gestire la richiesta e
       risponderti. Il trattamento si basa sul legittimo interesse
       previsto dall'articolo 6, paragrafo 1, lettera f), del
-      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">GDPR</a>.
+      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">GDPR</a>.
       Quando la richiesta riguarda un possibile incarico o una
       collaborazione contrattuale, può trovare applicazione
       anche l'articolo 6, paragrafo 1, lettera b), relativo
@@ -212,7 +212,7 @@ sections:
       esclusivamente per ricordare le tue preferenze.
       In queste condizioni, la memorizzazione rientra
       nell'eccezione al consenso prevista dall'articolo 22.2
-      della <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">legge spagnola 34/2002 (LSSI-CE)</a>
+      della <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">legge spagnola 34/2002 (LSSI-CE)</a>
       per i servizi espressamente richiesti dall'utente.</p>
       <p>Per i trattamenti descritti in questa informativa non
       viene richiesto il consenso come base giuridica. La casella
@@ -234,49 +234,49 @@ sections:
       contatto per mio conto, sia, in qualità di titolare
       autonomo, per migliorare i propri sistemi di rilevamento
       dei bot. Queste attività sono descritte
-      nell'<a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">informativa specifica di Turnstile</a>.</p>
+      nell'<a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">informativa specifica di Turnstile</a>.</p>
     items:
       - term: "Vercel Inc."
         description: >-
           Fornisce l'hosting del sito, esegue il codice server
           del modulo di contatto, gestisce la sicurezza perimetrale,
           raccoglie le statistiche delle visite tramite
-          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer">Vercel Web Analytics</a>
+          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Web Analytics</a>
           e le metriche di prestazione tramite
-          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>.
-          Consulta l'<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Vercel</a>
-          e <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">come Web Analytics tratta i dati</a>.
+          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Speed Insights</a>.
+          Consulta l'<a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">informativa sulla privacy di Vercel</a>
+          e <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">come Web Analytics tratta i dati</a>.
       - term: "Functional Software, Inc."
         description: >-
-          Fornisce <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>,
+          Fornisce <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Sentry</a>,
           il servizio utilizzato per raccogliere e analizzare
           le segnalazioni di errore.
-          Consulta l'<a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Sentry</a>.
+          Consulta l'<a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">informativa sulla privacy di Sentry</a>.
       - term: "Cloudflare, Inc."
         description: >-
-          Fornisce <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer">Turnstile</a>,
+          Fornisce <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Turnstile</a>,
           utilizzato per proteggere il modulo di contatto
           da spam e richieste automatizzate.
-          Consulta l'<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Cloudflare</a>.
+          Consulta l'<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">informativa sulla privacy di Cloudflare</a>.
       - term: "Sendinblue SAS (Brevo)"
         description: >-
           Gestisce l'invio alla mia casella email dei messaggi
           ricevuti tramite il modulo di contatto, attraverso
-          <a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer">Brevo</a>.
-          Consulta l'<a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Brevo</a>.
+          <a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Brevo</a>.
+          Consulta l'<a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">informativa sulla privacy di Brevo</a>.
       - term: "Neon, una società di Databricks"
         description: >-
-          Tramite <a href="https://neon.com/" target="_blank" rel="noopener noreferrer">Neon</a>,
+          Tramite <a href="https://neon.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Neon</a>,
           ospita a Francoforte, in Germania, due database separati:
           uno per i messaggi ricevuti dal modulo di contatto e
           uno per le registrazioni delle informazioni sulla
           privacy fornite agli utenti.
-          Consulta l'<a href="https://www.databricks.com/legal/privacynotice" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Databricks</a>.
+          Consulta l'<a href="https://www.databricks.com/legal/privacynotice" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">informativa sulla privacy di Databricks</a>.
       - term: "Notion Labs, Inc."
         description: >-
-          Fornisce <a href="https://www.notion.com/product/calendar" target="_blank" rel="noopener noreferrer">Notion Calendar</a>,
+          Fornisce <a href="https://www.notion.com/product/calendar" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Notion Calendar</a>,
           utilizzato per gestire le prenotazioni delle chiamate.
-          Consulta l'<a href="https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091" target="_blank" rel="noopener noreferrer">informativa sulla privacy di Notion</a>.
+          Consulta l'<a href="https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">informativa sulla privacy di Notion</a>.
 
   - heading: "Trasferimenti di dati fuori dallo Spazio economico europeo"
     body: >-
@@ -290,9 +290,9 @@ sections:
       essere trasferiti o resi accessibili fuori dallo Spazio
       economico europeo (SEE). Quando applicabili, questi
       trasferimenti sono disciplinati dalle
-      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32021D0914" target="_blank" rel="noopener noreferrer">clausole contrattuali tipo approvate dalla Commissione europea con la Decisione di esecuzione (UE) 2021/914</a>
+      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32021D0914" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">clausole contrattuali tipo approvate dalla Commissione europea con la Decisione di esecuzione (UE) 2021/914</a>
       oppure dalla
-      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer">Decisione di adeguatezza (UE) 2023/1795 relativa al Data Privacy Framework UE-USA</a>,
+      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Decisione di adeguatezza (UE) 2023/1795 relativa al Data Privacy Framework UE-USA</a>,
       nei casi in cui il destinatario soddisfi i relativi
       requisiti.</p>
       <p>Le informazioni sulle garanzie adottate dai singoli
@@ -335,7 +335,7 @@ sections:
       <a href="mailto:privacy@lucapipolo.com">privacy@lucapipolo.com</a>.
       Riceverai una risposta entro un mese dalla richiesta,
       salvo eventuali proroghe consentite dall'articolo 12
-      del <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">GDPR</a>,
+      del <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">GDPR</a>,
       di cui verrai informato nei termini previsti.</p>
       <p>Questi diritti possono riguardare, in particolare,
       i messaggi inviati tramite il modulo o via email
@@ -346,7 +346,7 @@ sections:
       <p>Se ritieni che il trattamento dei tuoi dati personali
       non sia conforme alla normativa, puoi presentare
       un reclamo all'autorità spagnola per la protezione
-      dei dati, l'<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos (AEPD)</a>,
+      dei dati, l'<a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Agencia Española de Protección de Datos (AEPD)</a>,
       oppure all'autorità di controllo competente nel Paese
       in cui risiedi, lavori o si è verificata
       la presunta violazione.</p>

@@ -62,16 +62,16 @@ sections:
   - heading: "Why there's no cookie banner"
     body: >-
       <p>Article 22.2 of
-      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE)</a>,
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE)</a>,
       as amended by
-      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer">Royal Decree-Law 13/2012</a>
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Royal Decree-Law 13/2012</a>
       to incorporate European cookie rules into Spanish law,
       generally requires users to give consent before
       information can be stored on or accessed from their
       devices. This requirement comes from
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer">Directive 2002/58/EC</a>,
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Directive 2002/58/EC</a>,
       subsequently amended by
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer">Directive 2009/136/EC</a>.</p>
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Directive 2009/136/EC</a>.</p>
       <p>There are, however, some exceptions. In particular,
       consent isn't required when storing or accessing
       information is strictly necessary to provide a
@@ -84,7 +84,7 @@ sections:
       including identifying you or analysing
       your behaviour.</p>
       <p>The
-      <a href="https://www.aepd.es/guias/guia-cookies.pdf" target="_blank" rel="noopener noreferrer">Spanish Data Protection Agency's (AEPD) guidance on cookies</a>
+      <a href="https://www.aepd.es/guias/guia-cookies.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Spanish Data Protection Agency's (AEPD) guidance on cookies</a>
       also confirms that preferences selected directly
       by users, such as language or website appearance,
       are exempt from consent when used exclusively
@@ -109,7 +109,7 @@ sections:
     items:
       - term: "Vercel Web Analytics"
         description: >-
-          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer">Vercel Web Analytics</a>
+          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Web Analytics</a>
           counts visits so I can see which pages are read
           and where visitors come from. For each page view,
           it records the date and time, the page address,
@@ -122,27 +122,27 @@ sections:
           from the request, which resets every 24 hours,
           so visits can't be linked across different days
           or different websites. According to
-          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's documentation</a>,
+          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel's documentation</a>,
           it collects no identifiers that track people
           across websites, and I can only see the results
           as aggregated statistics.
       - term: "Vercel Speed Insights"
         description: >-
-          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>
+          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Speed Insights</a>
           measures how pages perform while people use
           the website. It collects information such
           as the page path and URL, device type,
           operating system, browser, connection speed,
           country of origin and loading times.
           According to
-          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's documentation</a>,
+          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel's documentation</a>,
           this data isn't associated with a particular
           visitor or IP address and can't be used
           to reconstruct someone's browsing activity
           across different pages.
       - term: "Sentry"
         description: >-
-          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>
+          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Sentry</a>
           collects technical error reports so I can
           identify and fix problems. These reports
           include the error message, where the error
@@ -156,7 +156,7 @@ sections:
   - heading: "Contact form spam protection"
     body: >-
       <p>The contact page uses
-      <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer">Cloudflare Turnstile</a>
+      <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Cloudflare Turnstile</a>
       to check that submissions are legitimate and
       protect the form against spam and automated
       requests. The check only loads on the contact
@@ -169,7 +169,7 @@ sections:
       used by this website, it doesn't set cookies
       on the website's domain. Cloudflare explains
       what information it collects and why in its
-      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">Turnstile Privacy Addendum</a>.</p>
+      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Turnstile Privacy Addendum</a>.</p>
       <p>This check is necessary to use the contact
       form securely and falls within the exception
       under Article 22.2 of the LSSI-CE for features
@@ -187,7 +187,7 @@ sections:
       Insights or technical error reports by Sentry,
       you can use a browser extension that blocks
       analytics and monitoring scripts, such as
-      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.</p>
+      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">uBlock Origin</a>.</p>
       <p>Depending on their settings and filter lists,
       these extensions can block requests sent to
       monitoring services. Blocking them won't affect

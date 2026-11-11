@@ -12,7 +12,7 @@ updatedLabel: "Last updated:"
 intro: >-
   This page provides the legal information and identification details
   required under Article 10 of
-  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE)</a>.
+  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE)</a>.
   It also explains the conditions relating to the use of
   content, external links and responsibility for the
   information published on this website.
@@ -108,11 +108,11 @@ sections:
   - heading: "Hosting"
     body: >-
       <p>This website is hosted by
-      <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel Inc.</a>,
+      <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Inc.</a>,
       a company based in the United States.
       For more information about how this provider
       processes data, see
-      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's privacy policy</a>.</p>
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel's privacy policy</a>.</p>
 
   - heading: "Governing law and jurisdiction"
     body: >-

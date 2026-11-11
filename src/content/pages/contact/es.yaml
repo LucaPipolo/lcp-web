@@ -50,7 +50,7 @@ form:
 
   acknowledgement: >-
     He leído la información sobre protección de datos y la
-    <a href="/privacidad/" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
+    <a href="/privacidad/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">política de privacidad</a>.
 
   submit: "Enviar mensaje"
   sending: "Enviando…"
@@ -95,7 +95,7 @@ notice:
     - term: "Base jurídica"
       description: >-
         Interés legítimo conforme al
-        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">artículo 6.1.f) del RGPD</a>,
+        <a href="https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">artículo 6.1.f) del RGPD</a>,
         o aplicación de medidas precontractuales a petición
         del interesado conforme al artículo 6.1.b),
         cuando corresponda.
@@ -115,7 +115,7 @@ notice:
     - term: "Más información"
       description: >-
         Consulta la
-        <a href="/privacidad/" target="_blank" rel="noopener noreferrer">política de privacidad</a>.
+        <a href="/privacidad/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">política de privacidad</a>.
 
 booking:
   heading: "¿Prefieres hablar?"

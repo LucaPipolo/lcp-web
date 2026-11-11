@@ -34,7 +34,7 @@ sections:
           Based on the nature and characteristics of the
           processing described in this policy, the conditions
           requiring a DPO under Article 37 of
-          <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Regulation (EU) 2016/679 (GDPR)</a>
+          <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Regulation (EU) 2016/679 (GDPR)</a>
           do not apply.
 
   - heading: "What data is processed"
@@ -166,7 +166,7 @@ sections:
       I use the information needed to handle your enquiry
       and respond. This processing is based on legitimate
       interests under Article 6(1)(f) of the
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">GDPR</a>.
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">GDPR</a>.
       If your enquiry concerns a potential professional
       engagement or contractual relationship, Article 6(1)(b)
       may also apply, covering steps taken at your request
@@ -198,7 +198,7 @@ sections:
       to change them, and they're used solely to remember
       your preferences. Under these conditions, storing
       them is exempt from consent under Article 22.2 of
-      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE)</a>,
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Spanish Law 34/2002 on Information Society Services and Electronic Commerce (LSSI-CE)</a>,
       as they form part of a service explicitly requested
       by the user.</p>
       <p>None of the processing described in this policy
@@ -221,51 +221,51 @@ sections:
       on my behalf and, as an independent data controller,
       to improve its own bot detection systems.
       These activities are explained in the
-      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">Turnstile Privacy Addendum</a>.</p>
+      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Turnstile Privacy Addendum</a>.</p>
     items:
       - term: "Vercel Inc."
         description: >-
           Hosts the website, runs the server-side code
           for the contact form, provides perimeter security,
           collects visit statistics through
-          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer">Vercel Web Analytics</a>
+          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Web Analytics</a>
           and performance metrics through
-          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>.
-          See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Vercel's privacy policy</a>
-          and <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">how Web Analytics handles data</a>.
+          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Speed Insights</a>.
+          See <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel's privacy policy</a>
+          and <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">how Web Analytics handles data</a>.
       - term: "Functional Software, Inc."
         description: >-
           Provides
-          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>,
+          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Sentry</a>,
           which is used to collect and analyse error reports.
-          See <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Sentry's privacy policy</a>.
+          See <a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Sentry's privacy policy</a>.
       - term: "Cloudflare, Inc."
         description: >-
           Provides
-          <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer">Turnstile</a>,
+          <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Turnstile</a>,
           which protects the contact form against spam
           and automated requests.
-          See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare's privacy policy</a>.
+          See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Cloudflare's privacy policy</a>.
       - term: "Sendinblue SAS (Brevo)"
         description: >-
           Delivers messages submitted through the contact
           form to my email inbox using
-          <a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer">Brevo</a>.
-          See <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer">Brevo's privacy policy</a>.
+          <a href="https://www.brevo.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Brevo</a>.
+          See <a href="https://www.brevo.com/legal/privacypolicy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Brevo's privacy policy</a>.
       - term: "Neon, a Databricks company"
         description: >-
-          Through <a href="https://neon.com/" target="_blank" rel="noopener noreferrer">Neon</a>,
+          Through <a href="https://neon.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Neon</a>,
           hosts two separate databases in Frankfurt, Germany:
           one for messages received through the contact form
           and another for records of the privacy information
           provided to users.
-          See <a href="https://www.databricks.com/legal/privacynotice" target="_blank" rel="noopener noreferrer">Databricks' privacy notice</a>.
+          See <a href="https://www.databricks.com/legal/privacynotice" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Databricks' privacy notice</a>.
       - term: "Notion Labs, Inc."
         description: >-
           Provides
-          <a href="https://www.notion.com/product/calendar" target="_blank" rel="noopener noreferrer">Notion Calendar</a>,
+          <a href="https://www.notion.com/product/calendar" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Notion Calendar</a>,
           which is used to manage call bookings.
-          See <a href="https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091" target="_blank" rel="noopener noreferrer">Notion's privacy policy</a>.
+          See <a href="https://www.notion.so/notion/Privacy-Policy-3468d120cf614d4c9014c09f6adc9091" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Notion's privacy policy</a>.
 
   - heading: "Data transfers outside the European Economic Area"
     body: >-
@@ -279,9 +279,9 @@ sections:
       or made accessible outside the European Economic
       Area (EEA). Where applicable, these transfers
       are covered by the
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32021D0914" target="_blank" rel="noopener noreferrer">standard contractual clauses approved by the European Commission under Implementing Decision (EU) 2021/914</a>
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32021D0914" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">standard contractual clauses approved by the European Commission under Implementing Decision (EU) 2021/914</a>
       or by the
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer">adequacy decision (EU) 2023/1795 concerning the EU-US Data Privacy Framework</a>,
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32023D1795" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">adequacy decision (EU) 2023/1795 concerning the EU-US Data Privacy Framework</a>,
       provided the recipient meets the relevant
       requirements.</p>
       <p>You can find information about the safeguards
@@ -325,7 +325,7 @@ sections:
       You'll receive a response within one month of
       your request, subject to any extensions permitted
       under Article 12 of the
-      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">GDPR</a>.
+      <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">GDPR</a>.
       If an extension is needed, you'll be informed
       within the required timeframe.</p>
       <p>These rights may apply, in particular, to
@@ -339,7 +339,7 @@ sections:
       been handled in accordance with the law,
       you can lodge a complaint with Spain's
       data protection authority, the
-      <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer">Agencia Española de Protección de Datos (AEPD)</a>,
+      <a href="https://www.aepd.es" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Agencia Española de Protección de Datos (AEPD)</a>,
       or with the relevant supervisory authority
       in the country where you live, work or
       where the alleged infringement took place.</p>

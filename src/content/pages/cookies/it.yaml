@@ -64,16 +64,16 @@ sections:
   - heading: "Perché non c'è un cookie banner"
     body: >-
       <p>L'articolo 22.2 della
-      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">legge spagnola 34/2002 (LSSI-CE)</a>,
+      <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">legge spagnola 34/2002 (LSSI-CE)</a>,
       modificato dal
-      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer">Real Decreto-ley 13/2012</a>
+      <a href="https://www.boe.es/buscar/act.php?id=BOE-A-2012-4442" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Real Decreto-ley 13/2012</a>
       in recepimento della normativa europea sui cookie,
       prevede che l'utente debba esprimere il proprio consenso
       prima che vengano archiviate o lette informazioni
       sul suo dispositivo. La regola deriva dalla
-      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer">direttiva 2002/58/CE</a>,
+      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32002L0058" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">direttiva 2002/58/CE</a>,
       successivamente modificata dalla
-      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer">direttiva 2009/136/CE</a>.</p>
+      <a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:32009L0136" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">direttiva 2009/136/CE</a>.</p>
       <p>La normativa prevede però alcune eccezioni. In
       particolare, il consenso non è necessario quando
       la memorizzazione o l'accesso alle informazioni
@@ -86,7 +86,7 @@ sections:
       non vengono utilizzate per altre finalità, né per
       identificarti o analizzare il tuo comportamento.</p>
       <p>Anche le
-      <a href="https://www.aepd.es/guias/guia-cookies.pdf" target="_blank" rel="noopener noreferrer">linee guida dell'Agencia Española de Protección de Datos (AEPD)</a>
+      <a href="https://www.aepd.es/guias/guia-cookies.pdf" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">linee guida dell'Agencia Española de Protección de Datos (AEPD)</a>
       confermano che le preferenze scelte direttamente
       dall'utente, come la lingua o l'aspetto di un sito,
       sono esenti dall'obbligo di consenso quando vengono
@@ -112,7 +112,7 @@ sections:
     items:
       - term: "Vercel Web Analytics"
         description: >-
-          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer">Vercel Web Analytics</a>
+          <a href="https://vercel.com/docs/analytics" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Web Analytics</a>
           conta le visite per permettermi di sapere quali
           pagine vengono lette e da dove arrivano i visitatori.
           Per ogni pagina visualizzata registra la data e l'ora,
@@ -127,28 +127,28 @@ sections:
           che viene rinnovato ogni 24 ore: non è quindi
           possibile collegare visite di giorni diversi
           o di altri siti. Secondo la
-          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer">documentazione di Vercel</a>,
+          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentazione di Vercel</a>,
           non raccoglie identificatori che permettano
           di seguire una persona tra siti diversi,
           e io posso consultare i risultati soltanto
           come statistiche aggregate.
       - term: "Vercel Speed Insights"
         description: >-
-          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer">Vercel Speed Insights</a>
+          <a href="https://vercel.com/docs/speed-insights" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Speed Insights</a>
           misura le prestazioni delle pagine durante la
           navigazione. Raccoglie informazioni come il percorso
           e l'URL della pagina visitata, il tipo di dispositivo,
           il sistema operativo, il browser, la velocità della
           connessione, il Paese di provenienza e i tempi
           di caricamento. Secondo la
-          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer">documentazione di Vercel</a>,
+          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">documentazione di Vercel</a>,
           questi dati non vengono associati a un visitatore
           o a un indirizzo IP specifico e non consentono
           di ricostruire la navigazione di una persona
           tra più pagine.
       - term: "Sentry"
         description: >-
-          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer">Sentry</a>
+          <a href="https://sentry.io/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Sentry</a>
           raccoglie le segnalazioni degli errori tecnici
           per aiutarmi a individuarli e correggerli.
           Le informazioni comprendono il messaggio di errore,
@@ -163,7 +163,7 @@ sections:
   - heading: "Protezione antispam del modulo di contatto"
     body: >-
       <p>La pagina di contatto utilizza
-      <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer">Cloudflare Turnstile</a>
+      <a href="https://www.cloudflare.com/products/turnstile/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Cloudflare Turnstile</a>
       per verificare che i messaggi provengano da richieste
       legittime e proteggere il modulo da spam e invii
       automatizzati. Il controllo viene caricato soltanto
@@ -177,7 +177,7 @@ sections:
       cookie sul dominio del sito. Cloudflare descrive
       le informazioni raccolte e le relative finalità
       nel proprio
-      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer">addendum sulla privacy di Turnstile</a>.</p>
+      <a href="https://www.cloudflare.com/turnstile-privacy-policy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">addendum sulla privacy di Turnstile</a>.</p>
       <p>Il controllo è necessario per utilizzare il modulo
       di contatto in modo sicuro e rientra nell'eccezione
       prevista dall'articolo 22.2 della LSSI-CE per
@@ -196,7 +196,7 @@ sections:
       segnalazioni tecniche di Sentry, puoi utilizzare
       un'estensione del browser che blocca gli script
       di analisi e monitoraggio, come
-      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer">uBlock Origin</a>.</p>
+      <a href="https://ublockorigin.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">uBlock Origin</a>.</p>
       <p>A seconda delle impostazioni e delle liste di
       filtri utilizzate, queste estensioni possono bloccare
       le richieste inviate ai servizi di monitoraggio.
