@@ -7,11 +7,11 @@ import ButtonLink from "@/components/common/ButtonLink.astro"
 import SectionContainer from "@/components/common/SectionContainer.astro"
 import SectionHeading from "@/components/common/SectionHeading.astro"
 import SocialLinks from "@/components/common/SocialLinks.astro"
-import Tag from "@/components/common/Tag.astro"
 
 import LatestPosts from "@/components/sections/Blog/LatestPosts.astro"
 import PostCard from "@/components/sections/Blog/PostCard.astro"
 import PostMeta from "@/components/sections/Blog/PostMeta.astro"
+import PostTag from "@/components/sections/Blog/PostTag.astro"
 
 import Experience from "@/components/sections/Experience/Experience.astro"
 import ExperienceBullet from "@/components/sections/Experience/ExperienceBullet.astro"
@@ -32,7 +32,7 @@ import StackItem from "@/components/sections/Stack/StackItem.astro"
 import StackPanel from "@/components/sections/Stack/StackPanel.astro"
 import StackTab from "@/components/sections/Stack/StackTab.astro"
 
-import { getPostHref, getPosts, getReadingTime, getTagHref } from "@/libs/blog"
+import { getPostHref, getPosts, getReadingTime } from "@/libs/blog"
 import { getLocalizedStaticPaths, getSettings } from "@/libs/content"
 import { formatDate, getAlternates, localizeHref } from "@/libs/i18n"
 import { fillPlaceholders } from "@/libs/template"
@@ -186,9 +186,7 @@ const posts = (await getPosts(locale)).slice(0, LATEST)
             <Fragment slot="description">{post.data.description}</Fragment>
 
             {post.data.tags.map((tag) => (
-              <Tag href={getTagHref(tag, locale)} slot="tags">
-                {tag}
-              </Tag>
+              <PostTag slot="tags" tag={tag} />
             ))}
           </PostCard>
         ))}
