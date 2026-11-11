@@ -38,6 +38,7 @@ const settings = defineCollection({
       skipLink: z.string(),
       themeToggleLabel: z.string(),
       menuLabel: z.string(),
+      navLabel: z.string().optional(),
       nav: z.array(z.object({ label: z.string(), href: z.string() })),
     }),
     commandPalette: z.object({

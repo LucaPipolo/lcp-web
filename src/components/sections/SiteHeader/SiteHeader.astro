@@ -3,11 +3,15 @@ import { Icon } from "astro-icon/components"
 
 import Wordmark from "@/components/common/Wordmark.astro"
 
+import { getSettings } from "@/libs/content"
+
 interface Props {
   homeHref: string
 }
 
 const { homeHref } = Astro.props
+
+const { header } = await getSettings(Astro.currentLocale)
 
 for (const slot of ["nav", "themeToggle", "menuLabel"]) {
   if (!Astro.slots.has(slot)) {
@@ -27,7 +31,10 @@ for (const slot of ["nav", "themeToggle", "menuLabel"]) {
 
       {/* Inline from `md`: six links in the longest language need about
         670px, so from `sm` they would push the page sideways. */}
-      <nav class="ml-auto hidden items-center gap-6 font-mono text-xs md:flex">
+      <nav
+        aria-label={header.navLabel}
+        class="ml-auto hidden items-center gap-6 font-mono text-xs md:flex"
+      >
         <span aria-hidden="true" class="text-primary">
           //
         </span>
@@ -82,7 +89,10 @@ for (const slot of ["nav", "themeToggle", "menuLabel"]) {
     x-transition:leave-start="translate-y-0 opacity-100"
   >
     <div class="container mx-auto border-x border-border bg-background/85 px-gutter backdrop-blur-md">
-      <nav class="flex flex-col font-mono text-base [&>a]:border-b [&>a]:border-border [&>a]:py-4 [&>a:last-child]:border-b-0">
+      <nav
+        aria-label={header.navLabel}
+        class="flex flex-col font-mono text-base [&>a]:border-b [&>a]:border-border [&>a]:py-4 [&>a:last-child]:border-b-0"
+      >
         <slot name="nav" />
       </nav>
     </div>
