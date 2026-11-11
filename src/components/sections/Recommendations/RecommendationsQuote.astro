@@ -1,6 +1,8 @@
 ---
 import { Icon } from "astro-icon/components"
 
+import { NEW_TAB_HINT_ID } from "@/libs/links"
+
 interface Props {
   avatar?: string
   avatarAlt?: string
@@ -47,6 +49,7 @@ if (avatar && !avatarAlt) {
       <span class="text-sm font-semibold text-foreground">
         {href ? (
           <a
+            aria-describedby={NEW_TAB_HINT_ID}
             class="inline-flex items-center gap-1.5 decoration-primary underline-offset-4 hover:text-foreground hover:underline"
             href={href}
             rel="noreferrer"

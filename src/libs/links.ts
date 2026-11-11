@@ -1,3 +1,6 @@
+/** The id of the hidden note that describes every link opening a new tab. */
+export const NEW_TAB_HINT_ID = "new-tab"
+
 /**
  * Strips the `www.` a host may or may not be written with.
  *

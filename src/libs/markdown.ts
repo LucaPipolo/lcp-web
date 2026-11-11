@@ -3,7 +3,7 @@ import type { SatteriProcessorOptions } from "@astrojs/markdown-satteri"
 import { icons } from "@iconify-json/lucide"
 import Slugger from "github-slugger"
 
-import { isExternalHref } from "./links"
+import { isExternalHref, NEW_TAB_HINT_ID } from "./links"
 
 type HastPlugin = NonNullable<SatteriProcessorOptions["hastPlugins"]>[number]
 
@@ -158,6 +158,7 @@ export function externalLinks(site: string): HastPlugin {
 
         ctx.setProperty(node, "target", "_blank")
         ctx.setProperty(node, "rel", "noopener noreferrer")
+        ctx.setProperty(node, "aria-describedby", NEW_TAB_HINT_ID)
         // U+2060, a word joiner: no line break between the text and its icon.
         ctx.appendChild(node, { type: "raw", value: `\u2060${svg}` })
       },

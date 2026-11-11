@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components"
 
+import { NEW_TAB_HINT_ID } from "@/libs/links"
 import { fillPlaceholders } from "@/libs/template"
 
 interface Props {
@@ -22,16 +23,19 @@ const NETWORKS = [
     name: "X",
     icon: "simple-icons:x",
     href: `https://x.com/intent/post?url=${link}&text=${subject}`,
+    newTab: true,
   },
   {
     name: "LinkedIn",
     icon: "simple-icons:linkedin",
     href: `https://www.linkedin.com/sharing/share-offsite/?url=${link}`,
+    newTab: true,
   },
   {
     name: "Email",
     icon: "lucide:mail",
     href: `mailto:?subject=${subject}&body=${link}`,
+    newTab: false,
   },
 ]
 
@@ -57,11 +61,12 @@ const BUTTON =
   <div class="flex items-center gap-1.5">
     {NETWORKS.map((network) => (
       <a
+        aria-describedby={network.newTab ? NEW_TAB_HINT_ID : undefined}
         aria-label={fillPlaceholders(shareOn, { network: network.name })}
         class={BUTTON}
         href={network.href}
-        rel="noopener noreferrer"
-        target="_blank"
+        rel={network.newTab ? "noopener noreferrer" : undefined}
+        target={network.newTab ? "_blank" : undefined}
       >
         <Icon aria-hidden="true" class="size-4" is:inline name={network.icon} />
       </a>
