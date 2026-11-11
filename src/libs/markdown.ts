@@ -98,7 +98,7 @@ export const imageCaptions: HastPlugin = {
         return
       }
 
-      const { title, ...properties } = image.properties ?? {}
+      const { title, ...properties } = image.properties
 
       if (typeof title !== "string" || title.trim() === "") return
 
