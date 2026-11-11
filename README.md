@@ -1,3 +1,7 @@
+[![Build][badge-build]][workflow-build]
+[![Types][badge-types]][workflow-types]
+[![Lint][badge-lint]][workflow-lint]
+
 This is the source for [Luca Pipolo's personal portfolio website](https://www.lucapipolo.com), statically built
 with [Astro](https://astro.build/).
 
@@ -30,6 +34,7 @@ src/
 ├── libs/                  i18n, content loaders, templating, utils
 ├── scripts/               client-side browser scripts
 ├── styles/                Tailwind config in CSS, plus partials
+├── types/                 type declarations for packages that ship none
 └── icons/                 hand-authored SVGs
 
 api/contact.ts             contact form endpoint, a Vercel Function
@@ -43,6 +48,7 @@ vercel.json                security headers and redirects
 rift.yaml                  local dev environment, read by Rift
 compose.yaml               dev containers
 check-csp.mjs              build-time CSP check
+.github/workflows/         CI: lint, type check, build and commit messages on every push
 ```
 
 ## Running this site locally
@@ -94,11 +100,12 @@ Add `-v` (for example, `rift up -v`) for full output instead of one line per ste
 To run project scripts, use `docker compose exec` against the app container, from this checkout's own root:
 
 ```bash
-docker compose exec app bun run dev       # dev server
-docker compose exec app bun run build     # production build
-docker compose exec app bun run preview   # preview the build
-docker compose exec app bun run lint      # run ESLint
-docker compose exec app bun run format    # run ESLint + Prettier fix
+docker compose exec app bun run dev        # dev server
+docker compose exec app bun run build      # production build
+docker compose exec app bun run preview    # preview the build
+docker compose exec app bun run lint       # run ESLint
+docker compose exec app bun run check:type # run astro check
+docker compose exec app bun run format     # run ESLint + Prettier fix
 ```
 
 #### **Built for git worktrees**
@@ -362,3 +369,10 @@ Configured in `.mcp.json`, committed so every checkout gets them:
 ## License
 
 [MIT](./LICENSE.md)
+
+[badge-build]: https://img.shields.io/github/actions/workflow/status/LucaPipolo/lcp-web/build.yml?branch=main&label=build&style=flat-square&logo=githubactions&logoColor=white
+[badge-types]: https://img.shields.io/github/actions/workflow/status/LucaPipolo/lcp-web/types.yml?branch=main&label=types&style=flat-square&logo=githubactions&logoColor=white
+[badge-lint]: https://img.shields.io/github/actions/workflow/status/LucaPipolo/lcp-web/lint.yml?branch=main&label=lint&style=flat-square&logo=githubactions&logoColor=white
+[workflow-build]: https://github.com/LucaPipolo/lcp-web/actions/workflows/build.yml
+[workflow-types]: https://github.com/LucaPipolo/lcp-web/actions/workflows/types.yml
+[workflow-lint]: https://github.com/LucaPipolo/lcp-web/actions/workflows/lint.yml
