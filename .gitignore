@@ -112,3 +112,6 @@ ehthumbs.db
 ehthumbs_vista.db
 desktop.ini
 $RECYCLE.BIN/
+
+# Test coverage reports
+coverage/

@@ -2,6 +2,7 @@
 # Build Output & Astro Cache
 # ==========================================
 dist/
+coverage/
 _astro/
 .astro/
 

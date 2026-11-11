@@ -17,6 +17,8 @@
     "dev": "astro dev",
     "build": "astro build && bun run check:csp",
     "preview": "astro preview",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "notify": "bun scripts/notify.ts"
   },
   "lint-staged": {
