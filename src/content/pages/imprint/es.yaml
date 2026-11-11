@@ -13,7 +13,7 @@ intro: >-
   Esta página recoge la información legal y los datos identificativos
   del titular de la web, de acuerdo con lo establecido en el artículo 10
   de la
-  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE)</a>.
+  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Ley 34/2002, de servicios de la sociedad de la información y de comercio electrónico (LSSI-CE)</a>.
   También encontrarás las condiciones relativas al uso de los contenidos,
   los enlaces externos y la responsabilidad sobre la información publicada.
 
@@ -113,11 +113,11 @@ sections:
   - heading: "Alojamiento web"
     body: >-
       <p>Esta web está alojada en
-      <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel Inc.</a>,
+      <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Inc.</a>,
       una empresa con sede en Estados Unidos.
       Puedes consultar más información sobre
       cómo trata los datos este proveedor en su
-      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">política de privacidad</a>.</p>
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">política de privacidad</a>.</p>
 
   - heading: "Legislación aplicable y jurisdicción"
     body: >-

@@ -21,17 +21,17 @@ sections:
       - term: "Claude e Claude Code"
         description: >-
           Di
-          <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer">Anthropic</a>,
+          <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Anthropic</a>,
           principalmente i modelli Claude Sonnet 5 e Claude Opus 5.
       - term: "ChatGPT"
         description: >-
           Di
-          <a href="https://openai.com/" target="_blank" rel="noopener noreferrer">OpenAI</a>,
+          <a href="https://openai.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">OpenAI</a>,
           modello GPT-5.6.
       - term: "Kimi"
         description: >-
           Di
-          <a href="https://www.moonshot.ai/" target="_blank" rel="noopener noreferrer">Moonshot AI</a>,
+          <a href="https://www.moonshot.ai/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Moonshot AI</a>,
           modello Kimi K3.
 
   - heading: "Come nasce un testo su questo sito"
@@ -57,7 +57,7 @@ sections:
   - heading: "Cosa dice la legge"
     body: >-
       <p>L'articolo 50, paragrafo 4, del
-      <a href="https://eur-lex.europa.eu/legal-content/IT/ALL/?uri=CELEX:32024R1689" target="_blank" rel="noopener noreferrer">Regolamento (UE) 2024/1689 (AI Act)</a>
+      <a href="https://eur-lex.europa.eu/legal-content/IT/ALL/?uri=CELEX:32024R1689" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Regolamento (UE) 2024/1689 (AI Act)</a>
       impone di dichiarare l'origine artificiale di un testo generato o
       manipolato dall'IA e pubblicato per informare il pubblico su
       questioni di interesse pubblico.</p>
@@ -78,6 +78,6 @@ sections:
       (articoli, descrizioni, pagine come questa).</p>
       <p>Strumenti di intelligenza artificiale vengono utilizzati anche per
       scrivere e mantenere il codice di questo sito. Puoi leggere la
-      <a href="https://github.com/LucaPipolo/lcp-web#ai-tooling" target="_blank" rel="noopener noreferrer">sezione AI tooling del README</a>
+      <a href="https://github.com/LucaPipolo/lcp-web#ai-tooling" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">sezione AI tooling del README</a>
       per capire quali modelli, skill e server MCP uso in questo
       repository, e qual è il mio workflow.</p>

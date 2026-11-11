@@ -48,7 +48,7 @@ form:
 
   acknowledgement: >-
     I've read the data protection information and the
-    <a href="/en/privacy/" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+    <a href="/en/privacy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">privacy policy</a>.
 
   submit: "Send message"
   sending: "Sending…"
@@ -91,7 +91,7 @@ notice:
     - term: "Legal basis"
       description: >-
         Legitimate interests under
-        <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">Article 6(1)(f) GDPR</a>,
+        <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Article 6(1)(f) GDPR</a>,
         or steps taken at your request before entering into
         a contract under Article 6(1)(b), where applicable.
     - term: "Recipients"
@@ -109,7 +109,7 @@ notice:
     - term: "More information"
       description: >-
         See the
-        <a href="/en/privacy/" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+        <a href="/en/privacy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">privacy policy</a>.
 
 booking:
   heading: "Prefer to talk?"

@@ -50,7 +50,7 @@ form:
 
   acknowledgement: >-
     Ho letto le informazioni sul trattamento dei dati e
-    l'<a href="/it/privacy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy</a>.
+    l'<a href="/it/privacy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">informativa sulla privacy</a>.
 
   submit: "Invia messaggio"
   sending: "Invio in corso…"
@@ -95,7 +95,7 @@ notice:
     - term: "Base giuridica"
       description: >-
         Legittimo interesse ai sensi
-        dell'<a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer">articolo 6, paragrafo 1, lettera f), del GDPR</a>,
+        dell'<a href="https://eur-lex.europa.eu/legal-content/IT/TXT/HTML/?uri=CELEX:02016R0679-20160504" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">articolo 6, paragrafo 1, lettera f), del GDPR</a>,
         oppure misure precontrattuali adottate su richiesta
         dell'interessato ai sensi della lettera b),
         quando applicabile.
@@ -114,7 +114,7 @@ notice:
     - term: "Maggiori informazioni"
       description: >-
         Consulta
-        l'<a href="/it/privacy/" target="_blank" rel="noopener noreferrer">informativa sulla privacy</a>.
+        l'<a href="/it/privacy/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">informativa sulla privacy</a>.
 
 booking:
   heading: "Preferisci parlarne?"

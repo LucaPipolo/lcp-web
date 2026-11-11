@@ -13,7 +13,7 @@ intro: >-
   Questa pagina contiene le informazioni legali e i dati
   identificativi del titolare del sito, come previsto
   dall'articolo 10 della
-  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer">legge spagnola 34/2002 sui servizi della società dell'informazione e del commercio elettronico (LSSI-CE)</a>.
+  <a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2002-13758" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">legge spagnola 34/2002 sui servizi della società dell'informazione e del commercio elettronico (LSSI-CE)</a>.
   Trovi inoltre le condizioni relative all'utilizzo dei
   contenuti, ai collegamenti esterni e alla responsabilità
   per le informazioni pubblicate.
@@ -106,11 +106,11 @@ sections:
   - heading: "Hosting"
     body: >-
       <p>Il sito è ospitato da
-      <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer">Vercel Inc.</a>,
+      <a href="https://vercel.com/" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel Inc.</a>,
       società con sede negli Stati Uniti.
       Per maggiori informazioni sul trattamento dei dati
       da parte del fornitore, puoi consultare la
-      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer">politica sulla privacy di Vercel</a>.</p>
+      <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">politica sulla privacy di Vercel</a>.</p>
 
   - heading: "Legge applicabile e foro competente"
     body: >-
