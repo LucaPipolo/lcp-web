@@ -13,6 +13,9 @@ _astro/
 node_modules/
 .pnpm-store/
 
+# Dependency patches, applied by `bun install` (overrides a global *.patch ignore)
+!patches/*.patch
+
 # Environment Variables & Secrets
 .env
 .env.*
