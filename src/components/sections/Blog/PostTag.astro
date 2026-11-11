@@ -1,0 +1,25 @@
+---
+import Tag from "@/components/common/Tag.astro"
+
+import { getTagHref } from "@/libs/blog"
+import { getSettings } from "@/libs/content"
+import { splitPlaceholders } from "@/libs/template"
+
+interface Props {
+  tag: string
+}
+
+const { tag } = Astro.props
+
+const { blog } = await getSettings(Astro.currentLocale)
+
+// A tag reads the same as links that lead elsewhere, such as "astro" to Astro's
+// own site, so screen readers hear the rest of the sentence around it.
+const parts = splitPlaceholders(blog.tagLink ?? "{tag}")
+---
+
+<Tag href={getTagHref(tag, Astro.currentLocale)}>
+  {parts.map((part) =>
+    part === "{tag}" ? tag : <span class="sr-only">{part}</span>
+  )}
+</Tag>

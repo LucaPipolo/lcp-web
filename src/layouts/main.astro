@@ -35,7 +35,7 @@ import {
   type PageType,
   type SchemaNode,
 } from "@/libs/structured-data"
-import { fillPlaceholders } from "@/libs/template"
+import { fillPlaceholders, splitPlaceholders } from "@/libs/template"
 
 import { THEME_INIT_SOURCE } from "@/scripts/theme-init"
 
@@ -251,7 +251,13 @@ const copyright =
                 href={localizeHref(link.href, locale)}
                 slot="links"
               >
-                {link.label}
+                {splitPlaceholders(link.srLabel ?? "{label}").map((part) =>
+                  part === "{label}" ? (
+                    link.label
+                  ) : (
+                    <span class="sr-only">{part}</span>
+                  )
+                )}
               </SiteFooterLink>
             ))}
           </SiteFooterColumn>

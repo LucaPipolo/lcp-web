@@ -5,7 +5,6 @@ import Layout from "@/layouts/main.astro"
 
 import ButtonLink from "@/components/common/ButtonLink.astro"
 import SectionContainer from "@/components/common/SectionContainer.astro"
-import Tag from "@/components/common/Tag.astro"
 
 import PostCard from "@/components/sections/Blog/PostCard.astro"
 import PostFilterToggle from "@/components/sections/Blog/PostFilterToggle.astro"
@@ -13,6 +12,7 @@ import PostList from "@/components/sections/Blog/PostList.astro"
 import PostMeta from "@/components/sections/Blog/PostMeta.astro"
 import PostPagination from "@/components/sections/Blog/PostPagination.astro"
 import PostSearch from "@/components/sections/Blog/PostSearch.astro"
+import PostTag from "@/components/sections/Blog/PostTag.astro"
 import PostTagFilter from "@/components/sections/Blog/PostTagFilter.astro"
 import PostTagOption from "@/components/sections/Blog/PostTagOption.astro"
 import PostToolbar from "@/components/sections/Blog/PostToolbar.astro"
@@ -22,7 +22,6 @@ import {
   getPostHref,
   getPosts,
   getReadingTime,
-  getTagHref,
   getTags,
 } from "@/libs/blog"
 import { getLocalizedStaticPaths, getSettings } from "@/libs/content"
@@ -154,9 +153,7 @@ const tags = getTags(posts)
           <Fragment slot="description">{post.data.description}</Fragment>
 
           {post.data.tags.map((tag) => (
-            <Tag href={getTagHref(tag, locale)} slot="tags">
-              {tag}
-            </Tag>
+            <PostTag slot="tags" tag={tag} />
           ))}
         </PostCard>
       ))}

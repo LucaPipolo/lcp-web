@@ -6,10 +6,10 @@ import Layout from "@/layouts/main.astro"
 
 import SectionContainer from "@/components/common/SectionContainer.astro"
 import SectionHeading from "@/components/common/SectionHeading.astro"
-import Tag from "@/components/common/Tag.astro"
 
 import PostCard from "@/components/sections/Blog/PostCard.astro"
 import PostMeta from "@/components/sections/Blog/PostMeta.astro"
+import PostTag from "@/components/sections/Blog/PostTag.astro"
 
 import Post from "@/components/sections/Post/Post.astro"
 import PostBody from "@/components/sections/Post/PostBody.astro"
@@ -29,7 +29,6 @@ import {
   getPostSlug,
   getReadingTime,
   getRelated,
-  getTagHref,
 } from "@/libs/blog"
 import { getSettings } from "@/libs/content"
 import { DEFAULT_LOCALE, formatDate, LOCALES, localizeHref } from "@/libs/i18n"
@@ -111,9 +110,7 @@ const readingTime = fillPlaceholders(blog.readingTime, {
     <Post>
       <PostHeader slot="header">
         {tags.map((tag) => (
-          <Tag href={getTagHref(tag, locale)} slot="tags">
-            {tag}
-          </Tag>
+          <PostTag slot="tags" tag={tag} />
         ))}
 
         <Fragment slot="title">{title}</Fragment>
@@ -204,9 +201,7 @@ const readingTime = fillPlaceholders(blog.readingTime, {
               </Fragment>
 
               {relatedPost.data.tags.map((tag) => (
-                <Tag href={getTagHref(tag, locale)} slot="tags">
-                  {tag}
-                </Tag>
+                <PostTag slot="tags" tag={tag} />
               ))}
             </PostCard>
           ))}

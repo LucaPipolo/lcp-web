@@ -94,6 +94,7 @@ const settings = defineCollection({
       next: z.string(),
       feed: z.string(),
       related: z.string(),
+      tagLink: z.string().optional(),
     }),
     footer: z.object({
       tagline: z.string(),
@@ -107,6 +108,7 @@ const settings = defineCollection({
                 label: z.string(),
                 href: z.string(),
                 download: z.boolean().optional(),
+                srLabel: z.string().optional(),
               })
             ),
           })
