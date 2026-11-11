@@ -42,7 +42,7 @@ const aliasGroups = [
 ]
 
 export default defineConfig([
-  globalIgnores(["dist", ".astro"]),
+  globalIgnores(["dist", ".astro", "coverage"]),
   {
     files: ["**/*.{ts,astro}"],
     extends: [js.configs.recommended, tseslint.configs.recommended],
