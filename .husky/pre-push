@@ -1,0 +1,9 @@
+#!/bin/sh
+# .husky/pre-push — Runs the tests with the coverage threshold before a push.
+#
+# Coverage runs here rather than on every commit, which keeps committing fast
+# while still catching an untested change before CI does.
+
+. "$(dirname "$0")/require-container.sh"
+
+docker compose exec -T app bun run test:coverage
