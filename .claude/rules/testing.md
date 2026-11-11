@@ -33,6 +33,9 @@ A module that only holds constants gets no test; one that could only repeat the 
 - Run the real thing where it is cheap: Markdown goes through `satteri` with the site's plugins, not a hand-made
   tree. Mock only what leaves the process, such as `fetch` (`vi.stubGlobal`), environment variables
   (`vi.stubEnv`) and the database client, and undo it in `afterEach`.
+- Code that reads content collections runs against `tests/support/astro-content.ts`, a stand-in for
+  `astro:content` that each test fills with only the entries it needs, never against `src/content/`, which changes
+  whenever the copy does. Build posts with its `post()` helper.
 - Before trusting a new test, see it fail: break the code or the expectation once. A test that passes for the wrong
   reason, such as raw HTML that never reaches the plugin under test, hides the gap it was meant to close.
 - Name each test as a plain sentence about behaviour: `leaves a placeholder with no value as it is`.
