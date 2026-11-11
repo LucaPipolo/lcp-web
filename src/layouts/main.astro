@@ -235,7 +235,7 @@ const copyright =
           {footer.action.label}
         </ButtonLink>
 
-        {footer?.columns.map((column) => (
+        {footer?.columns?.map((column) => (
           <SiteFooterColumn slot="columns">
             <Fragment slot="label">{column.label}</Fragment>
             {column.links.map((link) => (

@@ -201,15 +201,21 @@ const posts = (await getPosts(locale)).slice(0, LATEST)
       <Recommendations>
         <SectionHeading slot="heading">
           {recommendations.heading}
-          <ButtonLink
-            href={localizeHref(recommendations.action.href, locale)}
-            size="md"
-            slot="actions"
-            variant="outline"
-          >
-            {recommendations.action.label}
-            <Icon aria-hidden="true" class="size-4" name="lucide:arrow-right" />
-          </ButtonLink>
+          {recommendations.action && (
+            <ButtonLink
+              href={localizeHref(recommendations.action.href, locale)}
+              size="md"
+              slot="actions"
+              variant="outline"
+            >
+              {recommendations.action.label}
+              <Icon
+                aria-hidden="true"
+                class="size-4"
+                name="lucide:arrow-right"
+              />
+            </ButtonLink>
+          )}
         </SectionHeading>
         {recommendations.quotes.map((quote) => (
           <RecommendationsQuote
