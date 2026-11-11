@@ -1,0 +1,81 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Vitest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+        env:
+          HUSKY: "0"
+
+      - name: Run tests with coverage
+        run: bun run test:coverage
+
+      # Uploaded even when coverage drops below 100%, to show what is missing.
+      - name: Upload HTML coverage report
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-html
+          path: coverage
+          if-no-files-found: ignore
+
+      - name: Upload baseline coverage
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-report
+          path: coverage/clover.xml
+          if-no-files-found: error
+
+      - name: Download base coverage
+        if: github.event_name == 'pull_request'
+        id: baseline
+        uses: dawidd6/action-download-artifact@a92c7ae74cf1df8810783758581e485ac3aaa309 # v28
+        continue-on-error: true
+        with:
+          workflow: tests.yml
+          branch: ${{ github.base_ref }}
+          event: push
+          name: coverage-report
+          path: coverage-base
+
+      - name: Coverage report
+        if: >-
+          github.event_name == 'pull_request' &&
+          github.event.pull_request.head.repo.full_name == github.repository
+        uses: lucassabreu/comment-coverage-clover@92c9c9f0d9640bce558851c62295d99b13deacb3 # v0.17.5
+        with:
+          file: coverage/clover.xml
+          base-file: ${{ steps.baseline.outcome == 'success' && 'coverage-base/clover.xml' || '' }}
+          dir-prefix: ${{ github.workspace }}/
+          show-percentage-change-on-table: true
+          with-branches: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
