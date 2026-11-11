@@ -13,12 +13,16 @@ export default getViteConfig({
        */
       include: [
         "src/libs/asterisk.ts",
+        "src/libs/blog.ts",
         "src/libs/contact.ts",
+        "src/libs/content.ts",
         "src/libs/email.ts",
         "src/libs/i18n.ts",
         "src/libs/links.ts",
         "src/libs/markdown.ts",
+        "src/libs/pages.ts",
         "src/libs/search.ts",
+        "src/libs/structured-data.ts",
         "src/libs/template.ts",
         "src/libs/utils.ts",
       ],
