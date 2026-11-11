@@ -54,6 +54,9 @@ straight to step 6. Otherwise continue to step 4, whatever the commits look like
 One row per commit, in commit order. For each commit, read its diff (`git show {sha} -- package.json`) to get
 the exact old and new version numbers for that package; never the semver range.
 
+The `build: update vulnerable transitive dependencies` commit changes only `bun.lock`, so it has no
+`package.json` diff: give it one row per package its body lists, with the versions from that body.
+
 A deferred package (a major bump needing code changes, reported instead of committed — see
 `update-dependencies`'s Boundaries) leaves no trace in git: nothing was committed for it, so it appears in no
 commit and no diff. Its only source is the `update-dependencies` summary from an update pass run earlier in

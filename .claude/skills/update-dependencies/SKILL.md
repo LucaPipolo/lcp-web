@@ -127,6 +127,32 @@ production/development position, in whatever order `bun outdated` lists it.
 
 5. Move to the next package and repeat steps 2 to 4.
 
+## Transitive security fixes
+
+Once the queue is done, audit the whole lockfile. `bun update` only moves direct dependencies, and a
+transitive package keeps its locked version for as long as it still satisfies its parent's range, so updating
+`astro` does not move a vulnerable `undici` underneath it.
+
+```bash
+docker compose exec app bun audit fix --dry-run
+```
+
+If it lists packages under `fixing:`, apply them and verify exactly as in step 3:
+
+```bash
+docker compose exec app bun audit fix
+```
+
+Then stage `bun.lock` and hand off to `git-commit` with the subject
+`build: update vulnerable transitive dependencies`, and a body listing each package as
+`{name} {old version} → {new version}`, read from the `bun.lock` diff.
+
+This is the one exception to one dependency per commit: Bun resolves these fixes together, and splitting them
+would mean assembling lockfiles by hand that Bun never wrote.
+
+Packages it lists under `blocked by a dependent's range` cannot be fixed here; they wait for the dependent to
+widen its range. Never force them with an override or `--latest`.
+
 ## Boundaries
 
 - If `bun update --latest` reports no change for a package, skip it. Never create an empty commit.
@@ -138,8 +164,9 @@ production/development position, in whatever order `bun outdated` lists it.
 
 ## When finished
 
-Report a summary: which packages were updated, which were skipped and why, and which were deferred as breaking
-majors.
+Report a summary: which packages were updated, which were skipped and why, which were deferred as breaking
+majors, which transitive packages were fixed, and which advisories remain because a dependent's range blocks
+them.
 
 `open-pr` builds the `## Deferred` section of its PR body from this summary and has no other source for it —
 nothing was committed for a deferred package — and only within the same session. So for each deferred package,
