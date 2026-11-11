@@ -122,7 +122,7 @@ sections:
           from the request, which resets every 24 hours,
           so visits can't be linked across different days
           or different websites. According to
-          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel's documentation</a>,
+          <a href="https://vercel.com/docs/analytics/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel's documentation<span class="sr-only"> on Web Analytics</span></a>,
           it collects no identifiers that track people
           across websites, and I can only see the results
           as aggregated statistics.
@@ -135,7 +135,7 @@ sections:
           operating system, browser, connection speed,
           country of origin and loading times.
           According to
-          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel's documentation</a>,
+          <a href="https://vercel.com/docs/speed-insights/privacy-policy" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">Vercel's documentation<span class="sr-only"> on Speed Insights</span></a>,
           this data isn't associated with a particular
           visitor or IP address and can't be used
           to reconstruct someone's browsing activity
