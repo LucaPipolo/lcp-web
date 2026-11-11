@@ -26,7 +26,7 @@ const settings = defineCollection({
   loader: glob({ pattern: "*.yaml", base: "./src/content/settings" }),
   schema: z.object({
     author: z.object({ name: z.string() }),
-    newTab: z.string().optional(),
+    newTab: z.string(),
     socialLinks: z.array(
       z.object({
         platform: z.enum(["github", "linkedin", "email"]),
@@ -39,7 +39,7 @@ const settings = defineCollection({
       skipLink: z.string(),
       themeToggleLabel: z.string(),
       menuLabel: z.string(),
-      navLabel: z.string().optional(),
+      navLabel: z.string(),
       nav: z.array(z.object({ label: z.string(), href: z.string() })),
     }),
     commandPalette: z.object({
@@ -94,7 +94,7 @@ const settings = defineCollection({
       next: z.string(),
       feed: z.string(),
       related: z.string(),
-      tagLink: z.string().optional(),
+      tagLink: z.string(),
     }),
     footer: z.object({
       tagline: z.string(),

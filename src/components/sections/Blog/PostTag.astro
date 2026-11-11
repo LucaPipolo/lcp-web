@@ -15,7 +15,7 @@ const { blog } = await getSettings(Astro.currentLocale)
 
 // A tag reads the same as links that lead elsewhere, such as "astro" to Astro's
 // own site, so screen readers hear the rest of the sentence around it.
-const parts = splitPlaceholders(blog.tagLink ?? "{tag}")
+const parts = splitPlaceholders(blog.tagLink)
 ---
 
 <Tag href={getTagHref(tag, Astro.currentLocale)}>
