@@ -162,9 +162,9 @@ export function getTags(posts: Post[]): string[] {
     counts.set(tag, (counts.get(tag) ?? 0) + 1)
   }
 
-  return [...counts.keys()].sort(
-    (a, b) => (counts.get(b) ?? 0) - (counts.get(a) ?? 0) || a.localeCompare(b)
-  )
+  return [...counts]
+    .sort(([a, countA], [b, countB]) => countB - countA || a.localeCompare(b))
+    .map(([tag]) => tag)
 }
 
 /**
