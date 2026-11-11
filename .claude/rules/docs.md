@@ -25,10 +25,10 @@ Anything beyond this list needs a reason to exist here rather than in `CLAUDE.md
 ## Voice
 
 Plain facts, the same standard as the site's own copy: no invented colour, no marketing adjectives ("powerful",
-"seamless", "blazing fast"), no "why choose this project" framing, no badges, no emoji, no demo GIFs. This is a
-developer's reference, not a landing page; state what's true and let a reader evaluating whether to run or fork
-this decide for themselves. Explain the why behind a constraint when it saves the reader from guessing, the same
-as everywhere else in this project. Verified pattern, already in this file:
+"seamless", "blazing fast"), no "why choose this project" framing, no badges other than CI status, no emoji, no
+demo GIFs. This is a developer's reference, not a landing page; state what's true and let a reader evaluating
+whether to run or fork this decide for themselves. Explain the why behind a constraint when it saves the reader
+from guessing, the same as everywhere else in this project. Verified pattern, already in this file:
 
 > Syntax highlighting uses Prism rather than Shiki, because Shiki writes its colours into `style` attributes and
 > the site's `style-src 'self'` policy blocks those, and `bun run check:csp` fails the build over one.
@@ -37,6 +37,8 @@ Never use an em dash (—) or an en dash (–). Rewrite the sentence instead.
 
 ## Structure
 
+- CI status badges, one per workflow, sit above the first paragraph, their links as references at the end of
+  the file. They state a fact a reader checking whether `main` builds would otherwise go to the Actions tab for.
 - No `#` title. GitHub renders the repository name as the page heading already; a duplicate first-level heading
   is dead weight.
 - Organize by what a reader is actually trying to do (`Running this site locally`, `Writing a post`), not by
@@ -62,5 +64,5 @@ Never use an em dash (—) or an en dash (–). Rewrite the sentence instead.
 - No exhaustive option or config reference; that duplicates what the file itself already documents, such as a
   schema or a config file's own comments. Link to the file instead of restating it.
 - Nothing that only matters to an AI agent working in this repo. That belongs in `CLAUDE.md` instead.
-- No badge, no screenshot, no demo GIF, no acknowledgments section. None of that serves a developer deciding
-  whether to run or fork this.
+- No badge other than a CI status badge, no screenshot, no demo GIF, no acknowledgments section. None of that
+  serves a developer deciding whether to run or fork this.
