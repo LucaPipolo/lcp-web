@@ -7,10 +7,10 @@ each atomic unit of work as it is completed, with no confirmation checkpoint per
 committing only: pushing, force-pushing, amending, resetting, rebasing, and every other destructive or
 shared-state operation still need explicit confirmation.
 
-A commit is atomic when checking it out alone leaves the app in a working state (the build passes, nothing
-references a helper or a field that does not exist yet) and it stands for one complete, self-contained change:
-never a whole feature bundled into one commit, never split so finely that a commit carries no value on its own.
-Changes that depend on each other belong in the same commit; unrelated changes belong in separate ones.
+A commit is atomic when checking it out alone leaves the app in a working state (the build and the tests pass,
+nothing references a helper or a field that does not exist yet) and it stands for one complete, self-contained
+change: never a whole feature bundled into one commit, never split so finely that a commit carries no value on its
+own. Changes that depend on each other belong in the same commit; unrelated changes belong in separate ones.
 
 Content (`src/content/**/*.yaml`) and code are always separate commits, never mixed in one. A Zod schema
 validates every locale's file, so a new field cannot land in one commit and its schema in a later one without
