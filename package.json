@@ -12,6 +12,7 @@
     "format:check": "prettier --check . && eslint .",
     "format": "eslint . --fix && prettier --write .",
     "check:csp": "node check-csp.mjs",
+    "check:type": "astro check",
     "dev": "astro dev",
     "build": "astro build && bun run check:csp",
     "preview": "astro preview",
