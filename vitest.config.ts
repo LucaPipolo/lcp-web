@@ -6,31 +6,13 @@ export default getViteConfig({
     include: ["tests/**/*.test.ts"],
     coverage: {
       provider: "v8",
+      include: ["src/libs/**", "api/**"],
       /**
-       * We decided to list each module as its tests land, rather than cover all
-       * of `src/libs` and `api` at once, because every file listed is held to
-       * 100% and an unlisted one would fail the whole run until it is tested.
+       * We decided to leave out the modules that only hold constants, because
+       * a test could only repeat their values back. Any other file there is
+       * held to 100% from the moment it lands.
        */
-      include: [
-        "src/libs/asterisk.ts",
-        "src/libs/blog.ts",
-        "src/libs/brand.ts",
-        "src/libs/consent.ts",
-        "src/libs/contact.ts",
-        "src/libs/content.ts",
-        "src/libs/email.ts",
-        "src/libs/i18n.ts",
-        "src/libs/links.ts",
-        "src/libs/markdown.ts",
-        "src/libs/notice.ts",
-        "src/libs/og.ts",
-        "src/libs/pages.ts",
-        "src/libs/search.ts",
-        "src/libs/storage.ts",
-        "src/libs/structured-data.ts",
-        "src/libs/template.ts",
-        "src/libs/utils.ts",
-      ],
+      exclude: ["src/libs/button.ts", "src/libs/theme-storage.ts"],
       reporter: ["text", "html", "clover"],
       thresholds: { perFile: { 100: true } },
     },
