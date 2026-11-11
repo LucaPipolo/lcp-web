@@ -135,6 +135,7 @@ const tags = getTags(posts)
             ...post.data.tags,
           ].join(" ")}
           href={getPostHref(post, locale)}
+          level={2}
           slot="posts"
           x-show="shows($el)"
         >

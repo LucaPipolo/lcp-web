@@ -3,9 +3,11 @@ import type { HTMLAttributes } from "astro/types"
 
 interface Props extends HTMLAttributes<"article"> {
   href: string
+  level?: 2 | 3
 }
 
-const { href, ...rest } = Astro.props
+const { href, level = 3, ...rest } = Astro.props
+const Heading = `h${level}` as const
 
 for (const slot of ["title", "description", "meta"]) {
   if (!Astro.slots.has(slot)) {
@@ -20,7 +22,7 @@ for (const slot of ["title", "description", "meta"]) {
 >
   <slot name="meta" />
 
-  <h3 class="text-xl font-semibold tracking-tight text-balance text-foreground">
+  <Heading class="text-xl font-semibold tracking-tight text-balance text-foreground">
     {/* The card is one target: the link covers it, so the whole card is clickable. */}
     <a
       class="underline-offset-4 group-hover/post:text-primary after:absolute after:inset-0"
@@ -28,7 +30,7 @@ for (const slot of ["title", "description", "meta"]) {
     >
       <slot name="title" />
     </a>
-  </h3>
+  </Heading>
 
   <p class="line-clamp-3 text-base text-pretty text-muted-foreground">
     <slot name="description" />
