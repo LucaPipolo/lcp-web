@@ -71,5 +71,5 @@ When to commit, what makes a commit atomic, and how content and code commits sta
 
 ## Docs
 
-What `README.md` must cover, and when to update or add to it:
+What `README.md` and `CONTRIBUTING.md` must cover, and when to update or add to them:
 @.claude/guidelines/docs.md
