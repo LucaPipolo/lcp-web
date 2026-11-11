@@ -19,6 +19,7 @@ header:
   skipLink: "Vai al contenuto"
   themeToggleLabel: "Cambia tema"
   menuLabel: "Menu"
+  navLabel: "Principale"
   nav:
     - label: "esperienza"
       href: "/#experience"
