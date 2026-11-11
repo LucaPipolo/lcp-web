@@ -5,7 +5,7 @@
  * database and Brevo keys are Sensitive variables Vercel never hands out:
  * this script only carries the notice and `PRIVACY_NOTICE_SECRET`.
  *
- * Usage, from the repository root (see the README):
+ * Usage, from the repository root (see CONTRIBUTING.md):
  *
  *   docker compose exec -e PRIVACY_NOTICE_SECRET -e VERCEL_AUTOMATION_BYPASS_SECRET \
  *     app bun run notify <file> [--test | --send]
@@ -60,7 +60,7 @@ const mitigated = response.headers.get("x-vercel-mitigated")
 
 if (mitigated) {
   console.error(
-    `${response.status}: Vercel's bot protection stopped the request (${mitigated}). Set VERCEL_AUTOMATION_BYPASS_SECRET and pass it with \`-e\`, as the README describes.`
+    `${response.status}: Vercel's bot protection stopped the request (${mitigated}). Set VERCEL_AUTOMATION_BYPASS_SECRET and pass it with \`-e\`, as CONTRIBUTING.md describes.`
   )
 } else if (response.headers.get("content-type")?.includes("json")) {
   console.log(response.status, JSON.stringify(await response.json(), null, 2))

@@ -25,7 +25,7 @@ import {
  * every change to the privacy policy, because only a material change (a new
  * controller, a new purpose, data leaving the EU) has to reach them. Emailing
  * everyone for a reworded sentence is the "notice fatigue" regulators warn
- * about. `bun run notify` is the trigger; see the README.
+ * about. `bun run notify` is the trigger; see CONTRIBUTING.md.
  */
 
 /** What a run does: count, send to Luca only, or send to everyone. */
