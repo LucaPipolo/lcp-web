@@ -29,6 +29,7 @@ failure afterwards can be attributed to it.
 git status --short
 docker compose exec app bun run format:check
 docker compose exec app bun run lint
+docker compose exec app bun run check:type
 docker compose exec app bun run build
 ```
 
@@ -106,6 +107,7 @@ production/development position, in whatever order `bun outdated` lists it.
    ```bash
    docker compose exec app bun run format
    docker compose exec app bun run lint
+   docker compose exec app bun run check:type
    docker compose exec app bun run build
    ```
 
