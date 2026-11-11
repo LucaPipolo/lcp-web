@@ -1,26 +1,38 @@
 ---
 paths:
   - "README.md"
+  - "CONTRIBUTING.md"
 ---
 
 # Human docs
 
-`README.md` is a developer's guide to this repository: someone reading the code, setting it up locally, or
-forking it. It is not the place for architecture notes, AI-tooling context, or anything that belongs in
-`CLAUDE.md` or `.claude/`; those serve a different reader, and the two documents are meant to drift apart, not
-mirror each other.
+`README.md` and `CONTRIBUTING.md` are for developers: someone reading the code, setting it up locally, or
+forking it. They are not the place for agent instructions or anything that belongs in `CLAUDE.md` or
+`.claude/`; those serve a different reader, and the two sets of documents are meant to drift apart, not mirror
+each other.
 
-## What it covers
+## What each covers
 
-- What the project is, plainly stated, for a reader who doesn't know it yet.
-- The tech stack.
-- The project structure.
-- How to run it locally.
-- The AI tooling this repo ships and expects a human to reach for directly: skills invoked manually as slash
-  commands (not the ones Claude reaches for on its own), and any MCP server configured for this project
-  specifically.
+`README.md` is the big picture, in this order:
 
-Anything beyond this list needs a reason to exist here rather than in `CLAUDE.md` or in the code itself.
+- `Features`: what the site does, plainly stated, for a reader who doesn't know it yet.
+- `Tech stack`.
+- `Running this site locally`: the Rift option only, slim.
+- `Everyday usage`: the `rift` commands.
+- `Security`: a summary of `SECURITY.md`, linking to it.
+- A link to `CONTRIBUTING.md`, and the licence.
+
+`CONTRIBUTING.md` holds everything someone working on the code needs, in this order: the other ways to run it
+locally and the project scripts, the project structure, tests and coverage, code style, branches, commits and pull
+requests (with the skills that handle them), git hooks and CI, working in parallel, AI tooling (sandboxes,
+worktrees, the agents and models used, the commit trailers, the remaining hand-invoked skills, and the MCP servers
+configured for this project), deploying and operating what runs on Vercel, and reporting bugs. The site's AI content
+page links to its `#ai-tooling` anchor in every locale, so that heading keeps its name.
+
+`README.md` never lists what `CONTRIBUTING.md` contains. Where a README topic has more detail there (running it
+another way, working in parallel, tests, CI, AI tooling, operating the contact form), it links to that section
+inline, at the point the topic comes up. A detail only someone working on the code needs goes in
+`CONTRIBUTING.md`, never back in `README.md`.
 
 ## Voice
 
@@ -37,10 +49,10 @@ Never use an em dash (—) or an en dash (–). Rewrite the sentence instead.
 
 ## Structure
 
-- CI status badges, one per workflow, sit above the first paragraph, their links as references at the end of
+- In `README.md`, CI status badges, one per workflow, sit above the first paragraph, their links as references at the end of
   the file. They state a fact a reader checking whether `main` builds would otherwise go to the Actions tab for.
-- No `#` title. GitHub renders the repository name as the page heading already; a duplicate first-level heading
-  is dead weight.
+- No `#` title in `README.md`. GitHub renders the repository name as the page heading already; a duplicate
+  first-level heading is dead weight. `CONTRIBUTING.md` has no such heading, so it opens with `# Contributing`.
 - Organize by what a reader is actually trying to do (`Running this site locally`, `Writing a post`), not by
   feature list or category.
 - A warning or a caveat worth a reader's attention becomes a GitHub admonition, `> [!CAUTION]` or `> [!NOTE]`,
