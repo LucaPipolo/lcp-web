@@ -85,7 +85,7 @@
   }
 
   :where(pre[class*="language-"]) .token.deleted {
-    color: var(--primary);
+    color: var(--syntax-keyword);
   }
 
   :where(pre[class*="language-"]) .token.inserted {
