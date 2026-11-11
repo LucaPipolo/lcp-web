@@ -19,13 +19,14 @@ would ship as a public endpoint.
 
 ## Coverage
 
-Every file listed in `coverage.include` is held to 100% lines, branches, functions and statements, each file on its
-own. A module joins that list in the same commit that adds its tests, never before, or the run fails.
+Every file under `src/libs/` and `api/` is held to 100% lines, branches, functions and statements, each file on its
+own, so a new module lands with its tests in the same commit or the run fails.
 
 When a branch can't be reached by any input, it is dead code: remove it in its own `refactor:` commit ahead of the
 tests, and check the built site is unchanged. Never silence it with an ignore comment.
 
-A module that only holds constants gets no test; one that could only repeat the values back catches nothing.
+A module that only holds constants gets no test, since one that could only repeat the values back catches nothing;
+list it in `coverage.exclude` instead.
 
 ## What a test does
 
@@ -39,6 +40,9 @@ A module that only holds constants gets no test; one that could only repeat the 
 - Code that reads content files at request time (`api/` and what it imports) runs against `tests/support/files.ts`,
   a stand-in for `node:fs/promises` filled the same way. Check a rendered image's size with `pngSize()` from
   `tests/support/png.ts`.
+- An `api/` handler's test mocks `@/libs/storage` and `@/libs/email`, already tested on their own, and checks what
+  the handler stores and sends. Exercise each guard with the input it really guards against: an unset secret makes
+  the expected header `Bearer undefined`, and a header's trailing space is trimmed before the handler sees it.
 - Before trusting a new test, see it fail: break the code or the expectation once. A test that passes for the wrong
   reason, such as raw HTML that never reaches the plugin under test, hides the gap it was meant to close.
 - Name each test as a plain sentence about behaviour: `leaves a placeholder with no value as it is`.
