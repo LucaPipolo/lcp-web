@@ -134,7 +134,7 @@ tests/                                Vitest unit tests
 vitest.config.ts                       Test and coverage configuration
 notices/                               Privacy notice templates and records
 patches/                               Temporary fixes for dependencies
-middleware.ts                          Locale negotiation at the edge
+middleware.ts                          Locale negotiation ahead of the cache
 vercel.json                            Security headers, redirects and cron jobs
 rift.yaml                              Rift development configuration
 compose.yaml                           Development containers
