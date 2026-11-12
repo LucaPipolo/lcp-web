@@ -5,7 +5,7 @@ import {
   isLocale,
   LOCALE_COOKIE,
   LOCALE_MAX_AGE,
-} from "./src/libs/i18n"
+} from "./src/libs/i18n.js"
 
 export const config = { matcher: ["/", "/es", "/es/:path*"] }
 
