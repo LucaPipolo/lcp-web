@@ -76,7 +76,7 @@ sections:
       <p>This disclosure covers the text published on the site (articles,
       descriptions, pages like this one).</p>
       <p>Artificial intelligence tools are also used to write and maintain
-      the code for this site. You can read the README's
-      <a href="https://github.com/LucaPipolo/lcp-web#ai-tooling" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">AI tooling section</a>
+      the code for this site. You can read the CONTRIBUTING guide's
+      <a href="https://github.com/LucaPipolo/lcp-web/blob/main/CONTRIBUTING.md#ai-tooling" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">AI tooling section</a>
       to see which models, skills, and MCP servers I use in this
       repository, and what my workflow looks like.</p>
