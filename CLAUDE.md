@@ -45,7 +45,7 @@ src/
 
 api/                            Vercel Functions — contact form, cleanup cron, privacy notices
 scripts/notify.ts               triggers api/notify from the command line
-middleware.ts                   Vercel Edge Middleware — locale negotiation
+middleware.ts                   Vercel Routing Middleware, on Node.js: locale negotiation
 vercel.json                     Vercel HTTP response headers (CSP, HSTS, …) and redirects
 rift.yaml                       local dev environment — Rift settings
 compose.yaml                    local dev containers
