@@ -28,7 +28,7 @@ Links are written locale-less and in English (`/contact/`, `/#experience`) and p
 `localizeHref(href, locale)` at render time, which prefixes and translates them. Every page hands the layout its
 `alternates`, its own path in each locale that has it, from which the canonical, `hreflang` links and the footer
 language switcher are all built; a locale without that page gets no `hreflang` and is switched to its home page.
-Request-time language negotiation happens at the edge (see Vercel).
+Request-time language negotiation happens in Vercel's Routing Middleware, ahead of the cache (see Vercel).
 
 ## Discovery
 
@@ -40,8 +40,8 @@ each page carries come from `src/libs/structured-data.ts` and the layout.
 
 ## Vercel
 
-`middleware.ts`, at the project root because it follows Vercel's own Edge Middleware convention rather than
-Astro's `src/middleware.ts`, negotiates `Accept-Language`/a `locale` cookie ahead of the cache. `vercel.json`
+`middleware.ts`, at the project root because it follows Vercel's own Routing Middleware convention rather than
+Astro's `src/middleware.ts`, runs on the Node.js runtime (Vercel deprecated the edge one) and negotiates `Accept-Language`/a `locale` cookie ahead of the cache. `vercel.json`
 declares the Content-Security-Policy and the rest of the security headers, and the permanent redirects
 from paths the site no longer serves, such as each page's path from before it was translated. `bun run check:csp`
 (`check-csp.mjs`) walks the built `dist/` HTML and fails the build over any inline `style` attribute or an
