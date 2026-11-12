@@ -79,6 +79,6 @@ sections:
       (artículos, descripciones, páginas como esta).</p>
       <p>También se utilizan herramientas de inteligencia artificial para
       escribir y mantener el código de este sitio. Puedes leer la
-      <a href="https://github.com/LucaPipolo/lcp-web#ai-tooling" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">sección AI tooling del README</a>
+      <a href="https://github.com/LucaPipolo/lcp-web/blob/main/CONTRIBUTING.md#ai-tooling" target="_blank" rel="noopener noreferrer" aria-describedby="new-tab">sección AI tooling del CONTRIBUTING</a>
       para saber qué modelos, skills y servidores MCP uso en este
       repositorio, y cuál es mi workflow.</p>
