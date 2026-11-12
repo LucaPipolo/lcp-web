@@ -7,7 +7,10 @@ import {
   LOCALE_MAX_AGE,
 } from "./src/libs/i18n.js"
 
-export const config = { matcher: ["/", "/es", "/es/:path*"] }
+export const config = {
+  matcher: ["/", "/es", "/es/:path*"],
+  runtime: "nodejs",
+}
 
 const PREFIX = `/${DEFAULT_LOCALE}`
 
@@ -46,8 +49,8 @@ function negotiate(header: string | null) {
 /**
  * Asks the deployment whether it serves a path.
  *
- * The edge holds no list of the site's pages, and one hard-coded here would go
- * stale the first time a page is added.
+ * The middleware holds no list of the site's pages, and one hard-coded here
+ * would go stale the first time a page is added.
  *
  * @param request - The incoming request, for its origin.
  * @param path - The path to look for.
