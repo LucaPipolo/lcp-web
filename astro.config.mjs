@@ -65,5 +65,12 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     build: { assetsInlineLimit: 0 },
+    // Vercel only sets `VERCEL_ENV` at build time, so it is baked in here for
+    // both Sentry configs to tell production, preview and local events apart.
+    define: {
+      "import.meta.env.SENTRY_ENVIRONMENT": JSON.stringify(
+        process.env.VERCEL_ENV ?? "development"
+      ),
+    },
   },
 })
