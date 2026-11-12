@@ -560,6 +560,18 @@ Set `NOTIFY_URL` to the preview deployment's `/api/notify/` endpoint and pass it
 The same [Protection Bypass for Automation](https://vercel.com/docs/deployment-protection/methods-to-bypass-deployment-protection/protection-bypass-automation)
 secret works with preview deployments.
 
+### Error monitoring
+
+Errors are reported to [Sentry](https://sentry.io/), configured in `sentry.client.config.js` and
+`sentry.server.config.js`. Only production builds send events, so the dev server reports nothing. Each event is tagged
+with the Vercel environment it came from (`production` or `preview`, or `development` for a local build), taken from
+`VERCEL_ENV` at build time in `astro.config.mjs`. Filter issues and alert rules on `environment:production` to see
+only errors from the live site.
+
+> [!NOTE]
+> The dev container sets `NODE_ENV=development`, so even `bun run build` inside it produces a bundle that sends
+> nothing. Vercel builds with `NODE_ENV=production`.
+
 ## Reporting bugs
 
 If you find a security vulnerability, follow [SECURITY.md](SECURITY.md) and don't create a public issue.
