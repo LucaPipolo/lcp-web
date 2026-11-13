@@ -1,4 +1,7 @@
 import Alpine from "@alpinejs/csp"
+import * as Sentry from "@sentry/astro"
+
+import { missingComponents, recover } from "@/libs/components"
 
 interface Magics {
   readonly $el: HTMLElement
@@ -6,36 +9,110 @@ interface Magics {
   readonly $refs: Record<string, HTMLElement | undefined>
 }
 
+/** Marks a page as the reload {@link recover} asked for, for this tab only. */
+const RELOADED = "alpine-reloaded"
+
 const registered = new Set<string>()
 
 let started = false
 
 /**
  * Hands the page over to Alpine, which happens once and never again.
- *
- * Whoever completes the registry gets here first. `load` is the way out of a
- * name nobody registers: Alpine reports it, rather than the page sitting inert
- * with no clue as to why.
  */
 function start() {
   if (started) return
 
   started = true
+  forgetReload()
   Alpine.start()
 }
 
 /**
- * Weighs the markup against the registry.
+ * Reads the markup's list of what the page needs.
  *
  * Scripts are modules, so the document is parsed before any of them run and
- * the markup can be read as the full list of what the page needs.
+ * the markup is already complete when they read it.
  *
- * @returns Whether an `x-data` still names a component nothing has registered.
+ * @returns The names of the components still missing.
  */
-function waiting() {
-  return [...document.querySelectorAll("[x-data]")].some(
-    (element) => !registered.has(element.getAttribute("x-data") ?? "")
+function missing() {
+  return missingComponents(
+    [...document.querySelectorAll("[x-data]")].map(
+      (element) => element.getAttribute("x-data") ?? ""
+    ),
+    registered
   )
+}
+
+/**
+ * Tells whether this page is the reload {@link recover} asked for.
+ *
+ * @returns Whether it is, `true` when storage is blocked too, because without a
+ *   way to remember the reload a second one could loop.
+ */
+function reloaded() {
+  try {
+    return sessionStorage.getItem(RELOADED) !== null
+  } catch {
+    return true
+  }
+}
+
+/**
+ * Clears the reload mark, so a later deploy can earn the tab another one.
+ */
+function forgetReload() {
+  try {
+    sessionStorage.removeItem(RELOADED)
+  } catch {
+    // Nothing was stored to forget.
+  }
+}
+
+/**
+ * Starts Alpine without the components no script registered, so the rest of
+ * the page works and the missing ones say so once, rather than through every
+ * expression inside them.
+ *
+ * @param names - The components to leave out.
+ */
+function skip(names: string[]) {
+  for (const name of names) {
+    for (const element of document.querySelectorAll(`[x-data="${name}"]`)) {
+      // `x-ignore` alone still evaluates the element's own `x-data`.
+      element.removeAttribute("x-data")
+      element.setAttribute("x-ignore", "")
+    }
+  }
+
+  Sentry.captureMessage(`Alpine started without: ${names.join(", ")}`, {
+    level: "error",
+    tags: { component: names.join(",") },
+  })
+
+  start()
+}
+
+/**
+ * Settles the page once it has loaded, the point by which every script that
+ * was coming has run.
+ */
+function settle() {
+  if (started) return
+
+  const decision = recover(missing(), reloaded())
+
+  if (decision.action === "start") return start()
+  if (decision.action === "skip") return skip(decision.missing)
+
+  try {
+    sessionStorage.setItem(RELOADED, "1")
+  } catch {
+    // A reload that can't be remembered could loop.
+    return skip(missing())
+  }
+
+  location.reload()
 }
 
 /**
@@ -54,7 +131,7 @@ export function register<T extends object>(
   Alpine.data(name, factory)
   registered.add(name)
 
-  if (!waiting()) start()
+  if (missing().length === 0) start()
 }
 
-window.addEventListener("load", start)
+window.addEventListener("load", settle)
