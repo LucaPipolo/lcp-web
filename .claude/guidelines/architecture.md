@@ -15,7 +15,10 @@ Section scripts are per-component: for example, `Stack.astro` imports `@/scripts
 imports `@/scripts/experience`, each in its own `<script>` tag, so Astro only bundles a section's script onto a
 page that actually renders that section. Because each is its own module with no fixed load order, `register()`
 (`src/scripts/alpine.ts`) tracks which `x-data` names the rendered markup still needs and only starts Alpine once
-every one of them has registered.
+every one of them has registered. A name still missing at `load` means its script 404'd, which happens for a few
+seconds while a Vercel deploy goes live and the page and its scripts come from different deployments: the page
+reloads once, and if the name is still missing, Alpine starts without it (`x-ignore`) and Sentry gets one event
+naming it. The decision itself lives in `src/libs/components.ts`, where it is tested.
 
 ## Languages
 
